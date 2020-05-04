@@ -27,12 +27,13 @@ namespace PokemonWPF
 
         private void BtnBack_Click(object sender, RoutedEventArgs e)
         {
-            // open search screen
+            this.Close();
+            WindowToAlter.Visibility = Visibility.Visible;
         }
 
         private void BtnSearch_Click(object sender, RoutedEventArgs e)
         {
-            //go back to menu screen
+            //open search screen
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
