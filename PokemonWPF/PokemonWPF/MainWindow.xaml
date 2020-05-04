@@ -1,0 +1,25 @@
+﻿<Window x:Class="PokemonWPF.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PokemonWPF"
+       
+        Background="Black"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="600">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <ListBox x:Name="lbMenu" SelectionChanged="lbMenu_SelectionChanged" FontSize="40" MouseDoubleClick="lbMenu_MouseDoubleClick"  SelectedIndex="0"  Grid.Row="0" Margin="5" Grid.Column="1" BorderBrush="AliceBlue" BorderThickness="2" Grid.RowSpan="3" Foreground="Blue" Background="LightGray" FontFamily="Times New Roman" ></ListBox>
+        <TextBlock x:Name="txbInfo" Background="WhiteSmoke" TextAlignment="Center" TextWrapping="Wrap" Grid.Row="2" Margin="5" FontSize="30" FontWeight="Bold" Text="A encyclopedia of all seen pokemon" IsEnabled="False" FontFamily="SimSun" VerticalAlignment="Center"/>
+    </Grid>
+   
+</Window>
