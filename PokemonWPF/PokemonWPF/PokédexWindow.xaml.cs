@@ -61,5 +61,44 @@ namespace PokemonWPF
 
 
         }
+
+        private void LbPokédex_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            switch (lbPokédex.SelectedIndex)
+            {
+                case 0:
+                    PokémonInfoWindow PokéInfoWindow1 = new PokémonInfoWindow();
+                    PokéInfoWindow1.DexWindowToAlter = this;
+                    PokéInfoWindow1.Show();
+                    this.Visibility = Visibility.Hidden;
+                    break;
+                case 1:
+                    this.Visibility = Visibility.Hidden;
+                    //MAAK HIER DE CODE VOOR DE PARTY AAN TE ROEPEN MET SHOW DIALOG, EN PASS DE TRAINER VARIABLE ER NAAR TOE
+
+
+
+                    this.Visibility = Visibility.Visible;
+                    break;
+                case 2:
+                    this.Visibility = Visibility.Hidden;
+                    //MAAK HIER DE CODE VOOR DE INVENTORY  TE ROEPEN MET SHOW DIALOG, EN PASS DE TRAINER VARIABLE ER NAAR TOE
+
+
+
+                    this.Visibility = Visibility.Visible;
+                    break;
+                case 3:
+                    this.Visibility = Visibility.Hidden;
+                    //MAAK HIER DE CODE VOOR DE TRAINER CARRD AAN TE ROEPEN MET SHOW DIALOG, EN PASS DE TRAINER VARIABLE ER NAAR TOE
+
+                    this.Visibility = Visibility.Visible;
+                    break;
+                default:
+                    Close();
+
+                    break;
+            }
+        }
     }
 }

@@ -21,7 +21,7 @@
 
 
         <Label x:Name="lblSeenCaptured" Background="White" Grid.Column="0" Grid.Row="1" Content="" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="20" Margin="30,22,29.8,20" BorderBrush="Black" BorderThickness="3"/>
-        <ListBox x:Name="lbPokédex" Grid.Column="1" Grid.Row="0" Grid.RowSpan="2" Margin="100,20" ScrollViewer.VerticalScrollBarVisibility="Visible" BorderBrush="Black" BorderThickness="3" SelectionChanged="LbPokédex_SelectionChanged">
+        <ListBox x:Name="lbPokédex" Grid.Column="1" Grid.Row="0" Grid.RowSpan="2" Margin="100,20" ScrollViewer.VerticalScrollBarVisibility="Visible" BorderBrush="Black" BorderThickness="3" SelectionChanged="LbPokédex_SelectionChanged" MouseDoubleClick="LbPokédex_MouseDoubleClick">
             <ListBoxItem x:Name="lbiNumber1" Content="X Bulbasaur"></ListBoxItem>
             <ListBoxItem x:Name="lbiNumber2" Content="-----"></ListBoxItem>
             <ListBoxItem x:Name="lbiNumber3" Content="-----"></ListBoxItem>
