@@ -23,6 +23,7 @@ namespace PokemonWPF
         public PokédexWindow()
         {
             InitializeComponent();
+            lblSeenCaptured.Content = "Pokémon \n\nSeen: 2 \nCaptured: 1";
         }
 
         private void BtnBack_Click(object sender, RoutedEventArgs e)
@@ -33,12 +34,14 @@ namespace PokemonWPF
 
         private void BtnSearch_Click(object sender, RoutedEventArgs e)
         {
-            //open search screen
+            this.Visibility = Visibility.Hidden;
+            SearchDexWindow searchDexWindow1 = new SearchDexWindow();
+            searchDexWindow1.DexWindowToAlter = this;
+            searchDexWindow1.Show();
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
-        {
-            lblSeenCaptured.Content = "Pokémon \n\nSeen: 2 \nCaptured: 1";
+        {       
         }
 
 

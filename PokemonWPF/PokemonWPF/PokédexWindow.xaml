@@ -48,7 +48,7 @@
             <ListBoxItem x:Name="lbiNumber24" Content="-----"></ListBoxItem>
             <ListBoxItem x:Name="lbiNumber25" Content="  Pikachu"></ListBoxItem>
         </ListBox>
-        <Button x:Name="btnSearch" Grid.Column="0" Grid.Row="2" Content="Search" Margin="16" BorderBrush="Black" BorderThickness="3" Click="BtnSearch_Click"/>
-        <Button x:Name="btnBack" Grid.Column="1" Grid.Row="2" Content="Back" Margin="16" BorderBrush="Black" BorderThickness="3" Click="BtnBack_Click" />
+        <Button x:Name="btnSearch" Grid.Column="0" Grid.Row="2" Content="Search" Margin="8" BorderBrush="Black" BorderThickness="3" Click="BtnSearch_Click"/>
+        <Button x:Name="btnBack" Grid.Column="1" Grid.Row="2" Content="Back" Margin="8" BorderBrush="Black" BorderThickness="3" Click="BtnBack_Click" />
     </Grid>
 </Window>

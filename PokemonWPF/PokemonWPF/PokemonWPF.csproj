@@ -68,6 +68,9 @@
     <Compile Include="PokédexWindow.xaml.cs">
       <DependentUpon>PokédexWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="SearchDexWindow.xaml.cs">
+      <DependentUpon>SearchDexWindow.xaml</DependentUpon>
+    </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -81,6 +84,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="PokédexWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SearchDexWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
