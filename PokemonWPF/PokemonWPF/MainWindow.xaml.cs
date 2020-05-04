@@ -65,11 +65,13 @@ namespace PokemonWPF
             {
                 case 0:
                     this.Visibility = Visibility.Hidden;
-                    //MAAK HIER DE CODE VOOR DE POKEDEX AAN TE ROEPEN MET SHOW DIALOG, EN PASS DE TRAINER VARIABLE ER NAAR TOE
+                    PokédexWindow pokédexWindow1 = new PokédexWindow();
+                    pokédexWindow1.WindowToAlter = this;
+                    pokédexWindow1.Show();
 
 
 
-                    this.Visibility = Visibility.Visible;
+
                     break;
                 case 1:
                     this.Visibility = Visibility.Hidden;
