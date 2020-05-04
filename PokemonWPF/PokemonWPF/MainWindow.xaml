@@ -20,6 +20,7 @@
         </Grid.RowDefinitions>
         <ListBox x:Name="lbMenu" SelectionChanged="lbMenu_SelectionChanged" FontSize="40" MouseDoubleClick="lbMenu_MouseDoubleClick"  SelectedIndex="0"  Grid.Row="0" Margin="5" Grid.Column="1" BorderBrush="AliceBlue" BorderThickness="2" Grid.RowSpan="3" Foreground="Blue" Background="LightGray" FontFamily="Times New Roman" ></ListBox>
         <TextBlock x:Name="txbInfo" Background="WhiteSmoke" TextAlignment="Center" TextWrapping="Wrap" Grid.Row="2" Margin="5" FontSize="30" FontWeight="Bold" Text="A encyclopedia of all seen pokemon" IsEnabled="False" FontFamily="SimSun" VerticalAlignment="Center"/>
+        <Image  Grid.RowSpan="2" Margin="20" Source="Images/pokebal.jpg" />
     </Grid>
    
 </Window>
