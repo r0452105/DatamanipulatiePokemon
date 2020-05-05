@@ -23,7 +23,19 @@ namespace PokemonDAL
 
             }
 
-                
+         
         }
+
+        /*public static Pokedex SelectPokedexEntry(int pokedexId)
+        {
+            using(DB_r0739290Entities entities = new DB_r0739290Entities())
+            {
+                var query = entities.Pokedex
+                    
+                    .Where(x => x.Id == pokedexId);
+                return query.SingleOrDefault();
+            }
+        }*/
+
     }
 }

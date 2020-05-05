@@ -69,6 +69,7 @@ namespace PokemonWPF
                 case 0:
                     PokémonInfoWindow PokéInfoWindow1 = new PokémonInfoWindow();
                     PokéInfoWindow1.DexWindowToAlter = this;
+                    //PokéInfoWindow1.indiPokemon = PokemonDAL.Pokedex pokedex;
                     PokéInfoWindow1.Show();
                     this.Visibility = Visibility.Hidden;
                     break;
