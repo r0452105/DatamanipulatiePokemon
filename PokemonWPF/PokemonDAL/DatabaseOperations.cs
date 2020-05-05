@@ -50,7 +50,7 @@ namespace PokemonDAL
             using (DB_r0739290Entities entities = new DB_r0739290Entities())
             {
                 var query = entities.Pokemon
-                            .Include("Pokemon")
+                            
                             .Include("Statpool")
                             .Include("Statpool.BaseStats")
                             .Include("Statpool.EVStats")

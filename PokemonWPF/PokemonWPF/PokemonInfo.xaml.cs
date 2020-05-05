@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using PokemonDAL;
+
+
 namespace PokemonWPF
 {
     /// <summary>
@@ -20,10 +22,43 @@ namespace PokemonWPF
     public partial class PokemonInfo : Window
     {
 
-       public  Pokemon pokemonstats = null;
+        public Pokemon pokemonstats = null;
+
         public PokemonInfo()
         {
             InitializeComponent();
+
+        }
+
+
+      
+
+        
+      
+
+      
+
+        private void btnYellow_Click(object sender, RoutedEventArgs e)
+        {
+    
+            
+                Button buttonColor = sender as Button;
+                CardInfo.Background = buttonColor.Background;
+           
+        }
+
+        private void btnRed_Click(object sender, RoutedEventArgs e)
+        {
+          
+                    Button buttonColor = sender as Button;
+                    CardInfo.Background = buttonColor.Background;
+             
+        }
+
+        private void btnPink_Click(object sender, RoutedEventArgs e)
+        {
+            Button buttonColor = sender as Button;
+            CardInfo.Background = buttonColor.Background;
         }
     }
 }
