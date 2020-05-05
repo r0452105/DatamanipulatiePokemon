@@ -6,7 +6,26 @@
         xmlns:local="clr-namespace:PokemonWPF"
         mc:Ignorable="d"
         Title="PokémonInfoWindow" Height="450" Width="800">
-    <Grid>
-        
+    <Grid Background="DarkRed">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="60*"/>
+            <RowDefinition Height="60*"/>
+            <RowDefinition Height="60*"/>
+            <RowDefinition Height="20*"/>
+            <RowDefinition Height="60*"/>
+            <RowDefinition Height="60*"/>
+            <RowDefinition Height="40*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <TextBlock x:Name="tbPokémonnaam" Grid.Column="1" Text="Pokémonnaam" Background="DarkRed" FontWeight="Bold" FontSize="28" TextAlignment="Center" />
+        <TextBlock x:Name="tbGewicht" Grid.Column="1" Grid.Row="2" Text="Gewicht" Background="DarkRed" FontWeight="Bold" FontSize="28" TextAlignment="Center"/>
+        <TextBlock x:Name="tbLengte" Grid.Column="1" Grid.Row="1" Text="Lengte" Background="DarkRed" FontWeight="Bold" FontSize="28" TextAlignment="Center"/>
+        <TextBlock x:Name="tbNumber" Background="DarkRed" FontWeight="Bold" FontSize="16" TextAlignment="Center" Grid.Row="3" Text="No. 12" />
+        <TextBlock x:Name="description" Grid.Row="4" Grid.ColumnSpan="2" Grid.RowSpan="2" Background="White" Margin="9" Text=""/>
+        <Image x:Name="imgPokéSprite" Grid.RowSpan="3"/>
+        <Button x:Name="btnBack" Content="Back" Grid.Column="1" Grid.Row="6" Margin="9" FontSize="18" FontWeight="Bold" Click="BtnBack_Click"/>
     </Grid>
 </Window>

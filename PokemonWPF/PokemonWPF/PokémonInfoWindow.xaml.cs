@@ -24,5 +24,11 @@ namespace PokemonWPF
         {
             InitializeComponent();
         }
+
+        private void BtnBack_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+            DexWindowToAlter.Visibility = Visibility.Visible;
+        }
     }
 }

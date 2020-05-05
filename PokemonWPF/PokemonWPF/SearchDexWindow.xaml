@@ -25,7 +25,7 @@
         <Button x:Name="btnSearch" Content="Search" Grid.Row="2" FontSize="30" Margin="9" />
         <Button x:Name="btnStartSorting" Content="Start Sorting" Grid.Row="4" FontSize="30" Margin="9" />
         <Button x:Name="btnBack" Content="Back" Grid.Row="4" Grid.Column="1" FontSize="30" Margin="9" Click="BtnBack_Click"/>
-        <TextBox x:Name="tbName" FontSize="30" Margin="9" Grid.Column="1"/>
+        <TextBox x:Name="tbName" VerticalAlignment="Center" FontSize="30" Margin="9" Grid.Column="1"/>
         <ComboBox x:Name="cbType" Grid.Column="1" Grid.Row="1" Margin="9"/>
         <ComboBox x:Name="cbSortBy" Grid.Column="1" Grid.Row="3" Margin="9"/>
 
