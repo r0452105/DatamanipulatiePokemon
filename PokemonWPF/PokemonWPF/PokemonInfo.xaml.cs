@@ -60,5 +60,10 @@ namespace PokemonWPF
             Button buttonColor = sender as Button;
             CardInfo.Background = buttonColor.Background;
         }
+
+        private void BtnClose_Click(object sender, RoutedEventArgs e)
+        {
+            Close();
+        }
     }
 }

@@ -75,13 +75,8 @@ namespace PokemonWPF
                     
                     PokemonParty partyscreen = new PokemonParty();
                     partyscreen.trainerParty = trainer;
-
-
                     this.Visibility = Visibility.Hidden;
                     partyscreen.ShowDialog();
-
-
-
                     this.Visibility = Visibility.Visible;
                     break;
                 case 2:
