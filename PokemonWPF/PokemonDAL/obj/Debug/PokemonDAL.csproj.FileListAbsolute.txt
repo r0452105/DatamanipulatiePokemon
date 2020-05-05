@@ -10,3 +10,8 @@ C:\Users\vdb\Documents\GitHub\DatamanipulatiePok-monAaronLaraBryant\PokemonWPF\P
 C:\Users\vdb\Documents\GitHub\DatamanipulatiePok-monAaronLaraBryant\PokemonWPF\PokemonDAL\obj\Debug\PokemonDAL.csproj.CopyComplete
 C:\Users\vdb\Documents\GitHub\DatamanipulatiePok-monAaronLaraBryant\PokemonWPF\PokemonDAL\obj\Debug\PokemonDAL.dll
 C:\Users\vdb\Documents\GitHub\DatamanipulatiePok-monAaronLaraBryant\PokemonWPF\PokemonDAL\obj\Debug\PokemonDAL.pdb
+C:\Users\vdb\Documents\GitHub\DatamanipulatiePok-monAaronLaraBryant\PokemonWPF\PokemonDAL\bin\Debug\MaterialDesignColors.dll
+C:\Users\vdb\Documents\GitHub\DatamanipulatiePok-monAaronLaraBryant\PokemonWPF\PokemonDAL\bin\Debug\MaterialDesignThemes.Wpf.dll
+C:\Users\vdb\Documents\GitHub\DatamanipulatiePok-monAaronLaraBryant\PokemonWPF\PokemonDAL\bin\Debug\MaterialDesignColors.pdb
+C:\Users\vdb\Documents\GitHub\DatamanipulatiePok-monAaronLaraBryant\PokemonWPF\PokemonDAL\bin\Debug\MaterialDesignThemes.Wpf.pdb
+C:\Users\vdb\Documents\GitHub\DatamanipulatiePok-monAaronLaraBryant\PokemonWPF\PokemonDAL\bin\Debug\MaterialDesignThemes.Wpf.xml

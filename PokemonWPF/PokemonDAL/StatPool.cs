@@ -29,9 +29,15 @@ namespace PokemonDAL
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Pokemon> Pokemon { get; set; }
-        public virtual StatCollection StatCollection { get; set; }
-        public virtual StatCollection StatCollection1 { get; set; }
-        public virtual StatCollection StatCollection2 { get; set; }
-        public virtual StatCollection StatCollection3 { get; set; }
+        public virtual StatCollection BaseStats { get; set; }
+        public virtual StatCollection EvYield { get; set; }
+        public virtual StatCollection EvStats { get; set; }
+        public virtual StatCollection IvStats { get; set; }
+
+        public int CurrentHealth(Pokemon currentPokemon)
+        {
+            return (((IvStats.HP + 2 * BaseStats.HP + (EvStats.HP / 4) + 100) ) * (int)currentPokemon.PokemonLevel/ 100) + 10;
+
+        }
     }
 }

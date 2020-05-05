@@ -21,3 +21,13 @@ C:\Users\vdb\Documents\GitHub\DatamanipulatiePok-monAaronLaraBryant\PokemonWPF\P
 C:\Users\vdb\Documents\GitHub\DatamanipulatiePok-monAaronLaraBryant\PokemonWPF\PokemonWPF\bin\Debug\PokemonDAL.dll
 C:\Users\vdb\Documents\GitHub\DatamanipulatiePok-monAaronLaraBryant\PokemonWPF\PokemonWPF\bin\Debug\PokemonDAL.pdb
 C:\Users\vdb\Documents\GitHub\DatamanipulatiePok-monAaronLaraBryant\PokemonWPF\PokemonWPF\bin\Debug\PokemonDAL.dll.config
+C:\Users\vdb\Documents\GitHub\DatamanipulatiePok-monAaronLaraBryant\PokemonWPF\PokemonWPF\bin\Debug\MaterialDesignColors.dll
+C:\Users\vdb\Documents\GitHub\DatamanipulatiePok-monAaronLaraBryant\PokemonWPF\PokemonWPF\bin\Debug\MaterialDesignThemes.Wpf.dll
+C:\Users\vdb\Documents\GitHub\DatamanipulatiePok-monAaronLaraBryant\PokemonWPF\PokemonWPF\bin\Debug\MaterialDesignColors.pdb
+C:\Users\vdb\Documents\GitHub\DatamanipulatiePok-monAaronLaraBryant\PokemonWPF\PokemonWPF\bin\Debug\MaterialDesignThemes.Wpf.pdb
+C:\Users\vdb\Documents\GitHub\DatamanipulatiePok-monAaronLaraBryant\PokemonWPF\PokemonWPF\bin\Debug\MaterialDesignThemes.Wpf.xml
+C:\Users\vdb\Documents\GitHub\DatamanipulatiePok-monAaronLaraBryant\PokemonWPF\PokemonWPF\obj\Debug\PokemonParty.g.cs
+C:\Users\vdb\Documents\GitHub\DatamanipulatiePok-monAaronLaraBryant\PokemonWPF\PokemonWPF\obj\Debug\PokemonParty.baml
+C:\Users\vdb\Documents\GitHub\DatamanipulatiePok-monAaronLaraBryant\PokemonWPF\PokemonWPF\obj\Debug\App.baml
+C:\Users\vdb\Documents\GitHub\DatamanipulatiePok-monAaronLaraBryant\PokemonWPF\PokemonWPF\obj\Debug\PokemonInfo.g.cs
+C:\Users\vdb\Documents\GitHub\DatamanipulatiePok-monAaronLaraBryant\PokemonWPF\PokemonWPF\obj\Debug\PokemonInfo.baml
