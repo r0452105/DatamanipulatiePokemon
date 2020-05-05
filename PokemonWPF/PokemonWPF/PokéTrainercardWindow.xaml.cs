@@ -15,11 +15,11 @@ using System.Windows.Shapes;
 namespace PokemonWPF
 {
     /// <summary>
-    /// Interaction logic for BadgesWindow.xaml
+    /// Interaction logic for PokéTrainercardWindow.xaml
     /// </summary>
-    public partial class BadgesWindow : Window
+    public partial class PokéTrainercardWindow : Window
     {
-        public BadgesWindow()
+        public PokéTrainercardWindow()
         {
             InitializeComponent();
         }
