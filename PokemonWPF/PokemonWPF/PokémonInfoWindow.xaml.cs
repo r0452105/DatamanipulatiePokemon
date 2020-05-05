@@ -20,7 +20,7 @@ namespace PokemonWPF
     public partial class PokémonInfoWindow : Window
     {
         public PokédexWindow DexWindowToAlter;
-        //public PokemonDAL.Pokedex indiPokemon;
+        
         public PokémonInfoWindow()
         {
             InitializeComponent();
