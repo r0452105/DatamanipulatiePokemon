@@ -17,15 +17,18 @@
             <RowDefinition Height="40*"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
+            <ColumnDefinition Width="200*"/>
+            <ColumnDefinition Width="150*"/>
+            <ColumnDefinition Width="150*"/>
         </Grid.ColumnDefinitions>
-        <TextBlock x:Name="tbPokémonnaam" Grid.Column="1" Text="Pokémonnaam" Background="DarkRed" FontWeight="Bold" FontSize="28" TextAlignment="Center" />
-        <TextBlock x:Name="tbGewicht" Grid.Column="1" Grid.Row="2" Text="Gewicht" Background="DarkRed" FontWeight="Bold" FontSize="28" TextAlignment="Center"/>
-        <TextBlock x:Name="tbLengte" Grid.Column="1" Grid.Row="1" Text="Lengte" Background="DarkRed" FontWeight="Bold" FontSize="28" TextAlignment="Center"/>
-        <TextBlock x:Name="tbNumber" Background="DarkRed" FontWeight="Bold" FontSize="16" TextAlignment="Center" Grid.Row="3" Text="No. 12" />
-        <TextBlock x:Name="description" Grid.Row="4" Grid.ColumnSpan="2" Grid.RowSpan="2" Background="White" Margin="9" Text=""/>
-        <Image x:Name="imgPokéSprite" Grid.RowSpan="3"/>
-        <Button x:Name="btnBack" Content="Back" Grid.Column="1" Grid.Row="6" Margin="9" FontSize="18" FontWeight="Bold" Click="BtnBack_Click"/>
+        <TextBlock x:Name="tbPokémonnaam" VerticalAlignment="Center" Grid.Column="1" Text="Pokémonnaam" Background="DarkRed" FontWeight="Bold" FontSize="28" TextAlignment="Center" Grid.ColumnSpan="2" Margin="0.2,0,-0.4,0.4" />
+        <TextBlock x:Name="tbType1" VerticalAlignment="Center" Grid.Column="1" Text="Type 1" Background="DarkRed" FontWeight="Bold" FontSize="28" TextAlignment="Center" Grid.ColumnSpan="2" Margin="0.2,70,267.6,0" Grid.RowSpan="2"/>
+        <TextBlock x:Name="tbType2" VerticalAlignment="Center" Grid.Column="2" Text="Type 2" Background="DarkRed" FontWeight="Bold" FontSize="28" TextAlignment="Center" Margin="0.8,70,-0.4,0" Grid.RowSpan="2" />
+        <TextBlock x:Name="tbLengte" VerticalAlignment="Center" Grid.Column="1" Grid.Row="2" Text="Lengte" Background="DarkRed" FontWeight="Bold" FontSize="28" TextAlignment="Center" Grid.ColumnSpan="2" Margin="0.2,0,267.6,0.4"/>
+        <TextBlock x:Name="tbGewicht" VerticalAlignment="Center" Grid.Column="2" Grid.Row="2" Text="Gewicht" Background="DarkRed" FontWeight="Bold" FontSize="28" TextAlignment="Center" Margin="0.8,0,-0.4,0.4" />
+        <TextBlock x:Name="tbNumber" Background="DarkRed" FontWeight="Bold" FontSize="16" TextAlignment="Center" Grid.Row="2" Text="No. 12" Margin="0,70,2.8,69.2" Grid.RowSpan="3" />
+        <TextBlock x:Name="description" Grid.Row="4" Grid.ColumnSpan="3" Grid.RowSpan="2" Background="White" Margin="9,9.4,10.2,8.6" Text=""/>
+        <Image x:Name="imgPokéSprite" Grid.RowSpan="3" Margin="0,0,2.8,0.4"/>
+        <Button x:Name="btnBack" Content="Back" Grid.Column="2" Grid.Row="6" Margin="9.2,9.4,10.2,9" FontSize="18" FontWeight="Bold" Click="BtnBack_Click"/>
     </Grid>
 </Window>
