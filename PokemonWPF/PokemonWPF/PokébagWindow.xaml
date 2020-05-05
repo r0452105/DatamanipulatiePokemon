@@ -1,0 +1,51 @@
+﻿<Window x:Class="PokemonWPF.PokébagWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PokemonWPF"
+        mc:Ignorable="d"
+        Title="PokébagWindow" Height="450" Width="800">
+    <Grid Background="DarkRed">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20*"/>
+            <RowDefinition Height="20*"/>
+            <RowDefinition Height="20*"/>
+            <RowDefinition Height="20*"/>
+            <RowDefinition Height="20*"/>
+            <RowDefinition Height="20*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <ListBox x:Name="lbPokébag" Grid.Column="0" Grid.Row="0" Grid.RowSpan="5" Grid.ColumnSpan="2" Margin="32,20,83.6,20.4" ScrollViewer.VerticalScrollBarVisibility="Visible" BorderBrush="Black" BorderThickness="3" SelectionChanged="" MouseDoubleClick="">
+            <ListBoxItem x:Name="lbiNumber1" Content="X "></ListBoxItem>
+            <ListBoxItem x:Name="lbiNumber2" Content="-----"></ListBoxItem>
+            <ListBoxItem x:Name="lbiNumber3" Content="-----"></ListBoxItem>
+            <ListBoxItem x:Name="lbiNumber4" Content="-----"></ListBoxItem>
+            <ListBoxItem x:Name="lbiNumber5" Content="-----"></ListBoxItem>
+            <ListBoxItem x:Name="lbiNumber6" Content="-----"></ListBoxItem>
+            <ListBoxItem x:Name="lbiNumber7" Content="-----"></ListBoxItem>
+            <ListBoxItem x:Name="lbiNumber8" Content="-----"></ListBoxItem>
+            <ListBoxItem x:Name="lbiNumber9" Content="-----"></ListBoxItem>
+            <ListBoxItem x:Name="lbiNumber10" Content="-----"></ListBoxItem>
+            <ListBoxItem x:Name="lbiNumber11" Content="-----"></ListBoxItem>
+
+        </ListBox>
+
+
+        <Label x:Name="lblSort" Content="Sort by:" Grid.Row="4" Grid.Column="0" FontSize="40" HorizontalAlignment="Center" Margin="32,59.2,60.8,10" Grid.RowSpan="2" Width="172"/>
+        <ComboBox x:Name="cbSortBy" Grid.Row="4" Margin="209,69.2,0,18" HorizontalAlignment="Left" Width="237" Grid.ColumnSpan="2" Grid.RowSpan="2"/>
+        <Button x:Name="btnBack" Content="Back" Grid.Row="4" Grid.Column="1" FontSize="30" Margin="238.2,68.2,8.6,19" Click="BtnBack_Click" Grid.ColumnSpan="2" Grid.RowSpan="2"/>
+
+        <Button x:Name="btnCatagory1" Content="BagCatagory1" Grid.Row="0" Grid.Column="1" FontSize="30" Margin="238.2,9,8.6,9.4" Click="" Grid.ColumnSpan="2"/>
+        <Button x:Name="btnCatagory2" Content="BagCatagory2" Grid.Row="1" Grid.Column="1" FontSize="30" Margin="238.2,9,8.6,9.4" Click="" Grid.ColumnSpan="2"/>
+        <Button x:Name="btnCatagory3" Content="BagCatagory3" Grid.Row="2" Grid.Column="1" FontSize="30" Margin="238.2,9,8.6,9.4" Click="" Grid.ColumnSpan="2"/>
+        <Button x:Name="btnCatagory4" Content="BagCatagory4" Grid.Row="3" Grid.Column="1" FontSize="30" Margin="238.2,9,8.6,9.4" Click="" Grid.ColumnSpan="2"/>
+
+
+    </Grid>
+</Window>
