@@ -36,5 +36,15 @@ namespace PokemonDAL
             }
         }
 
+        public static List<Types> Typinglist()
+        {
+            using (DB_r0739290Entities entities = new DB_r0739290Entities())
+            {
+                var query = entities.Types
+                    .OrderBy(x => x.Id);
+                return query.ToList();
+            }
+        }
+
     }
 }
