@@ -19,9 +19,16 @@ namespace PokemonWPF
     /// </summary>
     public partial class PokéTrainercardWindow : Window
     {
+        public MainWindow WindowToAlter;
         public PokéTrainercardWindow()
         {
             InitializeComponent();
+        }
+
+        private void BtnBack_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+            WindowToAlter.Visibility = Visibility.Visible;
         }
     }
 }

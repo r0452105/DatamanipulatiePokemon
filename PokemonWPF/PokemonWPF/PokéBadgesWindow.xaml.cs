@@ -19,9 +19,16 @@ namespace PokemonWPF
     /// </summary>
     public partial class PokéBadgesWindow : Window
     {
+        public PokéTrainercardWindow DexWindowToAlter;
         public PokéBadgesWindow()
         {
             InitializeComponent();
+        }
+
+        private void BtnBack_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+            DexWindowToAlter.Visibility = Visibility.Visible;
         }
     }
 }
