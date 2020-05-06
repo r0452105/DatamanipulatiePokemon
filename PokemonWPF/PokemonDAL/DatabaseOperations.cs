@@ -57,6 +57,7 @@ namespace PokemonDAL
                             .Include("Statpool.IVStats")
                             .Include("LearnedMoves")
                             .Include("Pokedex")
+                            .Include("Trainer")
                             .Include("LearnedMoves.PokemonMoves")
                             .Include("StatusEffects")
                             .Include("Items")

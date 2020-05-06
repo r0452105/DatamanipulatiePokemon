@@ -7,6 +7,7 @@
          xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:local="clr-namespace:PokemonWPF"
         mc:Ignorable="d"
+        Loaded="Window_Loaded"
         Title="PokemonInfo" Height="450" Width="600">
     <Grid>
         <Grid.ColumnDefinitions>
@@ -25,7 +26,20 @@
                 <RowDefinition Height="4*"/>
                 <RowDefinition/>
             </Grid.RowDefinitions>
-        </Grid>
+
+                <StackPanel Grid.Row="0" Orientation="Horizontal">
+                    <Label Margin="5" FontSize="20" Name="lblPokemonNick" Width="150" HorizontalAlignment="Left" FontStyle="Italic" FontFamily="Trebuchet MS" FontWeight="Bold" Content="Undefined"/>
+                    <Label Margin="8" FontSize="20" Name="lblPokemonGenderMale" Width="40" Visibility="Collapsed" HorizontalAlignment="Left">
+                        <materialDesign:PackIcon Kind = 'GenderMale' />
+                    </Label>
+                    <Label Margin="8" FontSize="20" Name="lblPokemonGenderFemale" Visibility="Collapsed" Width="40" HorizontalAlignment="Left">
+                        <materialDesign:PackIcon Kind = 'GenderFeMale' />
+                    </Label>
+                </StackPanel>
+                <Label Margin="5" Grid.Row="1" FontSize="18" Name="lblPokemonLvl"  HorizontalAlignment="Left" FontStyle="Italic"  FontWeight="Bold" FontFamily="Trebuchet MS" Content="Lvl" />
+                <Image Grid.Row="2" Margin="5" Name="imgPokemon"/>
+                <Label Margin="5" Grid.Row="3" FontSize="20" Name="lblPokemonItem"  HorizontalAlignment="Left" FontStyle="Italic" FontWeight="Bold" FontFamily="Trebuchet MS" Content="Held: None" />
+            </Grid>
            
         </Border>
         <StackPanel Margin="5" Grid.Row="1" Grid.Column="0" Orientation="Horizontal" HorizontalAlignment="Center">
@@ -40,8 +54,57 @@
 
         </StackPanel>
 
-        <Border Name="CardInfo"  Grid.Row="0" Grid.Column="1" Margin="10" BorderBrush="DarkGray" Background="IndianRed" BorderThickness="3" CornerRadius="3"></Border>
+        <Border Name="CardInfo"  Grid.Row="0" Grid.Column="1" Margin="10" BorderBrush="DarkGray" Background="IndianRed" BorderThickness="3" CornerRadius="3">
+            <Grid x:Name="GridRed" Margin="5" >
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition Width="5*"/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition Width="5*"/>
+                </Grid.ColumnDefinitions>
+
+            <Label HorizontalContentAlignment="Right" Grid.Row="0" Grid.Column="1" FontStyle="Italic"  FontWeight="Bold" FontFamily="Trebuchet MS" FontSize="22" Content="DexNr:"/>
+                <Label  HorizontalContentAlignment="Right" Grid.Row="1" Grid.Column="1" FontStyle="Italic"  FontWeight="Bold" FontFamily="Trebuchet MS" FontSize="22" Content="Species:"/>
+                <Label  HorizontalContentAlignment="Right" Grid.Row="3" Grid.Column="1" FontStyle="Italic"  FontWeight="Bold" FontFamily="Trebuchet MS" FontSize="22" Content="Type:"/>
+                <Label  HorizontalContentAlignment="Right" Grid.Row="4" Grid.Column="1" FontStyle="Italic"  FontWeight="Bold" FontFamily="Trebuchet MS" FontSize="22" Content="TrainerID:"/>
+                <Label  HorizontalContentAlignment="Right" Grid.Row="5" Grid.Column="1" FontStyle="Italic"  FontWeight="Bold" FontFamily="Trebuchet MS" FontSize="22" Content="PokemonID:"/>
+                <Label  HorizontalContentAlignment="Right" Grid.Row="7" Grid.Column="1" FontStyle="Italic"  FontWeight="Bold" FontFamily="Trebuchet MS" FontSize="22" Content="XP total:"/>
+                <Label  HorizontalContentAlignment="Right" Grid.Row="8" Grid.Column="1" FontStyle="Italic"  FontWeight="Bold" FontFamily="Trebuchet MS" FontSize="22" Content="XP to level:"/>
+                
+                <Label Name="lblDexNr"  HorizontalContentAlignment="Left" Grid.Row="0" Grid.Column="3" FontStyle="Italic" FontFamily="Trebuchet MS" FontSize="22" Content=""/>
+                <Label Name="lblSpecies"  HorizontalContentAlignment="Left" Grid.Row="1" Grid.Column="3" FontStyle="Italic" FontFamily="Trebuchet MS" FontSize="22" Content=""/>
+                <WrapPanel   Grid.Row="3" Grid.Column="3">
+                    <Border x:Name="borderType1" CornerRadius="10" BorderThickness="2" >
+                        <Label Name="lblType1" FontFamily="Trebuchet MS" FontSize="22"></Label>
+                    </Border>
+                    <Border  x:Name="borderType2" CornerRadius="10" BorderThickness="2">
+                        <Label Name="lblType2" FontFamily="Trebuchet MS" FontSize="22"></Label>
+                    </Border>
+                </WrapPanel>
+                <Label Name="lblOriginalTrainer"  HorizontalContentAlignment="Left" Grid.Row="4" Grid.Column="3" FontStyle="Italic" FontFamily="Trebuchet MS" FontSize="22" Content=""/>
+                <Label Name="lblPokemonID"  HorizontalContentAlignment="Left" Grid.Row="5" Grid.Column="3" FontStyle="Italic" FontFamily="Trebuchet MS" FontSize="22" Content=""/>
+                <Label Name="lblTotalXp"  HorizontalContentAlignment="Left" Grid.Row="7" Grid.Column="3" FontStyle="Italic" FontFamily="Trebuchet MS" FontSize="22" Content=""/>
+                <Label Name="lblXpToNextLevel"  HorizontalContentAlignment="Left" Grid.Row="8" Grid.Column="3" FontStyle="Italic" FontFamily="Trebuchet MS" FontSize="22" Content=""/>
+                <ProgressBar Value="100" Grid.Row="9" Height="15" Grid.Column="1" Grid.ColumnSpan="3" Foreground="CornflowerBlue"></ProgressBar>
+                </Grid>
+            
+            
+            
+        </Border>
        
         <Button Grid.Row="1" Grid.Column="1" Margin="5" HorizontalAlignment="Right" Content="Exit" Name="btnClose" Click="BtnClose_Click"></Button>
+    
     </Grid>
 </Window>

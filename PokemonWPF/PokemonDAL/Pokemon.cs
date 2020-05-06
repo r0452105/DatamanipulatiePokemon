@@ -55,5 +55,7 @@ namespace PokemonDAL
             return currentHp + "\t/ " + StatPool.CurrentHealth(this);
 
         }
+
+       
     }
 }

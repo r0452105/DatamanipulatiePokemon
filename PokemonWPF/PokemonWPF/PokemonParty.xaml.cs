@@ -25,16 +25,20 @@ namespace PokemonWPF
         List<Border> Cards = new List<Border>();
         List<Image> Sprites = new List<Image>();
         public Trainer trainerParty;
+        
         List<PokemonGroup> Pokemonparty = new List<PokemonGroup>();
         public PokemonParty()
         {
             InitializeComponent();
+           
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
             Pokemonparty = DatabaseOperations.SelectParty(2);
             OrderElements();
             LoadPokemon();
         }
-
-       
 
         private void OrderElements() {
             Cards.Add(Card1);
@@ -111,9 +115,12 @@ namespace PokemonWPF
             infoscreen.pokemonstats = DatabaseOperations.SelectPokemonFromParty(currentPokemon);
             this.Visibility = Visibility.Hidden;
             infoscreen.ShowDialog();
+           
             this.Visibility = Visibility.Visible;
-
+           
 
         }
+
+        
     }
 }
