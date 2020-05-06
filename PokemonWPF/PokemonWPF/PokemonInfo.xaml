@@ -55,6 +55,7 @@
         </StackPanel>
 
         <Border Name="CardInfo"  Grid.Row="0" Grid.Column="1" Margin="10" BorderBrush="DarkGray" Background="IndianRed" BorderThickness="3" CornerRadius="3">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
             <Grid x:Name="GridRed" Margin="5" >
                 <Grid.RowDefinitions>
                     <RowDefinition/>
@@ -87,21 +88,59 @@
                 <Label Name="lblSpecies"  HorizontalContentAlignment="Left" Grid.Row="1" Grid.Column="3" FontStyle="Italic" FontFamily="Trebuchet MS" FontSize="22" Content=""/>
                 <WrapPanel   Grid.Row="3" Grid.Column="3">
                     <Border x:Name="borderType1" CornerRadius="10" BorderThickness="2" >
-                        <Label Name="lblType1" FontFamily="Trebuchet MS" FontSize="22"></Label>
+                        <Label Name="lblType1" FontFamily="Trebuchet MS" FontSize="16" Foreground="Black"></Label>
                     </Border>
                     <Border  x:Name="borderType2" CornerRadius="10" BorderThickness="2">
-                        <Label Name="lblType2" FontFamily="Trebuchet MS" FontSize="22"></Label>
+                        <Label Name="lblType2" FontFamily="Trebuchet MS" FontSize="16" Foreground="Black"></Label>
                     </Border>
                 </WrapPanel>
                 <Label Name="lblOriginalTrainer"  HorizontalContentAlignment="Left" Grid.Row="4" Grid.Column="3" FontStyle="Italic" FontFamily="Trebuchet MS" FontSize="22" Content=""/>
                 <Label Name="lblPokemonID"  HorizontalContentAlignment="Left" Grid.Row="5" Grid.Column="3" FontStyle="Italic" FontFamily="Trebuchet MS" FontSize="22" Content=""/>
-                <Label Name="lblTotalXp"  HorizontalContentAlignment="Left" Grid.Row="7" Grid.Column="3" FontStyle="Italic" FontFamily="Trebuchet MS" FontSize="22" Content=""/>
-                <Label Name="lblXpToNextLevel"  HorizontalContentAlignment="Left" Grid.Row="8" Grid.Column="3" FontStyle="Italic" FontFamily="Trebuchet MS" FontSize="22" Content=""/>
+                <Label Name="lblTotalXp"  HorizontalContentAlignment="Left" Grid.Row="7" Grid.Column="3" FontStyle="Italic" FontFamily="Trebuchet MS" FontSize="20" Content=""/>
+                <Label Name="lblXpToNextLevel"  HorizontalContentAlignment="Left" Grid.Row="8" Grid.Column="3" FontStyle="Italic" FontFamily="Trebuchet MS" FontSize="20" Content=""/>
                 <ProgressBar Value="100" Grid.Row="9" Height="15" Grid.Column="1" Grid.ColumnSpan="3" Foreground="CornflowerBlue"></ProgressBar>
                 </Grid>
-            
-            
-            
+                <Grid x:Name="GridYellow" Margin="5" >
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition Width="5*"/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition Width="5*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Label HorizontalContentAlignment="Right" Grid.Row="0" Grid.Column="1" FontStyle="Italic"  FontWeight="Bold" FontFamily="Trebuchet MS" FontSize="22" Content="Health:"/>
+                    <Label  HorizontalContentAlignment="Right" Grid.Row="2" Grid.Column="1" FontStyle="Italic"  FontWeight="Bold" FontFamily="Trebuchet MS" FontSize="22" Content="Attack:"/>
+                    <Label  HorizontalContentAlignment="Right" Grid.Row="3" Grid.Column="1" FontStyle="Italic"  FontWeight="Bold" FontFamily="Trebuchet MS" FontSize="22" Content="Defence:"/>
+                    <Label  HorizontalContentAlignment="Right" Grid.Row="4" Grid.Column="1" FontStyle="Italic"  FontWeight="Bold" FontFamily="Trebuchet MS" FontSize="22" Content="Special attack:"/>
+                    <Label  HorizontalContentAlignment="Right" Grid.Row="5" Grid.Column="1" FontStyle="Italic"  FontWeight="Bold" FontFamily="Trebuchet MS" FontSize="22" Content="Special defence:"/>
+                    <Label  HorizontalContentAlignment="Right" Grid.Row="6" Grid.Column="1" FontStyle="Italic"  FontWeight="Bold" FontFamily="Trebuchet MS" FontSize="22" Content="Speed:"/>
+                    <Label  HorizontalContentAlignment="Right" Grid.Row="8" Grid.Column="1" FontStyle="Italic"  FontWeight="Bold" FontFamily="Trebuchet MS" FontSize="22" Content="Nature:"/>
+                    <Label  HorizontalContentAlignment="Right" Grid.Row="9" Grid.Column="1" FontStyle="Italic"  FontWeight="Bold" FontFamily="Trebuchet MS" FontSize="22" Content="Ability:"/>
+
+                    <Label Name="lblHPstat"  HorizontalContentAlignment="Left" Grid.Row="0" Grid.Column="3" FontStyle="Italic" FontFamily="Trebuchet MS" FontSize="22" Content=""/>
+                    <Label Name="lblAttackstat"  HorizontalContentAlignment="Left" Grid.Row="2" Grid.Column="3" FontStyle="Italic" FontFamily="Trebuchet MS" FontSize="22" Content=""/>
+                    <Label Name="lblDefensestat"  HorizontalContentAlignment="Left" Grid.Row="3" Grid.Column="3" FontStyle="Italic" FontFamily="Trebuchet MS" FontSize="22" Content=""/>
+                    <Label Name="lblspAttackstat"  HorizontalContentAlignment="Left" Grid.Row="4" Grid.Column="3" FontStyle="Italic" FontFamily="Trebuchet MS" FontSize="22" Content=""/>
+                    <Label Name="lblSpdefencestat"  HorizontalContentAlignment="Left" Grid.Row="5" Grid.Column="3" FontStyle="Italic" FontFamily="Trebuchet MS" FontSize="22" Content=""/>
+                    <Label Name="lblSpeed"  HorizontalContentAlignment="Left" Grid.Row="6" Grid.Column="3" FontStyle="Italic" FontFamily="Trebuchet MS" FontSize="20" Content=""/>
+                    <Label Name="lblNature"  HorizontalContentAlignment="Left" Grid.Row="8" Grid.Column="3" FontStyle="Italic" FontFamily="Trebuchet MS" FontSize="20" Content=""/>
+                    <Label Name="lblAbility"  HorizontalContentAlignment="Left" Grid.Row="9" Grid.Column="3" FontStyle="Italic" FontFamily="Trebuchet MS" FontSize="20" Content=""/>
+                  
+                </Grid>
+            </StackPanel>
+
         </Border>
        
         <Button Grid.Row="1" Grid.Column="1" Margin="5" HorizontalAlignment="Right" Content="Exit" Name="btnClose" Click="BtnClose_Click"></Button>

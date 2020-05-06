@@ -58,6 +58,8 @@ namespace PokemonDAL
                             .Include("LearnedMoves")
                             .Include("Pokedex")
                             .Include("Trainer")
+                            .Include("Pokedex.Types")
+                            .Include("Pokedex.Types1")
                             .Include("LearnedMoves.PokemonMoves")
                             .Include("StatusEffects")
                             .Include("Items")
