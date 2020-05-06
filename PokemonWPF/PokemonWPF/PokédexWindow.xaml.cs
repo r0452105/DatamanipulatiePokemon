@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using PokemonDAL;
 
 namespace PokemonWPF
 {
@@ -20,10 +21,18 @@ namespace PokemonWPF
     public partial class PokédexWindow : Window
     {
         public MainWindow WindowToAlter;
+        public Pokedex pokedex = new Pokedex();
+
+
         public PokédexWindow()
         {
             InitializeComponent();
             lblSeenCaptured.Content = "Pokémon \n\nSeen: 2 \nCaptured: 1";
+            IList<Pokedex> people = DatabaseOperations.PokedexEntry();
+            foreach (Pokedex pokedex in people)
+            {
+                lbPokédex.Items.Add(pokedex.PokemonName);
+            }
         }
 
         private void BtnBack_Click(object sender, RoutedEventArgs e)
@@ -40,24 +49,10 @@ namespace PokemonWPF
             searchDexWindow1.Show();
         }
 
-        private void Window_Loaded(object sender, RoutedEventArgs e)
-        {       
-        }
-
 
         private void LbPokédex_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            //Image bulba = new Image();
-            //bulba = "";
-
-            //Image bulba = Image.FromFile("c:\\Bulba.jpg");
-
-            if (lbPokédex.SelectedItems == lbiNumber1)
-            {
-                //PokédexPicture.Source = bulba;
-
-            }
-            //PokédexPicture.Source= pokemon.photolink (property)
+            
 
 
         }
@@ -69,7 +64,7 @@ namespace PokemonWPF
                 case 0:
                     PokémonInfoWindow PokéInfoWindow1 = new PokémonInfoWindow();
                     PokéInfoWindow1.DexWindowToAlter = this;
-                    //PokéInfoWindow1.indiPokemon = PokemonDAL.Pokedex pokedex;
+                    
                     PokéInfoWindow1.Show();
                     this.Visibility = Visibility.Hidden;
                     break;
