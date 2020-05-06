@@ -45,6 +45,20 @@ namespace PokemonDAL
 
         }
 
+        public static List<LearnedMoves> SelectMovesFromPokemon(Pokemon pokemon)
+        {
+            using (DB_r0739290Entities entities = new DB_r0739290Entities())
+            {
+                var query = entities.LearnedMoves
+                    .Include("PokemonMoves")
+                     .Include("PokemonMoves.Types")
+                     .Where(x => x.PokemonId == pokemon.Id)
+                     .OrderBy(x => x.Position);
+
+                return query.ToList();
+            }
+
+        }
         public static Pokemon SelectPokemonFromParty(PokemonGroup partyPokemon)
         {
             using (DB_r0739290Entities entities = new DB_r0739290Entities())

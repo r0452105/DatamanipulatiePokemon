@@ -21,7 +21,14 @@ namespace PokemonWPF
     /// </summary>
     public partial class PokemonInfo : Window
     {
-
+        List<Label> NameLabels = new List<Label>();
+        List<Label> DamageLabels = new List<Label>();
+        List<Label> AccuracyLabels = new List<Label>();
+        List<Label> PPLabels = new List<Label>();
+        List<Label> TypeLabels = new List<Label>();
+        List<Border> TypeCards = new List<Border>();
+        List<Border> MoveCards = new List<Border>();
+        List<LearnedMoves> MovesOfPokemon; 
         public Pokemon pokemonstats = null;
 
         public PokemonInfo()
@@ -32,11 +39,51 @@ namespace PokemonWPF
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
+            MovesOfPokemon = DatabaseOperations.SelectMovesFromPokemon(pokemonstats);
             SetContentPartyCard();
 
             SetContentRedCard();
             SetContentYellowCard();
-            
+            OrderElementsMoves();
+            SetContentPinkCard();
+        }
+
+        private void OrderElementsMoves()
+        {
+            MoveCards.Add(CardMove1);
+            MoveCards.Add(CardMove2);
+            MoveCards.Add(CardMove3);
+            MoveCards.Add(CardMove4);
+
+            NameLabels.Add(lblMoveName1);
+            NameLabels.Add(lblMoveName2);
+            NameLabels.Add(lblMoveName3);
+            NameLabels.Add(lblMoveName4);
+
+            TypeLabels.Add(lblMoveType1);
+            TypeLabels.Add(lblMoveType2);
+            TypeLabels.Add(lblMoveType3);
+            TypeLabels.Add(lblMoveType4);
+
+            TypeCards.Add(borderMoveType1);
+            TypeCards.Add(borderMoveType2);
+            TypeCards.Add(borderMoveType3);
+            TypeCards.Add(borderMoveType4);
+
+            AccuracyLabels.Add(lblMoveAccuracy1);
+            AccuracyLabels.Add(lblMoveAccuracy2);
+            AccuracyLabels.Add(lblMoveAccuracy3);
+            AccuracyLabels.Add(lblMoveAccuracy4);
+
+            DamageLabels.Add(lblMoveDamage1);
+            DamageLabels.Add(lblMoveDamage2);
+            DamageLabels.Add(lblMoveDamage3);
+            DamageLabels.Add(lblMoveDamage4);
+
+            PPLabels.Add(lblPP1);
+            PPLabels.Add(lblPP2);
+            PPLabels.Add(lblPP3);
+            PPLabels.Add(lblPP4);
         }
         private void SetContentPartyCard()
         {
@@ -147,11 +194,32 @@ namespace PokemonWPF
             
 
         }
+
+        private void SetContentPinkCard()
+        {
+            int counter = 0;
+            foreach (var item in MoveCards)
+            {
+                if (counter < MovesOfPokemon.Count)
+                {
+                    item.Visibility = Visibility.Visible;
+                    SetTypes(TypeCards[counter], TypeLabels[counter], MovesOfPokemon[counter].PokemonMoves.MoveTypeID, MovesOfPokemon[counter].PokemonMoves.Types.ToString());
+                    NameLabels[counter].Content = MovesOfPokemon[counter].PokemonMoves.MoveName;
+                    AccuracyLabels[counter].Content = $"Accuracy: {MovesOfPokemon[counter].PokemonMoves.Accuracy}%";
+                    DamageLabels[counter].Content = $"Damage: {MovesOfPokemon[counter].PokemonMoves.DamagePoints}";
+                    PPLabels[counter].Content = MovesOfPokemon[counter].ReturnPP();
+                 }
+                counter++;
+            }
+
+            GridPink.Visibility = Visibility.Collapsed;
+        }
         private void btnYellow_Click(object sender, RoutedEventArgs e)
         {
             SetColor((Button)sender);
             GridRed.Visibility = Visibility.Collapsed;
             GridYellow.Visibility = Visibility.Visible;
+            GridPink.Visibility = Visibility.Collapsed;
         }
 
         private void btnRed_Click(object sender, RoutedEventArgs e)
@@ -159,6 +227,7 @@ namespace PokemonWPF
             SetColor((Button)sender);
             GridRed.Visibility = Visibility.Visible;
             GridYellow.Visibility = Visibility.Collapsed;
+            GridPink.Visibility = Visibility.Collapsed;
         }
 
         private void btnPink_Click(object sender, RoutedEventArgs e)
@@ -166,7 +235,7 @@ namespace PokemonWPF
             SetColor((Button)sender);
             GridRed.Visibility = Visibility.Collapsed;
             GridYellow.Visibility = Visibility.Collapsed;
-            
+            GridPink.Visibility = Visibility.Visible;
         }
 
         private void SetColor(Button buttonColor)
