@@ -30,7 +30,10 @@ namespace PokemonWPF
         {
             InitializeComponent();
             
-            
+            //if searchscherm is zonet gebruikt dan komt er mogelijks een alternatief else zie hieronder
+
+
+
             foreach (Pokedex pokedex in pokeEntries)
             {
                 lbPokédex.Items.Add(pokedex.PokemonName);
