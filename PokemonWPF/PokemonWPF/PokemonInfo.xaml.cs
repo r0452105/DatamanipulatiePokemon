@@ -92,10 +92,13 @@ namespace PokemonWPF
             if (pokemonstats.Gender == false)
             {
                 lblPokemonGenderMale.Visibility = Visibility.Visible;
+                lblPokemonGenderMale.Foreground = Brushes.Azure;
+
             }
             else if (pokemonstats.Gender == true)
             {
                 lblPokemonGenderFemale.Visibility = Visibility.Visible;
+                lblPokemonGenderFemale.Foreground = Brushes.Pink;
             }
 
             lblPokemonLvl.Content = $"Lvl\t{pokemonstats.PokemonLevel}";
