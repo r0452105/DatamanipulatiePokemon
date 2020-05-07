@@ -24,6 +24,9 @@ namespace PokemonWPF
         public Types poketype = new Types();
         List<Types> poketypeentries = DatabaseOperations.Typinglist();
         public PokédexWindow DexWindowToAlter;
+        public Pokedex pokedex = new Pokedex();
+        IList<Pokedex> pokeEntries = DatabaseOperations.PokedexEntry();
+        IList<Pokedex> pokeEntriesAZ = DatabaseOperations.PokedexEntryAZ();
         public SearchDexWindow()
         {
             InitializeComponent();
@@ -31,6 +34,9 @@ namespace PokemonWPF
             {
                 cbType.Items.Add(poketype.TypeName);
             }
+
+            cbSortBy.Items.Add("Alfabetisch");
+            cbSortBy.Items.Add("National Dex");
 
         }
 
@@ -47,19 +53,33 @@ namespace PokemonWPF
 
         private void BtnStartSorting_Click(object sender, RoutedEventArgs e)
         {
-            switch (cbSortBy.SelectedItem)
+            
+            switch (cbSortBy.SelectedIndex)
             {
                 case 0:
                     // eerst volgorde van de pokemons aanpassen, dan terugleiden naar pokedexscherm
+                    foreach (Pokedex pokedex in pokeEntriesAZ)
+                    {
+                        DexWindowToAlter.lbPokédex.Items.Remove(pokedex.PokemonName);
+                    }
+                    foreach (Pokedex pokedex in pokeEntriesAZ)
+                    {
+                        DexWindowToAlter.lbPokédex.Items.Add(pokedex.PokemonName);
+                    }
+                    DexWindowToAlter.Show();
+                    this.Close();
                     break;
                 case 1:
-                    
-                    break;
-                case 2:
-                    
-                    break;
-                case 3:
-                    
+                    foreach (Pokedex pokedex in pokeEntries)
+                    {
+                        DexWindowToAlter.lbPokédex.Items.Remove(pokedex.PokemonName);
+                    }
+                    foreach (Pokedex pokedex in pokeEntries)
+                    {
+                        DexWindowToAlter.lbPokédex.Items.Add(pokedex.PokemonName);
+                    }
+                    DexWindowToAlter.Show();
+                    this.Close();
                     break;
                 default:
                     MessageBox.Show("Je moet een sorteervorm selecteren.");
