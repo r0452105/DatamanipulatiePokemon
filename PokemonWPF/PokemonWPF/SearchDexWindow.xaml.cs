@@ -20,7 +20,6 @@ namespace PokemonWPF
     /// </summary>
     public partial class SearchDexWindow : Window
     {
-
         public Types poketype = new Types();
         List<Types> poketypeentries = DatabaseOperations.Typinglist();
         public PokédexWindow DexWindowToAlter;
@@ -30,16 +29,17 @@ namespace PokemonWPF
         public SearchDexWindow()
         {
             InitializeComponent();
+            cbType.Items.Add("Geen Specifieke typing");
             foreach (Types poketype in poketypeentries)
             {
                 cbType.Items.Add(poketype.TypeName);
             }
-
             cbSortBy.Items.Add("Alfabetisch");
             cbSortBy.Items.Add("National Dex");
 
-        }
+            cbType.SelectedIndex = 0;
 
+        }
         private void BtnBack_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
@@ -48,7 +48,40 @@ namespace PokemonWPF
 
         private void BtnSearch_Click(object sender, RoutedEventArgs e)
         {
+            foreach (Pokedex pokedex in pokeEntries)
+            {
+                DexWindowToAlter.lbPokédex.Items.Remove(pokedex.PokemonName);
+            }
+            foreach (Pokedex pokedex in pokeEntries)
+            {
+                if (pokedex.PokemonName.ToLower().Contains(tbName.Text.ToLower()))
+                {
+                    string type1 = "";
+                    string type2 = "";
 
+                    foreach (Types poketype in poketypeentries)
+                    {
+                        if (poketype.Id == pokedex.Type1)
+                        {
+                            type1 = poketype.TypeName;
+                        }
+                        else if (poketype.Id == pokedex.Type2)
+                        {
+                            type2 = poketype.TypeName;
+                        }
+                    }
+                    if (cbType.SelectedIndex==0)
+                    {
+                        DexWindowToAlter.lbPokédex.Items.Add(pokedex.PokemonName);
+                    }
+                    else if (type1 == cbType.SelectedItem.ToString() || type2 == cbType.SelectedItem.ToString())
+                    {
+                        DexWindowToAlter.lbPokédex.Items.Add(pokedex.PokemonName);
+                    } 
+                }
+            }
+            DexWindowToAlter.Show();
+            this.Close();
         }
 
         private void BtnStartSorting_Click(object sender, RoutedEventArgs e)
@@ -85,6 +118,11 @@ namespace PokemonWPF
                     MessageBox.Show("Je moet een sorteervorm selecteren.");
                     break;
             }
+        }
+
+        private void CbType_Selected(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
