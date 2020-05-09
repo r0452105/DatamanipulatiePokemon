@@ -74,11 +74,11 @@ namespace PokemonWPF
 
                     break;
                 case 1:
+                    
+                    PokemonParty partyscreen = new PokemonParty();
+                    partyscreen.trainerParty = trainer;
                     this.Visibility = Visibility.Hidden;
-                    //MAAK HIER DE CODE VOOR DE PARTY AAN TE ROEPEN MET SHOW DIALOG, EN PASS DE TRAINER VARIABLE ER NAAR TOE
-
-
-
+                    partyscreen.ShowDialog();
                     this.Visibility = Visibility.Visible;
                     break;
                 case 2:

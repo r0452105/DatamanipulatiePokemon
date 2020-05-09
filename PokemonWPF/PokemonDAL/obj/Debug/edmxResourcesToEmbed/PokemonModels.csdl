@@ -187,10 +187,10 @@
     <Property Name="EffortValueYield" Type="Int32" />
     <Property Name="Nature" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
     <NavigationProperty Name="Pokemon" Relationship="Self.FK__Pokemon__StatPoo__0A338187" FromRole="StatPool" ToRole="Pokemon" />
-    <NavigationProperty Name="StatCollection" Relationship="Self.FK__StatPool__BaseSt__7DCDAAA2" FromRole="StatPool" ToRole="StatCollection" />
-    <NavigationProperty Name="StatCollection1" Relationship="Self.FK__StatPool__Effort__00AA174D" FromRole="StatPool" ToRole="StatCollection" />
-    <NavigationProperty Name="StatCollection2" Relationship="Self.FK__StatPool__EVStat__7EC1CEDB" FromRole="StatPool" ToRole="StatCollection" />
-    <NavigationProperty Name="StatCollection3" Relationship="Self.FK__StatPool__IVStat__7FB5F314" FromRole="StatPool" ToRole="StatCollection" />
+    <NavigationProperty Name="BaseStats" Relationship="Self.FK__StatPool__BaseSt__7DCDAAA2" FromRole="StatPool" ToRole="StatCollection" />
+    <NavigationProperty Name="EvYield" Relationship="Self.FK__StatPool__Effort__00AA174D" FromRole="StatPool" ToRole="StatCollection" />
+    <NavigationProperty Name="EvStats" Relationship="Self.FK__StatPool__EVStat__7EC1CEDB" FromRole="StatPool" ToRole="StatCollection" />
+    <NavigationProperty Name="IvStats" Relationship="Self.FK__StatPool__IVStat__7FB5F314" FromRole="StatPool" ToRole="StatCollection" />
   </EntityType>
   <EntityType Name="StatusEffects">
     <Key>
