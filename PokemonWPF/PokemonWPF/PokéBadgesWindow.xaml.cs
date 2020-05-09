@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using PokemonDAL;
 
 namespace PokemonWPF
 {
@@ -19,9 +20,15 @@ namespace PokemonWPF
     /// </summary>
     public partial class PokéBadgesWindow : Window
     {
+        public Trainer trainerBadges;
         public PokéBadgesWindow()
         {
             InitializeComponent();
+        }
+
+        private void BtnBack_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

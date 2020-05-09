@@ -93,3 +93,17 @@ C:\Users\colers\Documents\GitHub\DatamanipulatiePok-monAaronLaraBryant\PokemonWP
 C:\Users\colers\Documents\GitHub\DatamanipulatiePok-monAaronLaraBryant\PokemonWPF\PokemonWPF\obj\Debug\PokemonWPF.csproj.CopyComplete
 C:\Users\colers\Documents\GitHub\DatamanipulatiePok-monAaronLaraBryant\PokemonWPF\PokemonWPF\obj\Debug\PokemonWPF.exe
 C:\Users\colers\Documents\GitHub\DatamanipulatiePok-monAaronLaraBryant\PokemonWPF\PokemonWPF\obj\Debug\PokemonWPF.pdb
+C:\Users\colers\Documents\GitHub\DatamanipulatiePok-monAaronLaraBryant\PokemonWPF\PokemonWPF\obj\Debug\PokéBadgesWindow.g.cs
+C:\Users\colers\Documents\GitHub\DatamanipulatiePok-monAaronLaraBryant\PokemonWPF\PokemonWPF\obj\Debug\PokédexWindow.g.cs
+C:\Users\colers\Documents\GitHub\DatamanipulatiePok-monAaronLaraBryant\PokemonWPF\PokemonWPF\obj\Debug\PokéTrainercardWindow.g.cs
+C:\Users\colers\Documents\GitHub\DatamanipulatiePok-monAaronLaraBryant\PokemonWPF\PokemonWPF\obj\Debug\SearchDexWindow.g.cs
+C:\Users\colers\Documents\GitHub\DatamanipulatiePok-monAaronLaraBryant\PokemonWPF\PokemonWPF\obj\Debug\PokémonInfoWindow.g.cs
+C:\Users\colers\Documents\GitHub\DatamanipulatiePok-monAaronLaraBryant\PokemonWPF\PokemonWPF\obj\Debug\PokébagWindow.g.cs
+C:\Users\colers\Documents\GitHub\DatamanipulatiePok-monAaronLaraBryant\PokemonWPF\PokemonWPF\obj\Debug\PokéBadgesWindow.baml
+C:\Users\colers\Documents\GitHub\DatamanipulatiePok-monAaronLaraBryant\PokemonWPF\PokemonWPF\obj\Debug\PokébagWindow.baml
+C:\Users\colers\Documents\GitHub\DatamanipulatiePok-monAaronLaraBryant\PokemonWPF\PokemonWPF\obj\Debug\PokédexWindow.baml
+C:\Users\colers\Documents\GitHub\DatamanipulatiePok-monAaronLaraBryant\PokemonWPF\PokemonWPF\obj\Debug\PokéTrainercardWindow.baml
+C:\Users\colers\Documents\GitHub\DatamanipulatiePok-monAaronLaraBryant\PokemonWPF\PokemonWPF\obj\Debug\SearchDexWindow.baml
+C:\Users\colers\Documents\GitHub\DatamanipulatiePok-monAaronLaraBryant\PokemonWPF\PokemonWPF\obj\Debug\PokémonInfoWindow.baml
+C:\Users\colers\Documents\GitHub\DatamanipulatiePok-monAaronLaraBryant\PokemonWPF\PokemonWPF\bin\Debug\PokemonModels.dll
+C:\Users\colers\Documents\GitHub\DatamanipulatiePok-monAaronLaraBryant\PokemonWPF\PokemonWPF\bin\Debug\PokemonModels.pdb

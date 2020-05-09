@@ -21,7 +21,7 @@
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
 
-        <ListBox x:Name="lbPokébag" Grid.Column="0" Grid.Row="0" Grid.RowSpan="5" Grid.ColumnSpan="2" Margin="32,20,83.6,20.4" ScrollViewer.VerticalScrollBarVisibility="Visible" BorderBrush="Black" BorderThickness="3" SelectionChanged="" MouseDoubleClick="">
+        <ListBox x:Name="lbPokébag" Grid.Column="0" Grid.Row="0" Grid.RowSpan="5" Grid.ColumnSpan="2" Margin="32,20,83.6,20.4" ScrollViewer.VerticalScrollBarVisibility="Visible" BorderBrush="Black" BorderThickness="3" SelectionChanged="LbPokébag_SelectionChanged" MouseDoubleClick="LbPokébag_MouseDoubleClick"   >
             <ListBoxItem x:Name="lbiNumber1" Content="X "></ListBoxItem>
             <ListBoxItem x:Name="lbiNumber2" Content="-----"></ListBoxItem>
             <ListBoxItem x:Name="lbiNumber3" Content="-----"></ListBoxItem>
@@ -41,10 +41,10 @@
         <ComboBox x:Name="cbSortBy" Grid.Row="4" Margin="209,69.2,0,18" HorizontalAlignment="Left" Width="237" Grid.ColumnSpan="2" Grid.RowSpan="2"/>
         <Button x:Name="btnBack" Content="Back" Grid.Row="4" Grid.Column="1" FontSize="30" Margin="238.2,68.2,8.6,19" Click="BtnBack_Click" Grid.ColumnSpan="2" Grid.RowSpan="2"/>
 
-        <Button x:Name="btnCatagory1" Content="BagCatagory1" Grid.Row="0" Grid.Column="1" FontSize="30" Margin="238.2,9,8.6,9.4" Click="" Grid.ColumnSpan="2"/>
-        <Button x:Name="btnCatagory2" Content="BagCatagory2" Grid.Row="1" Grid.Column="1" FontSize="30" Margin="238.2,9,8.6,9.4" Click="" Grid.ColumnSpan="2"/>
-        <Button x:Name="btnCatagory3" Content="BagCatagory3" Grid.Row="2" Grid.Column="1" FontSize="30" Margin="238.2,9,8.6,9.4" Click="" Grid.ColumnSpan="2"/>
-        <Button x:Name="btnCatagory4" Content="BagCatagory4" Grid.Row="3" Grid.Column="1" FontSize="30" Margin="238.2,9,8.6,9.4" Click="" Grid.ColumnSpan="2"/>
+        <Button x:Name="btnCatagory1" Content="BagCatagory1" Grid.Row="0" Grid.Column="1" FontSize="30" Margin="238.2,9,8.6,9.4" Click="BtnCatagory1_Click" Grid.ColumnSpan="2"/>
+        <Button x:Name="btnCatagory2" Content="BagCatagory2" Grid.Row="1" Grid.Column="1" FontSize="30" Margin="238.2,9,8.6,9.4" Click="BtnCatagory2_Click" Grid.ColumnSpan="2"/>
+        <Button x:Name="btnCatagory3" Content="BagCatagory3" Grid.Row="2" Grid.Column="1" FontSize="30" Margin="238.2,9,8.6,9.4" Click="BtnCatagory3_Click" Grid.ColumnSpan="2"/>
+        <Button x:Name="btnCatagory4" Content="BagCatagory4" Grid.Row="3" Grid.Column="1" FontSize="30" Margin="238.2,9,8.6,9.4" Click="BtnCatagory4_Click" Grid.ColumnSpan="2"/>
 
 
     </Grid>

@@ -38,7 +38,6 @@ C:\Users\colers\Documents\GitHub\DatamanipulatiePok-monAaronLaraBryant\PokemonWP
 C:\Users\colers\Documents\GitHub\DatamanipulatiePok-monAaronLaraBryant\PokemonWPF\PokemonDAL\bin\Debug\MaterialDesignColors.pdb
 C:\Users\colers\Documents\GitHub\DatamanipulatiePok-monAaronLaraBryant\PokemonWPF\PokemonDAL\bin\Debug\MaterialDesignThemes.Wpf.pdb
 C:\Users\colers\Documents\GitHub\DatamanipulatiePok-monAaronLaraBryant\PokemonWPF\PokemonDAL\bin\Debug\MaterialDesignThemes.Wpf.xml
-C:\Users\colers\Documents\GitHub\DatamanipulatiePok-monAaronLaraBryant\PokemonWPF\PokemonDAL\obj\Debug\PokemonDAL.csprojAssemblyReference.cache
 C:\Users\colers\Documents\GitHub\DatamanipulatiePok-monAaronLaraBryant\PokemonWPF\PokemonDAL\obj\Debug\PokemonDAL.csproj.CoreCompileInputs.cache
 C:\Users\colers\Documents\GitHub\DatamanipulatiePok-monAaronLaraBryant\PokemonWPF\PokemonDAL\obj\Debug\PokemonDAL.csproj.CopyComplete
 C:\Users\colers\Documents\GitHub\DatamanipulatiePok-monAaronLaraBryant\PokemonWPF\PokemonDAL\obj\Debug\PokemonDAL.dll
