@@ -22,11 +22,11 @@
         <Label x:Name="lblName" Content="Name:" FontSize="40" HorizontalAlignment="Center"/>
         <Label x:Name="lblType" Content="Type:" Grid.Row="1" FontSize="40" HorizontalAlignment="Center"/>
         <Label x:Name="lblSort" Content="Sort by:" Grid.Row="3" FontSize="40" HorizontalAlignment="Center"/>
-        <Button x:Name="btnSearch" Content="Search" Grid.Row="2" FontSize="30" Margin="9" />
-        <Button x:Name="btnStartSorting" Content="Start Sorting" Grid.Row="4" FontSize="30" Margin="9" />
+        <Button x:Name="btnSearch" Content="Search" Grid.Row="2" FontSize="30" Margin="9" Click="BtnSearch_Click" />
+        <Button x:Name="btnStartSorting" Content="Start Sorting" Grid.Row="4" FontSize="30" Margin="9" Click="BtnStartSorting_Click" />
         <Button x:Name="btnBack" Content="Back" Grid.Row="4" Grid.Column="1" FontSize="30" Margin="9" Click="BtnBack_Click"/>
-        <TextBox x:Name="tbName" FontSize="30" Margin="9" Grid.Column="1"/>
-        <ComboBox x:Name="cbType" Grid.Column="1" Grid.Row="1" Margin="9"/>
+        <TextBox x:Name="tbName" VerticalAlignment="Center" FontSize="30" Margin="9" Grid.Column="1"/>
+        <ComboBox x:Name="cbType" Grid.Column="1" Grid.Row="1" Margin="9" />
         <ComboBox x:Name="cbSortBy" Grid.Column="1" Grid.Row="3" Margin="9"/>
 
     </Grid>

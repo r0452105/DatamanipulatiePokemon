@@ -10,3 +10,14 @@ C:\Users\vdb\Documents\GitHub\DatamanipulatiePok-monAaronLaraBryant\PokemonWPF\P
 C:\Users\vdb\Documents\GitHub\DatamanipulatiePok-monAaronLaraBryant\PokemonWPF\PokemonDAL\obj\Debug\PokemonDAL.csproj.CopyComplete
 C:\Users\vdb\Documents\GitHub\DatamanipulatiePok-monAaronLaraBryant\PokemonWPF\PokemonDAL\obj\Debug\PokemonDAL.dll
 C:\Users\vdb\Documents\GitHub\DatamanipulatiePok-monAaronLaraBryant\PokemonWPF\PokemonDAL\obj\Debug\PokemonDAL.pdb
+C:\Users\Gebruiker\Documents\GitHub\DatamanipulatiePok-monAaronLaraBryant\PokemonWPF\PokemonDAL\obj\Debug\PokemonDAL.csproj.CoreCompileInputs.cache
+C:\Users\Gebruiker\Documents\GitHub\DatamanipulatiePok-monAaronLaraBryant\PokemonWPF\PokemonDAL\obj\Debug\PokemonDAL.dll
+C:\Users\Gebruiker\Documents\GitHub\DatamanipulatiePok-monAaronLaraBryant\PokemonWPF\PokemonDAL\obj\Debug\PokemonDAL.pdb
+C:\Users\Gebruiker\Documents\GitHub\DatamanipulatiePok-monAaronLaraBryant\PokemonWPF\PokemonDAL\bin\Debug\PokemonDAL.dll.config
+C:\Users\Gebruiker\Documents\GitHub\DatamanipulatiePok-monAaronLaraBryant\PokemonWPF\PokemonDAL\bin\Debug\PokemonDAL.dll
+C:\Users\Gebruiker\Documents\GitHub\DatamanipulatiePok-monAaronLaraBryant\PokemonWPF\PokemonDAL\bin\Debug\PokemonDAL.pdb
+C:\Users\Gebruiker\Documents\GitHub\DatamanipulatiePok-monAaronLaraBryant\PokemonWPF\PokemonDAL\bin\Debug\EntityFramework.dll
+C:\Users\Gebruiker\Documents\GitHub\DatamanipulatiePok-monAaronLaraBryant\PokemonWPF\PokemonDAL\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Gebruiker\Documents\GitHub\DatamanipulatiePok-monAaronLaraBryant\PokemonWPF\PokemonDAL\bin\Debug\EntityFramework.xml
+C:\Users\Gebruiker\Documents\GitHub\DatamanipulatiePok-monAaronLaraBryant\PokemonWPF\PokemonDAL\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Gebruiker\Documents\GitHub\DatamanipulatiePok-monAaronLaraBryant\PokemonWPF\PokemonDAL\obj\Debug\PokemonDAL.csproj.CopyComplete
