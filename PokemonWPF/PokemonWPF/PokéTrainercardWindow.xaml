@@ -23,6 +23,6 @@
 
         <Label x:Name="lblName" Background="White" Grid.Row="0" Grid.RowSpan="3" Grid.Column="0" Grid.ColumnSpan="2" Content="" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="20" Margin="30,22,29.8,20" BorderBrush="Black" BorderThickness="3"/>
         <Label x:Name="lblPokéinfo" Background="White" Grid.Row="3" Grid.RowSpan="2" Grid.Column="0" Grid.ColumnSpan="3" Content="" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="20" Margin="30,22,29.8,20" BorderBrush="Black" BorderThickness="3"/>
-        <Button x:Name="btnBadges" Content="Badges" Grid.Row="4" Grid.Column="0" FontSize="26" Click="BtnBack_Click" Margin="30,69.2,254.6,20" Grid.ColumnSpan="2" Grid.RowSpan="2"/>
+        <Button x:Name="btnBadges" Content="Badges" Grid.Row="4" Grid.Column="0" FontSize="26" Click="BtnBadges_Click" Margin="30,69.2,254.6,20" Grid.ColumnSpan="2" Grid.RowSpan="2" RenderTransformOrigin="0.501,0.5"/>
     </Grid>
 </Window>

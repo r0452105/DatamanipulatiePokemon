@@ -12,7 +12,9 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Drawing;
 using PokemonDAL;
+using PokemonModels;
 
 namespace PokemonWPF
 {
@@ -23,18 +25,22 @@ namespace PokemonWPF
     {
         public List<string> menuElements = new List<string>();
         public Trainer trainer = DatabaseOperations.SelectTrainer(2);
-
+       
         public MainWindow()
         {
             InitializeComponent();
+           
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            Bulbasaur bulba = new Bulbasaur();
             menuElements.Add("Pokedex");
             menuElements.Add("Party");
             menuElements.Add("Inventory");
             menuElements.Add(trainer.TrainerName);
             menuElements.Add("Exit");
-
-
-
+           
             lbMenu.ItemsSource = menuElements;
         }
 
@@ -74,25 +80,30 @@ namespace PokemonWPF
 
                     break;
                 case 1:
+                    
+                    PokemonParty partyscreen = new PokemonParty();
+                    partyscreen.trainerParty = trainer;
                     this.Visibility = Visibility.Hidden;
-                    //MAAK HIER DE CODE VOOR DE PARTY AAN TE ROEPEN MET SHOW DIALOG, EN PASS DE TRAINER VARIABLE ER NAAR TOE
-
-
-
+                    partyscreen.ShowDialog();
                     this.Visibility = Visibility.Visible;
                     break;
                 case 2:
+                    PokébagWindow inventoryscreen = new PokébagWindow();
+                    inventoryscreen.trainerInventory = trainer;
+
                     this.Visibility = Visibility.Hidden;
                     //MAAK HIER DE CODE VOOR DE INVENTORY  TE ROEPEN MET SHOW DIALOG, EN PASS DE TRAINER VARIABLE ER NAAR TOE
 
-
+                    inventoryscreen.ShowDialog();
 
                     this.Visibility = Visibility.Visible;
                     break;
                 case 3:
+                    PokéTrainercardWindow trainerscreen = new PokéTrainercardWindow();
+                    trainerscreen.trainerCard = trainer;
                     this.Visibility = Visibility.Hidden;
                     //MAAK HIER DE CODE VOOR DE TRAINER CARRD AAN TE ROEPEN MET SHOW DIALOG, EN PASS DE TRAINER VARIABLE ER NAAR TOE
-
+                    trainerscreen.ShowDialog();
                     this.Visibility = Visibility.Visible;
                     break;
                 default: Close();
@@ -100,5 +111,7 @@ namespace PokemonWPF
                     break;
             }
         }
+
+       
     }
 }
