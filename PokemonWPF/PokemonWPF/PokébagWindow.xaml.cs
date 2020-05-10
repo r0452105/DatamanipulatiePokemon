@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using PokemonDAL;
 
 namespace PokemonWPF
 {
@@ -19,7 +20,8 @@ namespace PokemonWPF
     /// </summary>
     public partial class PokébagWindow : Window
     {
-        public MainWindow WindowToAlter;
+        public Trainer trainerInventory;
+
         public PokébagWindow()
         {
             InitializeComponent();
@@ -28,8 +30,37 @@ namespace PokemonWPF
         private void BtnBack_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
-            WindowToAlter.Visibility = Visibility.Visible;
+           
         }
 
+        private void LbPokébag_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+        private void LbPokébag_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+
+        }
+
+        private void BtnCatagory1_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void BtnCatagory2_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void BtnCatagory3_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void BtnCatagory4_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

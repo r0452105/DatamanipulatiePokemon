@@ -11,6 +11,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using PokemonDAL;
+using PokemonWPF;
 
 namespace PokemonWPF
 {
@@ -20,9 +22,19 @@ namespace PokemonWPF
     public partial class PokémonInfoWindow : Window
     {
         public PokédexWindow DexWindowToAlter;
+        
+
         public PokémonInfoWindow()
         {
             InitializeComponent();
+
+            
+        }
+
+        private void BtnBack_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+            DexWindowToAlter.Visibility = Visibility.Visible;
         }
     }
 }

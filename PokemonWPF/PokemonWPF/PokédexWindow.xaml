@@ -21,32 +21,8 @@
 
 
         <Label x:Name="lblSeenCaptured" Background="White" Grid.Column="0" Grid.Row="1" Content="" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="20" Margin="30,22,29.8,20" BorderBrush="Black" BorderThickness="3"/>
+        <Image x:Name="imgPicturePokémon"/>
         <ListBox x:Name="lbPokédex" Grid.Column="1" Grid.Row="0" Grid.RowSpan="2" Margin="100,20" ScrollViewer.VerticalScrollBarVisibility="Visible" BorderBrush="Black" BorderThickness="3" SelectionChanged="LbPokédex_SelectionChanged" MouseDoubleClick="LbPokédex_MouseDoubleClick">
-            <ListBoxItem x:Name="lbiNumber1" Content="X Bulbasaur"></ListBoxItem>
-            <ListBoxItem x:Name="lbiNumber2" Content="-----"></ListBoxItem>
-            <ListBoxItem x:Name="lbiNumber3" Content="-----"></ListBoxItem>
-            <ListBoxItem x:Name="lbiNumber4" Content="-----"></ListBoxItem>
-            <ListBoxItem x:Name="lbiNumber5" Content="-----"></ListBoxItem>
-            <ListBoxItem x:Name="lbiNumber6" Content="-----"></ListBoxItem>
-            <ListBoxItem x:Name="lbiNumber7" Content="-----"></ListBoxItem>
-            <ListBoxItem x:Name="lbiNumber8" Content="-----"></ListBoxItem>
-            <ListBoxItem x:Name="lbiNumber9" Content="-----"></ListBoxItem>
-            <ListBoxItem x:Name="lbiNumber10" Content="-----"></ListBoxItem>
-            <ListBoxItem x:Name="lbiNumber11" Content="-----"></ListBoxItem>
-            <ListBoxItem x:Name="lbiNumber12" Content="-----"></ListBoxItem>
-            <ListBoxItem x:Name="lbiNumber13" Content="-----"></ListBoxItem>
-            <ListBoxItem x:Name="lbiNumber14" Content="-----"></ListBoxItem>
-            <ListBoxItem x:Name="lbiNumber15" Content="-----"></ListBoxItem>
-            <ListBoxItem x:Name="lbiNumber16" Content="-----"></ListBoxItem>
-            <ListBoxItem x:Name="lbiNumber17" Content="-----"></ListBoxItem>
-            <ListBoxItem x:Name="lbiNumber18" Content="-----"></ListBoxItem>
-            <ListBoxItem x:Name="lbiNumber19" Content="-----"></ListBoxItem>
-            <ListBoxItem x:Name="lbiNumber20" Content="-----"></ListBoxItem>
-            <ListBoxItem x:Name="lbiNumber21" Content="-----"></ListBoxItem>
-            <ListBoxItem x:Name="lbiNumber22" Content="-----"></ListBoxItem>
-            <ListBoxItem x:Name="lbiNumber23" Content="-----"></ListBoxItem>
-            <ListBoxItem x:Name="lbiNumber24" Content="-----"></ListBoxItem>
-            <ListBoxItem x:Name="lbiNumber25" Content="  Pikachu"></ListBoxItem>
         </ListBox>
         <Button x:Name="btnSearch" Grid.Column="0" Grid.Row="2" Content="Search" Margin="8" BorderBrush="Black" BorderThickness="3" Click="BtnSearch_Click"/>
         <Button x:Name="btnBack" Grid.Column="1" Grid.Row="2" Content="Back" Margin="8" BorderBrush="Black" BorderThickness="3" Click="BtnBack_Click" />

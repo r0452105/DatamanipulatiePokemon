@@ -1,0 +1,244 @@
+﻿<Window x:Class="PokemonWPF.PokemonInfo"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        Background="Black"
+         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:local="clr-namespace:PokemonWPF"
+        mc:Ignorable="d"
+        Loaded="Window_Loaded"
+        Title="PokemonInfo" Height="450" Width="600">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="4*"/>
+            <ColumnDefinition Width="6*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="5*"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Border Margin="10" Grid.Column="0" Grid.Row="0" BorderBrush="DarkGray" BorderThickness="3" CornerRadius="3" Background="LightGray">
+        <Grid >
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition Height="4*"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+                <StackPanel Grid.Row="0" Orientation="Horizontal">
+                    <Label Margin="5" FontSize="20" Name="lblPokemonNick" Width="150" HorizontalAlignment="Left" FontStyle="Italic" FontFamily="Trebuchet MS" FontWeight="Bold" Content="Undefined"/>
+                    <Label Margin="8" FontSize="20" Name="lblPokemonGenderMale" Width="40" Visibility="Collapsed" HorizontalAlignment="Left">
+                        <materialDesign:PackIcon Kind = 'GenderMale' />
+                    </Label>
+                    <Label Margin="8" FontSize="20" Name="lblPokemonGenderFemale" Visibility="Collapsed" Width="40" HorizontalAlignment="Left">
+                        <materialDesign:PackIcon Kind = 'GenderFeMale' />
+                    </Label>
+                </StackPanel>
+                <Label Margin="5" Grid.Row="1" FontSize="18" Name="lblPokemonLvl"  HorizontalAlignment="Left" FontStyle="Italic"  FontWeight="Bold" FontFamily="Trebuchet MS" Content="Lvl" />
+                <Image Grid.Row="2" Margin="5" Name="imgPokemon"/>
+                <Label Margin="5" Grid.Row="3" FontSize="20" Name="lblPokemonItem"  HorizontalAlignment="Left" FontStyle="Italic" FontWeight="Bold" FontFamily="Trebuchet MS" Content="Held: None" />
+            </Grid>
+           
+        </Border>
+        <StackPanel Margin="5" Grid.Row="1" Grid.Column="0" Orientation="Horizontal" HorizontalAlignment="Center">
+            <Button Style="{StaticResource MaterialDesignRaisedButton}" Margin="4" Name="btnRed" Click="btnRed_Click"
+     Background="IndianRed" Width="50"
+                         
+    Content=""  />
+            <Button Click="btnYellow_Click"
+    Style="{StaticResource  MaterialDesignRaisedButton}" Margin="4" Name="btnYellow" Width="50" Background="Yellow"  Content="" />
+            <Button Style="{StaticResource  MaterialDesignRaisedButton}" Margin="4" Background="PaleVioletRed" Width="50" Name="btnPink" Click="btnPink_Click"
+    Content=""  />
+
+        </StackPanel>
+
+        <Border Name="CardInfo"  Grid.Row="0" Grid.Column="1" Margin="10" BorderBrush="DarkGray" Background="IndianRed" BorderThickness="3" CornerRadius="3">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+            <Grid x:Name="GridRed" Margin="5" >
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition Width="5*"/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition Width="5*"/>
+                </Grid.ColumnDefinitions>
+
+            <Label HorizontalContentAlignment="Right" Grid.Row="0" Grid.Column="1" FontStyle="Italic"  FontWeight="Bold" FontFamily="Trebuchet MS" FontSize="22" Content="DexNr:"/>
+                <Label  HorizontalContentAlignment="Right" Grid.Row="1" Grid.Column="1" FontStyle="Italic"  FontWeight="Bold" FontFamily="Trebuchet MS" FontSize="22" Content="Species:"/>
+                <Label  HorizontalContentAlignment="Right" Grid.Row="3" Grid.Column="1" FontStyle="Italic"  FontWeight="Bold" FontFamily="Trebuchet MS" FontSize="22" Content="Type:"/>
+                <Label  HorizontalContentAlignment="Right" Grid.Row="4" Grid.Column="1" FontStyle="Italic"  FontWeight="Bold" FontFamily="Trebuchet MS" FontSize="22" Content="TrainerID:"/>
+                <Label  HorizontalContentAlignment="Right" Grid.Row="5" Grid.Column="1" FontStyle="Italic"  FontWeight="Bold" FontFamily="Trebuchet MS" FontSize="22" Content="PokemonID:"/>
+                <Label  HorizontalContentAlignment="Right" Grid.Row="7" Grid.Column="1" FontStyle="Italic"  FontWeight="Bold" FontFamily="Trebuchet MS" FontSize="22" Content="XP total:"/>
+                <Label  HorizontalContentAlignment="Right" Grid.Row="8" Grid.Column="1" FontStyle="Italic"  FontWeight="Bold" FontFamily="Trebuchet MS" FontSize="22" Content="XP to level:"/>
+                
+                <Label Name="lblDexNr"  HorizontalContentAlignment="Left" Grid.Row="0" Grid.Column="3" FontStyle="Italic" FontFamily="Trebuchet MS" FontSize="22" Content=""/>
+                <Label Name="lblSpecies"  HorizontalContentAlignment="Left" Grid.Row="1" Grid.Column="3" FontStyle="Italic" FontFamily="Trebuchet MS" FontSize="22" Content=""/>
+                <WrapPanel   Grid.Row="3" Grid.Column="3">
+                    <Border x:Name="borderType1" CornerRadius="10" BorderThickness="2" >
+                        <Label Name="lblType1" FontFamily="Trebuchet MS" FontSize="16" Foreground="Black"></Label>
+                    </Border>
+                    <Border  x:Name="borderType2" CornerRadius="10" BorderThickness="2">
+                        <Label Name="lblType2" FontFamily="Trebuchet MS" FontSize="16" Foreground="Black"></Label>
+                    </Border>
+                </WrapPanel>
+                <Label Name="lblOriginalTrainer"  HorizontalContentAlignment="Left" Grid.Row="4" Grid.Column="3" FontStyle="Italic" FontFamily="Trebuchet MS" FontSize="22" Content=""/>
+                <Label Name="lblPokemonID"  HorizontalContentAlignment="Left" Grid.Row="5" Grid.Column="3" FontStyle="Italic" FontFamily="Trebuchet MS" FontSize="22" Content=""/>
+                <Label Name="lblTotalXp"  HorizontalContentAlignment="Left" Grid.Row="7" Grid.Column="3" FontStyle="Italic" FontFamily="Trebuchet MS" FontSize="20" Content=""/>
+                <Label Name="lblXpToNextLevel"  HorizontalContentAlignment="Left" Grid.Row="8" Grid.Column="3" FontStyle="Italic" FontFamily="Trebuchet MS" FontSize="20" Content=""/>
+                <ProgressBar Value="100" Grid.Row="9" Height="15" Grid.Column="1" Grid.ColumnSpan="3" Foreground="CornflowerBlue"></ProgressBar>
+                </Grid>
+                <Grid x:Name="GridYellow" Margin="5" >
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition Width="5*"/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition Width="5*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Label HorizontalContentAlignment="Right" Grid.Row="0" Grid.Column="1" FontStyle="Italic"  FontWeight="Bold" FontFamily="Trebuchet MS" FontSize="22" Content="Health:"/>
+                    <Label  HorizontalContentAlignment="Right" Grid.Row="2" Grid.Column="1" FontStyle="Italic"  FontWeight="Bold" FontFamily="Trebuchet MS" FontSize="22" Content="Attack:"/>
+                    <Label  HorizontalContentAlignment="Right" Grid.Row="3" Grid.Column="1" FontStyle="Italic"  FontWeight="Bold" FontFamily="Trebuchet MS" FontSize="22" Content="Defence:"/>
+                    <Label  HorizontalContentAlignment="Right" Grid.Row="4" Grid.Column="1" FontStyle="Italic"  FontWeight="Bold" FontFamily="Trebuchet MS" FontSize="22" Content="Special attack:"/>
+                    <Label  HorizontalContentAlignment="Right" Grid.Row="5" Grid.Column="1" FontStyle="Italic"  FontWeight="Bold" FontFamily="Trebuchet MS" FontSize="22" Content="Special defence:"/>
+                    <Label  HorizontalContentAlignment="Right" Grid.Row="6" Grid.Column="1" FontStyle="Italic"  FontWeight="Bold" FontFamily="Trebuchet MS" FontSize="22" Content="Speed:"/>
+                    <Label  HorizontalContentAlignment="Right" Grid.Row="8" Grid.Column="1" FontStyle="Italic"  FontWeight="Bold" FontFamily="Trebuchet MS" FontSize="22" Content="Nature:"/>
+                    <Label  HorizontalContentAlignment="Right" Grid.Row="9" Grid.Column="1" FontStyle="Italic"  FontWeight="Bold" FontFamily="Trebuchet MS" FontSize="22" Content="Ability:"/>
+
+                    <Label Name="lblHPstat"  HorizontalContentAlignment="Left" Grid.Row="0" Grid.Column="3" FontStyle="Italic" FontFamily="Trebuchet MS" FontSize="22" Content=""/>
+                    <Label Name="lblAttackstat"  HorizontalContentAlignment="Left" Grid.Row="2" Grid.Column="3" FontStyle="Italic" FontFamily="Trebuchet MS" FontSize="22" Content=""/>
+                    <Label Name="lblDefensestat"  HorizontalContentAlignment="Left" Grid.Row="3" Grid.Column="3" FontStyle="Italic" FontFamily="Trebuchet MS" FontSize="22" Content=""/>
+                    <Label Name="lblspAttackstat"  HorizontalContentAlignment="Left" Grid.Row="4" Grid.Column="3" FontStyle="Italic" FontFamily="Trebuchet MS" FontSize="22" Content=""/>
+                    <Label Name="lblSpdefencestat"  HorizontalContentAlignment="Left" Grid.Row="5" Grid.Column="3" FontStyle="Italic" FontFamily="Trebuchet MS" FontSize="22" Content=""/>
+                    <Label Name="lblSpeed"  HorizontalContentAlignment="Left" Grid.Row="6" Grid.Column="3" FontStyle="Italic" FontFamily="Trebuchet MS" FontSize="20" Content=""/>
+                    <Label Name="lblNature"  HorizontalContentAlignment="Left" Grid.Row="8" Grid.Column="3" FontStyle="Italic" FontFamily="Trebuchet MS" FontSize="20" Content=""/>
+                    <Label Name="lblAbility"  HorizontalContentAlignment="Left" Grid.Row="9" Grid.Column="3" FontStyle="Italic" FontFamily="Trebuchet MS" FontSize="20" Content=""/>
+                  
+                </Grid>
+
+                <Grid x:Name="GridPink" Margin="5">
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+
+                    <Border Visibility="Hidden" Width="300" x:Name="CardMove1" Margin="5" CornerRadius="3" Grid.Row="0" BorderBrush="DarkGray" Background="White" BorderThickness="2">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="4*"/>
+                                <RowDefinition Height="3*"/>
+                                <RowDefinition  Height="3*"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+                            <Border Name="borderMoveType1" CornerRadius="10" BorderThickness="2" Grid.Row="0" Grid.Column="0">
+                                <Label Name="lblMoveType1" FontFamily="Trebuchet MS" FontSize="11" Foreground="Black"></Label>
+                            </Border>
+                            <Label Name="lblMoveName1" FontFamily="Trebuchet MS" FontSize="12" Grid.Column="1"/>
+                            <Label Name="lblMoveAccuracy1" FontFamily="Trebuchet MS" FontSize="12" Grid.Row="1"/>
+                            <Label Name="lblMoveDamage1" FontFamily="Trebuchet MS" FontSize="12" Grid.Row="1" Grid.Column="1"/>
+                            <Label Grid.Row="2" FontFamily="Trebuchet MS" FontSize="12" HorizontalContentAlignment="Right" Content="PP:"/>
+                            <Label Name="lblPP1" FontFamily="Trebuchet MS" FontSize="12" Grid.Row="2" Grid.Column="1"/>
+                        </Grid>
+                    </Border>
+                    <Border  Visibility="Hidden" Width="300" x:Name="CardMove2" Margin="5" CornerRadius="3" Grid.Row="1" BorderBrush="DarkGray" Background="White" BorderThickness="2">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="4*"/>
+                                <RowDefinition Height="3*"/>
+                                <RowDefinition  Height="3*"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+                            <Border Name="borderMoveType2" CornerRadius="10" BorderThickness="2" Grid.Row="0" Grid.Column="0">
+                                <Label Name="lblMoveType2" FontFamily="Trebuchet MS" FontSize="11" Foreground="Black"></Label>
+                            </Border>
+                            <Label Name="lblMoveName2" FontFamily="Trebuchet MS" FontSize="12" Grid.Column="1"/>
+                            <Label Name="lblMoveAccuracy2" FontFamily="Trebuchet MS" FontSize="12" Grid.Row="1"/>
+                            <Label Name="lblMoveDamage2" FontFamily="Trebuchet MS" FontSize="12" Grid.Row="1" Grid.Column="1"/>
+                            <Label Grid.Row="2" FontFamily="Trebuchet MS" FontSize="12" HorizontalContentAlignment="Right" Content="PP:"/>
+                            <Label Name="lblPP2" FontFamily="Trebuchet MS" FontSize="12" Grid.Row="2" Grid.Column="1"/>
+                        </Grid>
+                    </Border>
+                    <Border  Visibility="Hidden" Width="300" x:Name="CardMove3" Margin="5" CornerRadius="3" Grid.Row="2" BorderBrush="DarkGray" Background="White" BorderThickness="2">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="4*"/>
+                                <RowDefinition Height="3*"/>
+                                <RowDefinition  Height="3*"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+                            <Border Name="borderMoveType3" CornerRadius="10" BorderThickness="2" Grid.Row="0" Grid.Column="0">
+                                <Label Name="lblMoveType3" FontFamily="Trebuchet MS" FontSize="11" Foreground="Black"></Label>
+                            </Border>
+                            <Label Name="lblMoveName3" FontFamily="Trebuchet MS" FontSize="12" Grid.Column="1"/>
+                            <Label Name="lblMoveAccuracy3" FontFamily="Trebuchet MS" FontSize="12" Grid.Row="1"/>
+                            <Label Name="lblMoveDamage3" FontFamily="Trebuchet MS" FontSize="12" Grid.Row="1" Grid.Column="1"/>
+                            <Label Grid.Row="2" FontFamily="Trebuchet MS" FontSize="12" HorizontalContentAlignment="Right" Content="PP:"/>
+                            <Label Name="lblPP3" FontFamily="Trebuchet MS" FontSize="12" Grid.Row="2" Grid.Column="1"/>
+                        </Grid>
+                    </Border>
+                    <Border Visibility="Hidden" Width="300" x:Name="CardMove4" Margin="5" CornerRadius="3" Grid.Row="3" BorderBrush="DarkGray" Background="White" BorderThickness="2">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="4*"/>
+                                <RowDefinition Height="3*"/>
+                                <RowDefinition  Height="3*"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+                            <Border Name="borderMoveType4" CornerRadius="10" BorderThickness="2" Grid.Row="0" Grid.Column="0">
+                                <Label Name="lblMoveType4" FontFamily="Trebuchet MS" FontSize="11" Foreground="Black"></Label>
+                            </Border>
+                            <Label Name="lblMoveName4" FontFamily="Trebuchet MS" FontSize="12" Grid.Column="1"/>
+                            <Label Name="lblMoveAccuracy4" FontFamily="Trebuchet MS" FontSize="12" Grid.Row="1" Grid.Column="0"/>
+                            <Label Name="lblMoveDamage4" FontFamily="Trebuchet MS" FontSize="12" Grid.Row="1" Grid.Column="1"/>
+                            <Label Grid.Row="2" FontFamily="Trebuchet MS" FontSize="12" HorizontalContentAlignment="Right" Content="PP:"/>
+                            <Label Name="lblPP4" FontFamily="Trebuchet MS" FontSize="12" Grid.Row="2" Grid.Column="1"/>
+                        </Grid>
+                    </Border>
+
+                </Grid>
+            </StackPanel>
+
+        </Border>
+       
+        <Button Grid.Row="1" Grid.Column="1" Margin="5" HorizontalAlignment="Right" Content="Exit" Name="btnClose" Click="BtnClose_Click"></Button>
+    
+    </Grid>
+</Window>
