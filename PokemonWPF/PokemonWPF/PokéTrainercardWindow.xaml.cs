@@ -30,7 +30,9 @@ namespace PokemonWPF
 
         private void BtnBadges_Click(object sender, RoutedEventArgs e)
         {
-
+            PokéBadgesWindow objPokéBadgesWindow = new PokéBadgesWindow();
+            this.Visibility = Visibility.Hidden;
+            objPokéBadgesWindow.Show();
         }
     }
 }
