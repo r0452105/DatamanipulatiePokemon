@@ -1,0 +1,53 @@
+﻿<Window x:Class="PokemonWPF.PokemonPartyCRUD"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PokemonWPF"
+        mc:Ignorable="d"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        Background="Black"
+        Loaded="Window_Loaded"
+        Title="PokemonPartyCRUD" Height="300" Width="650">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0.8*"/>
+            <ColumnDefinition Width="1.2*" />
+            <ColumnDefinition/>
+            <ColumnDefinition Width="0.8*"/>
+            <ColumnDefinition Width="0.8*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Button Grid.Column="4" Grid.Row="3"  Margin="10"  Content="Cancel" FontSize="20" Name="btnCancel" Click="btnCancel_Click"/>
+        <Button Grid.Column="2" Grid.Row="3" IsEnabled="False" Margin="10"  Content="Change" FontSize="20" Name="btnChange" Click="btnChange_Click"/>
+        <Button Grid.Column="1" Grid.Row="3" IsEnabled="False" Margin="10"  Content="Remove" FontSize="20" Name="btnDelete" Click="btnDelete_Click"/>
+        <Button Grid.Column="0" Grid.Row="3" IsEnabled="False" Margin="10"  Content="Add" FontSize="20" Name="btnAdd" Click="btnAdd_Click"/>
+        <Label FontFamily="Trebuchet MS" Grid.Column="0" Content="Position" Foreground="White" VerticalContentAlignment="Center" HorizontalAlignment="Center" FontSize="26"/>
+        <Label FontFamily="Trebuchet MS" Grid.Column="1" Content="Pokemon" Foreground="White" VerticalContentAlignment="Center" HorizontalAlignment="Center" FontSize="26"/>
+        <Label FontFamily="Trebuchet MS" Grid.Column="2" Content="Nickname" Foreground="White" VerticalContentAlignment="Center" HorizontalAlignment="Center" FontSize="26"/>
+        <Label  FontFamily="Trebuchet MS" Grid.Column="3" Content="Level" Foreground="White" VerticalContentAlignment="Center" HorizontalAlignment="Center" FontSize="26"/>
+        <Label  FontFamily="Trebuchet MS" Grid.Column="4" Content="Gender" Foreground="White" VerticalContentAlignment="Center" HorizontalAlignment="Center" FontSize="26"/>
+
+        <ComboBox Style="{StaticResource MaterialDesignFloatingHintComboBox}" Name="cmbPosition" Grid.Row="1" Margin="5" VerticalAlignment="Center" FontSize="20" Background="White">
+            <ComboBoxItem>1</ComboBoxItem>
+            <ComboBoxItem>2</ComboBoxItem>
+            <ComboBoxItem>3</ComboBoxItem>
+            <ComboBoxItem>4</ComboBoxItem>
+            <ComboBoxItem>5</ComboBoxItem>
+            <ComboBoxItem>6</ComboBoxItem>
+        </ComboBox>
+        <ComboBox   Style="{StaticResource MaterialDesignFloatingHintComboBox}" Name="cmbPokemon" Grid.Column="1" Grid.Row="1" Margin="5" VerticalAlignment="Center" FontSize="20" Background="White"></ComboBox>
+        <TextBox  materialDesign:HintAssist.Hint="Nickname" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Grid.Column="2" Grid.Row="1" VerticalAlignment="Center" Name="txtName" FontSize="20" Background="White" Margin="5"/>
+        <TextBox materialDesign:HintAssist.Hint="Level" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Grid.Column="3" Grid.Row="1" VerticalAlignment="Center" Name="txtLvl" FontSize="20" Background="White" Margin="5"/>
+
+        <ComboBox Style="{StaticResource MaterialDesignFloatingHintComboBox}" SelectedIndex="0" Name="cmbGender" Grid.Column="4" Grid.Row="1" Margin="5" VerticalAlignment="Center" FontSize="20" Background="White">
+            <ComboBoxItem>Male</ComboBoxItem>
+            <ComboBoxItem>Female</ComboBoxItem>
+            
+        </ComboBox>
+    </Grid>
+</Window>
