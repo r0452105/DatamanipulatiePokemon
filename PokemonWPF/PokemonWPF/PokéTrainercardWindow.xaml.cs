@@ -21,18 +21,32 @@ namespace PokemonWPF
     public partial class PokéTrainercardWindow : Window
     {
         public Trainer trainerCard;
+        
+        
+ 
         public PokéTrainercardWindow()
         {
             InitializeComponent();
         }
 
- 
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            
+        }
+
+
+
 
         private void BtnBadges_Click(object sender, RoutedEventArgs e)
         {
             PokéBadgesWindow objPokéBadgesWindow = new PokéBadgesWindow();
             this.Visibility = Visibility.Hidden;
             objPokéBadgesWindow.Show();
+        }
+
+        private void lblName_TextInput(object sender, TextCompositionEventArgs e)
+        {
+
         }
     }
 }

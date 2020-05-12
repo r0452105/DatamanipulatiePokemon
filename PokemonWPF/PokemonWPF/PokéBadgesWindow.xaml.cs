@@ -30,5 +30,6 @@ namespace PokemonWPF
         {
             this.Close();
         }
+
     }
 }
