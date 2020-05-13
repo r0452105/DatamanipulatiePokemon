@@ -46,7 +46,15 @@ namespace PokemonDAL
                 return query.ToList().Count();
             }
         }
+        public static int CurrentLearnedMoves()
+        {
+            using (DB_r0739290Entities entities = new DB_r0739290Entities())
+            {
+                var query = entities.LearnedMoves;
 
+                return query.ToList().Count();
+            }
+        }
         public static int CurrentStatCollections()
         {
             using (DB_r0739290Entities entities = new DB_r0739290Entities())
