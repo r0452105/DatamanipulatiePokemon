@@ -6,7 +6,8 @@
         xmlns:local="clr-namespace:PokemonWPF"
         mc:Ignorable="d"
         Title="PokébagWindow" Height="450" Width="800">
-    <Grid Background="DarkRed">
+    
+    <Grid Background="LightGray">
         <Grid.RowDefinitions>
             <RowDefinition Height="20*"/>
             <RowDefinition Height="20*"/>
@@ -21,24 +22,20 @@
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
 
-        <ListBox x:Name="lbPokébag" Grid.Column="0" Grid.Row="0" Grid.RowSpan="5" Grid.ColumnSpan="2" Margin="32,20,83.6,20.4" ScrollViewer.VerticalScrollBarVisibility="Visible" BorderBrush="Black" BorderThickness="3" SelectionChanged="LbPokébag_SelectionChanged" MouseDoubleClick="LbPokébag_MouseDoubleClick"   >
-            <ListBoxItem x:Name="lbiNumber1" Content="X "></ListBoxItem>
-            <ListBoxItem x:Name="lbiNumber2" Content="-----"></ListBoxItem>
-            <ListBoxItem x:Name="lbiNumber3" Content="-----"></ListBoxItem>
-            <ListBoxItem x:Name="lbiNumber4" Content="-----"></ListBoxItem>
-            <ListBoxItem x:Name="lbiNumber5" Content="-----"></ListBoxItem>
-            <ListBoxItem x:Name="lbiNumber6" Content="-----"></ListBoxItem>
-            <ListBoxItem x:Name="lbiNumber7" Content="-----"></ListBoxItem>
-            <ListBoxItem x:Name="lbiNumber8" Content="-----"></ListBoxItem>
-            <ListBoxItem x:Name="lbiNumber9" Content="-----"></ListBoxItem>
-            <ListBoxItem x:Name="lbiNumber10" Content="-----"></ListBoxItem>
-            <ListBoxItem x:Name="lbiNumber11" Content="-----"></ListBoxItem>
-
+        <ListBox x:Name="lbPokébag" Grid.Column="0" Grid.Row="0" Grid.RowSpan="5" Grid.ColumnSpan="2" Margin="32,20,83.6,20.4" ScrollViewer.VerticalScrollBarVisibility="Visible" BorderBrush="Black" BorderThickness="3" SelectionChanged="LbPokébag_SelectionChanged" MouseDoubleClick="LbPokébag_MouseDoubleClick">
         </ListBox>
 
+        <ComboBox x:Name="cbSortBy" Grid.Row="5" Margin="32,21.6,0,20" HorizontalAlignment="Left" Width="149" RenderTransformOrigin="-1.144,1.48" BorderThickness="0,0,0,1" >
+            <ComboBoxItem Content="Sort List" FontFamily="Calibri" FontSize="20" IsSelected="True"/>
+            <Separator/>
+            <ComboBoxItem Content="ID" Uid="id"/>
+            <ComboBoxItem Content="Game Name" Uid="Trainer.Game"/>
+            <ComboBoxItem Content="Item Name" Uid="Items.ItemName"/>
+            <ComboBoxItem Content="Player Name" Uid="Trainer.TrainerName"/>
+            <ComboBoxItem Content="Quantity" Uid="Quantity"/>
+        </ComboBox>
 
-        <Label x:Name="lblSort" Content="Sort by:" Grid.Row="4" Grid.Column="0" FontSize="40" HorizontalAlignment="Center" Margin="32,59.2,60.8,10" Grid.RowSpan="2" Width="172"/>
-        <ComboBox x:Name="cbSortBy" Grid.Row="4" Margin="209,69.2,0,18" HorizontalAlignment="Left" Width="237" Grid.ColumnSpan="2" Grid.RowSpan="2"/>
+
         <Button x:Name="btnBack" Content="Back" Grid.Row="4" Grid.Column="1" FontSize="30" Margin="238.2,68.2,8.6,19" Click="BtnBack_Click" Grid.ColumnSpan="2" Grid.RowSpan="2"/>
 
         <Button x:Name="btnCatagory1" Content="BagCatagory1" Grid.Row="0" Grid.Column="1" FontSize="30" Margin="238.2,9,8.6,9.4" Click="BtnCatagory1_Click" Grid.ColumnSpan="2"/>
