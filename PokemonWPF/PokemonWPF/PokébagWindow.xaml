@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:PokemonWPF"
         mc:Ignorable="d"
         Title="PokébagWindow" Height="450" Width="800">
-    
+
     <Grid Background="LightGray">
         <Grid.RowDefinitions>
             <RowDefinition Height="20*"/>
@@ -22,8 +22,28 @@
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
 
-        <ListBox x:Name="lbPokébag" Grid.Column="0" Grid.Row="0" Grid.RowSpan="5" Grid.ColumnSpan="2" Margin="32,20,83.6,20.4" ScrollViewer.VerticalScrollBarVisibility="Visible" BorderBrush="Black" BorderThickness="3" SelectionChanged="LbPokébag_SelectionChanged" MouseDoubleClick="LbPokébag_MouseDoubleClick">
-        </ListBox>
+        <ListView x:Name="lvInventory" ScrollViewer.HorizontalScrollBarVisibility="Hidden" HorizontalAlignment="Left" Height="310" Margin="10,46,0,0" Grid.RowSpan="6" VerticalAlignment="Top" Width="477" Grid.ColumnSpan="2" BorderBrush="Black" BorderThickness="2" FontFamily="Calibri" FontSize="10pt" FontWeight="SemiBold" SelectionMode="Single">
+            <ListView.View>
+                <GridView>
+                    <GridView.ColumnHeaderContainerStyle>
+                        <Style TargetType="{x:Type GridViewColumnHeader}">
+                            <Setter Property="Background" Value="DarkRed"/>
+                            <Setter Property="Foreground" Value="White" />
+                            <Setter Property="FontWeight" Value="Bold" />
+                            <Setter Property="FontSize" Value="10pt" />
+                            <Setter Property="Height" Value="35px" />
+                        </Style>
+                    </GridView.ColumnHeaderContainerStyle>
+                    <GridViewColumn Header="ID" Width="40px"/>
+                    <GridViewColumn Header="Item Name" Width="120px"/>
+                    <GridViewColumn Header="Qty." Width="75px"/>
+                    <GridViewColumn Header="Player" Width="100px"/>
+                    <GridViewColumn Header="Game Name" Width="150px"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        
+        
 
         <ComboBox x:Name="cbSortBy" Grid.Row="5" Margin="32,21.6,0,20" HorizontalAlignment="Left" Width="149" RenderTransformOrigin="-1.144,1.48" BorderThickness="0,0,0,1" >
             <ComboBoxItem Content="Sort List" FontFamily="Calibri" FontSize="20" IsSelected="True"/>
@@ -36,7 +56,7 @@
         </ComboBox>
 
 
-        <Button x:Name="btnBack" Content="Back" Grid.Row="4" Grid.Column="1" FontSize="30" Margin="238.2,68.2,8.6,19" Click="BtnBack_Click" Grid.ColumnSpan="2" Grid.RowSpan="2"/>
+        <Button x:Name="btnBack" Content="Back" Grid.Row="5" Grid.Column="2" FontSize="20" Margin="121.4,8.6,8.6,20" Click="BtnBack_Click" Height="Auto"/>
 
         <Button x:Name="btnCatagory1" Content="BagCatagory1" Grid.Row="0" Grid.Column="1" FontSize="30" Margin="238.2,9,8.6,9.4" Click="BtnCatagory1_Click" Grid.ColumnSpan="2"/>
         <Button x:Name="btnCatagory2" Content="BagCatagory2" Grid.Row="1" Grid.Column="1" FontSize="30" Margin="238.2,9,8.6,9.4" Click="BtnCatagory2_Click" Grid.ColumnSpan="2"/>

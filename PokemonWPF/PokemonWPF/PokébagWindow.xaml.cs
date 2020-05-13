@@ -21,10 +21,12 @@ namespace PokemonWPF
     public partial class PokébagWindow : Window
     {
         public Trainer trainerInventory;
+        List<PokemonDAL.PlayerInventory> lstInventory;
 
         public PokébagWindow()
         {
             InitializeComponent();
+    
         }
 
         private void BtnBack_Click(object sender, RoutedEventArgs e)

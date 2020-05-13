@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:PokemonWPF"
         mc:Ignorable="d"
         Title="PokéTrainercardWindow" Height="450" Width="800">
-    <Grid Background="DarkRed">
+    <Grid Background="LightGray">
         <Grid.RowDefinitions>
             <RowDefinition Height="20*"/>
             <RowDefinition Height="20*"/>
