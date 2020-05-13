@@ -21,7 +21,7 @@ namespace PokemonWPF
     public partial class PokébagWindow : Window
     {
         public Trainer trainerInventory;
-        List<PokemonDAL.PlayerInventory> lstInventory;
+
 
         public PokébagWindow()
         {
@@ -64,5 +64,12 @@ namespace PokemonWPF
         {
 
         }
+
+        private void btnSort_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+     
     }
 }

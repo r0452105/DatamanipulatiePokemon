@@ -22,7 +22,7 @@
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
 
-        <ListView x:Name="lvInventory" ScrollViewer.HorizontalScrollBarVisibility="Hidden" HorizontalAlignment="Left" Height="310" Margin="10,46,0,0" Grid.RowSpan="6" VerticalAlignment="Top" Width="477" Grid.ColumnSpan="2" BorderBrush="Black" BorderThickness="2" FontFamily="Calibri" FontSize="10pt" FontWeight="SemiBold" SelectionMode="Single">
+        <ListView x:Name="lvInventory" ScrollViewer.HorizontalScrollBarVisibility="Hidden" HorizontalAlignment="Left" Height="310" Margin="32,30,0,0" Grid.RowSpan="5" VerticalAlignment="Top" Width="334" Grid.ColumnSpan="2" BorderBrush="Black" BorderThickness="2" FontFamily="Calibri" FontSize="10pt" FontWeight="SemiBold" SelectionMode="Single">
             <ListView.View>
                 <GridView>
                     <GridView.ColumnHeaderContainerStyle>
@@ -36,27 +36,24 @@
                     </GridView.ColumnHeaderContainerStyle>
                     <GridViewColumn Header="ID" Width="40px"/>
                     <GridViewColumn Header="Item Name" Width="120px"/>
-                    <GridViewColumn Header="Qty." Width="75px"/>
+                    <GridViewColumn Header="Quantity" Width="75px"/>
                     <GridViewColumn Header="Player" Width="100px"/>
-                    <GridViewColumn Header="Game Name" Width="150px"/>
                 </GridView>
             </ListView.View>
         </ListView>
-        
-        
 
-        <ComboBox x:Name="cbSortBy" Grid.Row="5" Margin="32,21.6,0,20" HorizontalAlignment="Left" Width="149" RenderTransformOrigin="-1.144,1.48" BorderThickness="0,0,0,1" >
-            <ComboBoxItem Content="Sort List" FontFamily="Calibri" FontSize="20" IsSelected="True"/>
+
+        <ComboBox x:Name="cbSortBy" Grid.Row="5" Margin="32,13.6,0,20" HorizontalAlignment="Left" Width="155" RenderTransformOrigin="-1.144,1.48" BorderThickness="0,0,0,1">
+            <ComboBoxItem Content="Sort List" FontFamily="Calibri" FontSize="30" IsSelected="True"/>
             <Separator/>
             <ComboBoxItem Content="ID" Uid="id"/>
-            <ComboBoxItem Content="Game Name" Uid="Trainer.Game"/>
             <ComboBoxItem Content="Item Name" Uid="Items.ItemName"/>
             <ComboBoxItem Content="Player Name" Uid="Trainer.TrainerName"/>
             <ComboBoxItem Content="Quantity" Uid="Quantity"/>
         </ComboBox>
 
-
-        <Button x:Name="btnBack" Content="Back" Grid.Row="5" Grid.Column="2" FontSize="20" Margin="121.4,8.6,8.6,20" Click="BtnBack_Click" Height="Auto"/>
+        <Button x:Name="btnSort" Content="Sort" FontSize="20" Margin="235,13.6,163.6,20" Click="btnSort_Click" Height="Auto" Grid.Row="5" RenderTransformOrigin="-0.503,0.247" Grid.ColumnSpan="2"/>
+        <Button x:Name="btnBack" Content="Back" Grid.Row="5" Grid.Column="2" FontSize="20" Margin="120.4,13.6,9.6,16" Click="BtnBack_Click" Height="Auto"/>
 
         <Button x:Name="btnCatagory1" Content="BagCatagory1" Grid.Row="0" Grid.Column="1" FontSize="30" Margin="238.2,9,8.6,9.4" Click="BtnCatagory1_Click" Grid.ColumnSpan="2"/>
         <Button x:Name="btnCatagory2" Content="BagCatagory2" Grid.Row="1" Grid.Column="1" FontSize="30" Margin="238.2,9,8.6,9.4" Click="BtnCatagory2_Click" Grid.ColumnSpan="2"/>
