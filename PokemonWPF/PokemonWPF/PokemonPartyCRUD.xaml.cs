@@ -23,6 +23,21 @@ namespace PokemonWPF
         public Trainer currentTrainer;
        public Pokemon CurrentPkm;
         public List<Pokedex> pokedexList ;
+
+        public int baseHP;
+            public int baseAtt;
+            public int baseDef;
+            public int baseSpAtt;
+            public int baseSpDef;
+            public int baseSpeed;
+
+        public int EVHP;
+        public int EVAtt;
+        public int EVDef;
+        public int EVSpAtt;
+        public int EVSpDef;
+        public int EVSpeed;
+
         public PokemonPartyCRUD()
         {
             InitializeComponent();
@@ -49,6 +64,24 @@ namespace PokemonWPF
             if (! string.IsNullOrWhiteSpace(error))
             {
                 MessageBox.Show(error);
+            }
+            else
+            {
+                PokemonStats statWindow = new PokemonStats();
+                statWindow.StatPass = this;
+                statWindow.ShowDialog();
+                StatCollection BaseStats = new StatCollection();
+
+                StatCollection EVStats = new StatCollection();
+
+                StatCollection IVStats = new StatCollection();
+
+                StatCollection EVRewardStats = new StatCollection();
+
+                MessageBox.Show(DatabaseOperations.CurrentStatCollections().ToString());
+
+
+
             }
            
         }

@@ -90,6 +90,9 @@
     <Compile Include="PokemonPartyCRUD.xaml.cs">
       <DependentUpon>PokemonPartyCRUD.xaml</DependentUpon>
     </Compile>
+    <Compile Include="PokemonStats.xaml.cs">
+      <DependentUpon>PokemonStats.xaml</DependentUpon>
+    </Compile>
     <Compile Include="PokéBadgesWindow.xaml.cs">
       <DependentUpon>PokéBadgesWindow.xaml</DependentUpon>
     </Compile>
@@ -121,6 +124,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="PokemonPartyCRUD.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PokemonStats.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

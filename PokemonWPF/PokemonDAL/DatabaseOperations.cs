@@ -37,6 +37,25 @@ namespace PokemonDAL
             }
         }
 
+        public static int CurrentStatpools()
+        {
+            using (DB_r0739290Entities entities = new DB_r0739290Entities())
+            {
+                var query = entities.StatPool;
+                
+                return query.ToList().Count();
+            }
+        }
+
+        public static int CurrentStatCollections()
+        {
+            using (DB_r0739290Entities entities = new DB_r0739290Entities())
+            {
+                var query = entities.StatCollection;
+
+                return query.ToList().Count();
+            }
+        }
         public static List<Pokedex> PokedexEntryAZ()
         {
             using (DB_r0739290Entities entities = new DB_r0739290Entities())
