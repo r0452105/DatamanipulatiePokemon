@@ -34,10 +34,10 @@
                             <Setter Property="Height" Value="35px" />
                         </Style>
                     </GridView.ColumnHeaderContainerStyle>
-                    <GridViewColumn Header="ID" Width="40px"/>
-                    <GridViewColumn Header="Item Name" Width="120px"/>
-                    <GridViewColumn Header="Quantity" Width="75px"/>
-                    <GridViewColumn Header="Player" Width="100px"/>
+                    <GridViewColumn Header="ID" Width="40px" DisplayMemberBinding="{Binding Path=id}" />
+                    <GridViewColumn Header="Item Name" Width="120px" DisplayMemberBinding="{Binding Path=Items.ItemName}" />
+                    <GridViewColumn Header="Quantity" Width="75px" DisplayMemberBinding="{Binding Path=Quantity}"/>
+                    <GridViewColumn Header="Player" Width="100px" DisplayMemberBinding="{Binding Path=Trainer.TrainerName}"/>
                 </GridView>
             </ListView.View>
         </ListView>
@@ -60,14 +60,14 @@
             <ComboBoxItem Content="Player Name" Uid="Trainer.TrainerName"/>
             <ComboBoxItem Content="Quantity" Uid="Quantity"/>
         </ComboBox>
+        <RadioButton x:Name="radioasc" Content="Asc" HorizontalAlignment="Left" Margin="215,26.6,0,0" Grid.Row="5" VerticalAlignment="Top"  IsChecked="True" />
+        <RadioButton x:Name="radiodesc" Content="Desc" Grid.Column="1" HorizontalAlignment="Left" Margin="0.2,26.6,0,0" Grid.Row="5" VerticalAlignment="Top" IsChecked="False" />
 
-        <Button x:Name="btnSort" Content="Sort" FontSize="20" Margin="235,13.6,163.6,20" Click="btnSort_Click" Height="Auto" Grid.Row="5" RenderTransformOrigin="-0.503,0.247" Grid.ColumnSpan="2"/>
+
+
+        <Button x:Name="btnSort" Content="Sort" FontSize="20" Margin="72.2,14.6,61.6,19" Click="btnSort_Click" Height="Auto" Grid.Row="5" RenderTransformOrigin="-0.503,0.247" Grid.Column="1"/>
         <Button x:Name="btnBack" Content="Back" Grid.Row="5" Grid.Column="2" FontSize="20" Margin="120.4,13.6,9.6,16" Click="BtnBack_Click" Height="Auto"/>
 
-        <Button x:Name="btnCatagory1" Content="BagCatagory1" Grid.Row="0" Grid.Column="1" FontSize="30" Margin="238.2,9,8.6,9.4" Click="BtnCatagory1_Click" Grid.ColumnSpan="2"/>
-        <Button x:Name="btnCatagory2" Content="BagCatagory2" Grid.Row="1" Grid.Column="1" FontSize="30" Margin="238.2,9,8.6,9.4" Click="BtnCatagory2_Click" Grid.ColumnSpan="2"/>
-        <Button x:Name="btnCatagory3" Content="BagCatagory3" Grid.Row="2" Grid.Column="1" FontSize="30" Margin="238.2,9,8.6,9.4" Click="BtnCatagory3_Click" Grid.ColumnSpan="2"/>
-        <Button x:Name="btnCatagory4" Content="BagCatagory4" Grid.Row="3" Grid.Column="1" FontSize="30" Margin="238.2,9,8.6,9.4" Click="BtnCatagory4_Click" Grid.ColumnSpan="2"/>
 
 
     </Grid>

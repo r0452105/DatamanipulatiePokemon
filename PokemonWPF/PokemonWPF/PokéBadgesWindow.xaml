@@ -5,7 +5,11 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PokemonWPF"
         mc:Ignorable="d"
-        Title="PokéBadgesWindow" Height="450" Width="800">
+        Title="PokéBadgesWindow" Height="450" Width="800"
+        Loaded="Window_Loaded">
+
+
+
     <Grid Background="LightGray">
         <Grid.RowDefinitions>
             <RowDefinition Height="110"/>
@@ -20,7 +24,11 @@
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
 
+        <Image x:Name="imgBadge1"/>
+
+
         <Label x:Name="lblBadges" Content="Badges" Grid.Row="0" Margin="15" Grid.Column="0" Grid.ColumnSpan="2" FontSize="50" FontWeight="Bold"/>
         <Button x:Name="btnBack" Content="Back" Grid.Row="3" Grid.Column="2" FontSize="25" Margin="10.2,9.6,9.6,-26.8" Click="BtnBack_Click" Grid.ColumnSpan="2"/>
+        
     </Grid>
 </Window>

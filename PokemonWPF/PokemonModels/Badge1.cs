@@ -5,13 +5,14 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Drawing;
 using System.Windows;
+using PokemonModels;
 
 namespace PokemonModels
 {
-   public class Badges : BadgeSprite
+   public class Badge1 : BadgeSprite
    {
-        public Badges() : base() {
-            target = new Int32Rect();
+        public Badge1() : base() {
+            target = new Int32Rect(73, 0, target.Width, target.Height);
         }
 
    }

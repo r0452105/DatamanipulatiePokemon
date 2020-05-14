@@ -49,7 +49,7 @@
   <ItemGroup>
     <Compile Include="BadgeSprite.cs" />
     <Compile Include="Bulbasaur.cs" />
-    <Compile Include="Badges.cs" />
+    <Compile Include="Badge1.cs" />
     <Compile Include="PokemonSprite.cs" />
     <Compile Include="SpriteCoordinates.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
