@@ -23,6 +23,7 @@ namespace PokemonWPF
        public Trainer currentTrainer;
        public Pokemon CurrentPkm;
        public List<Pokedex> pokedexList ;
+        public List<Ability> abilityList;
 
         public LearnedMoves DefaultMoves1 = new LearnedMoves();
         public LearnedMoves DefaultMoves2 = new LearnedMoves();
@@ -121,6 +122,13 @@ namespace PokemonWPF
 
 
                 //Bind with statpool
+                if (DatabaseOperations.AddStatCollection(BaseStats) != 0
+                    && DatabaseOperations.AddStatCollection(EVStats) != 0
+                    && DatabaseOperations.AddStatCollection(IVStats) != 0
+                    && DatabaseOperations.AddStatCollection(EVRewardStats) != 0)
+                {
+
+              
                 statPool.BaseStatId = BaseStats.Id;
                 statPool.EVStatId= EVStats.Id;
                 statPool.IVStatId = IVStats.Id;
@@ -128,9 +136,82 @@ namespace PokemonWPF
 
                 statPool.Nature = "Timid";
 
+                    if (DatabaseOperations.AddStatPool(statPool) != 0)
+                    {
+                        Pokemon PokemonToAdd = new Pokemon();
+                        
+
+                        PokemonToAdd.Id = DatabaseOperations.CurrentPokemons() + 1;
+                        PokemonToAdd.PokedexID = cmbPokemon.SelectedIndex + 1;
+                        PokemonToAdd.PokemonLevel = int.Parse(txtLvl.Text);
+                        PokemonToAdd.PokemonExp = PokemonToAdd.PokemonLevel * PokemonToAdd.PokemonLevel * PokemonToAdd.PokemonLevel;
+                        PokemonToAdd.TrainerID = currentTrainer.Id;
+                        PokemonToAdd.AbilityID = cmbAbility.SelectedIndex + 1;
+                        PokemonToAdd.StatPoolID = statPool.Id;
+                        if (cmbGender.SelectedIndex == 0)
+                        {
+                            PokemonToAdd.Gender = false;
+                        }
+                        else
+                        {
+                            PokemonToAdd.Gender = true;
+                        }
+                        PokemonToAdd.Nickname = txtName.Text;
+                        PokemonToAdd.Shiny = false;
+                        PokemonToAdd.PokeRus = false;
+
+                        if (DatabaseOperations.AddPokemon(PokemonToAdd) != 0)
+                        {
+
+                            LoadDefaultMoves(PokemonToAdd.Id);
+
+                            if (DatabaseOperations.LearnNewMove(DefaultMoves1) != 0
+                                && DatabaseOperations.LearnNewMove(DefaultMoves2) != 0)
+                            {
+                                PokemonGroup GroupToAddTo = new PokemonGroup();
+                                GroupToAddTo.Id = DatabaseOperations.CurrentPokemonGroups() + 1;
+                                GroupToAddTo.PlayerId = currentTrainer.Id;
+                                GroupToAddTo.PokemonId = PokemonToAdd.Id;
+                                GroupToAddTo.Position = int.Parse(cmbPosition.Text);
+
+                                if (DatabaseOperations.AddToGroup(GroupToAddTo) != 0)
+                                {
+                                    MessageBox.Show($"{PokemonToAdd.Nickname} is succesvol toegevoegd aan de party van {currentTrainer.TrainerName}");
+                                    Close();
+                                }
+                                else
+                                {
+                                    MessageBox.Show("Fout in groep creatie; toevoeging niet afgerond");
+                                }
+                            }
+                            else
+                            {
+                                MessageBox.Show("Geen moves meegegeven; Toevoeging niet afgerond");
+                            }
+
+
+                          
+                        }
+                        else
+                        {
+                            MessageBox.Show("Geen valide pokemon; Toevoeging niet afgerond");
+                        }
+                       
+                    }
+                    else
+                    {
+                        MessageBox.Show("Fout in de statpool; toevoeging niet afgerond");
+                    }
+
                 
 
                
+
+                }
+                else
+                {
+                    MessageBox.Show("één of meerder van de statcollections zijn niet valide; toevoeging niet afgerond");
+                }
 
 
             }
@@ -159,8 +240,10 @@ namespace PokemonWPF
         }
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
+            abilityList = DatabaseOperations.AbilityList();
             pokedexList = DatabaseOperations.PokedexEntry();
             cmbPokemon.ItemsSource = pokedexList;
+            cmbAbility.ItemsSource = abilityList;
             cmbPokemon.SelectionChanged += new SelectionChangedEventHandler(cmbPokemon_SelectionChanged);
 
           
@@ -183,7 +266,7 @@ namespace PokemonWPF
         }
         private void cmbPokemon_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            
+
             
                 txtName.Text = pokedexList[cmbPokemon.SelectedIndex].PokemonName;
             

@@ -8,12 +8,13 @@
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         Background="Black"
         Loaded="Window_Loaded"
-        Title="PokemonPartyCRUD" Height="300" Width="650">
+        Title="PokemonPartyCRUD" Height="300" Width="750">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="0.8*"/>
             <ColumnDefinition Width="1.2*" />
             <ColumnDefinition/>
+            <ColumnDefinition Width="0.8*"/>
             <ColumnDefinition Width="0.8*"/>
             <ColumnDefinition Width="0.8*"/>
         </Grid.ColumnDefinitions>
@@ -22,7 +23,7 @@
             <RowDefinition/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-        <Button Grid.Column="4" Grid.Row="3"  Margin="10"  Content="Cancel" FontSize="20" Name="btnCancel" Click="btnCancel_Click"/>
+        <Button Grid.Column="5" Grid.Row="3"  Margin="10"  Content="Cancel" FontSize="20" Name="btnCancel" Click="btnCancel_Click"/>
         <Button Grid.Column="2" Grid.Row="3" IsEnabled="False" Margin="10"  Content="Change" FontSize="20" Name="btnChange" Click="btnChange_Click"/>
         <Button Grid.Column="1" Grid.Row="3" IsEnabled="False" Margin="10"  Content="Remove" FontSize="20" Name="btnDelete" Click="btnDelete_Click"/>
         <Button Grid.Column="0" Grid.Row="3" IsEnabled="False" Margin="10"  Content="Add" FontSize="20" Name="btnAdd" Click="btnAdd_Click"/>
@@ -31,6 +32,7 @@
         <Label FontFamily="Trebuchet MS" Grid.Column="2" Content="Nickname" Foreground="White" VerticalContentAlignment="Center" HorizontalAlignment="Center" FontSize="26"/>
         <Label  FontFamily="Trebuchet MS" Grid.Column="3" Content="Level" Foreground="White" VerticalContentAlignment="Center" HorizontalAlignment="Center" FontSize="26"/>
         <Label  FontFamily="Trebuchet MS" Grid.Column="4" Content="Gender" Foreground="White" VerticalContentAlignment="Center" HorizontalAlignment="Center" FontSize="26"/>
+        <Label  FontFamily="Trebuchet MS" Grid.Column="5" Content="Ability" Foreground="White" VerticalContentAlignment="Center" HorizontalAlignment="Center" FontSize="26"/>
 
         <ComboBox Style="{StaticResource MaterialDesignFloatingHintComboBox}" Name="cmbPosition" Grid.Row="1" Margin="5" VerticalAlignment="Center" FontSize="20" Background="White">
             <ComboBoxItem>1</ComboBoxItem>
@@ -49,5 +51,7 @@
             <ComboBoxItem>Female</ComboBoxItem>
             
         </ComboBox>
+        <ComboBox  SelectedIndex="0"  Style="{StaticResource MaterialDesignFloatingHintComboBox}" Name="cmbAbility" Grid.Column="5" Grid.Row="1" Margin="5" VerticalAlignment="Center" FontSize="16" Background="White"></ComboBox>
+
     </Grid>
 </Window>

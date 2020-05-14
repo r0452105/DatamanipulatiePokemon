@@ -36,13 +36,133 @@ namespace PokemonDAL
                 return query.ToList();
             }
         }
-
+        public static List<Ability> AbilityList()
+        {
+            using (DB_r0739290Entities entities = new DB_r0739290Entities())
+            {
+                var query = entities.Ability
+                    .OrderBy(x => x.Id);
+                return query.ToList();
+            }
+        }
         public static int CurrentStatpools()
         {
             using (DB_r0739290Entities entities = new DB_r0739290Entities())
             {
                 var query = entities.StatPool;
                 
+                return query.ToList().Count();
+            }
+        }
+        public static int CurrentPokemons()
+        {
+            using (DB_r0739290Entities entities = new DB_r0739290Entities())
+            {
+                var query = entities.Pokemon;
+
+                return query.ToList().Max(x => x.Id);
+            }
+        }
+
+        public static int AddStatCollection(StatCollection newCollection)
+        {
+            try
+            {
+                using (DB_r0739290Entities entities = new DB_r0739290Entities())
+                {
+                    entities.StatCollection.Add(newCollection);
+
+                    return entities.SaveChanges();
+                }
+            }
+            catch (Exception ex)
+            {
+
+                return 0;
+            }
+
+        }
+
+        public static int AddStatPool(StatPool newPool)
+        {
+            try
+            {
+                using (DB_r0739290Entities entities = new DB_r0739290Entities())
+                {
+                    entities.StatPool.Add(newPool);
+
+                    return entities.SaveChanges();
+                }
+            }
+            catch (Exception ex)
+            {
+
+                return 0;
+            }
+
+        }
+
+        public static int AddPokemon(Pokemon newPokemon)
+        {
+            try
+            {
+                using (DB_r0739290Entities entities = new DB_r0739290Entities())
+                {
+                    entities.Pokemon.Add(newPokemon);
+
+                    return entities.SaveChanges();
+                }
+            }
+            catch (Exception ex)
+            {
+
+                return 0;
+            }
+
+        }
+
+        public static int LearnNewMove(LearnedMoves newLearnedMove)
+        {
+            try
+            {
+                using (DB_r0739290Entities entities = new DB_r0739290Entities())
+                {
+                    entities.LearnedMoves.Add(newLearnedMove);
+
+                    return entities.SaveChanges();
+                }
+            }
+            catch (Exception ex)
+            {
+
+                return 0;
+            }
+
+        }
+        public static int AddToGroup(PokemonGroup newGroup)
+        {
+            try
+            {
+                using (DB_r0739290Entities entities = new DB_r0739290Entities())
+                {
+                    entities.PokemonGroup.Add(newGroup);
+
+                    return entities.SaveChanges();
+                }
+            }
+            catch (Exception ex)
+            {
+
+                return 0;
+            }
+
+        }
+        public static int CurrentPokemonGroups()
+        {
+            using (DB_r0739290Entities entities = new DB_r0739290Entities())
+            {
+                var query = entities.PokemonGroup;
+
                 return query.ToList().Count();
             }
         }

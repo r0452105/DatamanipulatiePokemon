@@ -167,6 +167,7 @@ namespace PokemonWPF
             {
                 CRUDwindow.cmbPosition.Items.Add(i +1);
             }
+            CRUDwindow.cmbAbility.SelectedIndex = (int)currentPokemon.Pokemon.AbilityID + 1;
             CRUDwindow.CurrentPkm = currentPokemon.Pokemon;
             CRUDwindow.cmbPosition.SelectedIndex = currentPokemon.Position - 1;
             CRUDwindow.cmbPokemon.SelectedIndex = (int)currentPokemon.Pokemon.PokedexID - 1;
@@ -197,7 +198,7 @@ namespace PokemonWPF
                 CRUDwindow.txtName.Text = "Bulbasaur";
                 CRUDwindow.txtLvl.Text = "5";
                 CRUDwindow.ShowDialog();
-
+                Pokemonparty = DatabaseOperations.SelectParty(trainerParty.Id);
                 LoadPokemon();
             }
             else
