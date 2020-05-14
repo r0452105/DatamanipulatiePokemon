@@ -22,7 +22,7 @@
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
 
-        <ListView x:Name="lvInventory" ScrollViewer.HorizontalScrollBarVisibility="Hidden" HorizontalAlignment="Left" Height="310" Margin="32,30,0,0" Grid.RowSpan="5" VerticalAlignment="Top" Width="334" Grid.ColumnSpan="2" BorderBrush="Black" BorderThickness="2" FontFamily="Calibri" FontSize="10pt" FontWeight="SemiBold" SelectionMode="Single">
+        <ListView x:Name="lvInventory" ScrollViewer.HorizontalScrollBarVisibility="Hidden" HorizontalAlignment="Left" Height="310" Margin="32,30,0,0" Grid.RowSpan="5" VerticalAlignment="Top" Width="334" Grid.ColumnSpan="2" BorderBrush="Black" BorderThickness="0" FontFamily="Calibri" FontSize="10pt" FontWeight="SemiBold" SelectionMode="Single">
             <ListView.View>
                 <GridView>
                     <GridView.ColumnHeaderContainerStyle>
@@ -41,6 +41,15 @@
                 </GridView>
             </ListView.View>
         </ListView>
+
+        <GroupBox Grid.ColumnSpan="2" Grid.Column="1" Padding="0"  HorizontalAlignment="Left" Height="310" Margin="237,46,0,0" Grid.RowSpan="6" VerticalAlignment="Top" Width="281" BorderBrush="Black">
+            <GroupBox.Header>
+                <Border Background="DarkRed">
+                    <TextBlock Text="Category" Height="35" Padding="7" Foreground="White" FontWeight="Bold" FontFamily="Calibri" FontSize="14" />
+                </Border>
+            </GroupBox.Header>
+            <ListBox x:Name="lbCategory" BorderThickness="0" BorderBrush="Black" HorizontalAlignment="Center" Height="276" Margin="0,0,0,0" VerticalAlignment="Top" Width="280" FontFamily="Calibri" FontSize="16" />
+        </GroupBox>
 
 
         <ComboBox x:Name="cbSortBy" Grid.Row="5" Margin="32,13.6,0,20" HorizontalAlignment="Left" Width="155" RenderTransformOrigin="-1.144,1.48" BorderThickness="0,0,0,1">
