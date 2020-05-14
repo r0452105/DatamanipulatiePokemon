@@ -57,6 +57,34 @@ namespace PokemonDAL
             }
         }
 
+        public static List<Items> GetDistinctCategory()
+        {
+            using (DB_r0739290Entities entities = new DB_r0739290Entities())
+            {
+                var query = entities.Items
+                            .OrderBy(x => x.Catagory);
+
+                return query.ToList();
+            }
+        }
+
+        public static List<PlayerInventory> SelectAllInventory(string category)
+        {
+            using (DB_r0739290Entities entities = new DB_r0739290Entities())
+            {
+
+                var iQuery = entities.Items
+                    .Where(i => i.Catagory.ToString() == category)
+                    .Select(i => i.Id).ToList();
+
+                var query = entities.PlayerInventory
+                    .Include("Items")
+                    .Include("Trainer")
+                    .Where(x => iQuery.Contains(x.ItemID.Value));
+                return query.ToList();
+            }
+        }
+
         public static List<PokemonGroup> SelectParty(int trainerID)
         {
             using (DB_r0739290Entities entities = new DB_r0739290Entities())
