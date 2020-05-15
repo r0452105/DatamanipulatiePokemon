@@ -27,21 +27,6 @@ namespace PokemonWPF
             InitializeComponent();
         }
 
-        private void BtnBack_Click(object sender, RoutedEventArgs e)
-        {
-            this.Close();
-        }
-
-        private void Window_Loaded(object sender, RoutedEventArgs e)
-        {
-            Badge1 badge1 = new Badge1();
-            BitmapImage sprite1 = new BitmapImage(new Uri("Images/badgessprites.png", UriKind.Relative));
-            imgBadge1.Source = new CroppedBitmap(sprite1, badge1.target);
-
-
-        }
-
-
 
     }
 }

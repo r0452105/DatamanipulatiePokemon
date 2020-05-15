@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using PokemonDAL;
+using PokemonModels;
 
 namespace PokemonWPF
 {
@@ -29,12 +30,16 @@ namespace PokemonWPF
             InitializeComponent();
         }
 
-        private void Window_Loaded(object sender, RoutedEventArgs e)
+        private void OnLoad(object sender, RoutedEventArgs e)
         {
+            DatabaseOperations.GetTrainerInfo(2);
+            lblname.Content = trainerCard.TrainerName;
+            lblid.Content = trainerCard.Id; 
+            lblmoney.Content = trainerCard.MoneyOwned;
+            lblpokedox.Content = trainerCard.PokemonOwned; 
+            lblplaytime.Content = trainerCard.TimePlayed.Hours + " Hr(s)  " + trainerCard.TimePlayed.Minutes + " Min(s)  " + trainerCard.TimePlayed.Seconds + " Sec(s)  ";
             
         }
-
-
 
 
         private void BtnBadges_Click(object sender, RoutedEventArgs e)
@@ -44,9 +49,11 @@ namespace PokemonWPF
             objPokéBadgesWindow.Show();
         }
 
-        private void lblName_TextInput(object sender, TextCompositionEventArgs e)
+        private void BtnBack_Click(object sender, RoutedEventArgs e)
         {
-
+            this.Close();
         }
+
+
     }
 }
