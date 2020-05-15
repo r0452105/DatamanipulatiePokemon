@@ -21,8 +21,52 @@
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
 
-        <Label x:Name="lblName" Background="White" Grid.Row="0" Grid.RowSpan="3" Grid.Column="0" Grid.ColumnSpan="2" Content="" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="20" Margin="30,22,29.8,20" BorderBrush="Black" BorderThickness="3"/>
-        <Label x:Name="lblPokéinfo" Background="White" Grid.Row="3" Grid.RowSpan="2" Grid.Column="0" Grid.ColumnSpan="3" Content="" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="20" Margin="30,22,29.8,20" BorderBrush="Black" BorderThickness="3"/>
-        <Button x:Name="btnBadges" Content="Badges" Grid.Row="4" Grid.Column="0" FontSize="26" Click="BtnBadges_Click" Margin="30,69.2,254.6,20" Grid.ColumnSpan="2" Grid.RowSpan="2" RenderTransformOrigin="0.501,0.5"/>
+        <StackPanel x:Name="stack1" HorizontalAlignment="Left" Height="100" Margin="30,0,0,0" Grid.Row="1" Grid.RowSpan="2" VerticalAlignment="Top" Width="85" Visibility="Visible">
+            <StackPanel.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="Gray" Offset="0.004"/>
+                    <GradientStop Color="White" Offset="0.108"/>
+                </LinearGradientBrush>
+            </StackPanel.Background>
+            <Label Content="Name:" HorizontalAlignment="Left" VerticalAlignment="Top" Height="30" Width="81" FontWeight="Bold" FontFamily="Calibri" FontSize="16" RenderTransformOrigin="0.537,-2.368"/>
+            <Label Content="Player ID:" HorizontalAlignment="Left" VerticalAlignment="Top" Height="30" Width="81" FontWeight="Bold" FontFamily="Calibri" FontSize="16" RenderTransformOrigin="0.537,-2.368"/>
+            <Label Content="Money :" HorizontalAlignment="Left" VerticalAlignment="Top" Height="30" Width="81" FontWeight="Bold" FontFamily="Calibri" FontSize="16" RenderTransformOrigin="0.537,-2.368"/>
+        </StackPanel>
+
+        <StackPanel x:Name="stack2" HorizontalAlignment="Left" Height="100" Margin="117,0,0,0" Grid.Row="1" Grid.RowSpan="2" VerticalAlignment="Top" Grid.ColumnSpan="2" Visibility="Visible" Width="398">
+            <StackPanel.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="Gray" Offset="0.004"/>
+                    <GradientStop Color="White" Offset="0.108"/>
+                </LinearGradientBrush>
+            </StackPanel.Background>
+            <Label x:Name="lblname" Content="" VerticalAlignment="Top" Height="30" FontWeight="Bold" FontFamily="Calibri" FontSize="16" RenderTransformOrigin="0.537,-2.368"/>
+            <Label x:Name="lblid" Content="" VerticalAlignment="Top" Height="30" FontWeight="Bold" FontFamily="Calibri" FontSize="16" RenderTransformOrigin="0.537,-2.368"/>
+            <Label x:Name="lblmoney" Content="" VerticalAlignment="Top" Height="30" FontWeight="Bold" FontFamily="Calibri" FontSize="16" RenderTransformOrigin="0.537,-2.368"/>
+        </StackPanel>
+
+        <StackPanel x:Name="stack3" HorizontalAlignment="Left" Height="130" Grid.Row="3" Grid.RowSpan="2" VerticalAlignment="Top" Width="214" Margin="30,0,0,0" Visibility="Visible">
+            <StackPanel.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="Gray" Offset="0.004"/>
+                    <GradientStop Color="White" Offset="0.108"/>
+                </LinearGradientBrush>
+            </StackPanel.Background>
+            <Label Content="Pokédex:" HorizontalAlignment="Left" VerticalAlignment="Top" Height="64" Width="204" FontWeight="Bold" FontSize="25" FontFamily="Calibri" RenderTransformOrigin="0.537,-2.368"/>
+            <Label Content="Playtime:" HorizontalAlignment="Left" VerticalAlignment="Top" Height="64" Width="204" FontWeight="Bold" FontSize="25" FontFamily="Calibri" RenderTransformOrigin="0.537,-2.368"/>
+        </StackPanel>
+        <StackPanel x:Name="stack4" HorizontalAlignment="Left" Height="130" Grid.Row="3" Grid.RowSpan="2" VerticalAlignment="Top" Width="485" Grid.ColumnSpan="3" Margin="248,0,0,0" Visibility="Visible">
+            <StackPanel.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="Gray" Offset="0.004"/>
+                    <GradientStop Color="White" Offset="0.108"/>
+                </LinearGradientBrush>
+            </StackPanel.Background>
+            <Label x:Name="lblpokedox" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Height="64" Width="475" FontWeight="Bold" FontFamily="Calibri" FontSize="40" RenderTransformOrigin="0.537,-2.368"/>
+            <Label x:Name="lblplaytime" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Height="64" Width="475" FontWeight="Bold" FontFamily="Calibri" FontSize="40" RenderTransformOrigin="0.537,-2.368"/>
+        </StackPanel>
+
+        <Button x:Name="btnBack" Content="Back" Grid.Row="0" Grid.Column="0" FontSize="20" Click="BtnBack_Click" Margin="30,10,140.8,28.4" />
+        <Button x:Name="btnBadges" Content="Badges" Grid.Row="5" Grid.Column="2" FontSize="20" Click="BtnBadges_Click" Margin="120.2,8.6,42.6,10" RenderTransformOrigin="0.501,0.5" Height="Auto"/>
     </Grid>
 </Window>

@@ -22,7 +22,7 @@
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
 
-        <ListView x:Name="lvInventory" ScrollViewer.HorizontalScrollBarVisibility="Hidden" HorizontalAlignment="Left" Height="310" Margin="32,30,0,0" Grid.RowSpan="5" VerticalAlignment="Top" Width="334" Grid.ColumnSpan="2" BorderBrush="Black" BorderThickness="0" FontFamily="Calibri" FontSize="10pt" FontWeight="SemiBold" SelectionMode="Single">
+        <ListView x:Name="lvInventory" ScrollViewer.HorizontalScrollBarVisibility="Hidden" HorizontalAlignment="Left" Height="310" Margin="32,30,0,0" Grid.RowSpan="5" VerticalAlignment="Top" Width="334" Grid.ColumnSpan="2" BorderBrush="Black" BorderThickness="3" FontFamily="Calibri" FontSize="10pt" FontWeight="SemiBold" SelectionMode="Single">
             <ListView.View>
                 <GridView>
                     <GridView.ColumnHeaderContainerStyle>

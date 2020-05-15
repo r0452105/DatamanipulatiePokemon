@@ -69,7 +69,7 @@ namespace PokemonWPF
                 TextBlock textBlock = new TextBlock();
                 textBlock.Text = item;
                 textBlock.FontSize = 16;
-                textBlock.Foreground = Brushes.Maroon;
+                textBlock.Foreground = Brushes.DarkRed;
                 textBlock.Margin = new Thickness(5, 5, 5, 5);
                 textBlock.FontWeight = FontWeights.Bold;
                 textBlock.Padding = new Thickness(5, 5, 5, 5);
