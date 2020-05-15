@@ -58,7 +58,7 @@ namespace PokemonWPF
         {
             SearchDexWindow searchDexWindow1 = new SearchDexWindow();
             this.Visibility = Visibility.Hidden;
-            WindowToAlter.Visibility= Visibility.Hidden;
+            searchDexWindow1.DexWindowToAlter = this;
             searchDexWindow1.ShowDialog();
             this.Visibility = Visibility.Visible;
         }
@@ -66,7 +66,9 @@ namespace PokemonWPF
 
         private void LbPokédex_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            //voor foto aanpassing
+            //pokedexpicturessssss
+
+            
         }
 
         private void LbPokédex_MouseDoubleClick(object sender, MouseButtonEventArgs e) //code mss in effectieve scherm zetten
