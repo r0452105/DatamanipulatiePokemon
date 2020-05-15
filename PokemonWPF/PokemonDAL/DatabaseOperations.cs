@@ -146,22 +146,6 @@ namespace PokemonDAL
 
         }
 
-        public static Trainer GetTrainerInfo(int trainerId)
-        {
-            using (DB_r0739290Entities entities = new DB_r0739290Entities())
-            {
-                var query = entities.Trainer
-                    .Include("Id")
-                    .Include("TrainerName")
-                    .Include("PokemonOwned")
-                    .Include("MoneyOwned")
-                    .Include("TimePlayed")
-                    .Where(x => x.Id == trainerId);
-
-                //.Select(t => new { t.Id, t.TrainerName, t.PokemonOwned, t.MoneyOwned, t.TimePlayed});
-
-                return query.SingleOrDefault();
-            }
-        }
+        
     }
 }

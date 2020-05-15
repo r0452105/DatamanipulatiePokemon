@@ -32,7 +32,7 @@ namespace PokemonWPF
 
         private void OnLoad(object sender, RoutedEventArgs e)
         {
-            DatabaseOperations.GetTrainerInfo(2);
+           
             lblname.Content = trainerCard.TrainerName;
             lblid.Content = trainerCard.Id; 
             lblmoney.Content = trainerCard.MoneyOwned;
