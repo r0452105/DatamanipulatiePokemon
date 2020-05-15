@@ -37,6 +37,17 @@ namespace PokemonDAL
             }
         }
 
+        public static Pokedex SelectPokemonFromPokedex(Pokedex pokedexpokemon)
+        {
+            using (DB_r0739290Entities entities = new DB_r0739290Entities())
+            {
+                var query = entities.Pokedex
+                            .Where(x => x.Id == pokedexpokemon.Id);
+
+                return query.SingleOrDefault();
+            }
+        }
+
         public static List<Pokedex> PokedexEntryAZ()
         {
             using (DB_r0739290Entities entities = new DB_r0739290Entities())

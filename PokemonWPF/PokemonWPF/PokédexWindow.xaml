@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PokemonWPF"
         mc:Ignorable="d"
-        Title="PokédexWindow" Height="450" Width="800">
+        Title="PokédexWindow" Height="450" Width="800" Loaded="Window_Loaded">
     <Grid Background="DarkRed" >
 
         <Grid.RowDefinitions>
