@@ -168,6 +168,7 @@ namespace PokemonWPF
                 CRUDwindow.cmbPosition.Items.Add(i +1);
             }
             CRUDwindow.cmbAbility.SelectedIndex = (int)currentPokemon.Pokemon.AbilityID + 1;
+            CRUDwindow.CurrentPkmParty = currentPokemon;
             CRUDwindow.CurrentPkm = currentPokemon.Pokemon;
             CRUDwindow.cmbPosition.SelectedIndex = currentPokemon.Position - 1;
             CRUDwindow.cmbPokemon.SelectedIndex = (int)currentPokemon.Pokemon.PokedexID - 1;
@@ -177,7 +178,7 @@ namespace PokemonWPF
             CRUDwindow.currentTrainer = trainerParty;
             CRUDwindow.ShowDialog();
 
-
+            Pokemonparty = DatabaseOperations.SelectParty(trainerParty.Id);
             LoadPokemon();
         }
 

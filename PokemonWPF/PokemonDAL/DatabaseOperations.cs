@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -53,6 +54,26 @@ namespace PokemonDAL
                 
                 return query.ToList().Count();
             }
+        }
+
+        public static int RemovePokemonFromGroup(PokemonGroup toRemove)
+        {
+            try
+            {
+                using (DB_r0739290Entities entities = new DB_r0739290Entities())
+                {
+                    entities.Entry(toRemove).State = EntityState.Deleted;
+
+                    return entities.SaveChanges();
+                }
+            }
+            catch (Exception ex)
+            {
+
+                return 0;
+            }
+
+
         }
         public static int CurrentPokemons()
         {

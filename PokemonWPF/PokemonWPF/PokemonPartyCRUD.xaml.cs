@@ -22,6 +22,7 @@ namespace PokemonWPF
     {
        public Trainer currentTrainer;
        public Pokemon CurrentPkm;
+        public PokemonGroup CurrentPkmParty;
        public List<Pokedex> pokedexList ;
         public List<Ability> abilityList;
 
@@ -59,6 +60,16 @@ namespace PokemonWPF
 
         private void btnDelete_Click(object sender, RoutedEventArgs e)
         {
+            if (DatabaseOperations.RemovePokemonFromGroup(CurrentPkmParty) !=0)
+            {
+                MessageBox.Show($"{CurrentPkm.Nickname} succesfully removed from the party of {currentTrainer.TrainerName}");
+                Close();
+            }
+            else
+            {
+                MessageBox.Show("Deletion failed");
+            }
+            
 
         }
 
