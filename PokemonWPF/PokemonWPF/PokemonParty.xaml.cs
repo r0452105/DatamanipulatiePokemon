@@ -168,16 +168,18 @@ namespace PokemonWPF
             {
                 CRUDwindow.cmbPosition.Items.Add(i +1);
             }
-            CRUDwindow.cmbAbility.SelectedIndex = (int)currentPokemon.Pokemon.AbilityID + 1;
+            
             //Doesn't correctly update if ability has been altered. No idea why, data shows up correctly in PokemonInfo
             CRUDwindow.CurrentPkmParty = currentPokemon;
             CRUDwindow.CurrentPkm = currentPokemon.Pokemon;
             CRUDwindow.cmbPosition.SelectedIndex = currentPokemon.Position - 1;
             CRUDwindow.cmbPokemon.SelectedIndex = (int)currentPokemon.Pokemon.PokedexID - 1;
+            CRUDwindow.cmbAbility.SelectedIndex = (int)currentPokemon.Pokemon.AbilityID - 1;
             CRUDwindow.txtLvl.Text = currentPokemon.Pokemon.PokemonLevel.ToString();
             CRUDwindow.txtName.Text = currentPokemon.Pokemon.Nickname;
             CRUDwindow.cmbGender.SelectedIndex =  Convert.ToInt32(currentPokemon.Pokemon.Gender);
             CRUDwindow.currentTrainer = trainerParty;
+          
             CRUDwindow.ShowDialog();
 
             Pokemonparty = DatabaseOperations.SelectParty(trainerParty.Id);
