@@ -34,7 +34,7 @@
         <Label  FontFamily="Trebuchet MS" Grid.Column="4" Content="Gender" Foreground="White" VerticalContentAlignment="Center" HorizontalAlignment="Center" FontSize="26"/>
         <Label  FontFamily="Trebuchet MS" Grid.Column="5" Content="Ability" Foreground="White" VerticalContentAlignment="Center" HorizontalAlignment="Center" FontSize="26"/>
 
-        <ComboBox Style="{StaticResource MaterialDesignFloatingHintComboBox}" Name="cmbPosition" Grid.Row="1" Margin="5" VerticalAlignment="Center" FontSize="20" Background="White">
+        <ComboBox Style="{StaticResource MaterialDesignFloatingHintComboBox}"   Name="cmbPosition" Grid.Row="1" Margin="5" VerticalAlignment="Center" FontSize="20" Background="White">
             <ComboBoxItem>1</ComboBoxItem>
             <ComboBoxItem>2</ComboBoxItem>
             <ComboBoxItem>3</ComboBoxItem>

@@ -25,7 +25,7 @@ namespace PokemonWPF
         public PokemonGroup CurrentPkmParty;
        public List<Pokedex> pokedexList ;
         public List<Ability> abilityList;
-
+  
         public LearnedMoves DefaultMoves1 = new LearnedMoves();
         public LearnedMoves DefaultMoves2 = new LearnedMoves();
 
@@ -55,7 +55,39 @@ namespace PokemonWPF
 
         private void btnChange_Click(object sender, RoutedEventArgs e)
         {
+            if (string.IsNullOrWhiteSpace(Validate()))
+            {
+                Ability newAbility = (Ability)cmbAbility.SelectedItem;
+               //CurrentPkm.AbilityID =  newAbility.Id ;
+                CurrentPkm.Nickname = txtName.Text;
+                CurrentPkm.PokemonLevel = int.Parse(txtLvl.Text);
+                CurrentPkm.PokemonExp = CurrentPkm.PokemonLevel * CurrentPkm.PokemonLevel * CurrentPkm.PokemonLevel;
 
+                if (cmbGender.SelectedIndex == 0)
+                {
+                    CurrentPkm.Gender = false;
+                }
+                else
+                {
+                    CurrentPkm.Gender = true;
+                }
+
+                if (DatabaseOperations.UpdatePokemon(CurrentPkm) != 0)
+                {
+                    MessageBox.Show($"The stats of {CurrentPkm.Nickname} have been succesfully altered");
+                    Close();
+                }
+                else
+                {
+                    MessageBox.Show("Update was unsuccessful");
+                }
+
+            }
+            else
+            {
+                MessageBox.Show(Validate());
+            }
+           
         }
 
         private void btnDelete_Click(object sender, RoutedEventArgs e)
@@ -256,8 +288,9 @@ namespace PokemonWPF
             cmbPokemon.ItemsSource = pokedexList;
             cmbAbility.ItemsSource = abilityList;
             cmbPokemon.SelectionChanged += new SelectionChangedEventHandler(cmbPokemon_SelectionChanged);
+            cmbPosition.SelectionChanged += new SelectionChangedEventHandler(cmbPosition_SelectionChanged);
 
-          
+
 
         }
         
@@ -281,6 +314,27 @@ namespace PokemonWPF
             
                 txtName.Text = pokedexList[cmbPokemon.SelectedIndex].PokemonName;
             
+        
+        }
+
+        private void cmbPosition_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+            PokemonGroup pokemonToSwap = DatabaseOperations.SelectPokemonFromParty(currentTrainer.Id, int.Parse(cmbPosition.SelectedItem.ToString()));
+            int position1 = CurrentPkmParty.Position;
+            int position2 = pokemonToSwap.Position;
+            CurrentPkmParty.Position = position2;
+            pokemonToSwap.Position = position1;
+            if (DatabaseOperations.ChangePosition(CurrentPkmParty) != 0 && DatabaseOperations.ChangePosition(pokemonToSwap) != 0)
+            {
+                MessageBox.Show($"Position changed, {CurrentPkmParty.Pokemon.Nickname} has been swapped with {pokemonToSwap.Pokemon.Nickname}");
+            }
+            else
+            {
+                MessageBox.Show("Position swap unsuccessful");
+            }
+            
+       
         
         }
     }

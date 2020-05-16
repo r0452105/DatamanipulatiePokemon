@@ -75,6 +75,44 @@ namespace PokemonDAL
 
 
         }
+
+        public static int UpdatePokemon(Pokemon currentPokemon)
+        {
+            try
+            {
+                using (DB_r0739290Entities entities = new DB_r0739290Entities())
+                {
+                    entities.Entry(currentPokemon).State = EntityState.Modified;
+
+                    return entities.SaveChanges();
+                }
+            }
+            catch (Exception ex)
+            {
+
+                return 0;
+            }
+
+        }
+
+        public static int ChangePosition(PokemonGroup currentPosition)
+        {
+            try
+            {
+                using (DB_r0739290Entities entities = new DB_r0739290Entities())
+                {
+                    entities.Entry(currentPosition).State = EntityState.Modified;
+
+                    return entities.SaveChanges();
+                }
+            }
+            catch (Exception ex)
+            {
+
+                return 0;
+            }
+
+        }
         public static int CurrentPokemons()
         {
             using (DB_r0739290Entities entities = new DB_r0739290Entities())
@@ -235,10 +273,30 @@ namespace PokemonDAL
                             .Include("Pokemon.Statpool.BaseStats")
                             .Include("Pokemon.Statpool.EVStats")
                             .Include("Pokemon.Statpool.IVStats")
+                             .Include("Pokemon.Ability")
                             .Where(x => x.PlayerId == trainerID )
                             .OrderBy(x => x.Position);
 
                 return query.ToList();
+
+            }
+
+        }
+
+        public static PokemonGroup SelectPokemonFromParty(int trainerID, int position)
+        {
+            using (DB_r0739290Entities entities = new DB_r0739290Entities())
+            {
+                var query = entities.PokemonGroup
+                            .Include("Pokemon")
+                            .Include("Pokemon.Statpool")
+                            .Include("Pokemon.Statpool.BaseStats")
+                            .Include("Pokemon.Statpool.EVStats")
+                            .Include("Pokemon.Statpool.IVStats")
+                            .Where(x => x.PlayerId == trainerID && x.Position == position);
+                            
+
+                return query.SingleOrDefault();
 
             }
 
