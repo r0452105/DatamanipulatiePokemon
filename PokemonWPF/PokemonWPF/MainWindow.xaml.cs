@@ -25,6 +25,7 @@ namespace PokemonWPF
     {
         public List<string> menuElements = new List<string>();
         public Trainer trainer = DatabaseOperations.SelectTrainer(2);
+
        
         public MainWindow()
         {
@@ -70,14 +71,10 @@ namespace PokemonWPF
             switch (lbMenu.SelectedIndex)
             {
                 case 0:
-                    this.Visibility = Visibility.Hidden;
                     PokédexWindow pokédexWindow1 = new PokédexWindow();
-                    pokédexWindow1.WindowToAlter = this;
-                    pokédexWindow1.Show();
-
-
-
-
+                    this.Visibility = Visibility.Hidden;
+                    pokédexWindow1.ShowDialog();
+                    this.Visibility = Visibility.Visible;
                     break;
                 case 1:
                     
