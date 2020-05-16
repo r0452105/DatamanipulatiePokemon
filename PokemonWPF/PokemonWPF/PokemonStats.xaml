@@ -1,0 +1,55 @@
+﻿<Window x:Class="PokemonWPF.PokemonStats"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PokemonWPF"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        Background="Black"
+        mc:Ignorable="d"
+        Title="PokemonStats" Height="300" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition  />
+            <ColumnDefinition/>
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Label FontFamily="Trebuchet MS" Grid.Column="1" Content="Health" Foreground="White" VerticalContentAlignment="Center" HorizontalAlignment="Center" FontSize="26"/>
+        <Label FontFamily="Trebuchet MS" Grid.Column="2" Content="Attack" Foreground="White" VerticalContentAlignment="Center" HorizontalAlignment="Center" FontSize="26"/>
+        <Label FontFamily="Trebuchet MS" Grid.Column="3" Content="Defense" Foreground="White" VerticalContentAlignment="Center" HorizontalAlignment="Center" FontSize="26"/>
+        <Label FontFamily="Trebuchet MS" Grid.Column="4" Content="Sp. Att" Foreground="White" VerticalContentAlignment="Center" HorizontalAlignment="Center" FontSize="26"/>
+        <Label FontFamily="Trebuchet MS" Grid.Column="5" Content="Sp. Def" Foreground="White" VerticalContentAlignment="Center" HorizontalAlignment="Center" FontSize="26"/>
+        <Label FontFamily="Trebuchet MS" Grid.Column="6" Content="Speed" Foreground="White" VerticalContentAlignment="Center" HorizontalAlignment="Center" FontSize="26"/>
+        <Label FontFamily="Trebuchet MS" Grid.Column="1" Content="Health" Foreground="White" VerticalContentAlignment="Center" HorizontalAlignment="Center" FontSize="26"/>
+
+        <Label FontFamily="Trebuchet MS" Grid.Column="0" Grid.Row="1" Content="Base" Foreground="White" VerticalContentAlignment="Center" HorizontalAlignment="Center" FontSize="26"/>
+        <Label FontFamily="Trebuchet MS" Grid.Column="0" Grid.Row="2" Content="EV value" Foreground="White" VerticalContentAlignment="Center" HorizontalAlignment="Center" FontSize="26"/>
+        <TextBox  Style="{StaticResource MaterialDesignFloatingHintTextBox}" Grid.Column="1" Grid.Row="1" VerticalAlignment="Center" Name="txtBaseHealth" FontSize="20" Background="White" Margin="5"/>
+        <TextBox  Style="{StaticResource MaterialDesignFloatingHintTextBox}" Grid.Column="2" Grid.Row="1" VerticalAlignment="Center" Name="txtBaseAttack" FontSize="20" Background="White" Margin="5"/>
+        <TextBox  Style="{StaticResource MaterialDesignFloatingHintTextBox}" Grid.Column="3" Grid.Row="1" VerticalAlignment="Center" Name="txtBaseDefense" FontSize="20" Background="White" Margin="5"/> 
+        <TextBox  Style="{StaticResource MaterialDesignFloatingHintTextBox}" Grid.Column="4" Grid.Row="1" VerticalAlignment="Center" Name="txtBaseSpAtt" FontSize="20" Background="White" Margin="5"/>
+        <TextBox  Style="{StaticResource MaterialDesignFloatingHintTextBox}" Grid.Column="5" Grid.Row="1" VerticalAlignment="Center" Name="txtBaseSpDef" FontSize="20" Background="White" Margin="5"/>
+        <TextBox  Style="{StaticResource MaterialDesignFloatingHintTextBox}" Grid.Column="6" Grid.Row="1" VerticalAlignment="Center" Name="txtBaseSpeed" FontSize="20" Background="White" Margin="5"/>
+
+        <TextBox  Style="{StaticResource MaterialDesignFloatingHintTextBox}" Text="0" Grid.Column="1" Grid.Row="2" VerticalAlignment="Center" Name="txtEVHealth" FontSize="20" Background="White" Margin="5"/>
+        <TextBox  Style="{StaticResource MaterialDesignFloatingHintTextBox}" Text="0" Grid.Column="2" Grid.Row="2" VerticalAlignment="Center" Name="txtEVAttack" FontSize="20" Background="White" Margin="5"/>
+        <TextBox  Style="{StaticResource MaterialDesignFloatingHintTextBox}" Text="0" Grid.Column="3" Grid.Row="2" VerticalAlignment="Center" Name="txtEVDefense" FontSize="20" Background="White" Margin="5"/>
+        <TextBox  Style="{StaticResource MaterialDesignFloatingHintTextBox}" Text="0" Grid.Column="4" Grid.Row="2" VerticalAlignment="Center" Name="txtEVSpAtt" FontSize="20" Background="White" Margin="5"/>
+        <TextBox  Style="{StaticResource MaterialDesignFloatingHintTextBox}" Text="0" Grid.Column="5" Grid.Row="2" VerticalAlignment="Center" Name="txtEVSpDef" FontSize="20" Background="White" Margin="5"/>
+        <TextBox  Style="{StaticResource MaterialDesignFloatingHintTextBox}" Text="0" Grid.Column="6" Grid.Row="2" VerticalAlignment="Center" Name="txtEVSpeed" FontSize="20" Background="White" Margin="5"/>
+
+        <Button Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="3"  Margin="10"  Content="Set stats" FontSize="20" Name="btnSetStats" Click="btnSetStats_Click"/>
+
+        <Button Grid.Column="5" Grid.ColumnSpan="2" Grid.Row="3"  Margin="10"  Content="Cancel" FontSize="20" Name="btnCancel" Click="btnCancel_Click"/>
+    </Grid>
+</Window>
