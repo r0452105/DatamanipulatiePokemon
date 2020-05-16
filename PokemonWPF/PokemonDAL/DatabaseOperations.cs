@@ -221,7 +221,9 @@ namespace PokemonDAL
             using (DB_r0739290Entities entities = new DB_r0739290Entities())
             {
                 var query = entities.PokemonGroup;
-
+                return query.ToList().Count();
+            }
+        }
         public static Pokedex SelectPokemonFromPokedex(Pokedex pokedexpokemon)
         {
             using (DB_r0739290Entities entities = new DB_r0739290Entities())
@@ -233,9 +235,7 @@ namespace PokemonDAL
             }
         }
 
-                return query.ToList().Count();
-            }
-        }
+       
         public static int CurrentLearnedMoves()
         {
             using (DB_r0739290Entities entities = new DB_r0739290Entities())
