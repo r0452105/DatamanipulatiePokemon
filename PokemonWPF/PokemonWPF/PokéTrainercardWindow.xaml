@@ -67,7 +67,7 @@
             <Label x:Name="lblplaytime" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Height="64" Width="475" FontWeight="Bold" FontFamily="Calibri" FontSize="40" RenderTransformOrigin="0.537,-2.368"/>
         </StackPanel>
 
-        <Button x:Name="btnBack" Content="Back" Grid.Row="0" Grid.Column="0" FontSize="20" Click="BtnBack_Click" Margin="30,10,140.8,28.4" />
-        <Button x:Name="btnBadges" Content="Badges" Grid.Row="5" Grid.Column="2" FontSize="20" Click="BtnBadges_Click" Margin="120.2,8.6,42.6,10" RenderTransformOrigin="0.501,0.5" Height="Auto"/>
+        <Button x:Name="btnBack" Content="Back" Grid.Row="0" Grid.Column="0" FontSize="20" Click="BtnBack_Click" Margin="30,10,140.8,28.4" FontFamily="Calibri" />
+        <Button x:Name="btnBadges" Content="Badges" Grid.Row="5" Grid.Column="2" FontSize="20" Click="BtnBadges_Click" Margin="120.2,8.6,42.6,10" FontFamily="Calibri" RenderTransformOrigin="0.501,0.5" Height="Auto"/>
     </Grid>
 </Window>

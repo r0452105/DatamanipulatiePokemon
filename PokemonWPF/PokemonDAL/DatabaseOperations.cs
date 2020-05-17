@@ -68,6 +68,20 @@ namespace PokemonDAL
             }
         }
 
+        public static List<PlayerInventory> GetItems(int trainerId)
+        {
+            using (DB_r0739290Entities entities = new DB_r0739290Entities())
+            {
+                var query = entities.Items
+                    .Select(i => i.Id).ToList();
+                var iquery = entities.PlayerInventory
+                    .Include("Items")
+                    .Include("Trainer")
+                    .Where(x => query.Contains(x.ItemID.Value));
+                return iquery.ToList();
+            }
+        }
+
         public static List<PlayerInventory> SelectAllInventory(string category)
         {
             using (DB_r0739290Entities entities = new DB_r0739290Entities())

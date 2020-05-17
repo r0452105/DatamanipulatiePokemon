@@ -58,6 +58,10 @@ namespace PokemonWPF
             List<Items> lstItems = DatabaseOperations.GetDistinctCategory(); //items sorteren per categorie
             List<string> data = lstItems.Select(x => x.Catagory).Distinct().ToList();
             fillCategoryListBox(data);
+
+           //listview vullen zodat alle items erin staan bij het laden van het screen
+            lstInventory = DatabaseOperations.GetItems(2);
+            lvInventory.ItemsSource = lstInventory;
         }
 
         private void fillCategoryListBox(List<string> Data)
