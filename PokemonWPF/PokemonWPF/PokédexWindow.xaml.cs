@@ -37,6 +37,7 @@ namespace PokemonWPF
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
+
             foreach (Pokedex pokedex in pokeEntries)
             {
                 lbPokédex.Items.Add(pokedex.PokemonName);
@@ -44,6 +45,7 @@ namespace PokemonWPF
             lblSeenCaptured.Content = "Pokémon \n\nSeen: " + pokeEntries.Count + " \nOwned: 6";// owned nog automatiseren
 
             BitmapImage bulbasaur = new BitmapImage(new Uri("Images/PokemonSprites.png", UriKind.Relative));
+            lbPokédex.SelectedIndex = 0;
             imgPicturePokémon.Source = new CroppedBitmap(bulbasaur, pokedexPic1.target);
         }
 
@@ -66,6 +68,7 @@ namespace PokemonWPF
 
         private void LbPokédex_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            tbPicName.Text = lbPokédex.SelectedItem.ToString();
             //pokedexpicturessssss
 
             
