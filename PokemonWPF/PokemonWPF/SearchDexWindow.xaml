@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:PokemonWPF"
         mc:Ignorable="d"
         Title="SearchDexWindow" Height="450" Width="800" Loaded="Window_Loaded">
-    <Grid Background="DarkRed">
+    <Grid Background="LightGray">
         <Grid.RowDefinitions>
             <RowDefinition Height="40*"/>
             <RowDefinition Height="40*"/>
@@ -19,15 +19,15 @@
             <ColumnDefinition/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <Label x:Name="lblName" Content="Name:" FontSize="40" HorizontalAlignment="Center"/>
+        <Label x:Name="lblName" Content="Name:" FontSize="40" HorizontalAlignment="Center" Margin="139,5,135.8,5"/>
         <Label x:Name="lblType" Content="Type:" Grid.Row="1" FontSize="40" HorizontalAlignment="Center"/>
         <Label x:Name="lblSort" Content="Sort by:" Grid.Row="3" FontSize="40" HorizontalAlignment="Center"/>
         <Button x:Name="btnSearch" Content="Search" Grid.Row="2" FontSize="30" Margin="10,10,7.8,10" Click="BtnSearch_Click" Height="Auto" />
         <Button x:Name="btnStartSorting" Content="Start Sorting" Grid.Row="4" FontSize="30" Margin="9,10,8.8,10" Click="BtnStartSorting_Click" Height="Auto" />
         <Button x:Name="btnBack" Content="Back" Grid.Row="4" Grid.Column="1" FontSize="30" Margin="9.2,10,8.6,10" Click="BtnBack_Click" Height="Auto"/>
         <TextBox x:Name="tbName" VerticalAlignment="Center" FontSize="30" Margin="9" Grid.Column="1" Background="White" />
-        <ComboBox x:Name="cbType" Grid.Column="1" Grid.Row="1" Margin="9" Background="White" />
-        <ComboBox x:Name="cbSortBy" Grid.Column="1" Grid.Row="3" Margin="9" Background="White" />
+        <ComboBox x:Name="cbType" FontSize="40" Grid.Column="1" Grid.Row="1" Margin="9" Background="White" />
+        <ComboBox x:Name="cbSortBy" FontSize="40" Grid.Column="1" Grid.Row="3" Margin="9" Background="White" />
 
     </Grid>
 </Window>

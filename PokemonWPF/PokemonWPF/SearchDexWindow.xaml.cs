@@ -35,7 +35,7 @@ namespace PokemonWPF
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            cbType.Items.Add("Geen Specifieke typing");
+            cbType.Items.Add(" ");
             foreach (Types poketype in poketypeentries)
             {
                 cbType.Items.Add(poketype.TypeName);
@@ -88,6 +88,7 @@ namespace PokemonWPF
                 }
             }
             DexWindowToAlter.Show();
+            DexWindowToAlter.lbPokédex.SelectedIndex = 0;
             this.Close();
         }
 

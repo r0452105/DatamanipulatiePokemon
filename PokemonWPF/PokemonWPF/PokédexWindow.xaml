@@ -48,7 +48,7 @@
                     <TextBlock Text="Pokemon" Height="35" Padding="7" Foreground="White" FontWeight="Bold" FontFamily="Calibri" FontSize="14" />
                 </Border>
             </GroupBox.Header>
-            <ListBox x:Name="lbPokédex" Grid.Column="1" Grid.Row="0" Grid.RowSpan="2" Margin="0,0,0,0.8" ScrollViewer.VerticalScrollBarVisibility="Visible" BorderBrush="Black" BorderThickness="3" SelectionChanged="LbPokédex_SelectionChanged" MouseDoubleClick="LbPokédex_MouseDoubleClick" Background="White" Width="329" >
+            <ListBox x:Name="lbPokédex" Grid.Column="1" Grid.Row="0" Grid.RowSpan="2" Margin="0,0,0,0.8" ScrollViewer.VerticalScrollBarVisibility="Visible" BorderBrush="Black" BorderThickness="3" MouseDoubleClick="LbPokédex_MouseDoubleClick" Background="White" Width="329" SelectionChanged="LbPokédex_SelectionChanged" >
             </ListBox>
         </GroupBox>
 

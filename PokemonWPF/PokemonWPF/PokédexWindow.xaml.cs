@@ -65,14 +65,7 @@ namespace PokemonWPF
             this.Visibility = Visibility.Visible;
         }
 
-
-        private void LbPokédex_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            tbPicName.Text = lbPokédex.SelectedItem.ToString();
-            //pokedexpicturessssss
-
-            
-        }
+        
 
         private void LbPokédex_MouseDoubleClick(object sender, MouseButtonEventArgs e) //code mss in effectieve scherm zetten
         {
@@ -84,6 +77,17 @@ namespace PokemonWPF
             this.Visibility = Visibility.Visible;
         }
 
-        
+        private void LbPokédex_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+
+
+           if(int.Parse(lbPokédex.SelectedIndex)=true){
+                tbPicName.Text = lbPokédex.SelectedItem.ToString();
+            }
+            else{
+                tbPicName.Text = "";
+            }
+        }
     }
 }
