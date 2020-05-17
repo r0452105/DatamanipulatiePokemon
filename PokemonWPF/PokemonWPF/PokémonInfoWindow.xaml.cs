@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using PokemonDAL;
 using PokemonWPF;
+using PokemonModels;
 
 namespace PokemonWPF
 {
@@ -26,6 +27,7 @@ namespace PokemonWPF
         IList<Pokedex> pokeEntries = DatabaseOperations.PokedexEntry();
         public Types poketype = new Types();
         List<Types> poketypeentries = DatabaseOperations.Typinglist();
+        Bulbasaur pokedexPic1 = new Bulbasaur();
 
 
         public PokémonInfoWindow()
@@ -69,7 +71,10 @@ namespace PokemonWPF
             tbGewicht.Text = "Gewicht: " + gewicht + " kg";
             tbNumber.Text = "No. " + number + "";
             tbType.Text = type1 + "  " + type2;
-            lblDescription.Content = uitleg;
+            tbDescription.Text = uitleg;
+
+            BitmapImage pokemonbitmap = new BitmapImage(new Uri("Images/PokemonSprites.png", UriKind.Relative));
+            imgPokéSprite.Source = new CroppedBitmap(pokemonbitmap, pokedexPic1.target);
         }
 
         private void BtnBack_Click(object sender, RoutedEventArgs e)
