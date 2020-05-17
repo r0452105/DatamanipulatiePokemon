@@ -7,6 +7,6 @@
         mc:Ignorable="d"
         Title="CRUDWindow" Height="450" Width="800">
     <Grid>
-        <Label Content="lol" FontSize="300" HorizontalContentAlignment="Center"></Label>
+        
     </Grid>
 </Window>
