@@ -84,5 +84,13 @@ namespace PokemonWPF
 
    
         }
+        private void BtnAdd_Click(object sender, RoutedEventArgs e)
+        {
+            PokedexCRUDWindow CRUDWindow1 = new PokedexCRUDWindow();
+            this.Visibility = Visibility.Hidden;
+            CRUDWindow1.DexWindowToAlter = this;
+            CRUDWindow1.ShowDialog();
+            this.Visibility = Visibility.Visible;
+        }
     }
 }

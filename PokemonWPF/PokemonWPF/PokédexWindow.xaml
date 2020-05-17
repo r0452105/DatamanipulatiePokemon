@@ -52,7 +52,8 @@
             </ListBox>
         </GroupBox>
 
-        <Button x:Name="btnSearch" Grid.Column="0" Grid.Row="2" Content="Search" Margin="24,10,8,10.2" BorderBrush="Black" BorderThickness="3" Click="BtnSearch_Click" Height="Auto"/>
+        <Button x:Name="btnSearch" Grid.Column="0" Grid.Row="2" Content="Search" Margin="24,10,255,10.2" BorderBrush="Black" BorderThickness="3" Click="BtnSearch_Click" Height="Auto"/>
+        <Button x:Name="btnAdd" Grid.Column="0" Grid.Row="2" Content="Add Pokemon" Margin="250,10,8,10.2" BorderBrush="Black" BorderThickness="3" Height="Auto" Click="BtnAdd_Click"/>
         <Button x:Name="btnBack" Grid.Column="1" Grid.Row="2" Content="Back" Margin="45,10,165,10.2" BorderBrush="Black" BorderThickness="3" Click="BtnBack_Click" Height="Auto" />
     </Grid>
 </Window>

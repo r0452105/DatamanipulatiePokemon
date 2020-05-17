@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Users\Gebruiker\Documents\GitHub\DatamanipulatiePok-monAaronLaraBryant\PokemonWPF\PokemonWPF\App.xaml
-11-210553690
+12416974227
 
-15970870463
+16-8253615
 21299219126
-MainWindow.xaml;PokemonPartyCRUD.xaml;PokemonStats.xaml;PokéBadgesWindow.xaml;PokébagWindow.xaml;PokédexWindow.xaml;PokéTrainercardWindow.xaml;SearchDexWindow.xaml;PokémonInfoWindow.xaml;PokemonInfo.xaml;PokemonParty.xaml;
+MainWindow.xaml;PokemonPartyCRUD.xaml;PokemonStats.xaml;PokéBadgesWindow.xaml;PokébagWindow.xaml;PokédexWindow.xaml;PokéTrainercardWindow.xaml;SearchDexWindow.xaml;PokémonInfoWindow.xaml;PokemonInfo.xaml;PokemonParty.xaml;PokedexCRUDWindow.xaml;
 
-True
+False
 
