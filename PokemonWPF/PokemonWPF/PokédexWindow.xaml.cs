@@ -82,12 +82,7 @@ namespace PokemonWPF
 
 
 
-           if(int.Parse(lbPokédex.SelectedIndex)=true){
-                tbPicName.Text = lbPokédex.SelectedItem.ToString();
-            }
-            else{
-                tbPicName.Text = "";
-            }
+   
         }
     }
 }
