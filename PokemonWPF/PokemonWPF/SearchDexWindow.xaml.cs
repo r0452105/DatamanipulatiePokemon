@@ -26,9 +26,15 @@ namespace PokemonWPF
         public Pokedex pokedex = new Pokedex();
         IList<Pokedex> pokeEntries = DatabaseOperations.PokedexEntry();
         IList<Pokedex> pokeEntriesAZ = DatabaseOperations.PokedexEntryAZ();
+
+
         public SearchDexWindow()
         {
             InitializeComponent();
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
             cbType.Items.Add("Geen Specifieke typing");
             foreach (Types poketype in poketypeentries)
             {
@@ -38,8 +44,9 @@ namespace PokemonWPF
             cbSortBy.Items.Add("National Dex");
 
             cbType.SelectedIndex = 0;
-
         }
+
+
         private void BtnBack_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
@@ -124,5 +131,7 @@ namespace PokemonWPF
         {
 
         }
+
+        
     }
 }

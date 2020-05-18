@@ -9,3 +9,15 @@ C:\Users\larap\OneDrive\Documenten\GitHub\DatamanipulatiePok-monAaronLaraBryant\
 C:\Users\larap\OneDrive\Documenten\GitHub\DatamanipulatiePok-monAaronLaraBryant\PokemonWPF\PokemonModels\obj\Debug\PokemonModels.csprojAssemblyReference.cache
 C:\Users\larap\OneDrive\Documenten\GitHub\DatamanipulatiePok-monAaronLaraBryant\PokemonWPF\PokemonModels\obj\Debug\PokemonModels.dll
 C:\Users\larap\OneDrive\Documenten\GitHub\DatamanipulatiePok-monAaronLaraBryant\PokemonWPF\PokemonModels\obj\Debug\PokemonModels.pdb
+C:\Users\Gebruiker\Documents\GitHub\DatamanipulatiePok-monAaronLaraBryant\PokemonWPF\PokemonModels\bin\Debug\PokemonModels.dll
+C:\Users\Gebruiker\Documents\GitHub\DatamanipulatiePok-monAaronLaraBryant\PokemonWPF\PokemonModels\bin\Debug\PokemonModels.pdb
+C:\Users\Gebruiker\Documents\GitHub\DatamanipulatiePok-monAaronLaraBryant\PokemonWPF\PokemonModels\obj\Debug\PokemonModels.csprojAssemblyReference.cache
+C:\Users\Gebruiker\Documents\GitHub\DatamanipulatiePok-monAaronLaraBryant\PokemonWPF\PokemonModels\obj\Debug\PokemonModels.csproj.CoreCompileInputs.cache
+C:\Users\Gebruiker\Documents\GitHub\DatamanipulatiePok-monAaronLaraBryant\PokemonWPF\PokemonModels\obj\Debug\PokemonModels.dll
+C:\Users\Gebruiker\Documents\GitHub\DatamanipulatiePok-monAaronLaraBryant\PokemonWPF\PokemonModels\obj\Debug\PokemonModels.pdb
+C:\Users\vdb\Documents\GitHub\DatamanipulatiePok-monAaronLaraBryant\PokemonWPF\PokemonModels\bin\Debug\PokemonModels.dll
+C:\Users\vdb\Documents\GitHub\DatamanipulatiePok-monAaronLaraBryant\PokemonWPF\PokemonModels\bin\Debug\PokemonModels.pdb
+C:\Users\vdb\Documents\GitHub\DatamanipulatiePok-monAaronLaraBryant\PokemonWPF\PokemonModels\obj\Debug\PokemonModels.csprojAssemblyReference.cache
+C:\Users\vdb\Documents\GitHub\DatamanipulatiePok-monAaronLaraBryant\PokemonWPF\PokemonModels\obj\Debug\PokemonModels.csproj.CoreCompileInputs.cache
+C:\Users\vdb\Documents\GitHub\DatamanipulatiePok-monAaronLaraBryant\PokemonWPF\PokemonModels\obj\Debug\PokemonModels.dll
+C:\Users\vdb\Documents\GitHub\DatamanipulatiePok-monAaronLaraBryant\PokemonWPF\PokemonModels\obj\Debug\PokemonModels.pdb

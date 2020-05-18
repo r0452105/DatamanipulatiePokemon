@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PokemonWPF"
         mc:Ignorable="d"
-        Title="PokédexWindow" Height="450" Width="800">
+        Title="PokédexWindow" Height="450" Width="800" Loaded="Window_Loaded">
     <Grid Background="DarkRed" >
 
         <Grid.RowDefinitions>
@@ -22,7 +22,7 @@
 
         <Label x:Name="lblSeenCaptured" Background="White" Grid.Column="0" Grid.Row="1" Content="" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="20" Margin="30,22,29.8,20" BorderBrush="Black" BorderThickness="3"/>
         <Image x:Name="imgPicturePokémon"/>
-        <ListBox x:Name="lbPokédex" Grid.Column="1" Grid.Row="0" Grid.RowSpan="2" Margin="100,20" ScrollViewer.VerticalScrollBarVisibility="Visible" BorderBrush="Black" BorderThickness="3" SelectionChanged="LbPokédex_SelectionChanged" MouseDoubleClick="LbPokédex_MouseDoubleClick">
+        <ListBox x:Name="lbPokédex" Grid.Column="1" Grid.Row="0" Grid.RowSpan="2" Margin="100,20" ScrollViewer.VerticalScrollBarVisibility="Visible" BorderBrush="Black" BorderThickness="3" SelectionChanged="LbPokédex_SelectionChanged" MouseDoubleClick="LbPokédex_MouseDoubleClick" Background="White" >
         </ListBox>
         <Button x:Name="btnSearch" Grid.Column="0" Grid.Row="2" Content="Search" Margin="8" BorderBrush="Black" BorderThickness="3" Click="BtnSearch_Click"/>
         <Button x:Name="btnBack" Grid.Column="1" Grid.Row="2" Content="Back" Margin="8" BorderBrush="Black" BorderThickness="3" Click="BtnBack_Click" />

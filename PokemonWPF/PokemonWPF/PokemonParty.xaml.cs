@@ -35,7 +35,7 @@ namespace PokemonWPF
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            Pokemonparty = DatabaseOperations.SelectParty(2);
+            Pokemonparty = DatabaseOperations.SelectParty(trainerParty.Id);
             OrderElements();
             LoadPokemon();
         }
@@ -76,6 +76,10 @@ namespace PokemonWPF
                 }
               
             }
+            if (Pokemonparty.Count == 6)
+            {
+                btnAdd.IsEnabled = false;
+            }
           
 
         }
@@ -84,14 +88,17 @@ namespace PokemonWPF
             Close();
         }
 
-        private void Border_MouseDown(object sender, MouseButtonEventArgs e)
+        
+
+        private void Border_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            Border thisBorder =  sender as Border;
+            Border thisBorder = sender as Border;
             PokemonGroup currentPokemon = new PokemonGroup();
 
             switch (thisBorder.Name)
             {
-                case "Card1": currentPokemon = Pokemonparty[0];
+                case "Card1":
+                    currentPokemon = Pokemonparty[0];
                     break;
                 case "Card2":
                     currentPokemon = Pokemonparty[1];
@@ -108,19 +115,116 @@ namespace PokemonWPF
                 case "Card6":
                     currentPokemon = Pokemonparty[5];
                     break;
-                default: MessageBox.Show("???");
+                default:
+                    MessageBox.Show("???");
                     break;
             }
             PokemonInfo infoscreen = new PokemonInfo();
             infoscreen.pokemonstats = DatabaseOperations.SelectPokemonFromParty(currentPokemon);
             this.Visibility = Visibility.Hidden;
             infoscreen.ShowDialog();
-           
+
             this.Visibility = Visibility.Visible;
-           
 
         }
 
-        
+        private void Border_MouseRightButtonDown(object sender, MouseButtonEventArgs e)
+        {
+           
+            Border thisBorder = sender as Border;
+            PokemonGroup currentPokemon = new PokemonGroup();
+
+            switch (thisBorder.Name)
+            {
+                case "Card1":
+                    currentPokemon = Pokemonparty[0];
+                    break;
+                case "Card2":
+                    currentPokemon = Pokemonparty[1];
+                    break;
+                case "Card3":
+                    currentPokemon = Pokemonparty[2];
+                    break;
+                case "Card4":
+                    currentPokemon = Pokemonparty[3];
+                    break;
+                case "Card5":
+                    currentPokemon = Pokemonparty[4];
+                    break;
+                case "Card6":
+                    currentPokemon = Pokemonparty[5];
+                    break;
+                default:
+                    MessageBox.Show("???");
+                    break;
+            }
+
+            PokemonPartyCRUD CRUDwindow = new PokemonPartyCRUD();
+            CRUDwindow.btnChange.IsEnabled = true;
+            CRUDwindow.btnDelete.IsEnabled = true;
+            CRUDwindow.cmbPokemon.IsEnabled = false;
+            CRUDwindow.cmbPosition.Items.Clear();
+            for (int i = 0; i < Pokemonparty.Count(); i++)
+            {
+                CRUDwindow.cmbPosition.Items.Add(i +1);
+            }
+            CRUDwindow.cmbAbility.SelectedIndex = (int)currentPokemon.Pokemon.AbilityID + 1;
+            //Doesn't correctly update if ability has been altered. No idea why, data shows up correctly in PokemonInfo
+            CRUDwindow.CurrentPkmParty = currentPokemon;
+            CRUDwindow.CurrentPkm = currentPokemon.Pokemon;
+            CRUDwindow.cmbPosition.SelectedIndex = currentPokemon.Position - 1;
+            CRUDwindow.cmbPokemon.SelectedIndex = (int)currentPokemon.Pokemon.PokedexID - 1;
+            CRUDwindow.txtLvl.Text = currentPokemon.Pokemon.PokemonLevel.ToString();
+            CRUDwindow.txtName.Text = currentPokemon.Pokemon.Nickname;
+            CRUDwindow.cmbGender.SelectedIndex =  Convert.ToInt32(currentPokemon.Pokemon.Gender);
+            CRUDwindow.currentTrainer = trainerParty;
+            CRUDwindow.ShowDialog();
+
+            Pokemonparty = DatabaseOperations.SelectParty(trainerParty.Id);
+            LoadPokemon();
+        }
+
+      
+
+        private void btnAdd_Click(object sender, RoutedEventArgs e)
+        {
+            PokemonPartyCRUD CRUDwindow = new PokemonPartyCRUD();
+
+            if (Pokemonparty.Max(x => x.Position) < 6)
+            {
+                CRUDwindow.btnAdd.IsEnabled = true;
+                CRUDwindow.cmbPosition.SelectedIndex = Pokemonparty.Max(x => x.Position);
+                CRUDwindow.cmbPosition.IsEnabled = false;
+
+                CRUDwindow.currentTrainer = trainerParty;
+                CRUDwindow.cmbPokemon.SelectedIndex = 0;
+                CRUDwindow.txtName.Text = "Bulbasaur";
+                CRUDwindow.txtLvl.Text = "5";
+                CRUDwindow.ShowDialog();
+                Pokemonparty = DatabaseOperations.SelectParty(trainerParty.Id);
+                LoadPokemon();
+            }
+            else
+            {
+                MessageBox.Show("You already have 6 pokemon, remove one before adding more");
+            }
+           
+
+
+           
+           
+        }
+
+        private void Border_MouseEnter(object sender, MouseEventArgs e)
+        {
+            Border thisBorder = sender as Border;
+            thisBorder.BorderBrush = Brushes.Red;
+        }
+
+        private void Border_MouseLeave(object sender, MouseEventArgs e)
+        {
+            Border thisBorder = sender as Border;
+            thisBorder.BorderBrush = Brushes.Gray;
+        }
     }
 }
