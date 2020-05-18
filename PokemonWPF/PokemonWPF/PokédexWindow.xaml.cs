@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using PokemonDAL;
 using PokemonModels;
+using PokemonWPF;
 
 namespace PokemonWPF
 {
@@ -27,6 +28,7 @@ namespace PokemonWPF
         public Types poketype = new Types();
         List<Types> poketypeentries = DatabaseOperations.Typinglist();
         Bulbasaur pokedexPic1 = new Bulbasaur();
+        List<PokemonGroup> pokeparty = DatabaseOperations.SelectParty(2);
 
         public PokédexWindow()
         {
@@ -37,15 +39,12 @@ namespace PokemonWPF
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-
-            foreach (Pokedex pokedex in pokeEntries)
-            {
-                lbPokédex.Items.Add(pokedex.PokemonName);
-            }
-            lblSeenCaptured.Content = "Pokémon \n\nSeen: " + pokeEntries.Count + " \nOwned: 6";// owned nog automatiseren
+            int partycount =pokeparty.Count;
+            lvPokedex.ItemsSource = pokeEntries;
+            lblSeenCaptured.Content = "\nSeen: " + pokeEntries.Count + " \nOwned: "+partycount;// owned nog automatiseren
 
             BitmapImage bulbasaur = new BitmapImage(new Uri("Images/PokemonSprites.png", UriKind.Relative));
-            lbPokédex.SelectedIndex = 0;
+            lvPokedex.SelectedIndex = 0;
             imgPicturePokémon.Source = new CroppedBitmap(bulbasaur, pokedexPic1.target);
         }
 
@@ -65,31 +64,27 @@ namespace PokemonWPF
             this.Visibility = Visibility.Visible;
         }
 
-        
-
-        private void LbPokédex_MouseDoubleClick(object sender, MouseButtonEventArgs e) //code mss in effectieve scherm zetten
-        {
-            PokémonInfoWindow PokéInfoWindow1 = new PokémonInfoWindow();
-            this.Visibility = Visibility.Hidden;
-            PokéInfoWindow1.DexWindowToAlter = this;
-            PokéInfoWindow1.ShowDialog();
-            //problem opening main
-            this.Visibility = Visibility.Visible;
-        }
-
-        private void LbPokédex_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
-
-
-   
-        }
         private void BtnAdd_Click(object sender, RoutedEventArgs e)
         {
             PokedexCRUDWindow CRUDWindow1 = new PokedexCRUDWindow();
             this.Visibility = Visibility.Hidden;
             CRUDWindow1.DexWindowToAlter = this;
             CRUDWindow1.ShowDialog();
+            this.Visibility = Visibility.Visible;
+        }
+
+        private void LvPokedex_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+        private void LvPokedex_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            PokémonInfoWindow PokéInfoWindow1 = new PokémonInfoWindow();
+            this.Visibility = Visibility.Hidden;
+            PokéInfoWindow1.DexWindowToAlter = this;
+            PokéInfoWindow1.ShowDialog();
+            //problem opening main
             this.Visibility = Visibility.Visible;
         }
     }

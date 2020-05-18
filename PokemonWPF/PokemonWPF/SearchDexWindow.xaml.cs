@@ -56,7 +56,7 @@ namespace PokemonWPF
         {
             foreach (Pokedex pokedex in pokeEntries)
             {
-                DexWindowToAlter.lbPokédex.Items.Remove(pokedex.PokemonName);
+                DexWindowToAlter.lvPokedex.Items.Remove(pokedex.PokemonName);
             }
             foreach (Pokedex pokedex in pokeEntries)
             {
@@ -78,16 +78,16 @@ namespace PokemonWPF
                     }
                     if (cbType.SelectedIndex==0)
                     {
-                        DexWindowToAlter.lbPokédex.Items.Add(pokedex.PokemonName);
+                        DexWindowToAlter.lvPokedex.Items.Add(pokedex.PokemonName);
                     }
                     else if (type1 == cbType.SelectedItem.ToString() || type2 == cbType.SelectedItem.ToString())
                     {
-                        DexWindowToAlter.lbPokédex.Items.Add(pokedex.PokemonName);
+                        DexWindowToAlter.lvPokedex.Items.Add(pokedex.PokemonName);
                     } 
                 }
             }
             DexWindowToAlter.Show();
-            DexWindowToAlter.lbPokédex.SelectedIndex = 0;
+            DexWindowToAlter.lvPokedex.SelectedIndex = 0;
             this.Close();
         }
 
@@ -100,11 +100,11 @@ namespace PokemonWPF
                     // eerst volgorde van de pokemons aanpassen, dan terugleiden naar pokedexscherm
                     foreach (Pokedex pokedex in pokeEntriesAZ)
                     {
-                        DexWindowToAlter.lbPokédex.Items.Remove(pokedex.PokemonName);
+                        DexWindowToAlter.lvPokedex.Items.Remove(pokedex.PokemonName);
                     }
                     foreach (Pokedex pokedex in pokeEntriesAZ)
                     {
-                        DexWindowToAlter.lbPokédex.Items.Add(pokedex.PokemonName);
+                        DexWindowToAlter.lvPokedex.Items.Add(pokedex.PokemonName);
                     }
                     DexWindowToAlter.Show();
                     this.Close();
@@ -112,11 +112,11 @@ namespace PokemonWPF
                 case 1:
                     foreach (Pokedex pokedex in pokeEntries)
                     {
-                        DexWindowToAlter.lbPokédex.Items.Remove(pokedex.PokemonName);
+                        DexWindowToAlter.lvPokedex.Items.Remove(pokedex.PokemonName);
                     }
                     foreach (Pokedex pokedex in pokeEntries)
                     {
-                        DexWindowToAlter.lbPokédex.Items.Add(pokedex.PokemonName);
+                        DexWindowToAlter.lvPokedex.Items.Add(pokedex.PokemonName);
                     }
                     DexWindowToAlter.Show();
                     this.Close();

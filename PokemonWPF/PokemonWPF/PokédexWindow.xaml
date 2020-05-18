@@ -41,16 +41,23 @@
 
         </GroupBox>
 
+        <ListView x:Name="lvPokedex" ScrollViewer.HorizontalScrollBarVisibility="Hidden" HorizontalAlignment="Left" Height="576" Margin="32,30,0,0" Grid.RowSpan="2" VerticalAlignment="Top" Width="350" Grid.ColumnSpan="1" Grid.Column="1" BorderBrush="Black" BorderThickness="3" FontFamily="Calibri" FontSize="10pt" FontWeight="SemiBold" SelectionMode="Single" SelectionChanged="LvPokedex_SelectionChanged" MouseDoubleClick="LvPokedex_MouseDoubleClick">
+            <ListView.View>
+                <GridView>
+                    <GridView.ColumnHeaderContainerStyle>
+                        <Style TargetType="{x:Type GridViewColumnHeader}">
+                            <Setter Property="Background" Value="DarkRed"/>
+                            <Setter Property="Foreground" Value="White" />
+                            <Setter Property="FontWeight" Value="Bold" />
+                            <Setter Property="FontSize" Value="10pt" />
+                            <Setter Property="Height" Value="35px" />
+                        </Style>
+                    </GridView.ColumnHeaderContainerStyle>
+                    <GridViewColumn Header="Name" Width="350px" DisplayMemberBinding="{Binding Path=PokemonName}" />
+                </GridView>
+            </ListView.View>
+        </ListView>
 
-        <GroupBox Grid.Column="1" Padding="0"  HorizontalAlignment="Left" Height="570" Margin="45,36,0,0" Grid.RowSpan="2" VerticalAlignment="Top" Width="330" BorderBrush="Black">
-            <GroupBox.Header>
-                <Border BorderBrush="Black" BorderThickness="3" Background="DarkRed">
-                    <TextBlock Text="Pokemon" Height="35" Padding="7" Foreground="White" FontWeight="Bold" FontFamily="Calibri" FontSize="14" />
-                </Border>
-            </GroupBox.Header>
-            <ListBox x:Name="lbPokédex" Grid.Column="1" Grid.Row="0" Grid.RowSpan="2" Margin="0,0,0,0.8" ScrollViewer.VerticalScrollBarVisibility="Visible" BorderBrush="Black" BorderThickness="3" MouseDoubleClick="LbPokédex_MouseDoubleClick" Background="White" Width="329" SelectionChanged="LbPokédex_SelectionChanged" >
-            </ListBox>
-        </GroupBox>
 
         <Button x:Name="btnSearch" Grid.Column="0" Grid.Row="2" Content="Search" Margin="24,10,255,10.2" BorderBrush="Black" BorderThickness="3" Click="BtnSearch_Click" Height="Auto"/>
         <Button x:Name="btnAdd" Grid.Column="0" Grid.Row="2" Content="Add Pokemon" Margin="250,10,8,10.2" BorderBrush="Black" BorderThickness="3" Height="Auto" Click="BtnAdd_Click"/>

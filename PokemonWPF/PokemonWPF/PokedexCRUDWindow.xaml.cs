@@ -41,6 +41,7 @@ namespace PokemonWPF
         }
         private void BtnBack_Click(object sender, RoutedEventArgs e)
         {
+            DexWindowToAlter.lvPokedex.ItemsSource = DatabaseOperations.PokedexEntry();
             this.Close();
         }
 
@@ -59,6 +60,14 @@ namespace PokemonWPF
             pokedexEntry.CaptureRate = 45;
             pokedexEntry.EvolveThreshold = null;
 
+            DatabaseOperations.AddPokedexEntry(pokedexEntry);
+            datagridPokedexEntries.ItemsSource = DatabaseOperations.PokedexEntry();
+        }
+        private void BtnDelete_Click(object sender, RoutedEventArgs e)
+        {
+            pokedexEntry = datagridPokedexEntries.SelectedItem as Pokedex;
+            DatabaseOperations.DeletePokedexEntry(pokedexEntry);
+            datagridPokedexEntries.ItemsSource = DatabaseOperations.PokedexEntry();
         }
     }
 }
