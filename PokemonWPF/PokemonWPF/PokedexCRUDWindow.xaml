@@ -5,8 +5,59 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PokemonWPF"
         mc:Ignorable="d"
-        Title="CRUDWindow" Height="450" Width="800">
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" 
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}" 
+        TextElement.FontWeight="Regular" 
+        TextElement.FontSize="13" 
+        TextOptions.TextFormattingMode="Ideal" 
+        TextOptions.TextRenderingMode="Auto" 
+        Background="{DynamicResource MaterialDesignPaper}" 
+        FontFamily="{DynamicResource MaterialDesignFont}"
+        Title="CRUDWindow" Height="450" Width="1056.998" Loaded="Window_Loaded">
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <TextBox x:Name="txtPokeNaam" 
+                   materialDesign:HintAssist.Hint="naam"
+                   Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                   Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" Margin="5"  />
+        <Button x:Name="btnZoeken" Content="Zoeken" Grid.Row="0" Grid.Column="3" Margin="5" />
+
+        <DataGrid x:Name="datagridPokedexEntries" AutoGenerateColumns="False" Grid.Row="1" Grid.Column="0" 
+                  IsReadOnly="True" 
+                  Grid.ColumnSpan="3" Margin="5" >
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding Id}" Header="Nummer"></DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding PokemonName}" Header="Naam"></DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding Types}" Header="Type 1"></DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding Types1}" Header="Type 2"></DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding PokemonWeight}" Header="Gewicht"></DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding ExpMax}" Header="ExpMax"></DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding CaptureRate}" Header="Capture Rate"></DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding EvolveThreshold}" Header="Evolve Threshold"></DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding PokemonDescription}" Header="Description"></DataGridTextColumn>
+
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button x:Name="btnVerwijderen" Content="Verwijderen" Grid.Row="1" Grid.Column="3" Margin="5" VerticalAlignment="Top" />
+        <TextBox x:Name="txtHoeveelheid" 
+                   materialDesign:HintAssist.Hint="Hoeveelheid"
+                   Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                   Grid.Row="2" Grid.Column="0" Margin="5"  />
+        <ComboBox x:Name="cmbProducten" materialDesign:HintAssist.Hint="Product" IsEditable="true"
+                   Grid.Row="2" Grid.Column="1" Margin="5"  />
+        <Button x:Name="btnToevoegen" Content="Toevoegen" Grid.Row="2" Grid.Column="2" Margin="5" />
+        <Button x:Name="btnAanpassen" Content="Aanpassen" Grid.Row="2" Grid.Column="3" Margin="5" />
+        <Button x:Name="btnAnnuleren" Content="Annuleren" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="4" Margin="5" />
     </Grid>
 </Window>

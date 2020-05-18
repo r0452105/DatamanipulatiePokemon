@@ -33,6 +33,10 @@ namespace PokemonDAL
             using(DB_r0739290Entities entities = new DB_r0739290Entities())
             {
                 var query = entities.Pokedex
+                    .Include("Types")
+                    .Include("Types1")
+                    .Include("Types.Pokedex")
+                    .Include("Types.Pokedex1")
                     .OrderBy(x => x.Id);
                 return query.ToList();
             }

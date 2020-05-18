@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using PokemonDAL;
 
 namespace PokemonWPF
 {
@@ -20,9 +21,16 @@ namespace PokemonWPF
     public partial class PokedexCRUDWindow : Window
     {
         public PokédexWindow DexWindowToAlter;
+        List<Pokedex> pokedexentries = DatabaseOperations.PokedexEntry();
         public PokedexCRUDWindow()
         {
             InitializeComponent();
         }
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            datagridPokedexEntries.ItemsSource = pokedexentries;
+        }
+        
+        
     }
 }
