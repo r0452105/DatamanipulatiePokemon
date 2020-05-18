@@ -64,7 +64,7 @@ namespace PokemonWPF
             this.Visibility = Visibility.Visible;
         }
 
-        private void BtnAdd_Click(object sender, RoutedEventArgs e)
+        private void BtnCRUD_Click(object sender, RoutedEventArgs e)
         {
             PokedexCRUDWindow CRUDWindow1 = new PokedexCRUDWindow();
             this.Visibility = Visibility.Hidden;
