@@ -41,6 +41,25 @@ namespace PokemonDAL
                 return query.ToList();
             }
         }
+
+        public static int AddPokedexEntry(Pokedex newPokedex)
+        {
+            try
+            {
+                using (DB_r0739290Entities entities = new DB_r0739290Entities())
+                {
+                    entities.Pokedex.Add(newPokedex);
+
+                    return entities.SaveChanges();
+                }
+            }
+            catch (Exception ex)
+            {
+
+                return 0;
+            }
+
+        }
         public static List<Ability> AbilityList()
         {
             using (DB_r0739290Entities entities = new DB_r0739290Entities())

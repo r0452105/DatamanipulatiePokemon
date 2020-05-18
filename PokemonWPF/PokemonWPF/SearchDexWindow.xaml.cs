@@ -50,7 +50,6 @@ namespace PokemonWPF
         private void BtnBack_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
-            DexWindowToAlter.Visibility = Visibility.Visible;
         }
 
         private void BtnSearch_Click(object sender, RoutedEventArgs e)

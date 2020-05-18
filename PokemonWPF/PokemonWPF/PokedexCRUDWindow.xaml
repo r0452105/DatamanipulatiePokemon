@@ -18,6 +18,8 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"/>
             <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
             <RowDefinition Height="auto"/>
             <RowDefinition Height="auto"/>
         </Grid.RowDefinitions>
@@ -27,18 +29,18 @@
             <ColumnDefinition/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <TextBox x:Name="txtPokeNaam" 
-                   materialDesign:HintAssist.Hint="naam"
+        <TextBox x:Name="txtPokeNumber" 
+                   materialDesign:HintAssist.Hint="Number"
                    Style="{StaticResource MaterialDesignFloatingHintTextBox}"
                    Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" Margin="5"  />
-        <Button x:Name="btnZoeken" Content="Zoeken" Grid.Row="0" Grid.Column="3" Margin="5" />
+        <Button x:Name="btnSearch" Content="Search" Grid.Row="0" Grid.Column="3" Margin="5" Click="BtnSearch_Click" />
 
         <DataGrid x:Name="datagridPokedexEntries" AutoGenerateColumns="False" Grid.Row="1" Grid.Column="0" 
                   IsReadOnly="True" 
-                  Grid.ColumnSpan="3" Margin="5" >
+                  Grid.ColumnSpan="3" Grid.RowSpan="3" Margin="5" >
             <DataGrid.Columns>
-                <DataGridTextColumn Binding="{Binding Id}" Header="Nummer"></DataGridTextColumn>
-                <DataGridTextColumn Binding="{Binding PokemonName}" Header="Naam"></DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding Id}" Header="Number"></DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding PokemonName}" Header="Name"></DataGridTextColumn>
                 <DataGridTextColumn Binding="{Binding Types}" Header="Type 1"></DataGridTextColumn>
                 <DataGridTextColumn Binding="{Binding Types1}" Header="Type 2"></DataGridTextColumn>
                 <DataGridTextColumn Binding="{Binding PokemonWeight}" Header="Gewicht"></DataGridTextColumn>
@@ -49,15 +51,18 @@
 
             </DataGrid.Columns>
         </DataGrid>
-        <Button x:Name="btnVerwijderen" Content="Verwijderen" Grid.Row="1" Grid.Column="3" Margin="5" VerticalAlignment="Top" />
-        <TextBox x:Name="txtHoeveelheid" 
-                   materialDesign:HintAssist.Hint="Hoeveelheid"
+        <Button x:Name="btnDelete" Content="Delete" Grid.Row="2" Grid.Column="3" Margin="5" VerticalAlignment="Top" />
+        <TextBox x:Name="txtNaam" 
+                   materialDesign:HintAssist.Hint="Naam"
                    Style="{StaticResource MaterialDesignFloatingHintTextBox}"
-                   Grid.Row="2" Grid.Column="0" Margin="5"  />
-        <ComboBox x:Name="cmbProducten" materialDesign:HintAssist.Hint="Product" IsEditable="true"
-                   Grid.Row="2" Grid.Column="1" Margin="5"  />
-        <Button x:Name="btnToevoegen" Content="Toevoegen" Grid.Row="2" Grid.Column="2" Margin="5" />
-        <Button x:Name="btnAanpassen" Content="Aanpassen" Grid.Row="2" Grid.Column="3" Margin="5" />
-        <Button x:Name="btnAnnuleren" Content="Annuleren" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="4" Margin="5" />
+                   Grid.Row="4" Grid.Column="0" Margin="5"  />
+        <ComboBox x:Name="cmbType1" materialDesign:HintAssist.Hint="Type1" IsEditable="true"
+                   Grid.Row="4" Grid.Column="1" Margin="5"  />
+        <ComboBox x:Name="cmbType2" materialDesign:HintAssist.Hint="Type2" IsEditable="true"
+                   Grid.Row="4" Grid.Column="2" Margin="5"  />
+        <Button x:Name="btnAdd" Content="Add New Species" Grid.Row="4" Grid.Column="3" Margin="5,10.4,5.4,10.4" Click="BtnAdd_Click" />
+        <Button x:Name="btnChange" Content="Change" Grid.Row="1" Grid.Column="3" Margin="5,49,5.4,10.2" />
+        <Button x:Name="btnReplace" Content="Replace" Grid.Row="1" Grid.Column="3" Margin="5,10,5.4,49.2" />
+        <Button x:Name="btnBack" Content="Back" Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="4" Margin="5" Click="BtnBack_Click" />
     </Grid>
 </Window>
