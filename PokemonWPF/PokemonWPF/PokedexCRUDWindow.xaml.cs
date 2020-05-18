@@ -47,7 +47,19 @@ namespace PokemonWPF
 
         private void BtnAdd_Click(object sender, RoutedEventArgs e)
         {
-            pokedexEntry.Id = 1000;//needs to be lowest available slot
+            List<int> Idlist = new List<int>();
+
+            foreach (Pokedex pokedexEntry in pokedexentries)
+            {
+                Idlist.Add(pokedexEntry.Id);
+            }
+            pokedexEntry.Id = 1;
+            while (Idlist.Contains(pokedexEntry.Id))
+            {
+                pokedexEntry.Id += 1;
+            }
+
+            
             
             pokedexEntry.PokemonName = txtNaam.Text;
             pokedexEntry.Type1 = cmbType1.SelectedIndex+1;
