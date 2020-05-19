@@ -122,7 +122,9 @@ namespace PokemonWPF
             PokemonInfo infoscreen = new PokemonInfo();
             infoscreen.pokemonstats = DatabaseOperations.SelectPokemonFromParty(currentPokemon);
             this.Visibility = Visibility.Hidden;
+            this.Topmost = false;
             infoscreen.ShowDialog();
+            this.Topmost = true;
 
             this.Visibility = Visibility.Visible;
 
@@ -179,9 +181,9 @@ namespace PokemonWPF
             CRUDwindow.txtName.Text = currentPokemon.Pokemon.Nickname;
             CRUDwindow.cmbGender.SelectedIndex =  Convert.ToInt32(currentPokemon.Pokemon.Gender);
             CRUDwindow.currentTrainer = trainerParty;
-          
+            this.Topmost = false;
             CRUDwindow.ShowDialog();
-
+            this.Topmost = true;
             Pokemonparty = DatabaseOperations.SelectParty(trainerParty.Id);
             LoadPokemon();
         }
@@ -202,7 +204,9 @@ namespace PokemonWPF
                 CRUDwindow.cmbPokemon.SelectedIndex = 0;
                 CRUDwindow.txtName.Text = "Bulbasaur";
                 CRUDwindow.txtLvl.Text = "5";
+                this.Topmost = false;
                 CRUDwindow.ShowDialog();
+             this.Topmost = true;
                 Pokemonparty = DatabaseOperations.SelectParty(trainerParty.Id);
                 LoadPokemon();
             }

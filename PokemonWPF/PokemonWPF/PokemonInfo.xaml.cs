@@ -267,7 +267,7 @@ namespace PokemonWPF
             PokemonMoveAdd moveAddScreen = new PokemonMoveAdd();
             moveAddScreen.currentPokemon = pokemonstats;
             moveAddScreen.ShowDialog();
-
+            this.Topmost = true;
             SetMoves();
             SetContentPinkCard();
             GridRed.Visibility = Visibility.Collapsed;
