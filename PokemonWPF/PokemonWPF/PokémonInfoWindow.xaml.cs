@@ -45,7 +45,8 @@ namespace PokemonWPF
             foreach (Pokedex pokedex in pokeEntries)
             {
                 string pokenum = pokedex.PokemonName;
-                if ((pokerefer.Contains(pokenum)) == true)
+
+                if ((pokerefer.Contains(pokenum+)) == true)
                 {
                     string type1 = "";
                     string type2 = "";

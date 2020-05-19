@@ -58,9 +58,6 @@ namespace PokemonWPF
             {
                 pokedexEntry.Id += 1;
             }
-
-            
-            
             pokedexEntry.PokemonName = txtNaam.Text;
             pokedexEntry.Type1 = cmbType1.SelectedIndex+1;
             pokedexEntry.Type2 = cmbType2.SelectedIndex+1;//remember index must be same as the real id's of the types
@@ -80,6 +77,14 @@ namespace PokemonWPF
             pokedexEntry = datagridPokedexEntries.SelectedItem as Pokedex;
             DatabaseOperations.DeletePokedexEntry(pokedexEntry);
             datagridPokedexEntries.ItemsSource = DatabaseOperations.PokedexEntry();
+        }
+        private void BtnReplace_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+        private void BtnChange_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

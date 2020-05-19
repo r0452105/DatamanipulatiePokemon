@@ -14,7 +14,7 @@
         Background="{DynamicResource MaterialDesignPaper}" 
         FontFamily="{DynamicResource MaterialDesignFont}"
         Title="CRUDWindow" Height="450" Width="1056.998" Loaded="Window_Loaded">
-    <Grid>
+    <Grid Background="LightGray">
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"/>
             <RowDefinition/>
@@ -61,8 +61,8 @@
         <ComboBox x:Name="cmbType2" materialDesign:HintAssist.Hint="Type2" IsEditable="true"
                    Grid.Row="4" Grid.Column="2" Margin="5"  />
         <Button x:Name="btnAdd" Content="Add New Species" Grid.Row="4" Grid.Column="3" Margin="5,10.4,5.4,10.4" Click="BtnAdd_Click" />
-        <Button x:Name="btnChange" Content="Change" Grid.Row="1" Grid.Column="3" Margin="5,49,5.4,10.2" />
-        <Button x:Name="btnReplace" Content="Replace" Grid.Row="1" Grid.Column="3" Margin="5,10,5.4,49.2" />
+        <Button x:Name="btnChange" Content="Change" Grid.Row="1" Grid.Column="3" Margin="5,49,5.4,10.2" Click="BtnChange_Click" />
+        <Button x:Name="btnReplace" Content="Replace" Grid.Row="1" Grid.Column="3" Margin="5,10,5.4,49.2" Click="BtnReplace_Click" />
         <Button x:Name="btnBack" Content="Back" Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="4" Margin="5" Click="BtnBack_Click" />
     </Grid>
 </Window>
