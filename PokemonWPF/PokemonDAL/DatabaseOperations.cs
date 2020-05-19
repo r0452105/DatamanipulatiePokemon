@@ -46,6 +46,17 @@ namespace PokemonDAL
                 return query.ToList();
             }
         }
+
+        public static List<Trainer> TrainerList()
+        {
+            using (DB_r0739290Entities entities = new DB_r0739290Entities())
+            {
+                var query = entities.Trainer
+                    .Include("PokemonGroup")
+                    .OrderBy(x => x.Id);
+                return query.ToList();
+            }
+        }
         public static int CurrentStatpools()
         {
             using (DB_r0739290Entities entities = new DB_r0739290Entities())

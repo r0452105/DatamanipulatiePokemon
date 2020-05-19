@@ -169,7 +169,7 @@ namespace PokemonWPF
                 CRUDwindow.cmbPosition.Items.Add(i +1);
             }
             
-            //Doesn't correctly update if ability has been altered. No idea why, data shows up correctly in PokemonInfo
+     
             CRUDwindow.CurrentPkmParty = currentPokemon;
             CRUDwindow.CurrentPkm = currentPokemon.Pokemon;
             CRUDwindow.cmbPosition.SelectedIndex = currentPokemon.Position - 1;

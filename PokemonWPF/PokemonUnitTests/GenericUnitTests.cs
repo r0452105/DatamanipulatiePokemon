@@ -13,18 +13,23 @@ namespace PokemonUnitTests
         [TestMethod]
         public void TestPartySize()
         {
-   
+
+            //Tests whether no parties exceed allowable size
 
             //arrange
-            List<PokemonGroup> party1 = new List<PokemonGroup>();
-            List<PokemonGroup> party2 = new List<PokemonGroup>();
+            List<Trainer> allTrainers = new List<Trainer>();
+            List<PokemonGroup> GroupToCheck = new List<PokemonGroup>();
 
-           
+
             //act
-            party1 = DatabaseOperations.SelectParty(1);
-            party2 = DatabaseOperations.SelectParty(2);
+            allTrainers = DatabaseOperations.TrainerList();
 
-            Assert.IsTrue(party1.Count < 7 && party2.Count < 7);
+            //Assert
+            foreach (var trainer in allTrainers)
+            {
+                GroupToCheck = DatabaseOperations.SelectParty(trainer.Id);
+                Assert.IsTrue(GroupToCheck.Count < 7);
+            }
 
         }
     }

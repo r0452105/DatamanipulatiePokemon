@@ -163,8 +163,8 @@
                                 <Label Name="lblMoveType1" FontFamily="Trebuchet MS" FontSize="11" Foreground="Black"></Label>
                             </Border>
                             <Label Name="lblMoveName1" FontFamily="Trebuchet MS" FontSize="12" Grid.Column="1"/>
-                            <Label Name="lblMoveAccuracy1" FontFamily="Trebuchet MS" FontSize="12" Grid.Row="1"/>
-                            <Label Name="lblMoveDamage1" FontFamily="Trebuchet MS" FontSize="12" Grid.Row="1" Grid.Column="1"/>
+                            <Label Name="lblMoveAccuracy1" FontFamily="Trebuchet MS" FontSize="11"  Grid.Row="1"/>
+                            <Label Name="lblMoveDamage1" FontFamily="Trebuchet MS" FontSize="11"  Grid.Row="1" Grid.Column="1"/>
                             <Label Grid.Row="2" FontFamily="Trebuchet MS" FontSize="12" HorizontalContentAlignment="Right" Content="PP:"/>
                             <Label Name="lblPP1" FontFamily="Trebuchet MS" FontSize="12" Grid.Row="2" Grid.Column="1"/>
                         </Grid>
@@ -184,8 +184,8 @@
                                 <Label Name="lblMoveType2" FontFamily="Trebuchet MS" FontSize="11" Foreground="Black"></Label>
                             </Border>
                             <Label Name="lblMoveName2" FontFamily="Trebuchet MS" FontSize="12" Grid.Column="1"/>
-                            <Label Name="lblMoveAccuracy2" FontFamily="Trebuchet MS" FontSize="12" Grid.Row="1"/>
-                            <Label Name="lblMoveDamage2" FontFamily="Trebuchet MS" FontSize="12" Grid.Row="1" Grid.Column="1"/>
+                            <Label Name="lblMoveAccuracy2" FontFamily="Trebuchet MS" FontSize="11" Grid.Row="1"/>
+                            <Label Name="lblMoveDamage2" FontFamily="Trebuchet MS" FontSize="11" Grid.Row="1" Grid.Column="1"/>
                             <Label Grid.Row="2" FontFamily="Trebuchet MS" FontSize="12" HorizontalContentAlignment="Right" Content="PP:"/>
                             <Label Name="lblPP2" FontFamily="Trebuchet MS" FontSize="12" Grid.Row="2" Grid.Column="1"/>
                         </Grid>
@@ -205,8 +205,8 @@
                                 <Label Name="lblMoveType3" FontFamily="Trebuchet MS" FontSize="11" Foreground="Black"></Label>
                             </Border>
                             <Label Name="lblMoveName3" FontFamily="Trebuchet MS" FontSize="12" Grid.Column="1"/>
-                            <Label Name="lblMoveAccuracy3" FontFamily="Trebuchet MS" FontSize="12" Grid.Row="1"/>
-                            <Label Name="lblMoveDamage3" FontFamily="Trebuchet MS" FontSize="12" Grid.Row="1" Grid.Column="1"/>
+                            <Label Name="lblMoveAccuracy3" FontFamily="Trebuchet MS" FontSize="11" Grid.Row="1"/>
+                            <Label Name="lblMoveDamage3" FontFamily="Trebuchet MS" FontSize="11" Grid.Row="1" Grid.Column="1"/>
                             <Label Grid.Row="2" FontFamily="Trebuchet MS" FontSize="12" HorizontalContentAlignment="Right" Content="PP:"/>
                             <Label Name="lblPP3" FontFamily="Trebuchet MS" FontSize="12" Grid.Row="2" Grid.Column="1"/>
                         </Grid>
@@ -226,8 +226,8 @@
                                 <Label Name="lblMoveType4" FontFamily="Trebuchet MS" FontSize="11" Foreground="Black"></Label>
                             </Border>
                             <Label Name="lblMoveName4" FontFamily="Trebuchet MS" FontSize="12" Grid.Column="1"/>
-                            <Label Name="lblMoveAccuracy4" FontFamily="Trebuchet MS" FontSize="12" Grid.Row="1" Grid.Column="0"/>
-                            <Label Name="lblMoveDamage4" FontFamily="Trebuchet MS" FontSize="12" Grid.Row="1" Grid.Column="1"/>
+                            <Label Name="lblMoveAccuracy4" FontFamily="Trebuchet MS" FontSize="11" Grid.Row="1" Grid.Column="0"/>
+                            <Label Name="lblMoveDamage4" FontFamily="Trebuchet MS" FontSize="11" Grid.Row="1" Grid.Column="1"/>
                             <Label Grid.Row="2" FontFamily="Trebuchet MS" FontSize="12" HorizontalContentAlignment="Right" Content="PP:"/>
                             <Label Name="lblPP4" FontFamily="Trebuchet MS" FontSize="12" Grid.Row="2" Grid.Column="1"/>
                         </Grid>
@@ -239,6 +239,7 @@
         </Border>
        
         <Button Grid.Row="1" Grid.Column="1" Margin="5" HorizontalAlignment="Right" Content="Exit" Name="btnClose" Click="BtnClose_Click"></Button>
-    
+        <Button Grid.Row="1" Grid.Column="1" Margin="5" HorizontalAlignment="Left" Content="Add new move" Name="btnAdd" Click="btnAdd_Click" IsEnabled="False"></Button>
+
     </Grid>
 </Window>

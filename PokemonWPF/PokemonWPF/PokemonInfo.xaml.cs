@@ -39,15 +39,24 @@ namespace PokemonWPF
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            MovesOfPokemon = DatabaseOperations.SelectMovesFromPokemon(pokemonstats);
+            SetMoves();
+            OrderElementsMoves();
             SetContentPartyCard();
 
             SetContentRedCard();
             SetContentYellowCard();
-            OrderElementsMoves();
+            
             SetContentPinkCard();
         }
 
+        private void SetMoves() {
+            MovesOfPokemon = DatabaseOperations.SelectMovesFromPokemon(pokemonstats);
+            if (MovesOfPokemon.Count < 4)
+            {
+                btnAdd.IsEnabled = true;
+            }
+            OrderElementsMoves();
+        }
         private void OrderElementsMoves()
         {
             MoveCards.Add(CardMove1);
@@ -250,6 +259,11 @@ namespace PokemonWPF
             Close();
         }
 
-       
+        private void btnAdd_Click(object sender, RoutedEventArgs e)
+        {
+            LearnedMoves MoveToAdd = new LearnedMoves();
+
+            
+        }
     }
 }
