@@ -185,6 +185,7 @@ namespace PokemonWPF
                     bordertoalter.Background = Brushes.Beige;
                     break;
                 case 7:
+                    bordertoalter.BorderBrush = Brushes.Black;
                     bordertoalter.Background = Brushes.White;
                     break;
                 case 8:
@@ -263,7 +264,15 @@ namespace PokemonWPF
         {
             LearnedMoves MoveToAdd = new LearnedMoves();
 
-            
+            PokemonMoveAdd moveAddScreen = new PokemonMoveAdd();
+            moveAddScreen.currentPokemon = pokemonstats;
+            moveAddScreen.ShowDialog();
+
+            SetMoves();
+            SetContentPinkCard();
+            GridRed.Visibility = Visibility.Collapsed;
+            GridYellow.Visibility = Visibility.Collapsed;
+            GridPink.Visibility = Visibility.Visible;
         }
     }
 }

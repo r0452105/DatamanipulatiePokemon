@@ -27,7 +27,32 @@ namespace PokemonDAL
 
          
         }
+        public static List<PokemonMoves> AllMoves()
+        {
+            using (DB_r0739290Entities entities = new DB_r0739290Entities())
+            {
+                var query = entities.PokemonMoves
+                    .OrderBy(x => x.Id);
+                return query.ToList();
+            }
+        }
 
+        public static List<PokemonMoves> AllMovesExceptCurrent(Pokemon pokemon)
+        {
+           
+            
+            using (DB_r0739290Entities entities = new DB_r0739290Entities())
+            {
+                var iQuery = entities.LearnedMoves
+                    .Where(x => x.PokemonId == pokemon.Id)
+                    .Select(i => i.MoveId).ToList(); ;
+
+                var query = entities.PokemonMoves
+                    .Where(x => ! iQuery.Contains(x.Id ))
+                    .OrderBy(x => x.Id);
+                return query.ToList();
+            }
+        }
         public static List <Pokedex> PokedexEntry()
         {
             using(DB_r0739290Entities entities = new DB_r0739290Entities())
@@ -66,6 +91,8 @@ namespace PokemonDAL
                 return query.ToList().Count();
             }
         }
+
+      
 
         public static int RemovePokemonFromGroup(PokemonGroup toRemove)
         {
@@ -216,6 +243,25 @@ namespace PokemonDAL
                 using (DB_r0739290Entities entities = new DB_r0739290Entities())
                 {
                     entities.PokemonGroup.Add(newGroup);
+
+                    return entities.SaveChanges();
+                }
+            }
+            catch (Exception ex)
+            {
+
+                return 0;
+            }
+
+        }
+
+        public static int AddToLearnedMoves(LearnedMoves newMove)
+        {
+            try
+            {
+                using (DB_r0739290Entities entities = new DB_r0739290Entities())
+                {
+                    entities.LearnedMoves.Add(newMove);
 
                     return entities.SaveChanges();
                 }

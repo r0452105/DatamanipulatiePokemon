@@ -20,7 +20,7 @@
 
         </Grid.RowDefinitions>
         <Label Grid.Row="0" Grid.Column="0"  FontFamily="Trebuchet MS" Margin="5" Content="Move Name:" HorizontalAlignment="Right" Foreground="White" FontSize="24px" VerticalAlignment="Center" ></Label>
-        <ComboBox  Name="cmbMoveList" Grid.Row="0" Grid.Column="1" FontFamily="Trebuchet MS"  Margin="5" Background="White" FontSize="20px"></ComboBox>
+        <ComboBox   Name="cmbMoveList" Grid.Row="0" Grid.Column="1" FontFamily="Trebuchet MS"  Margin="5" Background="White" FontSize="20px"></ComboBox>
         <Button Grid.Row="1" Grid.Column="1" FontFamily="Trebuchet MS"  Margin="5"  Content="Exit" Name="btnClose" Click="btnClose_Click"></Button>
         <Button Grid.Row="1" Grid.Column="0" FontFamily="Trebuchet MS" Margin="5"  Content="Add new move" Name="btnAdd" Click="btnAdd_Click"></Button>
 
