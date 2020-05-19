@@ -28,6 +28,7 @@ namespace PokemonWPF
         public Types poketype = new Types();
         List<Types> poketypeentries = DatabaseOperations.Typinglist();
         Bulbasaur pokedexPic1 = new Bulbasaur();
+       
 
 
         public PokémonInfoWindow()
@@ -39,11 +40,12 @@ namespace PokemonWPF
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            int pokerefernumber = DexWindowToAlter.lvPokedex.SelectedIndex+1;
+            string pokerefer = DexWindowToAlter.lvPokedex.SelectedItem.ToString();
+            
             foreach (Pokedex pokedex in pokeEntries)
             {
-                int pokenumber = pokedex.Id;
-                if ((pokerefernumber == pokenumber) == true)
+                string pokenum = pokedex.PokemonName;
+                if ((pokerefer.Contains(pokenum)) == true)
                 {
                     string type1 = "";
                     string type2 = "";
@@ -80,6 +82,7 @@ namespace PokemonWPF
         {
             this.Close();
             DexWindowToAlter.Visibility = Visibility.Visible;
+            DexWindowToAlter.Topmost=true;
         }
 
         

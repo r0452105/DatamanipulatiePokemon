@@ -53,7 +53,7 @@
                             <Setter Property="Height" Value="35px" />
                         </Style>
                     </GridView.ColumnHeaderContainerStyle>
-                    <GridViewColumn Header="Name" Width="350px" DisplayMemberBinding="{Binding Path=PokemonName}" />
+                    <GridViewColumn  x:Name="gvBinder" Header="Name" Width="350px" DisplayMemberBinding="{Binding Path=PokemonName}" />
                 </GridView>
             </ListView.View>
         </ListView>

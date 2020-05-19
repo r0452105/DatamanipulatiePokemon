@@ -39,6 +39,9 @@ namespace PokemonWPF
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
+            
+            
+
             int partycount =pokeparty.Count;
             lvPokedex.ItemsSource = pokeEntries;
             lblSeenCaptured.Content = "\nSeen: " + pokeEntries.Count + " \nOwned: "+partycount;// owned nog automatiseren
@@ -52,7 +55,7 @@ namespace PokemonWPF
 
         private void BtnBack_Click(object sender, RoutedEventArgs e)
         {
-            this.Close();
+            this.Close(); 
         }
 
         private void BtnSearch_Click(object sender, RoutedEventArgs e) //search nog compleet uitwerken
