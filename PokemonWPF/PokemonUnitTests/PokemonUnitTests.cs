@@ -32,5 +32,27 @@ namespace PokemonUnitTests
             }
 
         }
+        [TestMethod]
+        public void TestMovePoolSize()
+        {
+
+            //Tests whether no pokemonMoves exceed allowable size
+
+            //arrange
+            List<Pokemon> allPokemon = new List<Pokemon>();
+            List<LearnedMoves> MovesToCheck = new List<LearnedMoves>();
+
+
+            //act
+            allPokemon = DatabaseOperations.PokemonList();
+
+            //Assert
+            foreach (var pokemon in allPokemon)
+            {
+                MovesToCheck = DatabaseOperations.SelectMovesFromPokemon(pokemon);
+                Assert.IsTrue(MovesToCheck.Count < 5);
+            }
+
+        }
     }
 }

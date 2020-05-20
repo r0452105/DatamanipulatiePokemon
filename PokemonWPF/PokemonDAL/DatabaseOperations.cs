@@ -399,6 +399,18 @@ namespace PokemonDAL
 
         }
 
+        public static List<Pokemon> PokemonList()
+        {
+            using (DB_r0739290Entities entities = new DB_r0739290Entities())
+            {
+                var query = entities.Pokemon;
+
+                return query.ToList();
+
+            }
+
+        }
+
         public static PokemonGroup SelectPokemonFromParty(int trainerID, int position)
         {
             using (DB_r0739290Entities entities = new DB_r0739290Entities())
