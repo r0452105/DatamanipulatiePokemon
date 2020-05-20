@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+
 using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Documents;
@@ -50,10 +51,18 @@ namespace PokemonWPF
         }
 
         private void SetMoves() {
+            CardMove1.Visibility = Visibility.Hidden;
+            CardMove2.Visibility = Visibility.Hidden;
+            CardMove3.Visibility = Visibility.Hidden;
+            CardMove4.Visibility = Visibility.Hidden;
             MovesOfPokemon = DatabaseOperations.SelectMovesFromPokemon(pokemonstats);
             if (MovesOfPokemon.Count < 4)
             {
                 btnAdd.IsEnabled = true;
+            }
+            else
+            {
+                btnAdd.IsEnabled = false ;
             }
             OrderElementsMoves();
         }
@@ -216,6 +225,7 @@ namespace PokemonWPF
                 if (counter < MovesOfPokemon.Count)
                 {
                     item.Visibility = Visibility.Visible;
+                   
                     SetTypes(TypeCards[counter], TypeLabels[counter], MovesOfPokemon[counter].PokemonMoves.MoveTypeID, MovesOfPokemon[counter].PokemonMoves.Types.ToString());
                     NameLabels[counter].Content = MovesOfPokemon[counter].PokemonMoves.MoveName;
                     AccuracyLabels[counter].Content = $"Accuracy: {MovesOfPokemon[counter].PokemonMoves.Accuracy}%";
@@ -274,5 +284,71 @@ namespace PokemonWPF
             GridYellow.Visibility = Visibility.Collapsed;
             GridPink.Visibility = Visibility.Visible;
         }
+
+        private void CardMove_MouseEnter(object sender, MouseEventArgs e)
+        {
+            Border thisBorder = sender as Border;
+            thisBorder.BorderBrush = Brushes.Red;
+
+
+        }
+
+        private void CardMove_MouseLeave(object sender, MouseEventArgs e)
+        {
+
+            Border thisBorder = sender as Border;
+            thisBorder.BorderBrush = Brushes.DarkGray;
+        }
+
+        private void CardMove_MouseRightButtonDown(object sender, MouseEventArgs e)
+        {
+
+            Border thisBorder = sender as Border;
+            LearnedMoves moveToDelete = new LearnedMoves();
+
+            switch (thisBorder.Name)
+            {
+                case "CardMove1": moveToDelete = MovesOfPokemon[0]; 
+                    break;
+                case "CardMove2":
+                    moveToDelete = MovesOfPokemon[1];
+                    break;
+                case "CardMove3":
+                    moveToDelete = MovesOfPokemon[2];
+                    break;
+                case "CardMove4":
+                    moveToDelete = MovesOfPokemon[3];
+                    break;
+            }
+
+            string moveName = moveToDelete.PokemonMoves.MoveName;
+
+
+            System.Windows.Forms.DialogResult dialogResult = System.Windows.Forms.MessageBox.Show($"Want to remove {moveToDelete.PokemonMoves.MoveName}? ", "Confirmation", System.Windows.Forms.MessageBoxButtons.YesNo);
+            if (dialogResult == System.Windows.Forms.DialogResult.Yes)
+            {
+                if (DatabaseOperations.RemoveMove(moveToDelete) != 0)
+                {
+                    MessageBox.Show($"{moveName} successfully removed");
+                    this.Topmost = true;
+                    SetMoves();
+                    SetContentPinkCard();
+                    GridRed.Visibility = Visibility.Collapsed;
+                    GridYellow.Visibility = Visibility.Collapsed;
+                    GridPink.Visibility = Visibility.Visible;
+                }
+                else
+                {
+                    MessageBox.Show("Removal failed");
+                    this.Topmost = true;
+                }
+            }
+            
+
+
+
+        }
+
+        
     }
 }

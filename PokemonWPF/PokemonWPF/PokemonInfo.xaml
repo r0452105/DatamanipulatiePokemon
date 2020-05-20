@@ -148,7 +148,7 @@
                         <RowDefinition/>
                     </Grid.RowDefinitions>
 
-                    <Border Visibility="Hidden" Width="300" x:Name="CardMove1" Margin="5" CornerRadius="3" Grid.Row="0" BorderBrush="DarkGray" Background="White" BorderThickness="2">
+                    <Border MouseRightButtonDown="CardMove_MouseRightButtonDown" MouseLeave="CardMove_MouseLeave" MouseEnter="CardMove_MouseEnter" Visibility="Hidden" Width="300" x:Name="CardMove1" Margin="5" CornerRadius="3" Grid.Row="0" BorderBrush="DarkGray" Background="White" BorderThickness="2">
                         <Grid>
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="4*"/>
@@ -169,7 +169,7 @@
                             <Label Name="lblPP1" FontFamily="Trebuchet MS" FontSize="12" Grid.Row="2" Grid.Column="1"/>
                         </Grid>
                     </Border>
-                    <Border  Visibility="Hidden" Width="300" x:Name="CardMove2" Margin="5" CornerRadius="3" Grid.Row="1" BorderBrush="DarkGray" Background="White" BorderThickness="2">
+                    <Border MouseRightButtonDown="CardMove_MouseRightButtonDown" MouseLeave="CardMove_MouseLeave" MouseEnter="CardMove_MouseEnter"  Visibility="Hidden" Width="300" x:Name="CardMove2" Margin="5" CornerRadius="3" Grid.Row="1" BorderBrush="DarkGray" Background="White" BorderThickness="2">
                         <Grid>
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="4*"/>
@@ -190,7 +190,7 @@
                             <Label Name="lblPP2" FontFamily="Trebuchet MS" FontSize="12" Grid.Row="2" Grid.Column="1"/>
                         </Grid>
                     </Border>
-                    <Border  Visibility="Hidden" Width="300" x:Name="CardMove3" Margin="5" CornerRadius="3" Grid.Row="2" BorderBrush="DarkGray" Background="White" BorderThickness="2">
+                    <Border MouseRightButtonDown="CardMove_MouseRightButtonDown" MouseLeave="CardMove_MouseLeave" MouseEnter="CardMove_MouseEnter"  Visibility="Hidden" Width="300" x:Name="CardMove3" Margin="5" CornerRadius="3" Grid.Row="2" BorderBrush="DarkGray" Background="White" BorderThickness="2">
                         <Grid>
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="4*"/>
@@ -211,7 +211,7 @@
                             <Label Name="lblPP3" FontFamily="Trebuchet MS" FontSize="12" Grid.Row="2" Grid.Column="1"/>
                         </Grid>
                     </Border>
-                    <Border Visibility="Hidden" Width="300" x:Name="CardMove4" Margin="5" CornerRadius="3" Grid.Row="3" BorderBrush="DarkGray" Background="White" BorderThickness="2">
+                    <Border MouseRightButtonDown="CardMove_MouseRightButtonDown" MouseLeave="CardMove_MouseLeave" MouseEnter="CardMove_MouseEnter" Visibility="Hidden" Width="300" x:Name="CardMove4" Margin="5" CornerRadius="3" Grid.Row="3" BorderBrush="DarkGray" Background="White" BorderThickness="2">
                         <Grid>
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="4*"/>

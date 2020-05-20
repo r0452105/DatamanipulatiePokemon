@@ -114,6 +114,26 @@ namespace PokemonDAL
 
         }
 
+        public static int RemoveMove(LearnedMoves toRemove)
+        {
+            try
+            {
+                using (DB_r0739290Entities entities = new DB_r0739290Entities())
+                {
+                    entities.Entry(toRemove).State = EntityState.Deleted;
+
+                    return entities.SaveChanges();
+                }
+            }
+            catch (Exception ex)
+            {
+
+                return 0;
+            }
+
+
+        }
+
         public static int UpdatePokemon(Pokemon currentPokemon)
         {
             try

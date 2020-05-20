@@ -58,6 +58,7 @@ namespace PokemonWPF
         {
             cmbMoveList.ItemsSource = DatabaseOperations.AllMovesExceptCurrent(currentPokemon);
             cmbMoveList.SelectedIndex = 0;
+            this.Topmost = true;
         }
     }
 }
