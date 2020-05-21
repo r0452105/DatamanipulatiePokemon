@@ -39,7 +39,7 @@ namespace PokemonWPF
     /// <summary>
     /// Window1
     /// </summary>
-    public partial class PokémonInfoWindow1 : System.Windows.Window, System.Windows.Markup.IComponentConnector
+    public partial class PokébagCRUD : System.Windows.Window, System.Windows.Markup.IComponentConnector
     {
 
         private bool _contentLoaded;

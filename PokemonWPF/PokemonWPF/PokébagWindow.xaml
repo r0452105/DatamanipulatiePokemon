@@ -67,8 +67,9 @@
 
         <Button x:Name="btnSort" Content="Sort" FontSize="20" Margin="72.2,14.6,61.6,19" Click="btnSort_Click" Height="Auto" Grid.Row="5" RenderTransformOrigin="-0.503,0.247" Grid.Column="1"/>
         <Button x:Name="btnBack" Content="Back" Grid.Row="5" Grid.Column="2" FontSize="20" Margin="120.4,13.6,9.6,16" Click="BtnBack_Click" Height="Auto"/>
-
+        <Button x:Name="btnCRUD" Content="CRUD" Grid.Row="0" Grid.Column="2" FontSize="15" Click="BtnCRUD_Click" Margin="120.4,9,42.6,29.4" RenderTransformOrigin="0.501,0.5" Height="Auto"/>
 
 
     </Grid>
+
 </Window>
