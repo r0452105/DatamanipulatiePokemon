@@ -47,6 +47,7 @@ namespace PokemonDAL
             }
         }
 
+      
         public static int RemoveItemFromList(List<PlayerInventory> lstInventory)
         {
             throw new NotImplementedException();
@@ -308,6 +309,9 @@ namespace PokemonDAL
             }
         }
 
+        
+
+
         public static List<PlayerInventory> GetItems(int trainerId)
         {
             using (DB_r0739290Entities entities = new DB_r0739290Entities())
@@ -420,6 +424,34 @@ namespace PokemonDAL
 
         }
 
-        
+        public static int AddItem(PlayerInventory item)
+        {
+            try
+            {
+                using (DB_r0739290Entities entities = new DB_r0739290Entities())
+                {
+                    entities.PlayerInventory.Add(item);
+                    return entities.SaveChanges();
+                }
+            }
+            catch (Exception ex)
+            {
+                return 0;
+             
+            }
+        }
+
+        public static int CurrentPlayerItems()
+        {
+            using (DB_r0739290Entities entities = new DB_r0739290Entities())
+            {
+                var query = entities.PlayerInventory;
+
+                return query.ToList().Max(x => x.id);
+            }
+        }
+
+
+
     }
 }

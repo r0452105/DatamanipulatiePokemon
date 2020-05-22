@@ -25,8 +25,9 @@ namespace PokemonWPF
         public Trainer trainerInventory;
         List<PokemonDAL.PlayerInventory> lstInventory;
         PokébagCRUD CRUDwindow = new PokébagCRUD();
+        public Trainer trainerToAddTo;
 
-        
+
 
 
         public PokébagWindow()
@@ -117,6 +118,9 @@ namespace PokemonWPF
         {
             PokébagCRUD objPokébagCRUD = new PokébagCRUD();
             this.Visibility = Visibility.Hidden;
+            
+            objPokébagCRUD.trainerToAddTo = trainerInventory;
+            
             objPokébagCRUD.ShowDialog();
 
             lstInventory = DatabaseOperations.GetItems(2);
@@ -126,7 +130,7 @@ namespace PokemonWPF
         }
 
 
-        
+     
 
     }
 }

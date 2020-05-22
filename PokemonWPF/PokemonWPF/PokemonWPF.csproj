@@ -90,6 +90,7 @@
     <Compile Include="PokemonPartyCRUD.xaml.cs">
       <DependentUpon>PokemonPartyCRUD.xaml</DependentUpon>
     </Compile>
+    <Compile Include="PokemonSprite.cs" />
     <Compile Include="PokemonStats.xaml.cs">
       <DependentUpon>PokemonStats.xaml</DependentUpon>
     </Compile>
@@ -240,6 +241,9 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image1.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

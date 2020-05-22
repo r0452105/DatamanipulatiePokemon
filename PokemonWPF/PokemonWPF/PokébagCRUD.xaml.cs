@@ -24,6 +24,10 @@ namespace PokemonWPF
     {
         public Trainer trainerInventory;
         List<PokemonDAL.PlayerInventory> lstInventory;
+        public Trainer trainerToAddTo;
+
+        
+
         
         public PokébagCRUD()
         {
@@ -40,12 +44,9 @@ namespace PokemonWPF
 
         }
 
-       // private void btnRemove_Click(object sender, RoutedEventArgs e)
-        //{
 
-           // lvInventory.Items.Remove(lvInventory.SelectedItem);
 
-      //  }
+        
 
 
         private void btnRemove_Click(object sender, RoutedEventArgs e)
@@ -63,5 +64,63 @@ namespace PokemonWPF
 
            
         }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+    
+        }
+        private string Validate()
+        {
+            string errormsg = "";
+            if (string.IsNullOrWhiteSpace(txtQuantity.Text))
+            {
+                errormsg += "Quantity mag niet leeg zijn";
+                
+            }
+           
+
+
+            return errormsg;
+
+        }
+
+        private void btnAdd_Click(object sender, RoutedEventArgs e)
+        {
+            string error = Validate();
+            if (!string.IsNullOrWhiteSpace(error))
+            {
+                MessageBox.Show(error);
+            }
+            else
+            {
+                PlayerInventory item = new PlayerInventory();
+                int quantity = int.Parse(txtQuantity.Text);
+                item.Quantity = quantity;
+
+
+                Items itemType = (Items)lvItems.SelectedItem;
+                item.ItemID = itemType.Id;
+
+                item.PlayerId = trainerToAddTo.Id;
+                    
+
+
+                item.id = DatabaseOperations.CurrentPlayerItems() + 1;
+
+                if (DatabaseOperations.AddItem(item) !=0)
+                {
+                    MessageBox.Show($"{item.Quantity} succesfully added to the itemlist of {lvInventory.Items}");
+                    Close();
+                }
+                else
+                {
+                    MessageBox.Show("Addition failed");
+                }
+                
+                //DatabaseOperations.AddItem(item);
+            }
+        }
+
+        
     }
 }
