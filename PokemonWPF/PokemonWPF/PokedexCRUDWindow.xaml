@@ -37,7 +37,7 @@
 
         <DataGrid x:Name="datagridPokedexEntries" AutoGenerateColumns="False" Grid.Row="1" Grid.Column="0" 
                   IsReadOnly="True" 
-                  Grid.ColumnSpan="3" Grid.RowSpan="3" Margin="5" >
+                  Grid.ColumnSpan="3" Grid.RowSpan="3" Margin="5" SelectionChanged="DatagridPokedexEntries_SelectionChanged" >
             <DataGrid.Columns>
                 <DataGridTextColumn Binding="{Binding Id}" Header="Number"></DataGridTextColumn>
                 <DataGridTextColumn Binding="{Binding PokemonName}" Header="Name"></DataGridTextColumn>

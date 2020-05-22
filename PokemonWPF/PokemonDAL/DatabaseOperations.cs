@@ -78,6 +78,25 @@ namespace PokemonDAL
             }
 
         }
+
+        public static int UpdatePokedexEntry(Pokedex oldPokedex)
+        {
+            try
+            {
+                using (DB_r0739290Entities entities = new DB_r0739290Entities())
+                {
+                    entities.Entry(oldPokedex).State = EntityState.Modified;
+
+                    return entities.SaveChanges();
+                }
+            }
+            catch (Exception ex)
+            {
+
+                return 0;
+            }
+
+        }
         public static List<Ability> AbilityList()
         {
             using (DB_r0739290Entities entities = new DB_r0739290Entities())

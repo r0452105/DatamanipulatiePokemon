@@ -12,7 +12,6 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using PokemonDAL;
-
 namespace PokemonWPF
 {
     /// <summary>
@@ -24,6 +23,7 @@ namespace PokemonWPF
         List<Pokedex> pokedexentries = DatabaseOperations.PokedexEntry();
         Pokedex pokedexEntry = new Pokedex();
         List<Types> types = DatabaseOperations.Typinglist();
+        Types type = new Types();
 
         public PokedexCRUDWindow()
         {
@@ -75,8 +75,11 @@ namespace PokemonWPF
         private void BtnDelete_Click(object sender, RoutedEventArgs e)
         {
             pokedexEntry = datagridPokedexEntries.SelectedItem as Pokedex;
+            string verwijdernaam=pokedexEntry.PokemonName;
             DatabaseOperations.DeletePokedexEntry(pokedexEntry);
+
             datagridPokedexEntries.ItemsSource = DatabaseOperations.PokedexEntry();
+            MessageBox.Show(verwijdernaam + " is verwijderd.");
         }
         private void BtnReplace_Click(object sender, RoutedEventArgs e)
         {
@@ -84,7 +87,36 @@ namespace PokemonWPF
         }
         private void BtnChange_Click(object sender, RoutedEventArgs e)
         {
-
+            int index=datagridPokedexEntries.SelectedIndex;
+            pokedexEntry = datagridPokedexEntries.SelectedItem as Pokedex;
+            pokedexEntry.PokemonName = txtNaam.Text;
+            
+            
+            pokedexEntry.Types = null;
+            pokedexEntry.Types1 = null;
+            pokedexEntry.Type1=cmbType1.SelectedIndex+1;
+            pokedexEntry.Type2 = cmbType2.SelectedIndex + 1;
+            int ok = DatabaseOperations.UpdatePokedexEntry(pokedexEntry);
+            if (ok > 0)
+            {
+                datagridPokedexEntries.ItemsSource = DatabaseOperations.PokedexEntry();
+            }
+            else
+            {
+                MessageBox.Show("Pokemon is niet aangepast");
+            }
+            datagridPokedexEntries.SelectedIndex = index;
         }
+        private void DatagridPokedexEntries_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+           if(datagridPokedexEntries.SelectedItem is Pokedex pokedexEntry)
+            {
+
+                cmbType1.SelectedIndex = pokedexEntry.Type1.GetValueOrDefault()-1;
+                cmbType2.SelectedIndex = pokedexEntry.Type2.GetValueOrDefault()-1;
+               txtNaam.Text = pokedexEntry.PokemonName;
+           }
+        }
+        
     }
 }
