@@ -64,5 +64,3 @@ C:\Users\Gebruiker\Documents\GitHub\DatamanipulatiePok-monAaronLaraBryant\Pokemo
 C:\Users\Gebruiker\Documents\GitHub\DatamanipulatiePok-monAaronLaraBryant\PokemonWPF\PokemonDAL\bin\Debug\MaterialDesignThemes.Wpf.pdb
 C:\Users\Gebruiker\Documents\GitHub\DatamanipulatiePok-monAaronLaraBryant\PokemonWPF\PokemonDAL\bin\Debug\MaterialDesignThemes.Wpf.xml
 C:\Users\Gebruiker\Documents\GitHub\DatamanipulatiePok-monAaronLaraBryant\PokemonWPF\PokemonDAL\obj\Debug\PokemonDAL.csprojAssemblyReference.cache
-C:\Users\larap\OneDrive\Documenten\GitHub\DatamanipulatiePok-monAaronLaraBryant\PokemonWPF\PokemonDAL\bin\Debug\PokemonDAL.dll.CodeAnalysisLog.xml
-C:\Users\larap\OneDrive\Documenten\GitHub\DatamanipulatiePok-monAaronLaraBryant\PokemonWPF\PokemonDAL\bin\Debug\PokemonDAL.dll.lastcodeanalysissucceeded

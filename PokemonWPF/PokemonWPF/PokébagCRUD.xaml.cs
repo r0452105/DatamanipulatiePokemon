@@ -40,11 +40,28 @@ namespace PokemonWPF
 
         }
 
+       // private void btnRemove_Click(object sender, RoutedEventArgs e)
+        //{
+
+           // lvInventory.Items.Remove(lvInventory.SelectedItem);
+
+      //  }
+
+
         private void btnRemove_Click(object sender, RoutedEventArgs e)
         {
+            if (DatabaseOperations.RemoveItemFromList(lstInventory[lvInventory.SelectedIndex]) != 0)
+            {
+                MessageBox.Show("deletion successful");
+                OnLoad();
+                Close();
+            }
+            else
+            {
+                MessageBox.Show("Deletion failed");
+            }
 
-            
-
+           
         }
     }
 }

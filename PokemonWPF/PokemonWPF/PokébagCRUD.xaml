@@ -45,9 +45,9 @@
             </ListView.View>
         </ListView>
 
-        <Button Name="btnAdd" Content="Add" Grid.Column="2" Height="Auto" Width="69" Click="btnAdd_Click" IsDefault="True" Margin="100.2,84,29.2,29"/>
+        <Button Name="btnAdd" Content="Add" Grid.Column="2" Height="Auto" Width="69"  IsDefault="True" Margin="100.2,84,29.2,29"/>
         <Button Name="btnRemove" Content="Remove" Grid.Column="2" Height="Auto" Click="btnRemove_Click" IsDefault="True" Margin="100.2,120,0.2,133" Grid.RowSpan="2"/>
-        <Button Name="btnUpdate" Content="Update" Grid.Column="2" Height="Auto" Click="btnUpdate_Click" IsDefault="True" Margin="100.2,12,10.2,101" Grid.Row="1"/>
+        <Button Name="btnUpdate" Content="Update" Grid.Column="2" Height="Auto"  IsDefault="True" Margin="100.2,12,10.2,101" Grid.Row="1"/>
        
 
 
