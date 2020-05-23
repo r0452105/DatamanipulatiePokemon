@@ -39,3 +39,9 @@ C:\Users\aaron\OneDrive\Documenten\GitHub\DatamanipulatiePok-monAaronLaraBryant\
 C:\Users\aaron\OneDrive\Documenten\GitHub\DatamanipulatiePok-monAaronLaraBryant\PokemonWPF\PokemonModels\obj\Debug\PokemonModels.csproj.CopyComplete
 C:\Users\aaron\OneDrive\Documenten\GitHub\DatamanipulatiePok-monAaronLaraBryant\PokemonWPF\PokemonModels\obj\Debug\PokemonModels.dll
 C:\Users\aaron\OneDrive\Documenten\GitHub\DatamanipulatiePok-monAaronLaraBryant\PokemonWPF\PokemonModels\obj\Debug\PokemonModels.pdb
+C:\Users\colers\Documents\GitHub\DatamanipulatiePok-monAaronLaraBryant\PokemonWPF\PokemonModels\bin\Debug\MaterialDesignColors.dll
+C:\Users\colers\Documents\GitHub\DatamanipulatiePok-monAaronLaraBryant\PokemonWPF\PokemonModels\bin\Debug\MaterialDesignThemes.Wpf.dll
+C:\Users\colers\Documents\GitHub\DatamanipulatiePok-monAaronLaraBryant\PokemonWPF\PokemonModels\bin\Debug\MaterialDesignColors.pdb
+C:\Users\colers\Documents\GitHub\DatamanipulatiePok-monAaronLaraBryant\PokemonWPF\PokemonModels\bin\Debug\MaterialDesignThemes.Wpf.pdb
+C:\Users\colers\Documents\GitHub\DatamanipulatiePok-monAaronLaraBryant\PokemonWPF\PokemonModels\bin\Debug\MaterialDesignThemes.Wpf.xml
+C:\Users\colers\Documents\GitHub\DatamanipulatiePok-monAaronLaraBryant\PokemonWPF\PokemonModels\obj\Debug\PokemonModels.csproj.CopyComplete
