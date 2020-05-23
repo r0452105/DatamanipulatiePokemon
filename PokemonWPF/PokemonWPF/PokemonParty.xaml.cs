@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using PokemonDAL;
+using PokemonModels;
 
 namespace PokemonWPF
 {
@@ -61,17 +62,31 @@ namespace PokemonWPF
             NameLabels.Add(lblName4);
             NameLabels.Add(lblName5);
             NameLabels.Add(lblName6);
+
+            Sprites.Add(imgSprite1);
+            Sprites.Add(imgSprite2);
+            Sprites.Add(imgSprite3);
+            Sprites.Add(imgSprite4);
+            Sprites.Add(imgSprite5);
+            Sprites.Add(imgSprite6);
+           
         }
         private void LoadPokemon()
         {
+           
+            BitmapImage sprite = new BitmapImage(new Uri("Images/PokemonSprites.png", UriKind.Relative));
+          
             int counter = 0;
             foreach (var item in Cards)
             {
                 if (counter < Pokemonparty.Count)
                 {
+
+                    PokemonSpriteById targetPokemon = new PokemonSpriteById((int)Pokemonparty[counter].Pokemon.PokedexID);
                     item.Visibility = Visibility.Visible;
                     NameLabels[counter].Content = Pokemonparty[counter].ToString();
                     HealthLabels[counter].Content = Pokemonparty[counter].Pokemon.ReturnHP();
+                    Sprites[counter].Source = new CroppedBitmap(sprite, targetPokemon.target);
                     counter++;
                 }
               
