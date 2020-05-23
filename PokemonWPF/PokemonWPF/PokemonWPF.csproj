@@ -114,6 +114,9 @@
     </Compile>
     <Compile Include="PokébagCRUD.xaml.cs">
       <DependentUpon>PokébagCRUD.xaml</DependentUpon>
+       </Compile>
+    <Compile Include="PokedexCRUDWindow.xaml.cs">
+      <DependentUpon>PokedexCRUDWindow.xaml</DependentUpon>
     </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -168,6 +171,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="PokébagCRUD.xaml">
+       <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PokedexCRUDWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using PokemonDAL;
 using PokemonWPF;
+using PokemonModels;
 
 namespace PokemonWPF
 {
@@ -23,9 +24,11 @@ namespace PokemonWPF
     {
         public PokédexWindow DexWindowToAlter;
         public Pokedex pokedex = new Pokedex();
-        IList<Pokedex> pokeEntries = DatabaseOperations.PokedexEntry();
+        List<Pokedex> pokeEntries = DatabaseOperations.PokedexEntry();
         public Types poketype = new Types();
         List<Types> poketypeentries = DatabaseOperations.Typinglist();
+        Bulbasaur pokedexPic1 = new Bulbasaur();
+       
 
 
         public PokémonInfoWindow()
@@ -37,21 +40,16 @@ namespace PokemonWPF
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            tbPokémonnaam.Text = DexWindowToAlter.lbPokédex.SelectedItem.ToString();
-            decimal gewicht = 0;
-            int number = 0;
-            string type1 = "";
-            string type2 = "";
-            string uitleg = "";
-
+            string pokerefer = DexWindowToAlter.lvPokedex.SelectedItem.ToString();
+            
             foreach (Pokedex pokedex in pokeEntries)
             {
-                if (pokedex.PokemonName == tbPokémonnaam.Text)
-                {
-                    gewicht = pokedex.PokemonWeight;
-                    number = pokedex.Id;
-                    uitleg = pokedex.PokemonDescription;
+                string pokenum = pokedex.PokemonName;
 
+                if ((pokerefer.Contains(pokenum)) == true)
+                {
+                    string type1 = "";
+                    string type2 = "";
 
                     foreach (Types poketype in poketypeentries)
                     {
@@ -64,18 +62,28 @@ namespace PokemonWPF
                             type2 = poketype.TypeName;
                         }
                     }
+
+                    tbGewicht.Text = "Gewicht: " + pokedex.PokemonWeight + " kg";
+                    tbNumber.Text = "No. " + pokedex.Id + "";
+                    tbType.Text = type1 + "  " + type2;
+                    tbDescription.Text = pokedex.PokemonDescription;
+                    tbPokémonnaam.Text = pokedex.PokemonName;
+
+                    BitmapImage pokemonbitmap = new BitmapImage(new Uri("Images/PokemonSprites.png", UriKind.Relative));
+                    imgPokéSprite.Source = new CroppedBitmap(pokemonbitmap, pokedexPic1.target);
+
                 }
+                
+                
             }
-            tbGewicht.Text = "Gewicht: " + gewicht + " kg";
-            tbNumber.Text = "No. " + number + "";
-            tbType.Text = type1 + "  " + type2;
-            lblDescription.Content = uitleg;
+            
         }
 
         private void BtnBack_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
             DexWindowToAlter.Visibility = Visibility.Visible;
+            DexWindowToAlter.Topmost=true;
         }
 
         

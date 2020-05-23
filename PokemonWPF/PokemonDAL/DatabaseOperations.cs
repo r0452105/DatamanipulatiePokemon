@@ -33,9 +33,69 @@ namespace PokemonDAL
             using(DB_r0739290Entities entities = new DB_r0739290Entities())
             {
                 var query = entities.Pokedex
+                    .Include("Types")
+                    .Include("Types1")
+                    .Include("Types.Pokedex")
+                    .Include("Types.Pokedex1")
                     .OrderBy(x => x.Id);
                 return query.ToList();
             }
+        }
+
+        public static int AddPokedexEntry(Pokedex newPokedex)
+        {
+            try
+            {
+                using (DB_r0739290Entities entities = new DB_r0739290Entities())
+                {
+                    entities.Pokedex.Add(newPokedex);
+
+                    return entities.SaveChanges();
+                }
+            }
+            catch (Exception ex)
+            {
+
+                return 0;
+            }
+
+        }
+
+        public static int DeletePokedexEntry(Pokedex oldPokedex)
+        {
+            try
+            {
+                using (DB_r0739290Entities entities = new DB_r0739290Entities())
+                {
+                    entities.Entry(oldPokedex).State=EntityState.Deleted;
+                    return entities.SaveChanges();
+                }
+            }
+            catch (Exception ex)
+            {
+
+                return 0;
+            }
+
+        }
+
+        public static int UpdatePokedexEntry(Pokedex oldPokedex)
+        {
+            try
+            {
+                using (DB_r0739290Entities entities = new DB_r0739290Entities())
+                {
+                    entities.Entry(oldPokedex).State = EntityState.Modified;
+
+                    return entities.SaveChanges();
+                }
+            }
+            catch (Exception ex)
+            {
+
+                return 0;
+            }
+
         }
         public static List<Ability> AbilityList()
         {
@@ -342,6 +402,8 @@ namespace PokemonDAL
                 return query.ToList();
             }
         }
+
+
 
         public static List<PokemonGroup> SelectParty(int trainerID)
         {

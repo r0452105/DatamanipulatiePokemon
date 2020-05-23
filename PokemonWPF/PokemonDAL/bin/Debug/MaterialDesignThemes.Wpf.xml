@@ -4,6 +4,12 @@
         <name>MaterialDesignThemes.Wpf</name>
     </assembly>
     <members>
+        <member name="T:MaterialDesignThemes.Wpf.AdornerAssist">
+            <summary>
+            this is a simple utility to add and remove a single adorner to an element since there is no built-in way to do that in xaml.
+            <a href="https://docs.microsoft.com/en-us/dotnet/framework/wpf/controls/adorners-overview">see here</a>
+            </summary>
+        </member>
         <member name="T:MaterialDesignThemes.Wpf.ButtonAssist">
             <summary>
             Helper properties for working with for make round corner.
@@ -532,6 +538,21 @@
         <member name="M:MaterialDesignThemes.Wpf.HintAssist.SetForeground(System.Windows.DependencyObject,System.Windows.Media.Brush)">
             <summary>
             Sets the color for the text of a focused control.
+            </summary>
+        </member>
+        <member name="F:MaterialDesignThemes.Wpf.HintAssist.BackgroundProperty">
+            <summary>
+            The color for the background of a focused control.
+            </summary>
+        </member>
+        <member name="M:MaterialDesignThemes.Wpf.HintAssist.GetBackground(System.Windows.DependencyObject)">
+            <summary>
+            Gets the color for the background of a focused control.
+            </summary>
+        </member>
+        <member name="M:MaterialDesignThemes.Wpf.HintAssist.SetBackground(System.Windows.DependencyObject,System.Windows.Media.Brush)">
+            <summary>
+            Sets the color for the background of a focused control.
             </summary>
         </member>
         <member name="F:MaterialDesignThemes.Wpf.HintAssist.HelperTextProperty">
@@ -1164,6 +1185,15 @@
             Add / Remove ActionClickEvent handler 
             </summary>
         </member>
+        <member name="F:MaterialDesignThemes.Wpf.SnackbarMessage.InlineActionButtonMaxHeightProperty">
+            <summary>
+            Maximum total height of snackbar for the action button to be inlined.
+            <para>
+            Default value (<c>55</c>) is between single line message (<c>48</c>) and two lined snackbar-message (<c>66</c>)
+            because tolerance is required (see <a href="https://github.com/MaterialDesignInXAML/MaterialDesignInXamlToolkit/issues/1812">issue</a>)
+            </para>
+            </summary>
+        </member>
         <member name="P:MaterialDesignThemes.Wpf.SnackbarMessageQueue.IgnoreDuplicate">
             <summary>
             Gets or sets a value that indicates whether this message queue displays messages without discarding duplicates. 
@@ -1204,6 +1234,13 @@
             <summary>
             Still display this message even if it is a duplicate.
             </summary>
+        </member>
+        <member name="M:MaterialDesignThemes.Wpf.SnackbarMessageQueueItem.IsDuplicate(MaterialDesignThemes.Wpf.SnackbarMessageQueueItem)">
+            <summary>
+            Checks if given item is a duplicate to this
+            </summary>
+            <param name="item">Item to check for duplicate</param>
+            <returns><c>true</c> if given item is a duplicate to this, <c>false</c> otherwise</returns>
         </member>
         <member name="T:MaterialDesignThemes.Wpf.TextFieldAssist">
             <summary>
@@ -1324,6 +1361,11 @@
             </summary>
             <param name="dependencyObject">The dependency object.</param>
             <param name="dependencyPropertyChangedEventArgs">The dependency property changed event args.</param>
+        </member>
+        <member name="M:MaterialDesignThemes.Wpf.TimePicker.OnGotFocus(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+                Called when this element gets focus.
+            </summary>
         </member>
         <member name="M:MaterialDesignThemes.Wpf.TimePicker.OnIsDropDownOpenChanged(System.Windows.DependencyObject,System.Windows.DependencyPropertyChangedEventArgs)">
             <summary> 
