@@ -182,14 +182,12 @@ namespace PokemonWPF
                     if (DatabaseOperations.AddStatPool(statPool) != 0)
                     {
                         Pokemon PokemonToAdd = new Pokemon();
-                        
-
                         PokemonToAdd.Id = DatabaseOperations.CurrentPokemons() + 1;
                         PokemonToAdd.PokedexID = cmbPokemon.SelectedIndex + 1;
                         PokemonToAdd.PokemonLevel = int.Parse(txtLvl.Text);
                         PokemonToAdd.PokemonExp = PokemonToAdd.PokemonLevel * PokemonToAdd.PokemonLevel * PokemonToAdd.PokemonLevel;
                         PokemonToAdd.TrainerID = currentTrainer.Id;
-                        PokemonToAdd.AbilityID = cmbAbility.SelectedIndex + 1;
+                        PokemonToAdd.AbilityID = abilityList[cmbAbility.SelectedIndex].Id;
                         PokemonToAdd.StatPoolID = statPool.Id;
                         if (cmbGender.SelectedIndex == 0)
                         {

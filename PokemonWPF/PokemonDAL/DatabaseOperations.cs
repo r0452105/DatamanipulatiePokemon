@@ -27,7 +27,32 @@ namespace PokemonDAL
 
          
         }
+        public static List<PokemonMoves> AllMoves()
+        {
+            using (DB_r0739290Entities entities = new DB_r0739290Entities())
+            {
+                var query = entities.PokemonMoves
+                    .OrderBy(x => x.Id);
+                return query.ToList();
+            }
+        }
 
+        public static List<PokemonMoves> AllMovesExceptCurrent(Pokemon pokemon)
+        {
+           
+            
+            using (DB_r0739290Entities entities = new DB_r0739290Entities())
+            {
+                var iQuery = entities.LearnedMoves
+                    .Where(x => x.PokemonId == pokemon.Id)
+                    .Select(i => i.MoveId).ToList(); ;
+
+                var query = entities.PokemonMoves
+                    .Where(x => ! iQuery.Contains(x.Id ))
+                    .OrderBy(x => x.Id);
+                return query.ToList();
+            }
+        }
         public static List <Pokedex> PokedexEntry()
         {
             using(DB_r0739290Entities entities = new DB_r0739290Entities())
@@ -113,6 +138,16 @@ namespace PokemonDAL
             throw new NotImplementedException();
         }
 
+        public static List<Trainer> TrainerList()
+        {
+            using (DB_r0739290Entities entities = new DB_r0739290Entities())
+            {
+                var query = entities.Trainer
+                    .Include("PokemonGroup")
+                    .OrderBy(x => x.Id);
+                return query.ToList();
+            }
+        }
         public static int CurrentStatpools()
         {
             using (DB_r0739290Entities entities = new DB_r0739290Entities())
@@ -122,6 +157,8 @@ namespace PokemonDAL
                 return query.ToList().Count();
             }
         }
+
+      
 
         public static int RemovePokemonFromGroup(PokemonGroup toRemove)
         {
@@ -150,6 +187,7 @@ namespace PokemonDAL
                 using(DB_r0739290Entities entities = new DB_r0739290Entities())
                 {
                     entities.Entry(toRemove).State = EntityState.Deleted;
+                    
                     return entities.SaveChanges();
                 }
             }
@@ -158,6 +196,27 @@ namespace PokemonDAL
 
                 return 0;
             }
+
+            
+        }
+        public static int RemoveMove(LearnedMoves toRemove)
+        {
+            try
+            {
+                using (DB_r0739290Entities entities = new DB_r0739290Entities())
+                {
+                    entities.Entry(toRemove).State = EntityState.Deleted;
+
+                    return entities.SaveChanges();
+                }
+            }
+            catch (Exception ex)
+            {
+
+                return 0;
+            }
+
+
         }
 
         public static int UpdatePokemon(Pokemon currentPokemon)
@@ -300,6 +359,25 @@ namespace PokemonDAL
             }
 
         }
+
+        public static int AddToLearnedMoves(LearnedMoves newMove)
+        {
+            try
+            {
+                using (DB_r0739290Entities entities = new DB_r0739290Entities())
+                {
+                    entities.LearnedMoves.Add(newMove);
+
+                    return entities.SaveChanges();
+                }
+            }
+            catch (Exception ex)
+            {
+
+                return 0;
+            }
+
+        }
         public static int CurrentPokemonGroups()
         {
             using (DB_r0739290Entities entities = new DB_r0739290Entities())
@@ -418,6 +496,18 @@ namespace PokemonDAL
                              .Include("Pokemon.Ability")
                             .Where(x => x.PlayerId == trainerID )
                             .OrderBy(x => x.Position);
+
+                return query.ToList();
+
+            }
+
+        }
+
+        public static List<Pokemon> PokemonList()
+        {
+            using (DB_r0739290Entities entities = new DB_r0739290Entities())
+            {
+                var query = entities.Pokemon;
 
                 return query.ToList();
 

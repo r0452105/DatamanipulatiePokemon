@@ -122,7 +122,9 @@ namespace PokemonWPF
             PokemonInfo infoscreen = new PokemonInfo();
             infoscreen.pokemonstats = DatabaseOperations.SelectPokemonFromParty(currentPokemon);
             this.Visibility = Visibility.Hidden;
+            this.Topmost = false;
             infoscreen.ShowDialog();
+            this.Topmost = true;
 
             this.Visibility = Visibility.Visible;
 
@@ -168,18 +170,20 @@ namespace PokemonWPF
             {
                 CRUDwindow.cmbPosition.Items.Add(i +1);
             }
-            CRUDwindow.cmbAbility.SelectedIndex = (int)currentPokemon.Pokemon.AbilityID + 1;
-            //Doesn't correctly update if ability has been altered. No idea why, data shows up correctly in PokemonInfo
+            
+     
             CRUDwindow.CurrentPkmParty = currentPokemon;
             CRUDwindow.CurrentPkm = currentPokemon.Pokemon;
             CRUDwindow.cmbPosition.SelectedIndex = currentPokemon.Position - 1;
             CRUDwindow.cmbPokemon.SelectedIndex = (int)currentPokemon.Pokemon.PokedexID - 1;
+            CRUDwindow.cmbAbility.SelectedIndex = (int)currentPokemon.Pokemon.AbilityID - 1;
             CRUDwindow.txtLvl.Text = currentPokemon.Pokemon.PokemonLevel.ToString();
             CRUDwindow.txtName.Text = currentPokemon.Pokemon.Nickname;
             CRUDwindow.cmbGender.SelectedIndex =  Convert.ToInt32(currentPokemon.Pokemon.Gender);
             CRUDwindow.currentTrainer = trainerParty;
+            this.Topmost = false;
             CRUDwindow.ShowDialog();
-
+            this.Topmost = true;
             Pokemonparty = DatabaseOperations.SelectParty(trainerParty.Id);
             LoadPokemon();
         }
@@ -200,7 +204,9 @@ namespace PokemonWPF
                 CRUDwindow.cmbPokemon.SelectedIndex = 0;
                 CRUDwindow.txtName.Text = "Bulbasaur";
                 CRUDwindow.txtLvl.Text = "5";
+                this.Topmost = false;
                 CRUDwindow.ShowDialog();
+             this.Topmost = true;
                 Pokemonparty = DatabaseOperations.SelectParty(trainerParty.Id);
                 LoadPokemon();
             }
