@@ -464,6 +464,8 @@ namespace PokemonDAL
             }
         }
 
+        
+
         public static List<PlayerInventory> SelectAllInventory(string category)
         {
             using (DB_r0739290Entities entities = new DB_r0739290Entities())
@@ -515,6 +517,16 @@ namespace PokemonDAL
 
         }
 
+        public static List<Items> ItemList()
+        {
+            using (DB_r0739290Entities entities = new DB_r0739290Entities())
+            {
+                var query = entities.Items;
+                return query.ToList();
+            }
+        }
+            
+
         public static PokemonGroup SelectPokemonFromParty(int trainerID, int position)
         {
             using (DB_r0739290Entities entities = new DB_r0739290Entities())
@@ -548,6 +560,22 @@ namespace PokemonDAL
             }
 
         }
+
+        public static List<PlayerInventory> SelectQuantityFromItems(Items item)
+        {
+            using (DB_r0739290Entities entities = new DB_r0739290Entities())
+            {
+                var query = entities.PlayerInventory
+                    
+                    .Where(x => x.ItemID == item.Id);
+                return query.ToList();
+
+                    
+
+
+            }
+        }
+       
         public static Pokemon SelectPokemonFromParty(PokemonGroup partyPokemon)
         {
             using (DB_r0739290Entities entities = new DB_r0739290Entities())
