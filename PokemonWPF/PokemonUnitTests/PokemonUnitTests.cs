@@ -54,5 +54,48 @@ namespace PokemonUnitTests
             }
 
         }
+
+        [TestMethod]
+        public void TestPokedexType1IsNotNull()
+        {
+
+            //Tests whether Type 1 of a pokemon is not null
+
+            //arrange
+            List<Pokedex> pokedexentries = new List<Pokedex>();
+
+
+            //act
+            pokedexentries = DatabaseOperations.PokedexEntry(); ;
+
+            //Assert
+            foreach (var pokedex in pokedexentries)
+            {
+
+                Assert.IsTrue(pokedex.Type1!=null);
+            }
+
+        }
+
+        public void TestPokedexWeightIsAboveZero()
+        {
+
+            //Tests whether the weight of the pokemon is above 0
+
+            //arrange
+            List<Pokedex> pokedexentries = new List<Pokedex>();
+
+
+            //act
+            pokedexentries = DatabaseOperations.PokedexEntry(); ;
+
+            //Assert
+            foreach (var pokedex in pokedexentries)
+            {
+
+                Assert.IsTrue(pokedex.PokemonWeight>0);
+            }
+
+        }
     }
 }
