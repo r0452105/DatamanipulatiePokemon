@@ -23,7 +23,7 @@ namespace PokemonDAL
 
         }
 
-        public  string this[string columnName]
+        public string this[string columnName]
         {
             get
             {
@@ -35,9 +35,9 @@ namespace PokemonDAL
                 {
                     return "xp moet een positieve waarde zijn";
                 }
-                if (columnName=="" && PokemonLevel > 100)
+                if (columnName=="PokemonLevel" && PokemonLevel > 100 && PokemonLevel < 0)
                 {
-                    return "Level is maximaal 100";
+                    return "Level moet tussen 0 en 100 liggen";
                 }
                 return "";
             }
