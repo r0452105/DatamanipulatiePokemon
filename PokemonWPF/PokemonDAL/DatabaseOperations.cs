@@ -65,6 +65,18 @@ namespace PokemonDAL
             }
         }
 
+
+        public static List<Trainer> GetTrainerList()
+        {
+           using (DB_r0739290Entities entities = new DB_r0739290Entities())
+            {
+                var query = entities.Trainer;
+                return query.ToList();
+            }
+        }
+
+
+
         public static List<PlayerInventory> SelectQuantityFromItems(Items item)
         {
             using (DB_r0739290Entities entities = new DB_r0739290Entities())
@@ -74,9 +86,16 @@ namespace PokemonDAL
                     .Where(x => x.ItemID == item.Id);
                 return query.ToList();
 
+            }
+        }
 
-
-
+        public static List<Trainer>SelectMoneyOwnedFromTrainer(Trainer trainer)
+        {
+            using (DB_r0739290Entities entities = new DB_r0739290Entities())
+            {
+                var query = entities.Trainer
+                    .Where(x => x.TrainerName == trainer.TrainerName);
+                return query.ToList();
             }
         }
 
@@ -494,6 +513,10 @@ namespace PokemonDAL
             }
         }
 
+        
+
+
+
         public static List<PlayerInventory> SelectAllInventory(string category)
         {
             using (DB_r0739290Entities entities = new DB_r0739290Entities())
@@ -622,6 +645,27 @@ namespace PokemonDAL
              
             }
         }
+
+        public static int UpdateItems(PlayerInventory currentItem)
+        {
+            try
+            {
+                using (DB_r0739290Entities entities = new DB_r0739290Entities())
+                {
+                    entities.Entry(currentItem).State = EntityState.Modified;
+
+                    return entities.SaveChanges();
+                }
+            }
+            catch (Exception ex)
+            {
+
+                return 0;
+            }
+
+        }
+
+
 
         public static int CurrentPlayerItems()
         {

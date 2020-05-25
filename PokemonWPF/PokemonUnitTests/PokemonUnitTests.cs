@@ -74,5 +74,20 @@ namespace PokemonUnitTests
             }
         }
 
+        [TestMethod]
+        public void TestMoneyOwned()
+        {
+            List<Trainer> alltrainers = new List<Trainer>();
+            List<Trainer> MoneyOwnedToCheck = new List<Trainer>();
+
+            alltrainers = DatabaseOperations.GetTrainerList();
+
+            foreach (var trainer in alltrainers)
+            {
+                MoneyOwnedToCheck = DatabaseOperations.SelectMoneyOwnedFromTrainer(trainer);
+                Assert.IsTrue(MoneyOwnedToCheck.Count > 0);
+            }
+        }
+
     }
 }
