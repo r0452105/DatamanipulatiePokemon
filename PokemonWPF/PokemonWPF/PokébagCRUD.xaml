@@ -58,7 +58,7 @@
                             <Setter Property="Height" Value="35px" />
                         </Style>
                     </GridView.ColumnHeaderContainerStyle>
-                    <GridViewColumn Header="Items" Width="200px" DisplayMemberBinding="{Binding Path=Items.ItemName}" />
+                    <GridViewColumn Header="Items" Width="200px" DisplayMemberBinding="{Binding Path=ItemName}" />
                 </GridView>
             </ListView.View>
         </ListView>

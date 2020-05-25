@@ -25,7 +25,7 @@ namespace PokemonWPF
         public Trainer trainerInventory;
         List<PokemonDAL.PlayerInventory> lstInventory;
         public Trainer trainerToAddTo;
-        public List<PlayerInventory> itemList;
+        public List<Items> itemList;
         
 
         
@@ -44,8 +44,10 @@ namespace PokemonWPF
             lstInventory = DatabaseOperations.GetItems(2);
             lvInventory.ItemsSource = lstInventory;
 
-            itemList = DatabaseOperations.GetItems(2);
+           itemList = DatabaseOperations.ItemList();
             lvItems.ItemsSource = itemList;
+
+            lvItems.SelectedIndex = 0;
 
         }
 
@@ -86,7 +88,16 @@ namespace PokemonWPF
 
         private void btnUpdate_Click(object sender, RoutedEventArgs e)
         {
+            PlayerInventory item = new PlayerInventory();
+            int quantity = int.Parse(txtQuantity.Text);
+            item.Quantity = quantity;
+
+
+
+
             
+
+
         }
 
         private void btnAdd_Click(object sender, RoutedEventArgs e)
