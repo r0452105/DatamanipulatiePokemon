@@ -117,7 +117,7 @@ namespace PokemonWPF
         private void BtnCRUD_Click(object sender, RoutedEventArgs e)
         {
             PokébagCRUD objPokébagCRUD = new PokébagCRUD();
-            this.Visibility = Visibility.Hidden;
+            this.Visibility = Visibility./*Hidden*/;
             
             objPokébagCRUD.trainerToAddTo = trainerInventory;
             

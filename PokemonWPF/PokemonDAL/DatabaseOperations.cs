@@ -496,6 +496,8 @@ namespace PokemonDAL
             }
         }
 
+     
+
         
 
 
@@ -513,7 +515,6 @@ namespace PokemonDAL
             }
         }
 
-        
 
 
 
@@ -629,7 +630,7 @@ namespace PokemonDAL
 
         }
 
-        public static int AddItem(PlayerInventory item)
+        public static int AddPlayerinvtoryItem(PlayerInventory item)
         {
             try
             {
@@ -646,13 +647,30 @@ namespace PokemonDAL
             }
         }
 
-        public static int UpdateItems(PlayerInventory currentItem)
+        public static int AddItem(Items item)
         {
             try
             {
                 using (DB_r0739290Entities entities = new DB_r0739290Entities())
                 {
-                    entities.Entry(currentItem).State = EntityState.Modified;
+                    entities.Items.Add(item);
+                    return entities.SaveChanges();
+                }
+            }
+            catch (Exception ex)
+            {
+
+                return 0;
+            }
+        }
+
+        public static int UpdatePlayerInventory(PlayerInventory currentPlayerInventory)
+        {
+            try
+            {
+                using (DB_r0739290Entities entities = new DB_r0739290Entities())
+                {
+                    entities.Entry(currentPlayerInventory).State = EntityState.Modified;
 
                     return entities.SaveChanges();
                 }
@@ -677,7 +695,15 @@ namespace PokemonDAL
             }
         }
 
+        public static int CurrentItems()
+        {
+            using (DB_r0739290Entities entities = new DB_r0739290Entities())
+            {
+                var query = entities.Items;
 
+                return query.ToList().Max(x => x.Id);
+            }
+        }
 
     }
 }
