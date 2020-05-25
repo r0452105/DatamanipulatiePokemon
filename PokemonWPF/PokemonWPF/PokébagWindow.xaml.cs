@@ -24,6 +24,9 @@ namespace PokemonWPF
     {
         public Trainer trainerInventory;
         List<PokemonDAL.PlayerInventory> lstInventory;
+        PokébagCRUD CRUDwindow = new PokébagCRUD();
+        public Trainer trainerToAddTo;
+
 
 
 
@@ -58,6 +61,10 @@ namespace PokemonWPF
             List<Items> lstItems = DatabaseOperations.GetDistinctCategory(); //items sorteren per categorie
             List<string> data = lstItems.Select(x => x.Catagory).Distinct().ToList();
             fillCategoryListBox(data);
+
+           //listview vullen zodat alle items erin staan bij het laden van het screen
+            lstInventory = DatabaseOperations.GetItems(2);
+            lvInventory.ItemsSource = lstInventory;
         }
 
         private void fillCategoryListBox(List<string> Data)
@@ -107,11 +114,23 @@ namespace PokemonWPF
             }
         }
 
+        private void BtnCRUD_Click(object sender, RoutedEventArgs e)
+        {
+            PokébagCRUD objPokébagCRUD = new PokébagCRUD();
+            this.Visibility = Visibility.Hidden;
+            
+            objPokébagCRUD.trainerToAddTo = trainerInventory;
+            
+            objPokébagCRUD.ShowDialog();
+
+            lstInventory = DatabaseOperations.GetItems(2);
+            lvInventory.ItemsSource = lstInventory;
+            lvInventory.Items.Refresh();
+
+        }
 
 
-
-
-
+     
 
     }
 }

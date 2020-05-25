@@ -1,0 +1,68 @@
+﻿<Window x:Class="PokemonWPF.PokedexCRUDWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PokemonWPF"
+        mc:Ignorable="d"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" 
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}" 
+        TextElement.FontWeight="Regular" 
+        TextElement.FontSize="13" 
+        TextOptions.TextFormattingMode="Ideal" 
+        TextOptions.TextRenderingMode="Auto" 
+        Background="{DynamicResource MaterialDesignPaper}" 
+        FontFamily="{DynamicResource MaterialDesignFont}"
+        Title="CRUDWindow" Height="450" Width="1056.998" Loaded="Window_Loaded">
+    <Grid Background="LightGray">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <TextBox x:Name="txtPokeNumber" 
+                   materialDesign:HintAssist.Hint="Number"
+                   Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                   Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" Margin="5"  />
+        <Button x:Name="btnSearch" Content="Search" Grid.Row="0" Grid.Column="3" Margin="5" Click="BtnSearch_Click" />
+
+        <DataGrid x:Name="datagridPokedexEntries" AutoGenerateColumns="False" Grid.Row="1" Grid.Column="0" 
+                  IsReadOnly="True" 
+                  Grid.ColumnSpan="3" Grid.RowSpan="3" Margin="5" SelectionChanged="DatagridPokedexEntries_SelectionChanged" >
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding Id}" Header="Number"></DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding PokemonName}" Header="Name"></DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding Types}" Header="Type 1"></DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding Types1}" Header="Type 2"></DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding PokemonWeight}" Header="Gewicht"></DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding ExpMax}" Header="ExpMax"></DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding CaptureRate}" Header="Capture Rate"></DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding EvolveThreshold}" Header="Evolve Threshold"></DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding PokemonDescription}" Header="Description"></DataGridTextColumn>
+
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button x:Name="btnDelete" Content="Delete" Grid.Row="2" Grid.Column="3" Margin="5" VerticalAlignment="Top" Click="BtnDelete_Click" />
+        <TextBox x:Name="txtNaam" 
+                   materialDesign:HintAssist.Hint="Naam"
+                   Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                   Grid.Row="4" Grid.Column="0" Margin="5"  />
+        <ComboBox x:Name="cmbType1" materialDesign:HintAssist.Hint="Type1" IsEditable="true"
+                   Grid.Row="4" Grid.Column="1" Margin="5"  />
+        <ComboBox x:Name="cmbType2" materialDesign:HintAssist.Hint="Type2" IsEditable="true"
+                   Grid.Row="4" Grid.Column="2" Margin="5"  />
+        <Button x:Name="btnAdd" Content="Add New Species" Grid.Row="4" Grid.Column="3" Margin="5,10.4,5.4,10.4" Click="BtnAdd_Click" />
+        <Button x:Name="btnChange" Content="Change" Grid.Row="1" Grid.Column="3" Margin="5,49,5.4,10.2" Click="BtnChange_Click" />
+        <Button x:Name="btnReplace" Content="Replace" Grid.Row="1" Grid.Column="3" Margin="5,10,5.4,49.2" Click="BtnReplace_Click" />
+        <Button x:Name="btnBack" Content="Back" Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="4" Margin="5" Click="BtnBack_Click" />
+    </Grid>
+</Window>

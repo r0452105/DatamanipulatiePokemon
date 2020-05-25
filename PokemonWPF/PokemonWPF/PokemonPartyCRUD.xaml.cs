@@ -30,11 +30,11 @@ namespace PokemonWPF
         public LearnedMoves DefaultMoves2 = new LearnedMoves();
 
         public int baseHP;
-            public int baseAtt;
-            public int baseDef;
-            public int baseSpAtt;
-            public int baseSpDef;
-            public int baseSpeed;
+        public int baseAtt;
+        public int baseDef;
+        public int baseSpAtt;
+        public int baseSpDef;
+        public int baseSpeed;
 
         public int EVHP;
         public int EVAtt;

@@ -1,0 +1,80 @@
+﻿<Window x:Class="PokemonWPF.PokébagCRUD"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PokemonWPF"
+        mc:Ignorable="d"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        Background="Gray"
+       Loaded="Window_Loaded" 
+        Title="PokébagCRUD" Height="450" Width="800">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20*"/>
+            <RowDefinition Height="20*"/>
+            <RowDefinition Height="20*"/>
+            <RowDefinition Height="20*"/>
+            <RowDefinition Height="20*"/>
+            <RowDefinition Height="20*"/>
+        </Grid.RowDefinitions>
+
+        <ListView x:Name="lvInventory" ScrollViewer.HorizontalScrollBarVisibility="Hidden" HorizontalAlignment="Center" Height="310" Margin="134,49,0,0" Grid.RowSpan="6" VerticalAlignment="Top" Width="334" Grid.ColumnSpan="2" BorderBrush="Black" BorderThickness="3" FontFamily="Calibri" FontSize="10pt" FontWeight="SemiBold" SelectionMode="Single">
+            <ListView.View>
+                <GridView>
+                    <GridView.ColumnHeaderContainerStyle>
+                        <Style TargetType="{x:Type GridViewColumnHeader}">
+                            <Setter Property="Background" Value="DarkRed"/>
+                            <Setter Property="Foreground" Value="White" />
+                            <Setter Property="FontWeight" Value="Bold" />
+                            <Setter Property="FontSize" Value="10pt" />
+                            <Setter Property="Height" Value="35px" />
+                        </Style>
+                    </GridView.ColumnHeaderContainerStyle>
+                    <GridViewColumn Header="ID" Width="40px" DisplayMemberBinding="{Binding Path=id}" />
+                    <GridViewColumn Header="Item Name" Width="120px" DisplayMemberBinding="{Binding Path=Items.ItemName}" />
+                    <GridViewColumn Header="Quantity" Width="75px" DisplayMemberBinding="{Binding Path=Quantity}"/>
+                    <GridViewColumn Header="Player" Width="100px" DisplayMemberBinding="{Binding Path=Trainer.TrainerName}"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+
+        <ListView x:Name="lvItems" ScrollViewer.HorizontalScrollBarVisibility="Hidden" HorizontalAlignment="Center" Height="291"  VerticalAlignment="Top" Width="168"  BorderBrush="Black" BorderThickness="3" FontFamily="Calibri" FontSize="10pt" FontWeight="SemiBold" SelectionMode="Single" Grid.Column="2" Margin="0.4,49,0,0" Grid.RowSpan="5" >
+            <ListView.View>
+                <GridView>
+                    <GridView.ColumnHeaderContainerStyle>
+                        <Style TargetType="{x:Type GridViewColumnHeader}">
+                            <Setter Property="Background" Value="DarkRed"/>
+                            <Setter Property="Foreground" Value="White" />
+                            <Setter Property="FontWeight" Value="Bold" />
+                            <Setter Property="FontSize" Value="10pt" />
+                            <Setter Property="Height" Value="35px" />
+                        </Style>
+                    </GridView.ColumnHeaderContainerStyle>
+                    <GridViewColumn Header="Items" Width="200px" DisplayMemberBinding="{Binding Path=Items}" />
+                </GridView>
+            </ListView.View>
+        </ListView>
+
+
+
+        <Button x:Name="btnAdd" Content="Add" Grid.Row="2" FontSize="20" Margin="10,10.2,130.8,28.2" Height="Auto" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Click="btnAdd_Click" IsDefault="True"/>
+        <Button x:Name="btnRemove" Content="Remove" Grid.Row="1" FontSize="20" Margin="10,36.6,130.8,70.2" Height="Auto" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Click="btnRemove_Click" IsDefault="True" Grid.RowSpan="2"/>
+
+        <TextBox x:Name="txtQuantity" BorderBrush="Black" Grid.Column="1" Grid.Row="5" Margin="34.2,35.6,153.6,10" />
+
+
+
+
+
+
+
+    </Grid>
+</Window>

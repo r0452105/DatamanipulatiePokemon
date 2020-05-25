@@ -24,8 +24,9 @@ namespace PokemonWPF
         List<Types> poketypeentries = DatabaseOperations.Typinglist();
         public PokédexWindow DexWindowToAlter;
         public Pokedex pokedex = new Pokedex();
-        IList<Pokedex> pokeEntries = DatabaseOperations.PokedexEntry();
-        IList<Pokedex> pokeEntriesAZ = DatabaseOperations.PokedexEntryAZ();
+        List<Pokedex> pokeEntries = DatabaseOperations.PokedexEntry();
+        List<Pokedex> pokeEntriesAZ = DatabaseOperations.PokedexEntryAZ();
+        
 
 
         public SearchDexWindow()
@@ -35,14 +36,13 @@ namespace PokemonWPF
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            cbType.Items.Add("Geen Specifieke typing");
+            cbType.Items.Add(" ");
             foreach (Types poketype in poketypeentries)
             {
                 cbType.Items.Add(poketype.TypeName);
             }
             cbSortBy.Items.Add("Alfabetisch");
             cbSortBy.Items.Add("National Dex");
-
             cbType.SelectedIndex = 0;
         }
 
@@ -50,15 +50,12 @@ namespace PokemonWPF
         private void BtnBack_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
-            DexWindowToAlter.Visibility = Visibility.Visible;
+            DexWindowToAlter.Topmost = true;
         }
 
         private void BtnSearch_Click(object sender, RoutedEventArgs e)
         {
-            foreach (Pokedex pokedex in pokeEntries)
-            {
-                DexWindowToAlter.lbPokédex.Items.Remove(pokedex.PokemonName);
-            }
+            IList<string> pokeEntriesTemporary = new List<string>();
             foreach (Pokedex pokedex in pokeEntries)
             {
                 if (pokedex.PokemonName.ToLower().Contains(tbName.Text.ToLower()))
@@ -79,46 +76,58 @@ namespace PokemonWPF
                     }
                     if (cbType.SelectedIndex==0)
                     {
-                        DexWindowToAlter.lbPokédex.Items.Add(pokedex.PokemonName);
+                        pokeEntriesTemporary.Add(pokedex.PokemonName);
                     }
                     else if (type1 == cbType.SelectedItem.ToString() || type2 == cbType.SelectedItem.ToString())
                     {
-                        DexWindowToAlter.lbPokédex.Items.Add(pokedex.PokemonName);
-                    } 
+                        pokeEntriesTemporary.Add(pokedex.PokemonName);
+                    }
+
+                    
                 }
+
+            }
+            DexWindowToAlter.gvBinder.DisplayMemberBinding = null;
+            DexWindowToAlter.lvPokedex.ItemsSource = pokeEntriesTemporary;
+            if (DexWindowToAlter.lvPokedex.Items.Count < 1)
+            {
+                List<string> noitems = new List<string>();
+                noitems.Add("none");
+                DexWindowToAlter.lvPokedex.ItemsSource = noitems;
             }
             DexWindowToAlter.Show();
+            DexWindowToAlter.lvPokedex.SelectedIndex = 0;
             this.Close();
         }
 
         private void BtnStartSorting_Click(object sender, RoutedEventArgs e)
         {
-            
+            IList<string> pokeEntriesTemporary = new List<string>();
             switch (cbSortBy.SelectedIndex)
             {
                 case 0:
                     // eerst volgorde van de pokemons aanpassen, dan terugleiden naar pokedexscherm
                     foreach (Pokedex pokedex in pokeEntriesAZ)
                     {
-                        DexWindowToAlter.lbPokédex.Items.Remove(pokedex.PokemonName);
+                        pokeEntriesTemporary.Add(pokedex.PokemonName);
                     }
-                    foreach (Pokedex pokedex in pokeEntriesAZ)
-                    {
-                        DexWindowToAlter.lbPokédex.Items.Add(pokedex.PokemonName);
-                    }
+                    DexWindowToAlter.gvBinder.DisplayMemberBinding = null;
+                    DexWindowToAlter.lvPokedex.ItemsSource = pokeEntriesTemporary;
                     DexWindowToAlter.Show();
+                    DexWindowToAlter.lvPokedex.SelectedIndex = 0;
                     this.Close();
                     break;
                 case 1:
+                 
                     foreach (Pokedex pokedex in pokeEntries)
                     {
-                        DexWindowToAlter.lbPokédex.Items.Remove(pokedex.PokemonName);
+                        pokeEntriesTemporary.Add(pokedex.PokemonName);
                     }
-                    foreach (Pokedex pokedex in pokeEntries)
-                    {
-                        DexWindowToAlter.lbPokédex.Items.Add(pokedex.PokemonName);
-                    }
+                    DexWindowToAlter.gvBinder.DisplayMemberBinding = null;
+                    
+                    DexWindowToAlter.lvPokedex.ItemsSource = pokeEntriesTemporary;
                     DexWindowToAlter.Show();
+                    DexWindowToAlter.lvPokedex.SelectedIndex = 0;
                     this.Close();
                     break;
                 default:
