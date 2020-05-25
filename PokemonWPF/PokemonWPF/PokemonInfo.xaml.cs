@@ -13,7 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using PokemonDAL;
-
+using PokemonModels;
 
 namespace PokemonWPF
 {
@@ -105,6 +105,9 @@ namespace PokemonWPF
         }
         private void SetContentPartyCard()
         {
+            BitmapImage sprite = new BitmapImage(new Uri("Images/PokemonSprites.png", UriKind.Relative));
+            PokemonSpriteById spriteTarget = new PokemonSpriteById((int)pokemonstats.PokedexID);
+            imgPokemon.Source = new CroppedBitmap(sprite, spriteTarget.target);
             lblPokemonNick.Content = pokemonstats.Nickname;
 
             if (pokemonstats.Gender == false)

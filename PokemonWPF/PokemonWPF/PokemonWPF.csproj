@@ -103,7 +103,6 @@
     <Compile Include="PokemonPartyCRUD.xaml.cs">
       <DependentUpon>PokemonPartyCRUD.xaml</DependentUpon>
     </Compile>
-    <Compile Include="PokemonSprite.cs" />
     <Compile Include="PokemonStats.xaml.cs">
       <DependentUpon>PokemonStats.xaml</DependentUpon>
     </Compile>
@@ -127,7 +126,7 @@
     </Compile>
     <Compile Include="PokébagCRUD.xaml.cs">
       <DependentUpon>PokébagCRUD.xaml</DependentUpon>
-       </Compile>
+    </Compile>
     <Compile Include="PokedexCRUDWindow.xaml.cs">
       <DependentUpon>PokedexCRUDWindow.xaml</DependentUpon>
     </Compile>
@@ -188,7 +187,7 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="PokébagCRUD.xaml">
-       <SubType>Designer</SubType>
+      <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="PokedexCRUDWindow.xaml">
@@ -266,7 +265,6 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
-
   <ItemGroup Condition="$(VisualStudioVersion) == '16.0'">
     <Reference Include="Microsoft.Data.Tools.Schema.Sql, Version=15.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>$(SSDTPath)\Microsoft.Data.Tools.Schema.Sql.dll</HintPath>

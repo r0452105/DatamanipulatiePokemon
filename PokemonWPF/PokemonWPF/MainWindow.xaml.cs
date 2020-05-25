@@ -43,6 +43,8 @@ namespace PokemonWPF
             menuElements.Add("Exit");
            
             lbMenu.ItemsSource = menuElements;
+
+           
         }
 
         private void lbMenu_SelectionChanged(object sender, SelectionChangedEventArgs e)

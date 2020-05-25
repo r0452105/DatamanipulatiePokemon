@@ -33,7 +33,7 @@
                     <RowDefinition/>
                     <RowDefinition/>
                 </Grid.RowDefinitions>
-                <Image Grid.RowSpan="3" Margin="10" />
+                <Image Name="imgSprite1" Grid.RowSpan="3" Margin="10" />
                 <Label Grid.Column="1" Grid.Row="0" Name="lblName1" FontStyle="Italic" FontFamily="Trebuchet MS" FontSize="13" Margin="3" FontWeight="Bold"  />
                 <Label Grid.Column="1" Grid.Row="1" Name="lblHealth1" FontStyle="Italic" FontFamily="Trebuchet MS" FontSize="13" Margin="3" FontWeight="Bold"  />
                 <ProgressBar Value="100" Grid.Column="1" Grid.Row="2" Height="10" Foreground="Green" Name="hpBar1" Margin="5" />
@@ -50,7 +50,7 @@
                     <RowDefinition/>
                     <RowDefinition/>
                 </Grid.RowDefinitions>
-                <Image Grid.RowSpan="3" Margin="10" />
+                <Image Name="imgSprite2" Grid.RowSpan="3" Margin="10" />
                 <Label Grid.Column="1" Grid.Row="0" Name="lblName2" FontStyle="Italic" FontFamily="Trebuchet MS" FontSize="13" Margin="3" FontWeight="Bold"  />
                 <Label Grid.Column="1" Grid.Row="1" Name="lblHealth2" FontStyle="Italic" FontFamily="Trebuchet MS" FontSize="13" Margin="3" FontWeight="Bold"  />
                 <ProgressBar Value="100" Grid.Column="1" Grid.Row="2" Height="10" Foreground="Green" Name="hpBar2" Margin="5" />
@@ -67,7 +67,7 @@
                     <RowDefinition/>
                     <RowDefinition/>
                 </Grid.RowDefinitions>
-                <Image Grid.RowSpan="3" Margin="10" />
+                <Image Name="imgSprite3" Grid.RowSpan="3" Margin="10" />
                 <Label Grid.Column="1" Grid.Row="0" Name="lblName3" FontStyle="Italic" FontFamily="Trebuchet MS" FontSize="13" Margin="3" FontWeight="Bold"  />
                 <Label Grid.Column="1" Grid.Row="1" Name="lblHealth3" FontStyle="Italic" FontFamily="Trebuchet MS" FontSize="13" Margin="3" FontWeight="Bold"  />
                 <ProgressBar Value="100" Grid.Column="1" Grid.Row="2" Height="10" Foreground="Green" Name="hpBar3" Margin="5" />
@@ -85,7 +85,7 @@
                     <RowDefinition/>
                     <RowDefinition/>
                 </Grid.RowDefinitions>
-                <Image Grid.RowSpan="3" Margin="10" />
+                <Image  Name="imgSprite4" Grid.RowSpan="3" Margin="10" />
                 <Label Grid.Column="1" Grid.Row="0" Name="lblName4" FontStyle="Italic" FontFamily="Trebuchet MS" FontSize="13" Margin="3" FontWeight="Bold"  />
                 <Label Grid.Column="1" Grid.Row="1" Name="lblHealth4" FontStyle="Italic" FontFamily="Trebuchet MS" FontSize="13" Margin="3" FontWeight="Bold"  />
                 <ProgressBar Value="100" Grid.Column="1" Grid.Row="2" Height="10" Foreground="Green" Name="hpBar4" Margin="5" />
@@ -103,7 +103,7 @@
                     <RowDefinition/>
                     <RowDefinition/>
                 </Grid.RowDefinitions>
-                <Image Grid.RowSpan="3" Margin="10" />
+                <Image Name="imgSprite5" Grid.RowSpan="3" Margin="10" />
                 <Label Grid.Column="1" Grid.Row="0" Name="lblName5" FontStyle="Italic" FontFamily="Trebuchet MS" FontSize="13" Margin="3" FontWeight="Bold"  />
                 <Label Grid.Column="1" Grid.Row="1" Name="lblHealth5" FontStyle="Italic" FontFamily="Trebuchet MS" FontSize="13" Margin="3" FontWeight="Bold"  />
                 <ProgressBar Value="100" Grid.Column="1" Grid.Row="2" Height="10" Foreground="Green" Name="hpBar5" Margin="5" />
@@ -120,7 +120,7 @@
                     <RowDefinition/>
                     <RowDefinition/>
                 </Grid.RowDefinitions>
-                <Image Grid.RowSpan="3" Margin="10" />
+                <Image Name="imgSprite6" Grid.RowSpan="3" Margin="10" />
                 <Label Grid.Column="1" Grid.Row="0" Name="lblName6" FontStyle="Italic" FontFamily="Trebuchet MS" FontSize="13" Margin="3" FontWeight="Bold"  />
                 <Label Grid.Column="1" Grid.Row="1" Name="lblHealth6" FontStyle="Italic" FontFamily="Trebuchet MS" FontSize="13" Margin="3" FontWeight="Bold"  />
                 <ProgressBar Value="100" Grid.Column="1" Grid.Row="2" Height="10" Foreground="Green" Name="hpBar6" Margin="5" />
