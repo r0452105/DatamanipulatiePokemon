@@ -206,9 +206,9 @@ namespace PokemonWPF
 
                             LoadDefaultMoves(PokemonToAdd.Id);
 
-                           /* if (DatabaseOperations.LearnNewMove(DefaultMoves1) != 0
+                           if (DatabaseOperations.LearnNewMove(DefaultMoves1) != 0
                                 && DatabaseOperations.LearnNewMove(DefaultMoves2) != 0)
-                            {*/
+                            {
                                 PokemonGroup GroupToAddTo = new PokemonGroup();
                                 GroupToAddTo.Id = DatabaseOperations.CurrentPokemonGroups() + 1;
                                 GroupToAddTo.PlayerId = currentTrainer.Id;
@@ -224,11 +224,11 @@ namespace PokemonWPF
                                 {
                                     MessageBox.Show("Fout in groep creatie; toevoeging niet afgerond");
                                 }
-                           /* }
+                           }
                             else
                             {
                                 MessageBox.Show("Geen moves meegegeven; Toevoeging niet afgerond");
-                            }*/
+                            }
 
 
                           

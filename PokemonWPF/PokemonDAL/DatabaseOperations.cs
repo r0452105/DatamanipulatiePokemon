@@ -177,7 +177,7 @@ namespace PokemonDAL
             {
                 var query = entities.StatPool;
                 
-                return query.ToList().Count();
+                return query.ToList().Max(x => x.Id); ;
             }
         }
 
@@ -406,7 +406,7 @@ namespace PokemonDAL
             using (DB_r0739290Entities entities = new DB_r0739290Entities())
             {
                 var query = entities.PokemonGroup;
-                return query.ToList().Count();
+                return query.ToList().Max(x => x.Id);
             }
         }
         public static Pokedex SelectPokemonFromPokedex(Pokedex pokedexpokemon)
@@ -427,7 +427,7 @@ namespace PokemonDAL
             {
                 var query = entities.LearnedMoves;
 
-                return query.ToList().Count();
+                return query.ToList().Max(x => x.Id); 
             }
         }
         public static int CurrentStatCollections()
@@ -436,7 +436,7 @@ namespace PokemonDAL
             {
                 var query = entities.StatCollection;
 
-                return query.ToList().Count();
+                return query.ToList().Max(x => x.Id); ;
             }
         }
         public static List<Pokedex> PokedexEntryAZ()
