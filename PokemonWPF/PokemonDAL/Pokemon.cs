@@ -34,8 +34,6 @@ namespace PokemonDAL
         public string Nickname { get; set; }
         public bool Shiny { get; set; }
         public bool PokeRus { get; set; }
-
-        public int currentHp;
     
         public virtual Ability Ability { get; set; }
         public virtual Items Items { get; set; }
@@ -47,9 +45,5 @@ namespace PokemonDAL
         public virtual Trainer Trainer { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<PokemonGroup> PokemonGroup { get; set; }
-
-       
-
-       
     }
 }

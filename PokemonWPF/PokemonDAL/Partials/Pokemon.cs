@@ -8,11 +8,12 @@ namespace PokemonDAL
 {
    public partial class Pokemon
     {
-
+        public int currentHp = 0;
 
         public string ReturnHP()
         {
-            currentHp = StatPool.CurrentHealth(this);
+         
+        currentHp = StatPool.CurrentHealth(this);
 
             return currentHp + "\t/ " + StatPool.CurrentHealth(this);
 

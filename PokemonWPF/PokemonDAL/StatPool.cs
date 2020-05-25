@@ -11,8 +11,7 @@ namespace PokemonDAL
 {
     using System;
     using System.Collections.Generic;
-    using System.Runtime.CompilerServices;
-
+    
     public partial class StatPool
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -34,7 +33,5 @@ namespace PokemonDAL
         public virtual StatCollection EvYield { get; set; }
         public virtual StatCollection EvStats { get; set; }
         public virtual StatCollection IvStats { get; set; }
-
-       
     }
 }

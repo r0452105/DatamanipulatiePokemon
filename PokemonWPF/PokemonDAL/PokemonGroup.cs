@@ -21,7 +21,5 @@ namespace PokemonDAL
     
         public virtual Pokemon Pokemon { get; set; }
         public virtual Trainer Trainer { get; set; }
-
-       
     }
 }
