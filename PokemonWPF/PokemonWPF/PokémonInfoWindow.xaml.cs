@@ -27,7 +27,7 @@ namespace PokemonWPF
         List<Pokedex> pokeEntries = DatabaseOperations.PokedexEntry();
         public Types poketype = new Types();
         List<Types> poketypeentries = DatabaseOperations.Typinglist();
-        Bulbasaur pokedexPic1 = new Bulbasaur();
+
        
 
 
@@ -51,6 +51,7 @@ namespace PokemonWPF
                     string type1 = "";
                     string type2 = "";
 
+
                     foreach (Types poketype in poketypeentries)
                     {
                         if (poketype.Id == pokedex.Type1)
@@ -62,16 +63,14 @@ namespace PokemonWPF
                             type2 = poketype.TypeName;
                         }
                     }
-
+                    BitmapImage sprite = new BitmapImage(new Uri("Images/PokemonSprites.png", UriKind.Relative));
+                    PokemonSpriteById spriteTarget = new PokemonSpriteById(pokedex.Id);
+                    imgPokéSprite.Source = new CroppedBitmap(sprite, spriteTarget.target);
                     tbGewicht.Text = "Gewicht: " + pokedex.PokemonWeight + " kg";
                     tbNumber.Text = "No. " + pokedex.Id + "";
                     tbType.Text = type1 + "  " + type2;
                     tbDescription.Text = pokedex.PokemonDescription;
                     tbPokémonnaam.Text = pokedex.PokemonName;
-
-                    BitmapImage pokemonbitmap = new BitmapImage(new Uri("Images/PokemonSprites.png", UriKind.Relative));
-                    imgPokéSprite.Source = new CroppedBitmap(pokemonbitmap, pokedexPic1.target);
-
                 }
                 
                 

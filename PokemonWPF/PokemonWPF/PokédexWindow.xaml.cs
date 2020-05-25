@@ -48,7 +48,7 @@ namespace PokemonWPF
 
             BitmapImage bulbasaur = new BitmapImage(new Uri("Images/PokemonSprites.png", UriKind.Relative));
             lvPokedex.SelectedIndex = 0;
-            imgPicturePokémon.Source = new CroppedBitmap(bulbasaur, pokedexPic1.target);
+            //imgPicturePokémon.Source = new CroppedBitmap(bulbasaur, pokedexPic1.target);
         }
 
 
@@ -78,7 +78,17 @@ namespace PokemonWPF
 
         private void LvPokedex_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-
+            
+            foreach (Pokedex pokedex1 in pokeEntries)
+            {
+                if (lvPokedex.SelectedIndex==(pokedex1.Id-1)){
+                    BitmapImage sprite = new BitmapImage(new Uri("Images/PokemonSprites.png", UriKind.Relative));
+                    PokemonSpriteById spriteTarget = new PokemonSpriteById(pokedex1.Id);
+                    imgPicturePokémon.Source = new CroppedBitmap(sprite, spriteTarget.target);
+                }
+            }
+            
+            
         }
 
         private void LvPokedex_MouseDoubleClick(object sender, MouseButtonEventArgs e)

@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\colers\Documents\GitHub\DatamanipulatiePok-monAaronLaraBryant\PokemonWPF\PokemonWPF\obj\Debug\
+C:\Users\Gebruiker\Documents\GitHub\DatamanipulatiePok-monAaronLaraBryant\PokemonWPF\PokemonWPF\obj\Debug\
 PokemonWPF
 none
 false
 DEBUG;TRACE
-C:\Users\colers\Documents\GitHub\DatamanipulatiePok-monAaronLaraBryant\PokemonWPF\PokemonWPF\App.xaml
+C:\Users\Gebruiker\Documents\GitHub\DatamanipulatiePok-monAaronLaraBryant\PokemonWPF\PokemonWPF\App.xaml
 14-1702925381
 
-22-2045338768
-22-1001511561
+191815121729
+26-1394654604
 MainWindow.xaml;PokemonMoveAdd.xaml;PokemonPartyCRUD.xaml;PokemonStats.xaml;PokéBadgesWindow.xaml;PokébagWindow.xaml;PokédexWindow.xaml;PokéTrainercardWindow.xaml;SearchDexWindow.xaml;PokémonInfoWindow.xaml;PokemonInfo.xaml;PokemonParty.xaml;PokébagCRUD.xaml;PokedexCRUDWindow.xaml;
 
-True
+False
 
