@@ -29,9 +29,6 @@ namespace PokemonDAL
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Pokemon> Pokemon { get; set; }
 
-        public override string ToString()
-        {
-            return AbilityName;
-        }
+    
     }
 }

@@ -37,9 +37,6 @@ namespace PokemonDAL
         public virtual ICollection<LearnedMoves> LearnedMoves { get; set; }
         public virtual Types Types { get; set; }
 
-        public override string ToString()
-        {
-            return Id + ". " + MoveName;
-        }
+       
     }
 }

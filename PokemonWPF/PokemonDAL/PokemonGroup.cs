@@ -22,9 +22,6 @@ namespace PokemonDAL
         public virtual Pokemon Pokemon { get; set; }
         public virtual Trainer Trainer { get; set; }
 
-        public override string ToString()
-        {
-            return Pokemon.Nickname + "\tLvl " + Pokemon.PokemonLevel;
-        }
+       
     }
 }

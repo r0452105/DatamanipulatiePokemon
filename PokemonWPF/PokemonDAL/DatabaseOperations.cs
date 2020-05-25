@@ -4,12 +4,32 @@ using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using System.IO;
 
 namespace PokemonDAL
 {
     public static class DatabaseOperations
     {
+
+
+        public static void ErrorLogging(Exception ex)
+        {
+            string strPath = @"Log.txt";
+            if (!File.Exists(strPath))
+            {
+                File.Create(strPath).Dispose();
+            }
+            using (StreamWriter sw = File.AppendText(strPath))
+            {
+                sw.WriteLine("=============Error Logging ===========");
+                sw.WriteLine("===========Start============= " + DateTime.Now);
+                sw.WriteLine("Error Message: " + ex.Message);
+                sw.WriteLine("Error: " + ex.GetType().Name);
+                sw.WriteLine("Stack Trace: " + ex.StackTrace);
+                sw.WriteLine("===========End============= " + DateTime.Now);
+
+            }
+        }
 
         public static Trainer SelectTrainer(int trainerId)
         {
@@ -83,7 +103,7 @@ namespace PokemonDAL
             }
             catch (Exception ex)
             {
-
+                ErrorLogging(ex);
                 return 0;
             }
 
@@ -101,7 +121,7 @@ namespace PokemonDAL
             }
             catch (Exception ex)
             {
-
+                ErrorLogging(ex);
                 return 0;
             }
 
@@ -120,7 +140,7 @@ namespace PokemonDAL
             }
             catch (Exception ex)
             {
-
+                ErrorLogging(ex);
                 return 0;
             }
 
@@ -176,7 +196,7 @@ namespace PokemonDAL
             }
             catch (Exception ex)
             {
-
+                ErrorLogging(ex);
                 return 0;
             }
 
@@ -196,7 +216,7 @@ namespace PokemonDAL
             }
             catch (Exception ex)
             {
-
+                ErrorLogging(ex);
                 return 0;
             }
 
@@ -215,7 +235,7 @@ namespace PokemonDAL
             }
             catch (Exception ex)
             {
-
+                ErrorLogging(ex);
                 return 0;
             }
 
@@ -235,7 +255,7 @@ namespace PokemonDAL
             }
             catch (Exception ex)
             {
-
+                ErrorLogging(ex);
                 return 0;
             }
 
@@ -254,7 +274,7 @@ namespace PokemonDAL
             }
             catch (Exception ex)
             {
-
+                ErrorLogging(ex);
                 return 0;
             }
 
@@ -282,7 +302,7 @@ namespace PokemonDAL
             }
             catch (Exception ex)
             {
-
+                ErrorLogging(ex);
                 return 0;
             }
 
@@ -301,7 +321,7 @@ namespace PokemonDAL
             }
             catch (Exception ex)
             {
-
+                ErrorLogging(ex);
                 return 0;
             }
 
@@ -320,7 +340,7 @@ namespace PokemonDAL
             }
             catch (Exception ex)
             {
-
+                ErrorLogging(ex);
                 return 0;
             }
 
@@ -339,7 +359,7 @@ namespace PokemonDAL
             }
             catch (Exception ex)
             {
-
+                ErrorLogging(ex);
                 return 0;
             }
 
@@ -357,7 +377,7 @@ namespace PokemonDAL
             }
             catch (Exception ex)
             {
-
+                ErrorLogging(ex);
                 return 0;
             }
 
@@ -376,7 +396,7 @@ namespace PokemonDAL
             }
             catch (Exception ex)
             {
-
+                ErrorLogging(ex);
                 return 0;
             }
 
@@ -591,6 +611,7 @@ namespace PokemonDAL
             }
             catch (Exception ex)
             {
+                ErrorLogging(ex);
                 return 0;
              
             }

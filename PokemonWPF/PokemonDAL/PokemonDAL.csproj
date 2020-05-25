@@ -81,6 +81,14 @@
     <Compile Include="LearnedMoves.cs">
       <DependentUpon>PokemonModels.tt</DependentUpon>
     </Compile>
+    <Compile Include="Partials\Ability.cs" />
+    <Compile Include="Partials\LearnedMoves.cs" />
+    <Compile Include="Partials\Pokedex.cs" />
+    <Compile Include="Partials\Pokemon.cs" />
+    <Compile Include="Partials\PokemonGroup.cs" />
+    <Compile Include="Partials\PokemonMoves.cs" />
+    <Compile Include="Partials\StatPool.cs" />
+    <Compile Include="Partials\Types.cs" />
     <Compile Include="PlayerInventory.cs">
       <DependentUpon>PokemonModels.tt</DependentUpon>
     </Compile>

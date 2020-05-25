@@ -48,13 +48,7 @@ namespace PokemonDAL
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<PokemonGroup> PokemonGroup { get; set; }
 
-        public string ReturnHP()
-        {
-            currentHp = StatPool.CurrentHealth(this);
-
-            return currentHp + "\t/ " + StatPool.CurrentHealth(this);
-
-        }
+       
 
        
     }

@@ -23,9 +23,6 @@ namespace PokemonDAL
         public virtual PokemonMoves PokemonMoves { get; set; }
         public virtual Pokemon Pokemon { get; set; }
 
-        public string ReturnPP()
-        {
-            return $"{CurrentPP}\t/{PokemonMoves.PP}";
-        }
+        
     }
 }
