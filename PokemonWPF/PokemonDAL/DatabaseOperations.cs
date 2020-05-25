@@ -43,7 +43,7 @@ namespace PokemonDAL
             
             using (DB_r0739290Entities entities = new DB_r0739290Entities())
             {
-                var iQuery = entities.LearnedMoves.
+                var iQuery = entities.LearnedMoves
                     .Where(x => x.PokemonId == pokemon.Id)
                     .Select(i => i.MoveId).ToList(); ;
                   
@@ -55,7 +55,34 @@ namespace PokemonDAL
         }
 
 
-       
+
+        public static List<Items> ItemList()
+        {
+            using (DB_r0739290Entities entities = new DB_r0739290Entities())
+            {
+                var query = entities.Items;
+                return query.ToList();
+            }
+        }
+
+        public static List<PlayerInventory> SelectQuantityFromItems(Items item)
+        {
+            using (DB_r0739290Entities entities = new DB_r0739290Entities())
+            {
+                var query = entities.PlayerInventory
+
+                    .Where(x => x.ItemID == item.Id);
+                return query.ToList();
+
+
+
+
+            }
+        }
+
+
+
+
         public static List <Pokedex> PokedexEntry()
         {
             using(DB_r0739290Entities entities = new DB_r0739290Entities())

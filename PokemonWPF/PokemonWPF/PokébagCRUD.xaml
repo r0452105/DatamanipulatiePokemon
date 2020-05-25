@@ -67,12 +67,10 @@
 
         <Button x:Name="btnAdd" Content="Add" Grid.Row="2" FontSize="20" Margin="10,10.2,130.8,28.2" Height="Auto" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Click="btnAdd_Click" IsDefault="True"/>
         <Button x:Name="btnRemove" Content="Remove" Grid.Row="1" FontSize="20" Margin="10,36.6,130.8,70.2" Height="Auto" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Click="btnRemove_Click" IsDefault="True" Grid.RowSpan="2"/>
-<<<<<<< HEAD
-        <Button x:Name="btnBack" Content="Back" Grid.Row="5" Grid.Column="2" FontSize="20" Margin="120.4,13.6,9.6,16" Click="BtnBack_Click" Height="Auto"/>
-    
-=======
 
->>>>>>> parent of 242d10e... unit test
+        <Button x:Name="btnBack" Content="Back" Grid.Row="5" Grid.Column="2" FontSize="20" Margin="120.4,13.6,9.6,16" Click="BtnBack_Click" Height="Auto"/>
+
+
         <TextBox x:Name="txtQuantity" BorderBrush="Black" Grid.Column="1" Grid.Row="5" Margin="34.2,35.6,153.6,10" />
 
 
