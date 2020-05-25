@@ -25,6 +25,7 @@ namespace PokemonWPF
         public Trainer trainerInventory;
         List<PokemonDAL.PlayerInventory> lstInventory;
         public Trainer trainerToAddTo;
+        public List<Items> itemList;
 
         
 
@@ -42,12 +43,10 @@ namespace PokemonWPF
             lstInventory = DatabaseOperations.GetItems(2);
             lvInventory.ItemsSource = lstInventory;
 
+            itemList = DatabaseOperations.ItemList();
+            lvItems.ItemsSource = itemList;
+
         }
-
-
-
-        
-
 
         private void btnRemove_Click(object sender, RoutedEventArgs e)
         {
@@ -86,6 +85,8 @@ namespace PokemonWPF
 
         private void btnAdd_Click(object sender, RoutedEventArgs e)
         {
+            
+
             string error = Validate();
             if (!string.IsNullOrWhiteSpace(error))
             {
@@ -117,7 +118,7 @@ namespace PokemonWPF
                     MessageBox.Show("Addition failed");
                 }
                 
-                //DatabaseOperations.AddItem(item);
+                
             }
         }
 
