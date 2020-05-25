@@ -43,7 +43,7 @@ namespace PokemonDAL
             
             using (DB_r0739290Entities entities = new DB_r0739290Entities())
             {
-                var iQuery = entities.LearnedMoves.
+                var iQuery = entities.LearnedMoves
                     .Where(x => x.PokemonId == pokemon.Id)
                     .Select(i => i.MoveId).ToList(); ;
                   
