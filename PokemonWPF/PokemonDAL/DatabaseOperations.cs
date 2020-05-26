@@ -245,9 +245,11 @@ namespace PokemonDAL
 
                 return 0;
             }
-
-            
         }
+        
+
+
+
         public static int RemoveMove(LearnedMoves toRemove)
         {
             try

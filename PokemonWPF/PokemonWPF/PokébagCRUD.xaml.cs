@@ -41,21 +41,20 @@ namespace PokemonWPF
 
         private void OnLoad()
         {
-            
+            //lstinventory vullen 
             lstInventory = DatabaseOperations.GetItems(2);
             lvInventory.ItemsSource = lstInventory;
 
+            //lvitems vullen
             itemList = DatabaseOperations.ItemList();
             lvItems.ItemsSource = itemList;
             lvItems.SelectedIndex = 0;
 
-
+            //categories krijgen en deze in categorylist steken
             categorylist = DatabaseOperations.GetDistinctCategory();
-            
-            //cbChooseCategory.Items.Add(categorylist);
+            //categories in de combobox steken zonder dubbels
             cbChooseCategory.ItemsSource = categorylist.Select(x=>x.Catagory).Distinct(); 
-            //cbChooseCategory.DisplayMemberPath = "Catagory";
-
+           
 
         }
 
@@ -71,8 +70,6 @@ namespace PokemonWPF
             {
                 MessageBox.Show("Deletion failed");
             }
-
-           
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
@@ -84,35 +81,43 @@ namespace PokemonWPF
             string errormsg = "";
             if ( (string.IsNullOrWhiteSpace(txtQuantity.Text)) || (string.IsNullOrWhiteSpace(txtItemName.Text)))
             {
-                errormsg += "veld mag niet leeg zijn";
+                errormsg += "velden quantity en itemname mogen niet leeg zijn";
                 
             }
-           
-
 
             return errormsg;
-
         }
 
         private void btnUpdate_Click(object sender, RoutedEventArgs e)
         {
-            PlayerInventory playerInventory = (PlayerInventory)lvInventory.SelectedItem;
-
-            int quantity = int.Parse(txtQuantity.Text);
-            playerInventory.Quantity = quantity;
-
-            if (DatabaseOperations.UpdatePlayerInventory(playerInventory) != 0)
+            //update is enkel om de quantity van het item aan te passen, dus de velden itemname en category mogen niet ingevuld zijn
+            if ((cbChooseCategory.SelectedItem == null) && (string.IsNullOrEmpty(txtItemName.Text)))
             {
-                MessageBox.Show($"{playerInventory.id} succesfully added to the itemlist of {lvInventory.Items}");
-                Close();
+                
+                //obj playerinventory is het geselecteerde item in de lvinventory 
+                PlayerInventory playerInventory = (PlayerInventory)lvInventory.SelectedItem;
+
+                //quantity nemen van de textbox quantity en deze in obj quantity steken
+                int quantity = int.Parse(txtQuantity.Text);
+                playerInventory.Quantity = quantity;
+
+
+                if (DatabaseOperations.UpdatePlayerInventory(playerInventory) != 0)
+                {
+                    MessageBox.Show($" The quantity of the item has been succesfully updated to {playerInventory.Quantity}.");
+                    Close();
+                }
+                else
+                {
+                    MessageBox.Show("Addition failed");
+                }
+
             }
+
             else
             {
-                MessageBox.Show("Addition failed");
+                MessageBox.Show("velden ItemName en Category moeten leeg zijn");
             }
-           
-
-
 
         }
 
@@ -130,28 +135,21 @@ namespace PokemonWPF
                 Items item = new Items();
                 item.Id = DatabaseOperations.CurrentItems() +1;
                 item.ItemName = txtItemName.Text;
-                //van het geselecteerde item pak je de categorie
-               // Items selectedItem = (Items)lvItems.SelectedItem;
-
+                //van het geselecteerde item pak je de categorie die aangeduid is in de combobox
                 item.Catagory = cbChooseCategory.SelectedItem.ToString();
-                //Items itemType = (Items)lvItems.SelectedItem;
-
+                
                 //Create a new player inventory
                 PlayerInventory playerInventory = new PlayerInventory();
                 //Take quantity from textbox
                 int quantity = int.Parse(txtQuantity.Text);
                 playerInventory.Quantity = quantity;
                 playerInventory.ItemID = item.Id;
-
                 playerInventory.PlayerId = trainerToAddTo.Id;
-                  
                 playerInventory.id = DatabaseOperations.CurrentPlayerItems() + 1;
-
-              
 
                 if (DatabaseOperations.AddItem(item) != 0)
                 {
-                    MessageBox.Show($"{item} succesfully added to the itemlist of {lvInventory.Items}");
+                    MessageBox.Show($"{item} is succesfully added to the itemlist.");
                     Close();
                 }
                 else
@@ -159,11 +157,9 @@ namespace PokemonWPF
                     MessageBox.Show("Addition failed");
                 }
 
-
-
                 if (DatabaseOperations.AddPlayerinvtoryItem(playerInventory) !=0)
                 {
-                    MessageBox.Show($"{playerInventory.Quantity} succesfully added to the itemlist of {lvInventory.Items}");
+                    MessageBox.Show($"{item} is succesfully added to the playerinventory.");
                     Close();
                 }
                 else
