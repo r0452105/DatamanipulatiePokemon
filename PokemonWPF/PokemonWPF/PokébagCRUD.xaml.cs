@@ -54,8 +54,7 @@ namespace PokemonWPF
             categorylist = DatabaseOperations.GetDistinctCategory();
             //categories in de combobox steken zonder dubbels
             cbChooseCategory.ItemsSource = categorylist.Select(x=>x.Catagory).Distinct(); 
-           
-
+          
         }
 
         private void btnRemove_Click(object sender, RoutedEventArgs e)
