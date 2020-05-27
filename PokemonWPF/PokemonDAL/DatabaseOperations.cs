@@ -1,10 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.Entity;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.IO;
+using System.Linq;
 
 namespace PokemonDAL
 {
@@ -34,9 +32,9 @@ namespace PokemonDAL
         public static Trainer SelectTrainer(int trainerId)
         {
 
-            using (DB_r0739290Entities entities = new DB_r0739290Entities()) 
+            using (DB_r0739290Entities entities = new DB_r0739290Entities())
             {
-                var query = entities.Trainer
+                IQueryable<Trainer> query = entities.Trainer
                             .Include("PlayerInventory")
                             .Include("Pokemon")
                             .Include("PokemonGroup")
@@ -45,13 +43,13 @@ namespace PokemonDAL
 
             }
 
-         
+
         }
         public static List<PokemonMoves> AllMoves()
         {
             using (DB_r0739290Entities entities = new DB_r0739290Entities())
             {
-                var query = entities.PokemonMoves
+                IOrderedQueryable<PokemonMoves> query = entities.PokemonMoves
                     .OrderBy(x => x.Id);
                 return query.ToList();
             }
@@ -59,16 +57,16 @@ namespace PokemonDAL
 
         public static List<PokemonMoves> AllMovesExceptCurrent(Pokemon pokemon)
         {
-           
-            
+
+
             using (DB_r0739290Entities entities = new DB_r0739290Entities())
             {
-                var iQuery = entities.LearnedMoves
+                List<int?> iQuery = entities.LearnedMoves
                     .Where(x => x.PokemonId == pokemon.Id)
                     .Select(i => i.MoveId).ToList(); ;
-                  
-                var query = entities.PokemonMoves
-                    .Where(x => ! iQuery.Contains(x.Id ))
+
+                IOrderedQueryable<PokemonMoves> query = entities.PokemonMoves
+                    .Where(x => !iQuery.Contains(x.Id))
                     .OrderBy(x => x.Id);
                 return query.ToList();
             }
@@ -80,7 +78,7 @@ namespace PokemonDAL
         {
             using (DB_r0739290Entities entities = new DB_r0739290Entities())
             {
-                var query = entities.Items;
+                DbSet<Items> query = entities.Items;
                 return query.ToList();
             }
         }
@@ -88,9 +86,9 @@ namespace PokemonDAL
 
         public static List<Trainer> GetTrainerList()
         {
-           using (DB_r0739290Entities entities = new DB_r0739290Entities())
+            using (DB_r0739290Entities entities = new DB_r0739290Entities())
             {
-                var query = entities.Trainer;
+                DbSet<Trainer> query = entities.Trainer;
                 return query.ToList();
             }
         }
@@ -101,7 +99,7 @@ namespace PokemonDAL
         {
             using (DB_r0739290Entities entities = new DB_r0739290Entities())
             {
-                var query = entities.PlayerInventory
+                IQueryable<PlayerInventory> query = entities.PlayerInventory
 
                     .Where(x => x.ItemID == item.Id);
                 return query.ToList();
@@ -109,11 +107,11 @@ namespace PokemonDAL
             }
         }
 
-        public static List<Trainer>SelectMoneyOwnedFromTrainer(Trainer trainer)
+        public static List<Trainer> SelectMoneyOwnedFromTrainer(Trainer trainer)
         {
             using (DB_r0739290Entities entities = new DB_r0739290Entities())
             {
-                var query = entities.Trainer
+                IQueryable<Trainer> query = entities.Trainer
                     .Where(x => x.TrainerName == trainer.TrainerName);
                 return query.ToList();
             }
@@ -122,11 +120,11 @@ namespace PokemonDAL
 
 
 
-        public static List <Pokedex> PokedexEntry()
+        public static List<Pokedex> PokedexEntry()
         {
-            using(DB_r0739290Entities entities = new DB_r0739290Entities())
+            using (DB_r0739290Entities entities = new DB_r0739290Entities())
             {
-                var query = entities.Pokedex
+                IOrderedQueryable<Pokedex> query = entities.Pokedex
                     .Include("Types")
                     .Include("Types1")
                     .Include("Types.Pokedex")
@@ -161,7 +159,7 @@ namespace PokemonDAL
             {
                 using (DB_r0739290Entities entities = new DB_r0739290Entities())
                 {
-                    entities.Entry(oldPokedex).State=EntityState.Deleted;
+                    entities.Entry(oldPokedex).State = EntityState.Deleted;
                     return entities.SaveChanges();
                 }
             }
@@ -195,13 +193,13 @@ namespace PokemonDAL
         {
             using (DB_r0739290Entities entities = new DB_r0739290Entities())
             {
-                var query = entities.Ability
+                IOrderedQueryable<Ability> query = entities.Ability
                     .OrderBy(x => x.Id);
                 return query.ToList();
             }
         }
 
-      
+
         public static int RemoveItemFromList(List<PlayerInventory> lstInventory)
         {
             throw new NotImplementedException();
@@ -211,7 +209,7 @@ namespace PokemonDAL
         {
             using (DB_r0739290Entities entities = new DB_r0739290Entities())
             {
-                var query = entities.Trainer
+                IOrderedQueryable<Trainer> query = entities.Trainer
                     .Include("PokemonGroup")
                     .OrderBy(x => x.Id);
                 return query.ToList();
@@ -221,13 +219,13 @@ namespace PokemonDAL
         {
             using (DB_r0739290Entities entities = new DB_r0739290Entities())
             {
-                var query = entities.StatPool;
-                
+                DbSet<StatPool> query = entities.StatPool;
+
                 return query.ToList().Max(x => x.Id); ;
             }
         }
 
-      
+
 
         public static int RemovePokemonFromGroup(PokemonGroup toRemove)
         {
@@ -253,10 +251,10 @@ namespace PokemonDAL
         {
             try
             {
-                using(DB_r0739290Entities entities = new DB_r0739290Entities())
+                using (DB_r0739290Entities entities = new DB_r0739290Entities())
                 {
                     entities.Entry(toRemove).State = EntityState.Deleted;
-                    
+
                     return entities.SaveChanges();
                 }
             }
@@ -266,7 +264,7 @@ namespace PokemonDAL
                 return 0;
             }
         }
-        
+
 
 
 
@@ -331,7 +329,7 @@ namespace PokemonDAL
         {
             using (DB_r0739290Entities entities = new DB_r0739290Entities())
             {
-                var query = entities.Pokemon;
+                DbSet<Pokemon> query = entities.Pokemon;
 
                 return query.ToList().Max(x => x.Id);
             }
@@ -453,7 +451,7 @@ namespace PokemonDAL
         {
             using (DB_r0739290Entities entities = new DB_r0739290Entities())
             {
-                var query = entities.PokemonGroup;
+                DbSet<PokemonGroup> query = entities.PokemonGroup;
                 return query.ToList().Max(x => x.Id);
             }
         }
@@ -461,28 +459,28 @@ namespace PokemonDAL
         {
             using (DB_r0739290Entities entities = new DB_r0739290Entities())
             {
-                var query = entities.Pokedex
+                IQueryable<Pokedex> query = entities.Pokedex
                             .Where(x => x.Id == pokedexpokemon.Id);
 
                 return query.SingleOrDefault();
             }
         }
 
-       
+
         public static int CurrentLearnedMoves()
         {
             using (DB_r0739290Entities entities = new DB_r0739290Entities())
             {
-                var query = entities.LearnedMoves;
+                DbSet<LearnedMoves> query = entities.LearnedMoves;
 
-                return query.ToList().Max(x => x.Id); 
+                return query.ToList().Max(x => x.Id);
             }
         }
         public static int CurrentStatCollections()
         {
             using (DB_r0739290Entities entities = new DB_r0739290Entities())
             {
-                var query = entities.StatCollection;
+                DbSet<StatCollection> query = entities.StatCollection;
 
                 return query.ToList().Max(x => x.Id); ;
             }
@@ -491,7 +489,7 @@ namespace PokemonDAL
         {
             using (DB_r0739290Entities entities = new DB_r0739290Entities())
             {
-                var query = entities.Pokedex
+                IOrderedQueryable<Pokedex> query = entities.Pokedex
                     .OrderBy(x => x.PokemonName);
                 return query.ToList();
             }
@@ -501,7 +499,7 @@ namespace PokemonDAL
         {
             using (DB_r0739290Entities entities = new DB_r0739290Entities())
             {
-                var query = entities.Types
+                IOrderedQueryable<Types> query = entities.Types
                     .OrderBy(x => x.Id);
                 return query.ToList();
             }
@@ -511,25 +509,25 @@ namespace PokemonDAL
         {
             using (DB_r0739290Entities entities = new DB_r0739290Entities())
             {
-                var query = entities.Items
+                IOrderedQueryable<Items> query = entities.Items
                             .OrderBy(x => x.Catagory);
 
                 return query.ToList();
             }
         }
 
-     
 
-        
+
+
 
 
         public static List<PlayerInventory> GetItems(int trainerId)
         {
             using (DB_r0739290Entities entities = new DB_r0739290Entities())
             {
-                var query = entities.Items
+                List<int> query = entities.Items
                     .Select(i => i.Id).ToList();
-                var iquery = entities.PlayerInventory
+                IQueryable<PlayerInventory> iquery = entities.PlayerInventory
                     .Include("Items")
                     .Include("Trainer")
                     .Where(x => query.Contains(x.ItemID.Value));
@@ -545,11 +543,11 @@ namespace PokemonDAL
             using (DB_r0739290Entities entities = new DB_r0739290Entities())
             {
 
-                var iQuery = entities.Items
+                List<int> iQuery = entities.Items
                     .Where(i => i.Catagory.ToString() == category)
                     .Select(i => i.Id).ToList();
 
-                var query = entities.PlayerInventory
+                IQueryable<PlayerInventory> query = entities.PlayerInventory
                     .Include("Items")
                     .Include("Trainer")
                     .Where(x => iQuery.Contains(x.ItemID.Value));
@@ -563,14 +561,14 @@ namespace PokemonDAL
         {
             using (DB_r0739290Entities entities = new DB_r0739290Entities())
             {
-                var query = entities.PokemonGroup
+                IOrderedQueryable<PokemonGroup> query = entities.PokemonGroup
                             .Include("Pokemon")
                             .Include("Pokemon.Statpool")
                             .Include("Pokemon.Statpool.BaseStats")
                             .Include("Pokemon.Statpool.EVStats")
                             .Include("Pokemon.Statpool.IVStats")
                              .Include("Pokemon.Ability")
-                            .Where(x => x.PlayerId == trainerID )
+                            .Where(x => x.PlayerId == trainerID)
                             .OrderBy(x => x.Position);
 
                 return query.ToList();
@@ -583,7 +581,7 @@ namespace PokemonDAL
         {
             using (DB_r0739290Entities entities = new DB_r0739290Entities())
             {
-                var query = entities.Pokemon;
+                DbSet<Pokemon> query = entities.Pokemon;
 
                 return query.ToList();
 
@@ -595,14 +593,14 @@ namespace PokemonDAL
         {
             using (DB_r0739290Entities entities = new DB_r0739290Entities())
             {
-                var query = entities.PokemonGroup
+                IQueryable<PokemonGroup> query = entities.PokemonGroup
                             .Include("Pokemon")
                             .Include("Pokemon.Statpool")
                             .Include("Pokemon.Statpool.BaseStats")
                             .Include("Pokemon.Statpool.EVStats")
                             .Include("Pokemon.Statpool.IVStats")
                             .Where(x => x.PlayerId == trainerID && x.Position == position);
-                            
+
 
                 return query.SingleOrDefault();
 
@@ -614,7 +612,7 @@ namespace PokemonDAL
         {
             using (DB_r0739290Entities entities = new DB_r0739290Entities())
             {
-                var query = entities.LearnedMoves
+                IOrderedQueryable<LearnedMoves> query = entities.LearnedMoves
                     .Include("PokemonMoves")
                      .Include("PokemonMoves.Types")
                      .Where(x => x.PokemonId == pokemon.Id)
@@ -628,8 +626,8 @@ namespace PokemonDAL
         {
             using (DB_r0739290Entities entities = new DB_r0739290Entities())
             {
-                var query = entities.Pokemon
-                            
+                IQueryable<Pokemon> query = entities.Pokemon
+
                             .Include("Statpool")
                             .Include("Statpool.BaseStats")
                             .Include("Statpool.EVStats")
@@ -644,7 +642,7 @@ namespace PokemonDAL
                             .Include("Items")
                             .Include("Ability")
                             .Where(x => x.Id == partyPokemon.PokemonId);
-                       
+
 
                 return query.SingleOrDefault();
 
@@ -666,7 +664,7 @@ namespace PokemonDAL
             {
                 ErrorLogging(ex);
                 return 0;
-             
+
             }
         }
 
@@ -712,7 +710,7 @@ namespace PokemonDAL
         {
             using (DB_r0739290Entities entities = new DB_r0739290Entities())
             {
-                var query = entities.PlayerInventory;
+                DbSet<PlayerInventory> query = entities.PlayerInventory;
 
                 return query.ToList().Max(x => x.id);
             }
@@ -722,7 +720,7 @@ namespace PokemonDAL
         {
             using (DB_r0739290Entities entities = new DB_r0739290Entities())
             {
-                var query = entities.Items;
+                DbSet<Items> query = entities.Items;
 
                 return query.ToList().Max(x => x.Id);
             }

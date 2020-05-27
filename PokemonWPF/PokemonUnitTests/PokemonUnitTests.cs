@@ -1,9 +1,6 @@
-﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using PokemonDAL;
-using System.Collections;
 using System.Collections.Generic;
-using PokemonWPF;
 
 namespace PokemonUnitTests
 {
@@ -25,7 +22,7 @@ namespace PokemonUnitTests
             allTrainers = DatabaseOperations.TrainerList();
 
             //Assert
-            foreach (var trainer in allTrainers)
+            foreach (Trainer trainer in allTrainers)
             {
                 GroupToCheck = DatabaseOperations.SelectParty(trainer.Id);
                 Assert.IsTrue(GroupToCheck.Count < 7);
@@ -47,7 +44,7 @@ namespace PokemonUnitTests
             allPokemon = DatabaseOperations.PokemonList();
 
             //Assert
-            foreach (var pokemon in allPokemon)
+            foreach (Pokemon pokemon in allPokemon)
             {
                 MovesToCheck = DatabaseOperations.SelectMovesFromPokemon(pokemon);
                 Assert.IsTrue(MovesToCheck.Count < 5);
@@ -69,10 +66,10 @@ namespace PokemonUnitTests
             pokedexentries = DatabaseOperations.PokedexEntry(); ;
 
             //Assert
-            foreach (var pokedex in pokedexentries)
+            foreach (Pokedex pokedex in pokedexentries)
             {
 
-                Assert.IsTrue(pokedex.Type1!=null);
+                Assert.IsTrue(pokedex.Type1 != null);
             }
 
         }
@@ -90,10 +87,10 @@ namespace PokemonUnitTests
             pokedexentries = DatabaseOperations.PokedexEntry(); ;
 
             //Assert
-            foreach (var pokedex in pokedexentries)
+            foreach (Pokedex pokedex in pokedexentries)
             {
 
-                Assert.IsTrue(pokedex.PokemonWeight>0);
+                Assert.IsTrue(pokedex.PokemonWeight > 0);
             }
 
         }
@@ -108,7 +105,7 @@ namespace PokemonUnitTests
             allItems = DatabaseOperations.ItemList();
 
             //asert
-            foreach (var item in allItems)
+            foreach (Items item in allItems)
             {
                 QuantityToCheck = DatabaseOperations.SelectQuantityFromItems(item);
                 Assert.IsTrue(QuantityToCheck.Count < 100);
@@ -123,7 +120,7 @@ namespace PokemonUnitTests
 
             alltrainers = DatabaseOperations.GetTrainerList();
 
-            foreach (var trainer in alltrainers)
+            foreach (Trainer trainer in alltrainers)
             {
                 MoneyOwnedToCheck = DatabaseOperations.SelectMoneyOwnedFromTrainer(trainer);
                 Assert.IsTrue(MoneyOwnedToCheck.Count > 0);

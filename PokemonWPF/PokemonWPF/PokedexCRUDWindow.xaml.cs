@@ -1,17 +1,7 @@
-﻿using System;
+﻿using PokemonDAL;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
-using PokemonDAL;
 namespace PokemonWPF
 {
     /// <summary>
@@ -20,10 +10,10 @@ namespace PokemonWPF
     public partial class PokedexCRUDWindow : Window
     {
         public PokédexWindow DexWindowToAlter;
-        List<Pokedex> pokedexentries = DatabaseOperations.PokedexEntry();
-        Pokedex pokedexEntry = new Pokedex();
-        List<Types> types = DatabaseOperations.Typinglist();
-        Types type = new Types();
+        private  List<Pokedex> pokedexentries = DatabaseOperations.PokedexEntry();
+        private Pokedex pokedexEntry = new Pokedex();
+        private readonly List<Types> types = DatabaseOperations.Typinglist();
+        private Types type = new Types();
 
         public PokedexCRUDWindow()
         {
@@ -33,7 +23,7 @@ namespace PokemonWPF
         {
             datagridPokedexEntries.ItemsSource = pokedexentries;
             cmbType1.ItemsSource = types;
-            cmbType2.ItemsSource= types;
+            cmbType2.ItemsSource = types;
         }
         private void BtnSearch_Click(object sender, RoutedEventArgs e)
         {
@@ -42,7 +32,7 @@ namespace PokemonWPF
         private void BtnBack_Click(object sender, RoutedEventArgs e)
         {
             DexWindowToAlter.lvPokedex.ItemsSource = DatabaseOperations.PokedexEntry();
-            this.Close();
+            Close();
         }
 
         private void BtnAdd_Click(object sender, RoutedEventArgs e)
@@ -59,8 +49,8 @@ namespace PokemonWPF
                 pokedexEntry.Id += 1;
             }
             pokedexEntry.PokemonName = txtNaam.Text;
-            pokedexEntry.Type1 = cmbType1.SelectedIndex+1;
-            pokedexEntry.Type2 = cmbType2.SelectedIndex+1;//remember index must be same as the real id's of the types
+            pokedexEntry.Type1 = cmbType1.SelectedIndex + 1;
+            pokedexEntry.Type2 = cmbType2.SelectedIndex + 1;//remember index must be same as the real id's of the types
 
             pokedexEntry.PokemonDescription = "Nothing";
             pokedexEntry.PokemonWeight = 50.0M;
@@ -75,7 +65,7 @@ namespace PokemonWPF
         private void BtnDelete_Click(object sender, RoutedEventArgs e)
         {
             pokedexEntry = datagridPokedexEntries.SelectedItem as Pokedex;
-            string verwijdernaam=pokedexEntry.PokemonName;
+            string verwijdernaam = pokedexEntry.PokemonName;
             DatabaseOperations.DeletePokedexEntry(pokedexEntry);
 
             datagridPokedexEntries.ItemsSource = DatabaseOperations.PokedexEntry();
@@ -87,14 +77,14 @@ namespace PokemonWPF
         }
         private void BtnChange_Click(object sender, RoutedEventArgs e)
         {
-            int index=datagridPokedexEntries.SelectedIndex;
+            int index = datagridPokedexEntries.SelectedIndex;
             pokedexEntry = datagridPokedexEntries.SelectedItem as Pokedex;
             pokedexEntry.PokemonName = txtNaam.Text;
-            
-            
+
+
             pokedexEntry.Types = null;
             pokedexEntry.Types1 = null;
-            pokedexEntry.Type1=cmbType1.SelectedIndex+1;
+            pokedexEntry.Type1 = cmbType1.SelectedIndex + 1;
             pokedexEntry.Type2 = cmbType2.SelectedIndex + 1;
             int ok = DatabaseOperations.UpdatePokedexEntry(pokedexEntry);
             if (ok > 0)
@@ -109,14 +99,14 @@ namespace PokemonWPF
         }
         private void DatagridPokedexEntries_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-           if(datagridPokedexEntries.SelectedItem is Pokedex pokedexEntry)
+            if (datagridPokedexEntries.SelectedItem is Pokedex pokedexEntry)
             {
 
-                cmbType1.SelectedIndex = pokedexEntry.Type1.GetValueOrDefault()-1;
-                cmbType2.SelectedIndex = pokedexEntry.Type2.GetValueOrDefault()-1;
-               txtNaam.Text = pokedexEntry.PokemonName;
-           }
+                cmbType1.SelectedIndex = pokedexEntry.Type1.GetValueOrDefault() - 1;
+                cmbType2.SelectedIndex = pokedexEntry.Type2.GetValueOrDefault() - 1;
+                txtNaam.Text = pokedexEntry.PokemonName;
+            }
         }
-        
+
     }
 }

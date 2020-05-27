@@ -1,18 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data.Entity;
+﻿using PokemonDAL;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
-using PokemonDAL;
 namespace PokemonWPF
 {
     /// <summary>
@@ -38,7 +26,7 @@ namespace PokemonWPF
             PokemonMoves selectedMove = (PokemonMoves)cmbMoveList.SelectedItem;
 
             moveToAdd.Id = DatabaseOperations.CurrentLearnedMoves() + 1;
-            
+
             moveToAdd.PokemonId = currentPokemon.Id;
             moveToAdd.MoveId = selectedMove.Id;
             moveToAdd.Position = currentPokemon.LearnedMoves.Count() + 1;
@@ -53,13 +41,13 @@ namespace PokemonWPF
             {
                 MessageBox.Show("Move failed to add");
             }
-        
-        }        
+
+        }
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             cmbMoveList.ItemsSource = DatabaseOperations.AllMovesExceptCurrent(currentPokemon);
             cmbMoveList.SelectedIndex = 0;
-            this.Topmost = true;
+            Topmost = true;
         }
     }
 }

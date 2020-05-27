@@ -1,19 +1,12 @@
-﻿using System;
+﻿using PokemonDAL;
+using PokemonModels;
+using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
-using PokemonDAL;
-using PokemonModels;
 
 namespace PokemonWPF
 {
@@ -22,14 +15,14 @@ namespace PokemonWPF
     /// </summary>
     public partial class PokemonInfo : Window
     {
-        List<Label> NameLabels = new List<Label>();
-        List<Label> DamageLabels = new List<Label>();
-        List<Label> AccuracyLabels = new List<Label>();
-        List<Label> PPLabels = new List<Label>();
-        List<Label> TypeLabels = new List<Label>();
-        List<Border> TypeCards = new List<Border>();
-        List<Border> MoveCards = new List<Border>();
-        List<LearnedMoves> MovesOfPokemon; 
+        private readonly List<Label> NameLabels = new List<Label>();
+        private readonly List<Label> DamageLabels = new List<Label>();
+        private readonly List<Label> AccuracyLabels = new List<Label>();
+        private readonly List<Label> PPLabels = new List<Label>();
+        private readonly List<Label> TypeLabels = new List<Label>();
+        private readonly List<Border> TypeCards = new List<Border>();
+        private readonly List<Border> MoveCards = new List<Border>();
+        private List<LearnedMoves> MovesOfPokemon;
         public Pokemon pokemonstats = null;
 
         public PokemonInfo()
@@ -46,11 +39,12 @@ namespace PokemonWPF
 
             SetContentRedCard();
             SetContentYellowCard();
-            
+
             SetContentPinkCard();
         }
 
-        private void SetMoves() {
+        private void SetMoves()
+        {
             CardMove1.Visibility = Visibility.Hidden;
             CardMove2.Visibility = Visibility.Hidden;
             CardMove3.Visibility = Visibility.Hidden;
@@ -62,7 +56,7 @@ namespace PokemonWPF
             }
             else
             {
-                btnAdd.IsEnabled = false ;
+                btnAdd.IsEnabled = false;
             }
             OrderElementsMoves();
         }
@@ -179,9 +173,11 @@ namespace PokemonWPF
             labelToAlter.Content = typeName;
             switch (typeId)
             {
-                case 1: bordertoalter.Background = Brushes.Green;                     
+                case 1:
+                    bordertoalter.Background = Brushes.Green;
                     break;
-                case 2: bordertoalter.Background = Brushes.Purple;
+                case 2:
+                    bordertoalter.Background = Brushes.Purple;
                     labelToAlter.Foreground = Brushes.White;
                     break;
                 case 3:
@@ -216,25 +212,25 @@ namespace PokemonWPF
                     labelToAlter.Foreground = Brushes.White;
                     break;
             }
-            
+
 
         }
 
         private void SetContentPinkCard()
         {
             int counter = 0;
-            foreach (var item in MoveCards)
+            foreach (Border item in MoveCards)
             {
                 if (counter < MovesOfPokemon.Count)
                 {
                     item.Visibility = Visibility.Visible;
-                   
+
                     SetTypes(TypeCards[counter], TypeLabels[counter], MovesOfPokemon[counter].PokemonMoves.MoveTypeID, MovesOfPokemon[counter].PokemonMoves.Types.ToString());
                     NameLabels[counter].Content = MovesOfPokemon[counter].PokemonMoves.MoveName;
                     AccuracyLabels[counter].Content = $"Accuracy: {MovesOfPokemon[counter].PokemonMoves.Accuracy}%";
                     DamageLabels[counter].Content = $"Damage: {MovesOfPokemon[counter].PokemonMoves.DamagePoints}";
                     PPLabels[counter].Content = MovesOfPokemon[counter].ReturnPP();
-                 }
+                }
                 counter++;
             }
 
@@ -277,10 +273,12 @@ namespace PokemonWPF
         {
             LearnedMoves MoveToAdd = new LearnedMoves();
 
-            PokemonMoveAdd moveAddScreen = new PokemonMoveAdd();
-            moveAddScreen.currentPokemon = pokemonstats;
+            PokemonMoveAdd moveAddScreen = new PokemonMoveAdd
+            {
+                currentPokemon = pokemonstats
+            };
             moveAddScreen.ShowDialog();
-            this.Topmost = true;
+            Topmost = true;
             SetMoves();
             SetContentPinkCard();
             GridRed.Visibility = Visibility.Collapsed;
@@ -311,7 +309,8 @@ namespace PokemonWPF
 
             switch (thisBorder.Name)
             {
-                case "CardMove1": moveToDelete = MovesOfPokemon[0]; 
+                case "CardMove1":
+                    moveToDelete = MovesOfPokemon[0];
                     break;
                 case "CardMove2":
                     moveToDelete = MovesOfPokemon[1];
@@ -333,7 +332,7 @@ namespace PokemonWPF
                 if (DatabaseOperations.RemoveMove(moveToDelete) != 0)
                 {
                     MessageBox.Show($"{moveName} successfully removed");
-                    this.Topmost = true;
+                    Topmost = true;
                     SetMoves();
                     SetContentPinkCard();
                     GridRed.Visibility = Visibility.Collapsed;
@@ -343,15 +342,15 @@ namespace PokemonWPF
                 else
                 {
                     MessageBox.Show("Removal failed");
-                    this.Topmost = true;
+                    Topmost = true;
                 }
             }
-            
+
 
 
 
         }
 
-        
+
     }
 }

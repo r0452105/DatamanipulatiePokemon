@@ -1,17 +1,8 @@
-﻿using System;
+﻿using PokemonDAL;
+using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
-using PokemonDAL;
 
 namespace PokemonWPF
 {
@@ -20,12 +11,12 @@ namespace PokemonWPF
     /// </summary>
     public partial class PokemonPartyCRUD : Window
     {
-       public Trainer currentTrainer;
-       public Pokemon CurrentPkm;
+        public Trainer currentTrainer;
+        public Pokemon CurrentPkm;
         public PokemonGroup CurrentPkmParty;
-       public List<Pokedex> pokedexList ;
+        public List<Pokedex> pokedexList;
         public List<Ability> abilityList;
-  
+
         public LearnedMoves DefaultMoves1 = new LearnedMoves();
         public LearnedMoves DefaultMoves2 = new LearnedMoves();
 
@@ -58,7 +49,7 @@ namespace PokemonWPF
             if (string.IsNullOrWhiteSpace(Validate()))
             {
                 Ability newAbility = (Ability)cmbAbility.SelectedItem;
-               //CurrentPkm.AbilityID =  newAbility.Id ;
+                //CurrentPkm.AbilityID =  newAbility.Id ;
                 CurrentPkm.Nickname = txtName.Text;
                 CurrentPkm.PokemonLevel = int.Parse(txtLvl.Text);
                 CurrentPkm.PokemonExp = CurrentPkm.PokemonLevel * CurrentPkm.PokemonLevel * CurrentPkm.PokemonLevel;
@@ -87,12 +78,12 @@ namespace PokemonWPF
             {
                 MessageBox.Show(Validate());
             }
-           
+
         }
 
         private void btnDelete_Click(object sender, RoutedEventArgs e)
         {
-            if (DatabaseOperations.RemovePokemonFromGroup(CurrentPkmParty) !=0)
+            if (DatabaseOperations.RemovePokemonFromGroup(CurrentPkmParty) != 0)
             {
                 MessageBox.Show($"{CurrentPkm.Nickname} succesfully removed from the party of {currentTrainer.TrainerName}");
                 Close();
@@ -101,26 +92,30 @@ namespace PokemonWPF
             {
                 MessageBox.Show("Deletion failed");
             }
-            
+
 
         }
 
         private void btnAdd_Click(object sender, RoutedEventArgs e)
         {
             string error = Validate();
-            if (! string.IsNullOrWhiteSpace(error))
+            if (!string.IsNullOrWhiteSpace(error))
             {
                 MessageBox.Show(error);
             }
             else
             {
-                PokemonStats statWindow = new PokemonStats();
-                statWindow.StatPass = this;
+                PokemonStats statWindow = new PokemonStats
+                {
+                    StatPass = this
+                };
                 statWindow.ShowDialog();
 
                 //Initialize statPool
-                StatPool statPool = new StatPool();
-                statPool.Id = DatabaseOperations.CurrentStatpools() + 1;
+                StatPool statPool = new StatPool
+                {
+                    Id = DatabaseOperations.CurrentStatpools() + 1
+                };
 
 
                 //Initialize stat collections
@@ -130,7 +125,7 @@ namespace PokemonWPF
                 StatCollection EVRewardStats = new StatCollection();
 
                 //Assign Values
-                BaseStats.Id = DatabaseOperations.CurrentStatCollections() + 1; 
+                BaseStats.Id = DatabaseOperations.CurrentStatCollections() + 1;
                 BaseStats.HP = baseHP;
                 BaseStats.Attack = baseAtt;
                 BaseStats.Defense = baseDef;
@@ -153,8 +148,8 @@ namespace PokemonWPF
                 IVStats.Defense = rnd.Next(1, 32);
                 IVStats.SpecialAttack = rnd.Next(1, 32);
                 IVStats.SpecialDefence = rnd.Next(1, 32);
-                IVStats.Speed = rnd.Next(1, 32);              
-               
+                IVStats.Speed = rnd.Next(1, 32);
+
                 EVRewardStats.Id = DatabaseOperations.CurrentStatCollections() + 4;
                 EVRewardStats.HP = EVHP;
                 EVRewardStats.Attack = EVAtt;
@@ -171,20 +166,22 @@ namespace PokemonWPF
                     && DatabaseOperations.AddStatCollection(EVRewardStats) != 0)
                 {
 
-              
-                statPool.BaseStatId = BaseStats.Id;
-                statPool.EVStatId= EVStats.Id;
-                statPool.IVStatId = IVStats.Id;
-                statPool.EffortValueYield = EVRewardStats.Id;
 
-                statPool.Nature = "Timid";
+                    statPool.BaseStatId = BaseStats.Id;
+                    statPool.EVStatId = EVStats.Id;
+                    statPool.IVStatId = IVStats.Id;
+                    statPool.EffortValueYield = EVRewardStats.Id;
+
+                    statPool.Nature = "Timid";
 
                     if (DatabaseOperations.AddStatPool(statPool) != 0)
                     {
-                        Pokemon PokemonToAdd = new Pokemon();
-                        PokemonToAdd.Id = DatabaseOperations.CurrentPokemons() + 1;
-                        PokemonToAdd.PokedexID = cmbPokemon.SelectedIndex + 1;
-                        PokemonToAdd.PokemonLevel = int.Parse(txtLvl.Text);
+                        Pokemon PokemonToAdd = new Pokemon
+                        {
+                            Id = DatabaseOperations.CurrentPokemons() + 1,
+                            PokedexID = cmbPokemon.SelectedIndex + 1,
+                            PokemonLevel = int.Parse(txtLvl.Text)
+                        };
                         PokemonToAdd.PokemonExp = PokemonToAdd.PokemonLevel * PokemonToAdd.PokemonLevel * PokemonToAdd.PokemonLevel;
                         PokemonToAdd.TrainerID = currentTrainer.Id;
                         PokemonToAdd.AbilityID = abilityList[cmbAbility.SelectedIndex].Id;
@@ -206,14 +203,16 @@ namespace PokemonWPF
 
                             LoadDefaultMoves(PokemonToAdd.Id);
 
-                           if (DatabaseOperations.LearnNewMove(DefaultMoves1) != 0
-                                && DatabaseOperations.LearnNewMove(DefaultMoves2) != 0)
+                            if (DatabaseOperations.LearnNewMove(DefaultMoves1) != 0
+                                 && DatabaseOperations.LearnNewMove(DefaultMoves2) != 0)
                             {
-                                PokemonGroup GroupToAddTo = new PokemonGroup();
-                                GroupToAddTo.Id = DatabaseOperations.CurrentPokemonGroups() + 1;
-                                GroupToAddTo.PlayerId = currentTrainer.Id;
-                                GroupToAddTo.PokemonId = PokemonToAdd.Id;
-                                GroupToAddTo.Position = int.Parse(cmbPosition.Text);
+                                PokemonGroup GroupToAddTo = new PokemonGroup
+                                {
+                                    Id = DatabaseOperations.CurrentPokemonGroups() + 1,
+                                    PlayerId = currentTrainer.Id,
+                                    PokemonId = PokemonToAdd.Id,
+                                    Position = int.Parse(cmbPosition.Text)
+                                };
 
                                 if (DatabaseOperations.AddToGroup(GroupToAddTo) != 0)
                                 {
@@ -224,29 +223,29 @@ namespace PokemonWPF
                                 {
                                     MessageBox.Show("Fout in groep creatie; toevoeging niet afgerond");
                                 }
-                           }
+                            }
                             else
                             {
                                 MessageBox.Show("Geen moves meegegeven; Toevoeging niet afgerond");
                             }
 
 
-                          
+
                         }
                         else
                         {
                             MessageBox.Show("Geen valide pokemon; Toevoeging niet afgerond");
                         }
-                       
+
                     }
                     else
                     {
                         MessageBox.Show("Fout in de statpool; toevoeging niet afgerond");
                     }
 
-                
 
-               
+
+
 
                 }
                 else
@@ -256,13 +255,13 @@ namespace PokemonWPF
 
 
             }
-           
+
         }
 
         private string Validate()
         {
             string errormsg = "";
-            if (! int.TryParse(txtLvl.Text, out int fieldvalue))
+            if (!int.TryParse(txtLvl.Text, out int fieldvalue))
             {
                 errormsg += "Level moet numeriek zijn";
                 if (fieldvalue < 1 || fieldvalue > 100)
@@ -274,7 +273,7 @@ namespace PokemonWPF
             {
                 errormsg += "Nickname mag niet leeg zijn";
             }
-          
+
 
             return errormsg;
 
@@ -291,7 +290,7 @@ namespace PokemonWPF
 
 
         }
-        
+
         private void LoadDefaultMoves(int pokemonID)
         {
             DefaultMoves1.Id = DatabaseOperations.CurrentLearnedMoves() + 1;
@@ -309,10 +308,10 @@ namespace PokemonWPF
         private void cmbPokemon_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
-            
-                txtName.Text = pokedexList[cmbPokemon.SelectedIndex].PokemonName;
-            
-        
+
+            txtName.Text = pokedexList[cmbPokemon.SelectedIndex].PokemonName;
+
+
         }
 
         private void cmbPosition_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -331,9 +330,9 @@ namespace PokemonWPF
             {
                 MessageBox.Show("Position swap unsuccessful");
             }
-            
-       
-        
+
+
+
         }
     }
 }

@@ -1,19 +1,11 @@
-﻿using System;
+﻿using PokemonDAL;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
-using PokemonDAL;
-using PokemonModels;
 
 namespace PokemonWPF
 {
@@ -23,8 +15,8 @@ namespace PokemonWPF
     public partial class PokébagWindow : Window
     {
         public Trainer trainerInventory;
-        List<PokemonDAL.PlayerInventory> lstInventory;
-        PokébagCRUD CRUDwindow = new PokébagCRUD();
+        private List<PokemonDAL.PlayerInventory> lstInventory;
+        private  PokébagCRUD CRUDwindow = new PokébagCRUD();
         public Trainer trainerToAddTo;
 
 
@@ -38,21 +30,21 @@ namespace PokemonWPF
 
         private void BtnBack_Click(object sender, RoutedEventArgs e)
         {
-            this.Close();
+            Close();
         }
 
         private void SortListView(string sortingindicator, System.ComponentModel.ListSortDirection direction)
         {
-            
+
             //sortingindicator meegegeven en direction (ascending of descending)
 
             CollectionView view = (CollectionView)CollectionViewSource.GetDefaultView(lvInventory.ItemsSource); //collectionview genaamd view aangemaakt om de data van de lvinventory in te steken
             view.SortDescriptions.Clear(); //mogelijk maken om opnieuw te sorteren
 
-            if (sortingindicator != String.Empty)
+            if (sortingindicator != string.Empty)
             {
                 view.SortDescriptions.Add(new SortDescription(sortingindicator, direction));
-                view.Refresh(); 
+                view.Refresh();
             }
         }
 
@@ -62,7 +54,7 @@ namespace PokemonWPF
             List<string> data = lstItems.Select(x => x.Catagory).Distinct().ToList();
             fillCategoryListBox(data);
 
-           //listview vullen zodat alle items erin staan bij het laden van het screen
+            //listview vullen zodat alle items erin staan bij het laden van het screen
             lstInventory = DatabaseOperations.GetItems(2);
             lvInventory.ItemsSource = lstInventory;
         }
@@ -73,13 +65,15 @@ namespace PokemonWPF
             {
                 ListBoxItem lbItem = new ListBoxItem();
 
-                TextBlock textBlock = new TextBlock();
-                textBlock.Text = item;
-                textBlock.FontSize = 16;
-                textBlock.Foreground = Brushes.DarkRed;
-                textBlock.Margin = new Thickness(5, 5, 5, 5);
-                textBlock.FontWeight = FontWeights.Bold;
-                textBlock.Padding = new Thickness(5, 5, 5, 5);
+                TextBlock textBlock = new TextBlock
+                {
+                    Text = item,
+                    FontSize = 16,
+                    Foreground = Brushes.DarkRed,
+                    Margin = new Thickness(5, 5, 5, 5),
+                    FontWeight = FontWeights.Bold,
+                    Padding = new Thickness(5, 5, 5, 5)
+                };
 
                 lbItem.Content = textBlock;
                 lbItem.Tag = item;
@@ -117,10 +111,10 @@ namespace PokemonWPF
         private void BtnCRUD_Click(object sender, RoutedEventArgs e)
         {
             PokébagCRUD objPokébagCRUD = new PokébagCRUD();
-            this.Visibility = Visibility.Hidden;
-            
+            Visibility = Visibility.Hidden;
+
             objPokébagCRUD.trainerToAddTo = trainerInventory;
-            
+
             objPokébagCRUD.ShowDialog();
 
             lstInventory = DatabaseOperations.GetItems(2);
@@ -130,7 +124,7 @@ namespace PokemonWPF
         }
 
 
-     
+
 
     }
 }

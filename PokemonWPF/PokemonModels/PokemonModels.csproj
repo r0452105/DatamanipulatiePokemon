@@ -56,7 +56,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BadgeSprite.cs" />
-    <Compile Include="Bulbasaur.cs" />
     <Compile Include="Badge1.cs" />
     <Compile Include="PokemonSprite.cs" />
     <Compile Include="PokemonSpriteById.cs" />
