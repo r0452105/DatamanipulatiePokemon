@@ -27,9 +27,11 @@ namespace PokemonWPF
         {
             try
             {
+                //array aamaken van de images van de badges
                 Image[] images = { img0, img1, img2, img3, img4, img5, img6, img7 };
                 //BitmapImage sprite1 = new BitmapImage(new Uri("Images/badgessprites.png", UriKind.Relative));
                 //imgbadges.Source = sprite1;//  new CroppedBitmap(sprite1, badge1.target);
+                //loop aanmaken en hierin de x en y-coördinaten (positie) doorgeven en de breedte en hoogte van de images
                 BitmapImage sprite1 = new BitmapImage(new Uri("Images/badgessprites.png", UriKind.Relative));
                 for (int i = 0; i <= 8; i++)
                 {
@@ -45,9 +47,10 @@ namespace PokemonWPF
         }
 
     }
-
+    
     public class Badge1 : BadgeSprite
     {
+        //x en y meegeven (postitie) en de breedte en de hoogte
         public Badge1(int x, int y, int width, int height) //: base()
         {
             target = new Int32Rect(x, y, width, height);

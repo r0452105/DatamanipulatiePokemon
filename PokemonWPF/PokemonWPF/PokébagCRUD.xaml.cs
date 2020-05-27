@@ -122,22 +122,23 @@ namespace PokemonWPF
             {   //Create new item
                 Items item = new Items
                 {
+                    //nieuwe id geven aan het nieuwe item
                     Id = DatabaseOperations.CurrentItems() + 1,
                     ItemName = txtItemName.Text,
                     //van het geselecteerde item pak je de categorie die aangeduid is in de combobox
                     Catagory = cbChooseCategory.SelectedItem.ToString()
                 };
-
+                //doen voor items en playerinvtory want items is een collectie die in playerinventory zit dus we moeten het aangemaakte item daarna ook nog in playerinventory zetten
                 //Create a new player inventory
                 PlayerInventory playerInventory = new PlayerInventory();
-                //Take quantity from textbox
+                //quantity nemen van textbox
                 int quantity = int.Parse(txtQuantity.Text);
                 playerInventory.Quantity = quantity;
                 playerInventory.ItemID = item.Id;
                 playerInventory.PlayerId = trainerToAddTo.Id;
                 playerInventory.id = DatabaseOperations.CurrentPlayerItems() + 1;
 
-                if (DatabaseOperations.AddItem(item) != 0)
+                if (DatabaseOperations.AddItem(item) != 0)//validatie als de addition failt en dus 0 geeft --> zie else
                 {
                     MessageBox.Show($"{item} is succesfully added to the itemlist.");
                     Close();
@@ -157,7 +158,7 @@ namespace PokemonWPF
                     MessageBox.Show("Addition failed");
                 }
 
-                lvInventory.Items.Refresh();
+                lvInventory.Items.Refresh();//refreshen om te zien of het item bij in de lijst is gekomen
 
             }
         }
@@ -169,6 +170,7 @@ namespace PokemonWPF
 
         private void combobox_changed(object sender, SelectionChangedEventArgs e)
         {
+            //wanneer de waarde in de combobox veranderd 
             cbChooseCategory.DataContext = categorylist;
         }
     }
