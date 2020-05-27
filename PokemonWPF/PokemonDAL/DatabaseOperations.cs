@@ -4,12 +4,32 @@ using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using System.IO;
 
 namespace PokemonDAL
 {
     public static class DatabaseOperations
     {
+
+
+        public static void ErrorLogging(Exception ex)
+        {
+            string strPath = @"Log.txt";
+            if (!File.Exists(strPath))
+            {
+                File.Create(strPath).Dispose();
+            }
+            using (StreamWriter sw = File.AppendText(strPath))
+            {
+                sw.WriteLine("=============Error Logging ===========");
+                sw.WriteLine("===========Start============= " + DateTime.Now);
+                sw.WriteLine("Error Message: " + ex.Message);
+                sw.WriteLine("Error: " + ex.GetType().Name);
+                sw.WriteLine("Stack Trace: " + ex.StackTrace);
+                sw.WriteLine("===========End============= " + DateTime.Now);
+
+            }
+        }
 
         public static Trainer SelectTrainer(int trainerId)
         {
@@ -129,7 +149,7 @@ namespace PokemonDAL
             }
             catch (Exception ex)
             {
-
+                ErrorLogging(ex);
                 return 0;
             }
 
@@ -147,7 +167,7 @@ namespace PokemonDAL
             }
             catch (Exception ex)
             {
-
+                ErrorLogging(ex);
                 return 0;
             }
 
@@ -166,7 +186,7 @@ namespace PokemonDAL
             }
             catch (Exception ex)
             {
-
+                ErrorLogging(ex);
                 return 0;
             }
 
@@ -203,7 +223,7 @@ namespace PokemonDAL
             {
                 var query = entities.StatPool;
                 
-                return query.ToList().Count();
+                return query.ToList().Max(x => x.Id); ;
             }
         }
 
@@ -222,7 +242,7 @@ namespace PokemonDAL
             }
             catch (Exception ex)
             {
-
+                ErrorLogging(ex);
                 return 0;
             }
 
@@ -242,7 +262,7 @@ namespace PokemonDAL
             }
             catch (Exception ex)
             {
-
+                ErrorLogging(ex);
                 return 0;
             }
         }
@@ -263,7 +283,7 @@ namespace PokemonDAL
             }
             catch (Exception ex)
             {
-
+                ErrorLogging(ex);
                 return 0;
             }
 
@@ -283,7 +303,7 @@ namespace PokemonDAL
             }
             catch (Exception ex)
             {
-
+                ErrorLogging(ex);
                 return 0;
             }
 
@@ -302,7 +322,7 @@ namespace PokemonDAL
             }
             catch (Exception ex)
             {
-
+                ErrorLogging(ex);
                 return 0;
             }
 
@@ -330,7 +350,7 @@ namespace PokemonDAL
             }
             catch (Exception ex)
             {
-
+                ErrorLogging(ex);
                 return 0;
             }
 
@@ -349,7 +369,7 @@ namespace PokemonDAL
             }
             catch (Exception ex)
             {
-
+                ErrorLogging(ex);
                 return 0;
             }
 
@@ -368,7 +388,7 @@ namespace PokemonDAL
             }
             catch (Exception ex)
             {
-
+                ErrorLogging(ex);
                 return 0;
             }
 
@@ -387,7 +407,7 @@ namespace PokemonDAL
             }
             catch (Exception ex)
             {
-
+                ErrorLogging(ex);
                 return 0;
             }
 
@@ -405,7 +425,7 @@ namespace PokemonDAL
             }
             catch (Exception ex)
             {
-
+                ErrorLogging(ex);
                 return 0;
             }
 
@@ -424,7 +444,7 @@ namespace PokemonDAL
             }
             catch (Exception ex)
             {
-
+                ErrorLogging(ex);
                 return 0;
             }
 
@@ -434,7 +454,7 @@ namespace PokemonDAL
             using (DB_r0739290Entities entities = new DB_r0739290Entities())
             {
                 var query = entities.PokemonGroup;
-                return query.ToList().Count();
+                return query.ToList().Max(x => x.Id);
             }
         }
         public static Pokedex SelectPokemonFromPokedex(Pokedex pokedexpokemon)
@@ -455,7 +475,7 @@ namespace PokemonDAL
             {
                 var query = entities.LearnedMoves;
 
-                return query.ToList().Count();
+                return query.ToList().Max(x => x.Id); 
             }
         }
         public static int CurrentStatCollections()
@@ -464,7 +484,7 @@ namespace PokemonDAL
             {
                 var query = entities.StatCollection;
 
-                return query.ToList().Count();
+                return query.ToList().Max(x => x.Id); ;
             }
         }
         public static List<Pokedex> PokedexEntryAZ()
@@ -644,6 +664,7 @@ namespace PokemonDAL
             }
             catch (Exception ex)
             {
+                ErrorLogging(ex);
                 return 0;
              
             }

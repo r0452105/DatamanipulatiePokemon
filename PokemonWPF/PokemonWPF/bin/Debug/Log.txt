@@ -1,0 +1,132 @@
+=============Error Logging ===========
+===========Start============= 25/05/2020 12:25:31
+Error Message: An error occurred while updating the entries. See the inner exception for details.
+Stack Trace:    bij System.Data.Entity.Internal.InternalContext.SaveChanges()
+   bij System.Data.Entity.Internal.LazyInternalContext.SaveChanges()
+   bij System.Data.Entity.DbContext.SaveChanges()
+   bij PokemonDAL.DatabaseOperations.AddToLearnedMoves(LearnedMoves newMove) in C:\Users\vdb\Documents\GitHub\DatamanipulatiePok-monAaronLaraBryant\PokemonWPF\PokemonDAL\DatabaseOperations.cs:regel 393
+===========End============= 25/05/2020 12:25:31
+=============Error Logging ===========
+===========Start============= 25/05/2020 12:27:11
+Error Message: An error occurred while updating the entries. See the inner exception for details.
+Error: System.Data.Entity.Infrastructure.DbUpdateException: An error occurred while updating the entries. See the inner exception for details. ---> System.Data.Entity.Core.UpdateException: An error occurred while updating the entries. See the inner exception for details. ---> System.Data.SqlClient.SqlException: Violation of PRIMARY KEY constraint 'PK__LearnedM__3214EC07FCCADA54'. Cannot insert duplicate key in object 'POK.LearnedMoves'. The duplicate key value is (39).
+The statement has been terminated.
+   bij System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   bij System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   bij System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   bij System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   bij System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   bij System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   bij System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   bij System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   bij System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   bij System.Data.Entity.Infrastructure.Interception.DbCommandDispatcher.<>c.<NonQuery>b__4_0(DbCommand t, DbCommandInterceptionContext`1 c)
+   bij System.Data.Entity.Infrastructure.Interception.InternalDispatcher`1.Dispatch[TTarget,TInterceptionContext,TResult](TTarget target, Func`3 operation, TInterceptionContext interceptionContext, Action`3 executing, Action`3 executed)
+   bij System.Data.Entity.Infrastructure.Interception.DbCommandDispatcher.NonQuery(DbCommand command, DbCommandInterceptionContext interceptionContext)
+   bij System.Data.Entity.Internal.InterceptableDbCommand.ExecuteNonQuery()
+   bij System.Data.Entity.Core.Mapping.Update.Internal.DynamicUpdateCommand.Execute(Dictionary`2 identifierValues, List`1 generatedValues)
+   bij System.Data.Entity.Core.Mapping.Update.Internal.UpdateTranslator.Update()
+   --- Einde van intern uitzonderingsstackpad ---
+   bij System.Data.Entity.Core.Mapping.Update.Internal.UpdateTranslator.Update()
+   bij System.Data.Entity.Core.EntityClient.Internal.EntityAdapter.<>c.<Update>b__21_0(UpdateTranslator ut)
+   bij System.Data.Entity.Core.EntityClient.Internal.EntityAdapter.Update[T](T noChangesResult, Func`2 updateFunction)
+   bij System.Data.Entity.Core.EntityClient.Internal.EntityAdapter.Update()
+   bij System.Data.Entity.Core.Objects.ObjectContext.<SaveChangesToStore>b__153_0()
+   bij System.Data.Entity.Core.Objects.ObjectContext.ExecuteInTransaction[T](Func`1 func, IDbExecutionStrategy executionStrategy, Boolean startLocalTransaction, Boolean releaseConnectionOnSuccess)
+   bij System.Data.Entity.Core.Objects.ObjectContext.SaveChangesToStore(SaveOptions options, IDbExecutionStrategy executionStrategy, Boolean startLocalTransaction)
+   bij System.Data.Entity.Core.Objects.ObjectContext.<>c__DisplayClass148_0.<SaveChangesInternal>b__0()
+   bij System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.Execute[TResult](Func`1 operation)
+   bij System.Data.Entity.Core.Objects.ObjectContext.SaveChangesInternal(SaveOptions options, Boolean executeInExistingTransaction)
+   bij System.Data.Entity.Core.Objects.ObjectContext.SaveChanges(SaveOptions options)
+   bij System.Data.Entity.Internal.InternalContext.SaveChanges()
+   --- Einde van intern uitzonderingsstackpad ---
+   bij System.Data.Entity.Internal.InternalContext.SaveChanges()
+   bij System.Data.Entity.Internal.LazyInternalContext.SaveChanges()
+   bij System.Data.Entity.DbContext.SaveChanges()
+   bij PokemonDAL.DatabaseOperations.AddToLearnedMoves(LearnedMoves newMove) in C:\Users\vdb\Documents\GitHub\DatamanipulatiePok-monAaronLaraBryant\PokemonWPF\PokemonDAL\DatabaseOperations.cs:regel 394
+Stack Trace:    bij System.Data.Entity.Internal.InternalContext.SaveChanges()
+   bij System.Data.Entity.Internal.LazyInternalContext.SaveChanges()
+   bij System.Data.Entity.DbContext.SaveChanges()
+   bij PokemonDAL.DatabaseOperations.AddToLearnedMoves(LearnedMoves newMove) in C:\Users\vdb\Documents\GitHub\DatamanipulatiePok-monAaronLaraBryant\PokemonWPF\PokemonDAL\DatabaseOperations.cs:regel 394
+===========End============= 25/05/2020 12:27:11
+=============Error Logging ===========
+===========Start============= 25/05/2020 12:28:57
+Error Message: An error occurred while updating the entries. See the inner exception for details.
+Error: DbUpdateException
+Stack Trace:    bij System.Data.Entity.Internal.InternalContext.SaveChanges()
+   bij System.Data.Entity.Internal.LazyInternalContext.SaveChanges()
+   bij System.Data.Entity.DbContext.SaveChanges()
+   bij PokemonDAL.DatabaseOperations.AddToLearnedMoves(LearnedMoves newMove) in C:\Users\vdb\Documents\GitHub\DatamanipulatiePok-monAaronLaraBryant\PokemonWPF\PokemonDAL\DatabaseOperations.cs:regel 394
+===========End============= 25/05/2020 12:28:57
+=============Error Logging ===========
+===========Start============= 25/05/2020 12:35:38
+Error Message: An error occurred while updating the entries. See the inner exception for details.
+Error: DbUpdateException
+Stack Trace:    bij System.Data.Entity.Internal.InternalContext.SaveChanges()
+   bij System.Data.Entity.Internal.LazyInternalContext.SaveChanges()
+   bij System.Data.Entity.DbContext.SaveChanges()
+   bij PokemonDAL.DatabaseOperations.AddToLearnedMoves(LearnedMoves newMove) in C:\Users\vdb\Documents\GitHub\DatamanipulatiePok-monAaronLaraBryant\PokemonWPF\PokemonDAL\DatabaseOperations.cs:regel 394
+===========End============= 25/05/2020 12:35:38
+=============Error Logging ===========
+===========Start============= 25/05/2020 12:36:04
+Error Message: An error occurred while updating the entries. See the inner exception for details.
+Error: DbUpdateException
+Stack Trace:    bij System.Data.Entity.Internal.InternalContext.SaveChanges()
+   bij System.Data.Entity.Internal.LazyInternalContext.SaveChanges()
+   bij System.Data.Entity.DbContext.SaveChanges()
+   bij PokemonDAL.DatabaseOperations.AddToLearnedMoves(LearnedMoves newMove) in C:\Users\vdb\Documents\GitHub\DatamanipulatiePok-monAaronLaraBryant\PokemonWPF\PokemonDAL\DatabaseOperations.cs:regel 394
+===========End============= 25/05/2020 12:36:04
+=============Error Logging ===========
+===========Start============= 25/05/2020 12:39:11
+Error Message: An error occurred while updating the entries. See the inner exception for details.
+Error: DbUpdateException
+Stack Trace:    bij System.Data.Entity.Internal.InternalContext.SaveChanges()
+   bij System.Data.Entity.Internal.LazyInternalContext.SaveChanges()
+   bij System.Data.Entity.DbContext.SaveChanges()
+   bij PokemonDAL.DatabaseOperations.LearnNewMove(LearnedMoves newLearnedMove) in C:\Users\vdb\Documents\GitHub\DatamanipulatiePok-monAaronLaraBryant\PokemonWPF\PokemonDAL\DatabaseOperations.cs:regel 357
+===========End============= 25/05/2020 12:39:11
+=============Error Logging ===========
+===========Start============= 25/05/2020 12:45:48
+Error Message: An error occurred while updating the entries. See the inner exception for details.
+Error: DbUpdateException
+Stack Trace:    bij System.Data.Entity.Internal.InternalContext.SaveChanges()
+   bij System.Data.Entity.Internal.LazyInternalContext.SaveChanges()
+   bij System.Data.Entity.DbContext.SaveChanges()
+   bij PokemonDAL.DatabaseOperations.AddToLearnedMoves(LearnedMoves newMove) in C:\Users\vdb\Documents\GitHub\DatamanipulatiePok-monAaronLaraBryant\PokemonWPF\PokemonDAL\DatabaseOperations.cs:regel 394
+===========End============= 25/05/2020 12:45:48
+=============Error Logging ===========
+===========Start============= 25/05/2020 12:56:44
+Error Message: An error occurred while updating the entries. See the inner exception for details.
+Error: DbUpdateException
+Stack Trace:    bij System.Data.Entity.Internal.InternalContext.SaveChanges()
+   bij System.Data.Entity.Internal.LazyInternalContext.SaveChanges()
+   bij System.Data.Entity.DbContext.SaveChanges()
+   bij PokemonDAL.DatabaseOperations.AddToLearnedMoves(LearnedMoves newMove) in C:\Users\vdb\Documents\GitHub\DatamanipulatiePok-monAaronLaraBryant\PokemonWPF\PokemonDAL\DatabaseOperations.cs:regel 394
+===========End============= 25/05/2020 12:56:44
+=============Error Logging ===========
+===========Start============= 25/05/2020 13:01:38
+Error Message: An error occurred while updating the entries. See the inner exception for details.
+Error: DbUpdateException
+Stack Trace:    bij System.Data.Entity.Internal.InternalContext.SaveChanges()
+   bij System.Data.Entity.Internal.LazyInternalContext.SaveChanges()
+   bij System.Data.Entity.DbContext.SaveChanges()
+   bij PokemonDAL.DatabaseOperations.AddToLearnedMoves(LearnedMoves newMove) in C:\Users\vdb\Documents\GitHub\DatamanipulatiePok-monAaronLaraBryant\PokemonWPF\PokemonDAL\DatabaseOperations.cs:regel 394
+===========End============= 25/05/2020 13:01:38
+=============Error Logging ===========
+===========Start============= 25/05/2020 13:21:35
+Error Message: An error occurred while updating the entries. See the inner exception for details.
+Error: DbUpdateException
+Stack Trace:    bij System.Data.Entity.Internal.InternalContext.SaveChanges()
+   bij System.Data.Entity.Internal.LazyInternalContext.SaveChanges()
+   bij System.Data.Entity.DbContext.SaveChanges()
+   bij PokemonDAL.DatabaseOperations.AddToLearnedMoves(LearnedMoves newMove) in C:\Users\vdb\Documents\GitHub\DatamanipulatiePok-monAaronLaraBryant\PokemonWPF\PokemonDAL\DatabaseOperations.cs:regel 394
+===========End============= 25/05/2020 13:21:35
+=============Error Logging ===========
+===========Start============= 25/05/2020 13:31:59
+Error Message: An error occurred while updating the entries. See the inner exception for details.
+Error: DbUpdateException
+Stack Trace:    bij System.Data.Entity.Internal.InternalContext.SaveChanges()
+   bij System.Data.Entity.Internal.LazyInternalContext.SaveChanges()
+   bij System.Data.Entity.DbContext.SaveChanges()
+   bij PokemonDAL.DatabaseOperations.AddToLearnedMoves(LearnedMoves newMove) in C:\Users\vdb\Documents\GitHub\DatamanipulatiePok-monAaronLaraBryant\PokemonWPF\PokemonDAL\DatabaseOperations.cs:regel 394
+===========End============= 25/05/2020 13:31:59

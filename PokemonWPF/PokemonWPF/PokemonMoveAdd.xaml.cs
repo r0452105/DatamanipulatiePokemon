@@ -38,6 +38,7 @@ namespace PokemonWPF
             PokemonMoves selectedMove = (PokemonMoves)cmbMoveList.SelectedItem;
 
             moveToAdd.Id = DatabaseOperations.CurrentLearnedMoves() + 1;
+            
             moveToAdd.PokemonId = currentPokemon.Id;
             moveToAdd.MoveId = selectedMove.Id;
             moveToAdd.Position = currentPokemon.LearnedMoves.Count() + 1;
