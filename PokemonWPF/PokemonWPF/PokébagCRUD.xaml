@@ -18,12 +18,12 @@
 
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="20*"/>
-            <RowDefinition Height="20*"/>
-            <RowDefinition Height="20*"/>
-            <RowDefinition Height="20*"/>
-            <RowDefinition Height="20*"/>
-            <RowDefinition Height="20*"/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition Height="69.6"/>
+            <RowDefinition/>
         </Grid.RowDefinitions>
 
         <ListView x:Name="lvInventory" ScrollViewer.HorizontalScrollBarVisibility="Hidden" HorizontalAlignment="Center" Height="310" Margin="134,49,0,0" Grid.RowSpan="6" VerticalAlignment="Top" Width="334" Grid.ColumnSpan="2" BorderBrush="Black" BorderThickness="3" FontFamily="Calibri" FontSize="10pt" FontWeight="SemiBold" SelectionMode="Single">
@@ -58,17 +58,25 @@
                             <Setter Property="Height" Value="35px" />
                         </Style>
                     </GridView.ColumnHeaderContainerStyle>
-                    <GridViewColumn Header="Items" Width="200px" DisplayMemberBinding="{Binding Path=Items}" />
+                    <GridViewColumn Header="Items" Width="200px" DisplayMemberBinding="{Binding Path=ItemName}" />
                 </GridView>
             </ListView.View>
         </ListView>
 
 
 
-        <Button x:Name="btnAdd" Content="Add" Grid.Row="2" FontSize="20" Margin="10,10.2,130.8,28.2" Height="Auto" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Click="btnAdd_Click" IsDefault="True"/>
-        <Button x:Name="btnRemove" Content="Remove" Grid.Row="1" FontSize="20" Margin="10,36.6,130.8,70.2" Height="Auto" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Click="btnRemove_Click" IsDefault="True" Grid.RowSpan="2"/>
+        <Button x:Name="btnAdd" Content="Add" Grid.Row="2" FontFamily="Calibri" VerticalAlignment="Top" FontSize="20" Margin="26,10.2,146.8,0" Height="Auto" Click="btnAdd_Click" HorizontalAlignment="Left" IsDefault="True" Width="92"/>
+        <Button x:Name="btnRemove" Content="Remove" Grid.Row="1" FontFamily="Calibri" VerticalAlignment="Top" FontSize="20" Margin="10,36.6,130.8,70.2" Height="Auto" Click="btnRemove_Click" HorizontalAlignment="Center" IsDefault="True" Grid.RowSpan="2"/>
+        <Button x:Name="btnBack" Content="Back" Grid.Column="2" FontFamily="Calibri" VerticalAlignment="Top" FontSize="20" Margin="106.4,0,47.6,29.6" Click="BtnBack_Click" HorizontalAlignment="Center" Height="Auto"/>
+        <Button x:Name="btnUpdate" Content="Update" Grid.Row="2" FontFamily="Calibri" VerticalAlignment="Top" Grid.Column="0" FontSize="20" Margin="10,47,130.8,52.8" HorizontalAlignment="Center" Click="btnUpdate_Click" Height="Auto" Grid.RowSpan="2"/>
 
-        <TextBox x:Name="txtQuantity" BorderBrush="Black" Grid.Column="1" Grid.Row="5" Margin="34.2,35.6,153.6,10" />
+        <ComboBox x:Name="cbChooseCategory" Grid.Row="5" Margin="42,30.6,0,11" FontFamily="Calibri" HorizontalAlignment="Left" Width="155" RenderTransformOrigin="-1.144,1.48" BorderThickness="0,0,0,1" SelectionChanged="combobox_changed">
+
+        </ComboBox>
+
+
+        <TextBox x:Name="txtQuantity" BorderBrush="Black" FontFamily="Calibri" Grid.Column="1" Grid.Row="5" Margin="57.2,30.4,153.6,15" />
+        <TextBox x:Name="txtItemName" BorderBrush="Black" Grid.Column="0" FontFamily="Calibri" Grid.Row="5" Margin="222,30.4,212.6,15" Grid.ColumnSpan="2" />
 
 
 

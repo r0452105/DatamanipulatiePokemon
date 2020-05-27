@@ -97,5 +97,38 @@ namespace PokemonUnitTests
             }
 
         }
+        public void TestQuantity()
+        {
+            //Tests wheter no item exceed allowable quantity
+            //arrange
+            List<PokemonDAL.Items> allItems = new List<Items>();
+            List<PokemonDAL.PlayerInventory> QuantityToCheck = new List<PlayerInventory>();
+
+            //act
+            allItems = DatabaseOperations.ItemList();
+
+            //asert
+            foreach (var item in allItems)
+            {
+                QuantityToCheck = DatabaseOperations.SelectQuantityFromItems(item);
+                Assert.IsTrue(QuantityToCheck.Count < 100);
+            }
+        }
+
+        [TestMethod]
+        public void TestMoneyOwned()
+        {
+            List<Trainer> alltrainers = new List<Trainer>();
+            List<Trainer> MoneyOwnedToCheck = new List<Trainer>();
+
+            alltrainers = DatabaseOperations.GetTrainerList();
+
+            foreach (var trainer in alltrainers)
+            {
+                MoneyOwnedToCheck = DatabaseOperations.SelectMoneyOwnedFromTrainer(trainer);
+                Assert.IsTrue(MoneyOwnedToCheck.Count > 0);
+            }
+        }
+
     }
 }

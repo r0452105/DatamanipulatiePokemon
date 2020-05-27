@@ -46,13 +46,62 @@ namespace PokemonDAL
                 var iQuery = entities.LearnedMoves
                     .Where(x => x.PokemonId == pokemon.Id)
                     .Select(i => i.MoveId).ToList(); ;
-
+                  
                 var query = entities.PokemonMoves
                     .Where(x => ! iQuery.Contains(x.Id ))
                     .OrderBy(x => x.Id);
                 return query.ToList();
             }
         }
+
+
+
+        public static List<Items> ItemList()
+        {
+            using (DB_r0739290Entities entities = new DB_r0739290Entities())
+            {
+                var query = entities.Items;
+                return query.ToList();
+            }
+        }
+
+
+        public static List<Trainer> GetTrainerList()
+        {
+           using (DB_r0739290Entities entities = new DB_r0739290Entities())
+            {
+                var query = entities.Trainer;
+                return query.ToList();
+            }
+        }
+
+
+
+        public static List<PlayerInventory> SelectQuantityFromItems(Items item)
+        {
+            using (DB_r0739290Entities entities = new DB_r0739290Entities())
+            {
+                var query = entities.PlayerInventory
+
+                    .Where(x => x.ItemID == item.Id);
+                return query.ToList();
+
+            }
+        }
+
+        public static List<Trainer>SelectMoneyOwnedFromTrainer(Trainer trainer)
+        {
+            using (DB_r0739290Entities entities = new DB_r0739290Entities())
+            {
+                var query = entities.Trainer
+                    .Where(x => x.TrainerName == trainer.TrainerName);
+                return query.ToList();
+            }
+        }
+
+
+
+
         public static List <Pokedex> PokedexEntry()
         {
             using(DB_r0739290Entities entities = new DB_r0739290Entities())
@@ -196,9 +245,11 @@ namespace PokemonDAL
 
                 return 0;
             }
-
-            
         }
+        
+
+
+
         public static int RemoveMove(LearnedMoves toRemove)
         {
             try
@@ -447,6 +498,8 @@ namespace PokemonDAL
             }
         }
 
+     
+
         
 
 
@@ -463,6 +516,9 @@ namespace PokemonDAL
                 return iquery.ToList();
             }
         }
+
+
+
 
         public static List<PlayerInventory> SelectAllInventory(string category)
         {
@@ -576,7 +632,7 @@ namespace PokemonDAL
 
         }
 
-        public static int AddItem(PlayerInventory item)
+        public static int AddPlayerinvtoryItem(PlayerInventory item)
         {
             try
             {
@@ -593,6 +649,44 @@ namespace PokemonDAL
             }
         }
 
+        public static int AddItem(Items item)
+        {
+            try
+            {
+                using (DB_r0739290Entities entities = new DB_r0739290Entities())
+                {
+                    entities.Items.Add(item);
+                    return entities.SaveChanges();
+                }
+            }
+            catch (Exception ex)
+            {
+
+                return 0;
+            }
+        }
+
+        public static int UpdatePlayerInventory(PlayerInventory currentPlayerInventory)
+        {
+            try
+            {
+                using (DB_r0739290Entities entities = new DB_r0739290Entities())
+                {
+                    entities.Entry(currentPlayerInventory).State = EntityState.Modified;
+
+                    return entities.SaveChanges();
+                }
+            }
+            catch (Exception ex)
+            {
+
+                return 0;
+            }
+
+        }
+
+
+
         public static int CurrentPlayerItems()
         {
             using (DB_r0739290Entities entities = new DB_r0739290Entities())
@@ -603,7 +697,15 @@ namespace PokemonDAL
             }
         }
 
+        public static int CurrentItems()
+        {
+            using (DB_r0739290Entities entities = new DB_r0739290Entities())
+            {
+                var query = entities.Items;
 
+                return query.ToList().Max(x => x.Id);
+            }
+        }
 
     }
 }
