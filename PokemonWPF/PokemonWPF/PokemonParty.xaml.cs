@@ -37,6 +37,8 @@ namespace PokemonWPF
 
         private void OrderElements()
         {
+
+            //Laad de elementen van de party cards in arrays zodat ze met een index teller gezaamlijk en sequentieel aangesproken kunnen worden
             Cards.Add(Card1);
             Cards.Add(Card2);
             Cards.Add(Card3);
@@ -76,30 +78,40 @@ namespace PokemonWPF
             {
                 if (counter < Pokemonparty.Count)
                 {
-
+                    //Voor elk item in pokemonparty, verhul één kaart en vul de relevante gegevens in
                     PokemonSpriteById targetPokemon = new PokemonSpriteById((int)Pokemonparty[counter].Pokemon.PokedexID);
                     item.Visibility = Visibility.Visible;
                     NameLabels[counter].Content = Pokemonparty[counter].ToString();
                     HealthLabels[counter].Content = Pokemonparty[counter].Pokemon.ReturnHP();
+                    //Neem een vierkant met de gespecificieerde coordinated uit de spritesheet en laad het naar het Image element
                     Sprites[counter].Source = new CroppedBitmap(sprite, targetPokemon.target);
-                    counter++;
+                    counter++; //Handmatig de index optellen aangezien dit niet is ondersteunt in foreach
                 }
 
             }
-            if (Pokemonparty.Count == 6)
+            if (Pokemonparty.Count >= 6)
             {
+                //Pokemon mogen enkel toegevoegd worden als de party niet vol is
                 btnAdd.IsEnabled = false;
             }
 
 
         }
-        private void Button_Click(object sender, RoutedEventArgs e)
+
+        //Verander de randkleur van de kaarten waar de muis over gaat
+        private void Border_MouseEnter(object sender, MouseEventArgs e)
         {
-            Close();
+            Border thisBorder = sender as Border;
+            thisBorder.BorderBrush = Brushes.Red;
         }
 
+        private void Border_MouseLeave(object sender, MouseEventArgs e)
+        {
+            Border thisBorder = sender as Border;
+            thisBorder.BorderBrush = Brushes.Gray;
+        }
 
-
+        
         private void Border_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             Border thisBorder = sender as Border;
@@ -129,11 +141,14 @@ namespace PokemonWPF
                     MessageBox.Show("???");
                     break;
             }
+
+            //In geval dat er links word geklikt, word het infoscherm van de geklikte pokemon geopend
             PokemonInfo infoscreen = new PokemonInfo
             {
                 pokemonstats = DatabaseOperations.SelectPokemonFromParty(currentPokemon)
             };
             Visibility = Visibility.Hidden;
+            //Topmost forceerd een hogere z-index zodat mainwindow zich niet bovenop dit scherm plaatst wanneer info gesloten is
             Topmost = false;
             infoscreen.ShowDialog();
             Topmost = true;
@@ -172,7 +187,7 @@ namespace PokemonWPF
                     MessageBox.Show("???");
                     break;
             }
-
+            //In geval je een rechterklik voor een pokemon doet, word deze pokemon naar de CRUD geladen voor delete en update operaties
             PokemonPartyCRUD CRUDwindow = new PokemonPartyCRUD();
             CRUDwindow.btnChange.IsEnabled = true;
             CRUDwindow.btnDelete.IsEnabled = true;
@@ -180,10 +195,11 @@ namespace PokemonWPF
             CRUDwindow.cmbPosition.Items.Clear();
             for (int i = 0; i < Pokemonparty.Count(); i++)
             {
+                //Zorg dat alle momentele posities ingeladen worden, zodat je enkel kan wisselen met een bestaande pokemon
                 CRUDwindow.cmbPosition.Items.Add(i + 1);
             }
 
-
+            //Instellen van gegevens
             CRUDwindow.CurrentPkmParty = currentPokemon;
             CRUDwindow.CurrentPkm = currentPokemon.Pokemon;
             CRUDwindow.cmbPosition.SelectedIndex = currentPokemon.Position - 1;
@@ -196,6 +212,8 @@ namespace PokemonWPF
             Topmost = false;
             CRUDwindow.ShowDialog();
             Topmost = true;
+
+            //Hernieuw de lijst zodat de veranderingen gereflecteerd zijn in deze pagina
             Pokemonparty = DatabaseOperations.SelectParty(trainerParty.Id);
             LoadPokemon();
         }
@@ -205,7 +223,7 @@ namespace PokemonWPF
         private void btnAdd_Click(object sender, RoutedEventArgs e)
         {
             PokemonPartyCRUD CRUDwindow = new PokemonPartyCRUD();
-
+            //als er op Add word gedrukt, word het Crud scherm met enkel Add functionaliteit geopened
             if (Pokemonparty.Max(x => x.Position) < 6)
             {
                 CRUDwindow.btnAdd.IsEnabled = true;
@@ -233,16 +251,11 @@ namespace PokemonWPF
 
         }
 
-        private void Border_MouseEnter(object sender, MouseEventArgs e)
-        {
-            Border thisBorder = sender as Border;
-            thisBorder.BorderBrush = Brushes.Red;
-        }
+       
 
-        private void Border_MouseLeave(object sender, MouseEventArgs e)
+        private void Button_Click(object sender, RoutedEventArgs e)
         {
-            Border thisBorder = sender as Border;
-            thisBorder.BorderBrush = Brushes.Gray;
+            Close();
         }
     }
 }
