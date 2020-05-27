@@ -24,7 +24,7 @@ namespace PokemonWPF
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            Bulbasaur bulba = new Bulbasaur();
+         
             menuElements.Add("Pokedex");
             menuElements.Add("Party");
             menuElements.Add("Inventory");

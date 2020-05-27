@@ -1,0 +1,666 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="PokemonModels.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Ability">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="AbilityName" Type="varchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="AbilityPool">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="AbilityId" Type="int" Nullable="false" />
+    <Property Name="PokedexID" Type="int" Nullable="false" />
+    <Property Name="IsHidden" Type="bit" />
+  </EntityType>
+  <EntityType Name="AllowedMoves">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="MoveId" Type="int" />
+    <Property Name="LevelLearned" Type="int" />
+    <Property Name="PokedexId" Type="int" />
+  </EntityType>
+  <EntityType Name="EffectBundle">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="StatusId" Type="int" />
+    <Property Name="MoveId" Type="int" />
+  </EntityType>
+  <EntityType Name="EvolveItems">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="PokedexID" Type="int" Nullable="false" />
+    <Property Name="ItemID" Type="int" Nullable="false" />
+    <Property Name="OnTrade" Type="bit" />
+  </EntityType>
+  <EntityType Name="Items">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="UseOnHealthThreshold" Type="int" />
+    <Property Name="Catagory" Type="varchar" MaxLength="50" />
+    <Property Name="ItemName" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="LearnedMoves">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="MoveId" Type="int" />
+    <Property Name="CurrentPP" Type="int" />
+    <Property Name="Position" Type="int" Nullable="false" />
+    <Property Name="PokemonId" Type="int" />
+  </EntityType>
+  <EntityType Name="PlayerInventory">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" />
+    <Property Name="PlayerId" Type="int" />
+    <Property Name="ItemID" Type="int" />
+    <Property Name="Quantity" Type="int" />
+  </EntityType>
+  <EntityType Name="Pokedex">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="PokemonDescription" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="PokemonWeight" Type="decimal" Precision="4" Scale="1" Nullable="false" />
+    <Property Name="ExpMax" Type="int" Nullable="false" />
+    <Property Name="CaptureRate" Type="int" Nullable="false" />
+    <Property Name="PokemonName" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="Type1" Type="int" />
+    <Property Name="Type2" Type="int" />
+    <Property Name="EvolveThreshold" Type="int" />
+  </EntityType>
+  <EntityType Name="Pokemon">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="PokedexID" Type="int" />
+    <Property Name="PokemonLevel" Type="int" />
+    <Property Name="PokemonExp" Type="int" />
+    <Property Name="StatusID" Type="int" />
+    <Property Name="TrainerID" Type="int" />
+    <Property Name="ItemID" Type="int" />
+    <Property Name="AbilityID" Type="int" />
+    <Property Name="StatPoolID" Type="int" />
+    <Property Name="Gender" Type="bit" />
+    <Property Name="Nickname" Type="varchar" MaxLength="30" />
+    <Property Name="Shiny" Type="bit" Nullable="false" />
+    <Property Name="PokeRus" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PokemonGroup">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="PlayerId" Type="int" />
+    <Property Name="PokemonId" Type="int" />
+    <Property Name="Position" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PokemonMoves">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="MoveName" Type="varchar" MaxLength="40" Nullable="false" />
+    <Property Name="MoveTypeID" Type="int" Nullable="false" />
+    <Property Name="DamagePoints" Type="int" />
+    <Property Name="PP" Type="int" Nullable="false" />
+    <Property Name="Accuracy" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="StatCollection">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="HP" Type="int" Nullable="false" />
+    <Property Name="Attack" Type="int" Nullable="false" />
+    <Property Name="Defense" Type="int" Nullable="false" />
+    <Property Name="SpecialAttack" Type="int" Nullable="false" />
+    <Property Name="SpecialDefence" Type="int" Nullable="false" />
+    <Property Name="Speed" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="StatPool">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="BaseStatId" Type="int" />
+    <Property Name="EVStatId" Type="int" />
+    <Property Name="IVStatId" Type="int" />
+    <Property Name="EffortValueYield" Type="int" />
+    <Property Name="Nature" Type="varchar" MaxLength="30" />
+  </EntityType>
+  <EntityType Name="StatusEffects">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="StatusName" Type="varchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="Trainer">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="PokemonOwned" Type="int" />
+    <Property Name="Badges" Type="int" />
+    <Property Name="TimePlayed" Type="time" Precision="7" Nullable="false" />
+    <Property Name="TrainerName" Type="varchar" MaxLength="16" Nullable="false" />
+    <Property Name="Game" Type="varchar" MaxLength="40" Nullable="false" />
+    <Property Name="MoneyOwned" Type="int" />
+  </EntityType>
+  <EntityType Name="Types">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="TypeName" Type="varchar" MaxLength="12" />
+  </EntityType>
+  <EntityType Name="UseCase">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="ItemID" Type="int" Nullable="false" />
+    <Property Name="StatusID" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="FK__AbilityPo__Abili__7814D14C">
+    <End Role="Ability" Type="Self.Ability" Multiplicity="1" />
+    <End Role="AbilityPool" Type="Self.AbilityPool" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Ability">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AbilityPool">
+        <PropertyRef Name="AbilityId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__AbilityPo__Poked__7908F585">
+    <End Role="Pokedex" Type="Self.Pokedex" Multiplicity="1" />
+    <End Role="AbilityPool" Type="Self.AbilityPool" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Pokedex">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AbilityPool">
+        <PropertyRef Name="PokedexID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__AllowedMo__MoveI__10E07F16">
+    <End Role="PokemonMoves" Type="Self.PokemonMoves" Multiplicity="0..1" />
+    <End Role="AllowedMoves" Type="Self.AllowedMoves" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PokemonMoves">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AllowedMoves">
+        <PropertyRef Name="MoveId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__AllowedMo__Poked__11D4A34F">
+    <End Role="Pokedex" Type="Self.Pokedex" Multiplicity="0..1" />
+    <End Role="AllowedMoves" Type="Self.AllowedMoves" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Pokedex">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AllowedMoves">
+        <PropertyRef Name="PokedexId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__EffectBun__MoveI__7167D3BD">
+    <End Role="PokemonMoves" Type="Self.PokemonMoves" Multiplicity="0..1" />
+    <End Role="EffectBundle" Type="Self.EffectBundle" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PokemonMoves">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="EffectBundle">
+        <PropertyRef Name="MoveId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__EffectBun__Statu__7073AF84">
+    <End Role="StatusEffects" Type="Self.StatusEffects" Multiplicity="0..1" />
+    <End Role="EffectBundle" Type="Self.EffectBundle" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="StatusEffects">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="EffectBundle">
+        <PropertyRef Name="StatusId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__EvolveIte__ItemI__1975C517">
+    <End Role="Items" Type="Self.Items" Multiplicity="1" />
+    <End Role="EvolveItems" Type="Self.EvolveItems" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Items">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="EvolveItems">
+        <PropertyRef Name="ItemID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__EvolveIte__Poked__1881A0DE">
+    <End Role="Pokedex" Type="Self.Pokedex" Multiplicity="1" />
+    <End Role="EvolveItems" Type="Self.EvolveItems" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Pokedex">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="EvolveItems">
+        <PropertyRef Name="PokedexID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__LearnedMo__MoveI__220B0B18">
+    <End Role="PokemonMoves" Type="Self.PokemonMoves" Multiplicity="0..1" />
+    <End Role="LearnedMoves" Type="Self.LearnedMoves" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PokemonMoves">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="LearnedMoves">
+        <PropertyRef Name="MoveId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__LearnedMo__Pokem__22FF2F51">
+    <End Role="Pokemon" Type="Self.Pokemon" Multiplicity="0..1" />
+    <End Role="LearnedMoves" Type="Self.LearnedMoves" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Pokemon">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="LearnedMoves">
+        <PropertyRef Name="PokemonId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__PlayerInv__ItemI__28B808A7">
+    <End Role="Items" Type="Self.Items" Multiplicity="0..1" />
+    <End Role="PlayerInventory" Type="Self.PlayerInventory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Items">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="PlayerInventory">
+        <PropertyRef Name="ItemID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__PlayerInv__Playe__27C3E46E">
+    <End Role="Trainer" Type="Self.Trainer" Multiplicity="0..1" />
+    <End Role="PlayerInventory" Type="Self.PlayerInventory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Trainer">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="PlayerInventory">
+        <PropertyRef Name="PlayerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Pokedex__Type1__74444068">
+    <End Role="Types" Type="Self.Types" Multiplicity="0..1" />
+    <End Role="Pokedex" Type="Self.Pokedex" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Types">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Pokedex">
+        <PropertyRef Name="Type1" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Pokedex__Type2__753864A1">
+    <End Role="Types" Type="Self.Types" Multiplicity="0..1" />
+    <End Role="Pokedex" Type="Self.Pokedex" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Types">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Pokedex">
+        <PropertyRef Name="Type2" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Pokemon__Ability__093F5D4E">
+    <End Role="Ability" Type="Self.Ability" Multiplicity="0..1" />
+    <End Role="Pokemon" Type="Self.Pokemon" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Ability">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Pokemon">
+        <PropertyRef Name="AbilityID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Pokemon__ItemID__084B3915">
+    <End Role="Items" Type="Self.Items" Multiplicity="0..1" />
+    <End Role="Pokemon" Type="Self.Pokemon" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Items">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Pokemon">
+        <PropertyRef Name="ItemID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Pokemon__Pokedex__056ECC6A">
+    <End Role="Pokedex" Type="Self.Pokedex" Multiplicity="0..1" />
+    <End Role="Pokemon" Type="Self.Pokemon" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Pokedex">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Pokemon">
+        <PropertyRef Name="PokedexID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Pokemon__StatPoo__0A338187">
+    <End Role="StatPool" Type="Self.StatPool" Multiplicity="0..1" />
+    <End Role="Pokemon" Type="Self.Pokemon" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="StatPool">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Pokemon">
+        <PropertyRef Name="StatPoolID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Pokemon__StatusI__0662F0A3">
+    <End Role="StatusEffects" Type="Self.StatusEffects" Multiplicity="0..1" />
+    <End Role="Pokemon" Type="Self.Pokemon" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="StatusEffects">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Pokemon">
+        <PropertyRef Name="StatusID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Pokemon__Trainer__075714DC">
+    <End Role="Trainer" Type="Self.Trainer" Multiplicity="0..1" />
+    <End Role="Pokemon" Type="Self.Pokemon" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Trainer">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Pokemon">
+        <PropertyRef Name="TrainerID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__PokemonGr__Playe__14B10FFA">
+    <End Role="Trainer" Type="Self.Trainer" Multiplicity="0..1" />
+    <End Role="PokemonGroup" Type="Self.PokemonGroup" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Trainer">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="PokemonGroup">
+        <PropertyRef Name="PlayerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__PokemonGr__Pokem__15A53433">
+    <End Role="Pokemon" Type="Self.Pokemon" Multiplicity="0..1" />
+    <End Role="PokemonGroup" Type="Self.PokemonGroup" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Pokemon">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="PokemonGroup">
+        <PropertyRef Name="PokemonId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__PokemonMo__MoveT__6D9742D9">
+    <End Role="Types" Type="Self.Types" Multiplicity="1" />
+    <End Role="PokemonMoves" Type="Self.PokemonMoves" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Types">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="PokemonMoves">
+        <PropertyRef Name="MoveTypeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__StatPool__BaseSt__7DCDAAA2">
+    <End Role="StatCollection" Type="Self.StatCollection" Multiplicity="0..1" />
+    <End Role="StatPool" Type="Self.StatPool" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="StatCollection">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="StatPool">
+        <PropertyRef Name="BaseStatId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__StatPool__Effort__00AA174D">
+    <End Role="StatCollection" Type="Self.StatCollection" Multiplicity="0..1" />
+    <End Role="StatPool" Type="Self.StatPool" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="StatCollection">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="StatPool">
+        <PropertyRef Name="EffortValueYield" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__StatPool__EVStat__7EC1CEDB">
+    <End Role="StatCollection" Type="Self.StatCollection" Multiplicity="0..1" />
+    <End Role="StatPool" Type="Self.StatPool" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="StatCollection">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="StatPool">
+        <PropertyRef Name="EVStatId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__StatPool__IVStat__7FB5F314">
+    <End Role="StatCollection" Type="Self.StatCollection" Multiplicity="0..1" />
+    <End Role="StatPool" Type="Self.StatPool" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="StatCollection">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="StatPool">
+        <PropertyRef Name="IVStatId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__UseCase__ItemID__1C5231C2">
+    <End Role="Items" Type="Self.Items" Multiplicity="1" />
+    <End Role="UseCase" Type="Self.UseCase" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Items">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UseCase">
+        <PropertyRef Name="ItemID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__UseCase__StatusI__1D4655FB">
+    <End Role="StatusEffects" Type="Self.StatusEffects" Multiplicity="1" />
+    <End Role="UseCase" Type="Self.UseCase" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="StatusEffects">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UseCase">
+        <PropertyRef Name="StatusID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="PokemonModelsStoreContainer">
+    <EntitySet Name="Ability" EntityType="Self.Ability" Schema="POK" store:Type="Tables" />
+    <EntitySet Name="AbilityPool" EntityType="Self.AbilityPool" Schema="POK" store:Type="Tables" />
+    <EntitySet Name="AllowedMoves" EntityType="Self.AllowedMoves" Schema="POK" store:Type="Tables" />
+    <EntitySet Name="EffectBundle" EntityType="Self.EffectBundle" Schema="POK" store:Type="Tables" />
+    <EntitySet Name="EvolveItems" EntityType="Self.EvolveItems" Schema="POK" store:Type="Tables" />
+    <EntitySet Name="Items" EntityType="Self.Items" Schema="POK" store:Type="Tables" />
+    <EntitySet Name="LearnedMoves" EntityType="Self.LearnedMoves" Schema="POK" store:Type="Tables" />
+    <EntitySet Name="PlayerInventory" EntityType="Self.PlayerInventory" Schema="POK" store:Type="Tables" />
+    <EntitySet Name="Pokedex" EntityType="Self.Pokedex" Schema="POK" store:Type="Tables" />
+    <EntitySet Name="Pokemon" EntityType="Self.Pokemon" Schema="POK" store:Type="Tables" />
+    <EntitySet Name="PokemonGroup" EntityType="Self.PokemonGroup" Schema="POK" store:Type="Tables" />
+    <EntitySet Name="PokemonMoves" EntityType="Self.PokemonMoves" Schema="POK" store:Type="Tables" />
+    <EntitySet Name="StatCollection" EntityType="Self.StatCollection" Schema="POK" store:Type="Tables" />
+    <EntitySet Name="StatPool" EntityType="Self.StatPool" Schema="POK" store:Type="Tables" />
+    <EntitySet Name="StatusEffects" EntityType="Self.StatusEffects" Schema="POK" store:Type="Tables" />
+    <EntitySet Name="Trainer" EntityType="Self.Trainer" Schema="POK" store:Type="Tables" />
+    <EntitySet Name="Types" EntityType="Self.Types" Schema="POK" store:Type="Tables" />
+    <EntitySet Name="UseCase" EntityType="Self.UseCase" Schema="POK" store:Type="Tables" />
+    <AssociationSet Name="FK__AbilityPo__Abili__7814D14C" Association="Self.FK__AbilityPo__Abili__7814D14C">
+      <End Role="Ability" EntitySet="Ability" />
+      <End Role="AbilityPool" EntitySet="AbilityPool" />
+    </AssociationSet>
+    <AssociationSet Name="FK__AbilityPo__Poked__7908F585" Association="Self.FK__AbilityPo__Poked__7908F585">
+      <End Role="Pokedex" EntitySet="Pokedex" />
+      <End Role="AbilityPool" EntitySet="AbilityPool" />
+    </AssociationSet>
+    <AssociationSet Name="FK__AllowedMo__MoveI__10E07F16" Association="Self.FK__AllowedMo__MoveI__10E07F16">
+      <End Role="PokemonMoves" EntitySet="PokemonMoves" />
+      <End Role="AllowedMoves" EntitySet="AllowedMoves" />
+    </AssociationSet>
+    <AssociationSet Name="FK__AllowedMo__Poked__11D4A34F" Association="Self.FK__AllowedMo__Poked__11D4A34F">
+      <End Role="Pokedex" EntitySet="Pokedex" />
+      <End Role="AllowedMoves" EntitySet="AllowedMoves" />
+    </AssociationSet>
+    <AssociationSet Name="FK__EffectBun__MoveI__7167D3BD" Association="Self.FK__EffectBun__MoveI__7167D3BD">
+      <End Role="PokemonMoves" EntitySet="PokemonMoves" />
+      <End Role="EffectBundle" EntitySet="EffectBundle" />
+    </AssociationSet>
+    <AssociationSet Name="FK__EffectBun__Statu__7073AF84" Association="Self.FK__EffectBun__Statu__7073AF84">
+      <End Role="StatusEffects" EntitySet="StatusEffects" />
+      <End Role="EffectBundle" EntitySet="EffectBundle" />
+    </AssociationSet>
+    <AssociationSet Name="FK__EvolveIte__ItemI__1975C517" Association="Self.FK__EvolveIte__ItemI__1975C517">
+      <End Role="Items" EntitySet="Items" />
+      <End Role="EvolveItems" EntitySet="EvolveItems" />
+    </AssociationSet>
+    <AssociationSet Name="FK__EvolveIte__Poked__1881A0DE" Association="Self.FK__EvolveIte__Poked__1881A0DE">
+      <End Role="Pokedex" EntitySet="Pokedex" />
+      <End Role="EvolveItems" EntitySet="EvolveItems" />
+    </AssociationSet>
+    <AssociationSet Name="FK__LearnedMo__MoveI__220B0B18" Association="Self.FK__LearnedMo__MoveI__220B0B18">
+      <End Role="PokemonMoves" EntitySet="PokemonMoves" />
+      <End Role="LearnedMoves" EntitySet="LearnedMoves" />
+    </AssociationSet>
+    <AssociationSet Name="FK__LearnedMo__Pokem__22FF2F51" Association="Self.FK__LearnedMo__Pokem__22FF2F51">
+      <End Role="Pokemon" EntitySet="Pokemon" />
+      <End Role="LearnedMoves" EntitySet="LearnedMoves" />
+    </AssociationSet>
+    <AssociationSet Name="FK__PlayerInv__ItemI__28B808A7" Association="Self.FK__PlayerInv__ItemI__28B808A7">
+      <End Role="Items" EntitySet="Items" />
+      <End Role="PlayerInventory" EntitySet="PlayerInventory" />
+    </AssociationSet>
+    <AssociationSet Name="FK__PlayerInv__Playe__27C3E46E" Association="Self.FK__PlayerInv__Playe__27C3E46E">
+      <End Role="Trainer" EntitySet="Trainer" />
+      <End Role="PlayerInventory" EntitySet="PlayerInventory" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Pokedex__Type1__74444068" Association="Self.FK__Pokedex__Type1__74444068">
+      <End Role="Types" EntitySet="Types" />
+      <End Role="Pokedex" EntitySet="Pokedex" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Pokedex__Type2__753864A1" Association="Self.FK__Pokedex__Type2__753864A1">
+      <End Role="Types" EntitySet="Types" />
+      <End Role="Pokedex" EntitySet="Pokedex" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Pokemon__Ability__093F5D4E" Association="Self.FK__Pokemon__Ability__093F5D4E">
+      <End Role="Ability" EntitySet="Ability" />
+      <End Role="Pokemon" EntitySet="Pokemon" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Pokemon__ItemID__084B3915" Association="Self.FK__Pokemon__ItemID__084B3915">
+      <End Role="Items" EntitySet="Items" />
+      <End Role="Pokemon" EntitySet="Pokemon" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Pokemon__Pokedex__056ECC6A" Association="Self.FK__Pokemon__Pokedex__056ECC6A">
+      <End Role="Pokedex" EntitySet="Pokedex" />
+      <End Role="Pokemon" EntitySet="Pokemon" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Pokemon__StatPoo__0A338187" Association="Self.FK__Pokemon__StatPoo__0A338187">
+      <End Role="StatPool" EntitySet="StatPool" />
+      <End Role="Pokemon" EntitySet="Pokemon" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Pokemon__StatusI__0662F0A3" Association="Self.FK__Pokemon__StatusI__0662F0A3">
+      <End Role="StatusEffects" EntitySet="StatusEffects" />
+      <End Role="Pokemon" EntitySet="Pokemon" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Pokemon__Trainer__075714DC" Association="Self.FK__Pokemon__Trainer__075714DC">
+      <End Role="Trainer" EntitySet="Trainer" />
+      <End Role="Pokemon" EntitySet="Pokemon" />
+    </AssociationSet>
+    <AssociationSet Name="FK__PokemonGr__Playe__14B10FFA" Association="Self.FK__PokemonGr__Playe__14B10FFA">
+      <End Role="Trainer" EntitySet="Trainer" />
+      <End Role="PokemonGroup" EntitySet="PokemonGroup" />
+    </AssociationSet>
+    <AssociationSet Name="FK__PokemonGr__Pokem__15A53433" Association="Self.FK__PokemonGr__Pokem__15A53433">
+      <End Role="Pokemon" EntitySet="Pokemon" />
+      <End Role="PokemonGroup" EntitySet="PokemonGroup" />
+    </AssociationSet>
+    <AssociationSet Name="FK__PokemonMo__MoveT__6D9742D9" Association="Self.FK__PokemonMo__MoveT__6D9742D9">
+      <End Role="Types" EntitySet="Types" />
+      <End Role="PokemonMoves" EntitySet="PokemonMoves" />
+    </AssociationSet>
+    <AssociationSet Name="FK__StatPool__BaseSt__7DCDAAA2" Association="Self.FK__StatPool__BaseSt__7DCDAAA2">
+      <End Role="StatCollection" EntitySet="StatCollection" />
+      <End Role="StatPool" EntitySet="StatPool" />
+    </AssociationSet>
+    <AssociationSet Name="FK__StatPool__Effort__00AA174D" Association="Self.FK__StatPool__Effort__00AA174D">
+      <End Role="StatCollection" EntitySet="StatCollection" />
+      <End Role="StatPool" EntitySet="StatPool" />
+    </AssociationSet>
+    <AssociationSet Name="FK__StatPool__EVStat__7EC1CEDB" Association="Self.FK__StatPool__EVStat__7EC1CEDB">
+      <End Role="StatCollection" EntitySet="StatCollection" />
+      <End Role="StatPool" EntitySet="StatPool" />
+    </AssociationSet>
+    <AssociationSet Name="FK__StatPool__IVStat__7FB5F314" Association="Self.FK__StatPool__IVStat__7FB5F314">
+      <End Role="StatCollection" EntitySet="StatCollection" />
+      <End Role="StatPool" EntitySet="StatPool" />
+    </AssociationSet>
+    <AssociationSet Name="FK__UseCase__ItemID__1C5231C2" Association="Self.FK__UseCase__ItemID__1C5231C2">
+      <End Role="Items" EntitySet="Items" />
+      <End Role="UseCase" EntitySet="UseCase" />
+    </AssociationSet>
+    <AssociationSet Name="FK__UseCase__StatusI__1D4655FB" Association="Self.FK__UseCase__StatusI__1D4655FB">
+      <End Role="StatusEffects" EntitySet="StatusEffects" />
+      <End Role="UseCase" EntitySet="UseCase" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
