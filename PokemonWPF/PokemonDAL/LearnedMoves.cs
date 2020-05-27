@@ -14,7 +14,6 @@ namespace PokemonDAL
     
     public partial class LearnedMoves
     {
-
         public int Id { get; set; }
         public Nullable<int> MoveId { get; set; }
         public Nullable<int> CurrentPP { get; set; }

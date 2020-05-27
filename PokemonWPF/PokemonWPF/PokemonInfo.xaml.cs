@@ -45,6 +45,7 @@ namespace PokemonWPF
 
         private void SetMoves()
         {
+            //Reset de status van moves
             CardMove1.Visibility = Visibility.Hidden;
             CardMove2.Visibility = Visibility.Hidden;
             CardMove3.Visibility = Visibility.Hidden;
@@ -58,7 +59,7 @@ namespace PokemonWPF
             {
                 btnAdd.IsEnabled = false;
             }
-            OrderElementsMoves();
+       
         }
         private void OrderElementsMoves()
         {
@@ -99,11 +100,15 @@ namespace PokemonWPF
         }
         private void SetContentPartyCard()
         {
+
+            //stel de kaart aan de linker kant van de infokaarten in
             BitmapImage sprite = new BitmapImage(new Uri("Images/PokemonSprites.png", UriKind.Relative));
             PokemonSpriteById spriteTarget = new PokemonSpriteById((int)pokemonstats.PokedexID);
             imgPokemon.Source = new CroppedBitmap(sprite, spriteTarget.target);
             lblPokemonNick.Content = pokemonstats.Nickname;
 
+
+            //Stel het gender teken in gebaseerd op data
             if (pokemonstats.Gender == false)
             {
                 lblPokemonGenderMale.Visibility = Visibility.Visible;
@@ -125,6 +130,8 @@ namespace PokemonWPF
         }
         private void SetContentRedCard()
         {
+
+            //Instellen data algemene info
             lblDexNr.Content = pokemonstats.PokedexID;
             lblSpecies.Content = pokemonstats.Pokedex.PokemonName;
             lblOriginalTrainer.Content = pokemonstats.Trainer.TrainerName;
@@ -143,7 +150,7 @@ namespace PokemonWPF
             }
 
 
-
+            //The officieele methode om uit te rekenen hoeveel XP een pokemon nodig heeft per level. Niet 100% correct voor afwijkende maxEXP waardes
             if (pokemonstats.PokemonLevel == 100)
             {
                 lblXpToNextLevel.Content = pokemonstats.PokemonLevel * pokemonstats.PokemonLevel * pokemonstats.PokemonLevel - pokemonstats.PokemonExp;
@@ -158,6 +165,8 @@ namespace PokemonWPF
 
         private void SetContentYellowCard()
         {
+
+            //Instellen data voor de stats
             lblHPstat.Content = pokemonstats.ReturnHP();
             lblAttackstat.Content = pokemonstats.StatPool.TotalAttack(pokemonstats);
             lblDefensestat.Content = pokemonstats.StatPool.TotalDefense(pokemonstats);
@@ -170,11 +179,14 @@ namespace PokemonWPF
         }
         private void SetTypes(Border bordertoalter, Label labelToAlter, int? typeId, string typeName)
         {
+
+            //Zet het type van de pokemon in een bepaalde stijl conform aan wat het spel voorschrijft
             labelToAlter.Content = typeName;
             switch (typeId)
             {
                 case 1:
                     bordertoalter.Background = Brushes.Green;
+                    labelToAlter.Foreground = Brushes.Black;
                     break;
                 case 2:
                     bordertoalter.Background = Brushes.Purple;
@@ -182,15 +194,19 @@ namespace PokemonWPF
                     break;
                 case 3:
                     bordertoalter.Background = Brushes.OrangeRed;
+                    labelToAlter.Foreground = Brushes.Black;
                     break;
                 case 4:
                     bordertoalter.Background = Brushes.LightGray;
+                    labelToAlter.Foreground = Brushes.Black;
                     break;
                 case 5:
                     bordertoalter.Background = Brushes.Blue;
+                    labelToAlter.Foreground = Brushes.Black;
                     break;
                 case 6:
                     bordertoalter.Background = Brushes.Beige;
+                    labelToAlter.Foreground = Brushes.Black;
                     break;
                 case 7:
                     bordertoalter.BorderBrush = Brushes.Black;
@@ -198,6 +214,7 @@ namespace PokemonWPF
                     break;
                 case 8:
                     bordertoalter.Background = Brushes.DeepPink;
+                    labelToAlter.Foreground = Brushes.Black;
                     break;
                 case 9:
                     bordertoalter.Background = Brushes.Black;
@@ -218,6 +235,8 @@ namespace PokemonWPF
 
         private void SetContentPinkCard()
         {
+
+            //
             int counter = 0;
             foreach (Border item in MoveCards)
             {
@@ -286,6 +305,8 @@ namespace PokemonWPF
             GridPink.Visibility = Visibility.Visible;
         }
 
+
+        //hover code voor moves
         private void CardMove_MouseEnter(object sender, MouseEventArgs e)
         {
             Border thisBorder = sender as Border;
@@ -325,14 +346,16 @@ namespace PokemonWPF
 
             string moveName = moveToDelete.PokemonMoves.MoveName;
 
-
+            //In plaats van een apart CRUD scherm te openen, word bevesteging voor een delete aangevraagt met een stadaard dialog scherm
             System.Windows.Forms.DialogResult dialogResult = System.Windows.Forms.MessageBox.Show($"Want to remove {moveToDelete.PokemonMoves.MoveName}? ", "Confirmation", System.Windows.Forms.MessageBoxButtons.YesNo);
+            //Lees het resultaat van dialog in
             if (dialogResult == System.Windows.Forms.DialogResult.Yes)
             {
                 if (DatabaseOperations.RemoveMove(moveToDelete) != 0)
                 {
                     MessageBox.Show($"{moveName} successfully removed");
                     Topmost = true;
+                    MovesOfPokemon.Clear();
                     SetMoves();
                     SetContentPinkCard();
                     GridRed.Visibility = Visibility.Collapsed;

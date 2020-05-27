@@ -130,3 +130,93 @@ Stack Trace:    bij System.Data.Entity.Internal.InternalContext.SaveChanges()
    bij System.Data.Entity.DbContext.SaveChanges()
    bij PokemonDAL.DatabaseOperations.AddToLearnedMoves(LearnedMoves newMove) in C:\Users\vdb\Documents\GitHub\DatamanipulatiePok-monAaronLaraBryant\PokemonWPF\PokemonDAL\DatabaseOperations.cs:regel 394
 ===========End============= 25/05/2020 13:31:59
+=============Error Logging ===========
+===========Start============= 27/05/2020 14:57:11
+Error Message: A referential integrity constraint violation occurred: The property value(s) of 'Ability.Id' on one end of a relationship do not match the property value(s) of 'Pokemon.AbilityID' on the other end.
+Error: InvalidOperationException
+Stack Trace:    bij System.Data.Entity.Core.Objects.DataClasses.RelatedEnd.CheckReferentialConstraintProperties(EntityEntry ownerEntry)
+   bij System.Data.Entity.Core.Objects.DataClasses.RelationshipManager.CheckReferentialConstraintProperties(EntityEntry ownerEntry)
+   bij System.Data.Entity.Core.Objects.ObjectContext.AttachSingleObject(IEntityWrapper wrappedEntity, EntitySet entitySet)
+   bij System.Data.Entity.Core.Objects.ObjectContext.AttachTo(String entitySetName, Object entity)
+   bij System.Data.Entity.Internal.Linq.InternalSet`1.<>c__DisplayClass16_0.<Attach>b__0()
+   bij System.Data.Entity.Internal.Linq.InternalSet`1.ActOnSet(Action action, EntityState newState, Object entity, String methodName)
+   bij System.Data.Entity.Internal.Linq.InternalSet`1.Attach(Object entity)
+   bij System.Data.Entity.Internal.InternalEntityEntry.set_State(EntityState value)
+   bij System.Data.Entity.Infrastructure.DbEntityEntry`1.set_State(EntityState value)
+   bij PokemonDAL.DatabaseOperations.UpdatePokemon(Pokemon currentPokemon) in C:\Users\vdb\Documents\GitHub\DatamanipulatiePok-monAaronLaraBryant\PokemonWPF\PokemonDAL\DatabaseOperations.cs:regel 297
+===========End============= 27/05/2020 14:57:11
+=============Error Logging ===========
+===========Start============= 27/05/2020 14:59:32
+Error Message: A referential integrity constraint violation occurred: The property value(s) of 'Ability.Id' on one end of a relationship do not match the property value(s) of 'Pokemon.AbilityID' on the other end.
+Error: InvalidOperationException
+Stack Trace:    bij System.Data.Entity.Core.Objects.DataClasses.RelatedEnd.CheckReferentialConstraintProperties(EntityEntry ownerEntry)
+   bij System.Data.Entity.Core.Objects.DataClasses.RelationshipManager.CheckReferentialConstraintProperties(EntityEntry ownerEntry)
+   bij System.Data.Entity.Core.Objects.ObjectContext.AttachSingleObject(IEntityWrapper wrappedEntity, EntitySet entitySet)
+   bij System.Data.Entity.Core.Objects.ObjectContext.AttachTo(String entitySetName, Object entity)
+   bij System.Data.Entity.Internal.Linq.InternalSet`1.<>c__DisplayClass16_0.<Attach>b__0()
+   bij System.Data.Entity.Internal.Linq.InternalSet`1.ActOnSet(Action action, EntityState newState, Object entity, String methodName)
+   bij System.Data.Entity.Internal.Linq.InternalSet`1.Attach(Object entity)
+   bij System.Data.Entity.Internal.InternalEntityEntry.set_State(EntityState value)
+   bij System.Data.Entity.Infrastructure.DbEntityEntry`1.set_State(EntityState value)
+   bij PokemonDAL.DatabaseOperations.UpdatePokemon(Pokemon currentPokemon) in C:\Users\vdb\Documents\GitHub\DatamanipulatiePok-monAaronLaraBryant\PokemonWPF\PokemonDAL\DatabaseOperations.cs:regel 297
+===========End============= 27/05/2020 14:59:32
+=============Error Logging ===========
+===========Start============= 27/05/2020 15:01:27
+Error Message: A referential integrity constraint violation occurred: The property value(s) of 'Ability.Id' on one end of a relationship do not match the property value(s) of 'Pokemon.AbilityID' on the other end.
+Error: InvalidOperationException
+Stack Trace:    bij System.Data.Entity.Core.Objects.DataClasses.RelatedEnd.CheckReferentialConstraintProperties(EntityEntry ownerEntry)
+   bij System.Data.Entity.Core.Objects.DataClasses.RelationshipManager.CheckReferentialConstraintProperties(EntityEntry ownerEntry)
+   bij System.Data.Entity.Core.Objects.ObjectContext.AttachSingleObject(IEntityWrapper wrappedEntity, EntitySet entitySet)
+   bij System.Data.Entity.Core.Objects.ObjectContext.AttachTo(String entitySetName, Object entity)
+   bij System.Data.Entity.Internal.Linq.InternalSet`1.<>c__DisplayClass16_0.<Attach>b__0()
+   bij System.Data.Entity.Internal.Linq.InternalSet`1.ActOnSet(Action action, EntityState newState, Object entity, String methodName)
+   bij System.Data.Entity.Internal.Linq.InternalSet`1.Attach(Object entity)
+   bij System.Data.Entity.Internal.InternalEntityEntry.set_State(EntityState value)
+   bij System.Data.Entity.Infrastructure.DbEntityEntry`1.set_State(EntityState value)
+   bij PokemonDAL.DatabaseOperations.UpdatePokemon(Pokemon currentPokemon) in C:\Users\vdb\Documents\GitHub\DatamanipulatiePok-monAaronLaraBryant\PokemonWPF\PokemonDAL\DatabaseOperations.cs:regel 297
+===========End============= 27/05/2020 15:01:27
+=============Error Logging ===========
+===========Start============= 27/05/2020 15:03:01
+Error Message: A referential integrity constraint violation occurred: The property value(s) of 'Ability.Id' on one end of a relationship do not match the property value(s) of 'Pokemon.AbilityID' on the other end.
+Error: InvalidOperationException
+Stack Trace:    bij System.Data.Entity.Core.Objects.DataClasses.RelatedEnd.CheckReferentialConstraintProperties(EntityEntry ownerEntry)
+   bij System.Data.Entity.Core.Objects.DataClasses.RelationshipManager.CheckReferentialConstraintProperties(EntityEntry ownerEntry)
+   bij System.Data.Entity.Core.Objects.ObjectContext.AttachSingleObject(IEntityWrapper wrappedEntity, EntitySet entitySet)
+   bij System.Data.Entity.Core.Objects.ObjectContext.AttachTo(String entitySetName, Object entity)
+   bij System.Data.Entity.Internal.Linq.InternalSet`1.<>c__DisplayClass16_0.<Attach>b__0()
+   bij System.Data.Entity.Internal.Linq.InternalSet`1.ActOnSet(Action action, EntityState newState, Object entity, String methodName)
+   bij System.Data.Entity.Internal.Linq.InternalSet`1.Attach(Object entity)
+   bij System.Data.Entity.Internal.InternalEntityEntry.set_State(EntityState value)
+   bij System.Data.Entity.Infrastructure.DbEntityEntry`1.set_State(EntityState value)
+   bij PokemonDAL.DatabaseOperations.UpdatePokemon(Pokemon currentPokemon) in C:\Users\vdb\Documents\GitHub\DatamanipulatiePok-monAaronLaraBryant\PokemonWPF\PokemonDAL\DatabaseOperations.cs:regel 297
+===========End============= 27/05/2020 15:03:01
+=============Error Logging ===========
+===========Start============= 27/05/2020 15:07:28
+Error Message: A referential integrity constraint violation occurred: The property value(s) of 'Ability.Id' on one end of a relationship do not match the property value(s) of 'Pokemon.AbilityID' on the other end.
+Error: InvalidOperationException
+Stack Trace:    bij System.Data.Entity.Core.Objects.DataClasses.RelatedEnd.CheckReferentialConstraintProperties(EntityEntry ownerEntry)
+   bij System.Data.Entity.Core.Objects.DataClasses.RelationshipManager.CheckReferentialConstraintProperties(EntityEntry ownerEntry)
+   bij System.Data.Entity.Core.Objects.ObjectContext.AttachSingleObject(IEntityWrapper wrappedEntity, EntitySet entitySet)
+   bij System.Data.Entity.Core.Objects.ObjectContext.AttachTo(String entitySetName, Object entity)
+   bij System.Data.Entity.Internal.Linq.InternalSet`1.<>c__DisplayClass16_0.<Attach>b__0()
+   bij System.Data.Entity.Internal.Linq.InternalSet`1.ActOnSet(Action action, EntityState newState, Object entity, String methodName)
+   bij System.Data.Entity.Internal.Linq.InternalSet`1.Attach(Object entity)
+   bij System.Data.Entity.Internal.InternalEntityEntry.set_State(EntityState value)
+   bij System.Data.Entity.Infrastructure.DbEntityEntry`1.set_State(EntityState value)
+   bij PokemonDAL.DatabaseOperations.UpdatePokemon(Pokemon currentPokemon) in C:\Users\vdb\Documents\GitHub\DatamanipulatiePok-monAaronLaraBryant\PokemonWPF\PokemonDAL\DatabaseOperations.cs:regel 297
+===========End============= 27/05/2020 15:07:28
+=============Error Logging ===========
+===========Start============= 27/05/2020 15:09:49
+Error Message: A referential integrity constraint violation occurred: The property value(s) of 'Ability.Id' on one end of a relationship do not match the property value(s) of 'Pokemon.AbilityID' on the other end.
+Error: InvalidOperationException
+Stack Trace:    bij System.Data.Entity.Core.Objects.DataClasses.RelatedEnd.CheckReferentialConstraintProperties(EntityEntry ownerEntry)
+   bij System.Data.Entity.Core.Objects.DataClasses.RelationshipManager.CheckReferentialConstraintProperties(EntityEntry ownerEntry)
+   bij System.Data.Entity.Core.Objects.ObjectContext.AttachSingleObject(IEntityWrapper wrappedEntity, EntitySet entitySet)
+   bij System.Data.Entity.Core.Objects.ObjectContext.AttachTo(String entitySetName, Object entity)
+   bij System.Data.Entity.Internal.Linq.InternalSet`1.<>c__DisplayClass16_0.<Attach>b__0()
+   bij System.Data.Entity.Internal.Linq.InternalSet`1.ActOnSet(Action action, EntityState newState, Object entity, String methodName)
+   bij System.Data.Entity.Internal.Linq.InternalSet`1.Attach(Object entity)
+   bij System.Data.Entity.Internal.InternalEntityEntry.set_State(EntityState value)
+   bij System.Data.Entity.Infrastructure.DbEntityEntry`1.set_State(EntityState value)
+   bij PokemonDAL.DatabaseOperations.UpdatePokemon(Pokemon currentPokemon) in C:\Users\vdb\Documents\GitHub\DatamanipulatiePok-monAaronLaraBryant\PokemonWPF\PokemonDAL\DatabaseOperations.cs:regel 297
+===========End============= 27/05/2020 15:09:49

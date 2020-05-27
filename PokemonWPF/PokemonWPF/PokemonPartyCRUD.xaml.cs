@@ -16,7 +16,7 @@ namespace PokemonWPF
         public PokemonGroup CurrentPkmParty;
         public List<Pokedex> pokedexList;
         public List<Ability> abilityList;
-
+        
         public LearnedMoves DefaultMoves1 = new LearnedMoves();
         public LearnedMoves DefaultMoves2 = new LearnedMoves();
 
@@ -39,6 +39,18 @@ namespace PokemonWPF
             InitializeComponent();
         }
 
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            abilityList = DatabaseOperations.AbilityList();
+            pokedexList = DatabaseOperations.PokedexEntry();
+            cmbPokemon.ItemsSource = pokedexList;
+            cmbAbility.ItemsSource = abilityList;
+            cmbPokemon.SelectionChanged += new SelectionChangedEventHandler(cmbPokemon_SelectionChanged);
+            cmbPosition.SelectionChanged += new SelectionChangedEventHandler(cmbPosition_SelectionChanged);
+
+
+
+        }
         private void btnCancel_Click(object sender, RoutedEventArgs e)
         {
             Close();
@@ -48,8 +60,9 @@ namespace PokemonWPF
         {
             if (string.IsNullOrWhiteSpace(Validate()))
             {
+                //Update functionaliteit uitvoeren
                 Ability newAbility = (Ability)cmbAbility.SelectedItem;
-                //CurrentPkm.AbilityID =  newAbility.Id ;
+                CurrentPkm.AbilityID = newAbility.Id ;
                 CurrentPkm.Nickname = txtName.Text;
                 CurrentPkm.PokemonLevel = int.Parse(txtLvl.Text);
                 CurrentPkm.PokemonExp = CurrentPkm.PokemonLevel * CurrentPkm.PokemonLevel * CurrentPkm.PokemonLevel;
@@ -83,6 +96,7 @@ namespace PokemonWPF
 
         private void btnDelete_Click(object sender, RoutedEventArgs e)
         {
+            //Delete functionaliteit uitvoeren
             if (DatabaseOperations.RemovePokemonFromGroup(CurrentPkmParty) != 0)
             {
                 MessageBox.Show($"{CurrentPkm.Nickname} succesfully removed from the party of {currentTrainer.TrainerName}");
@@ -158,7 +172,7 @@ namespace PokemonWPF
                 EVRewardStats.SpecialDefence = EVSpDef;
                 EVRewardStats.Speed = EVSpeed;
 
-
+                
                 //Bind with statpool
                 if (DatabaseOperations.AddStatCollection(BaseStats) != 0
                     && DatabaseOperations.AddStatCollection(EVStats) != 0
@@ -213,7 +227,8 @@ namespace PokemonWPF
                                     PokemonId = PokemonToAdd.Id,
                                     Position = int.Parse(cmbPosition.Text)
                                 };
-
+                                //Enkel als alle stats correct er in zijn geplaatst, word de pokemon in de groep geplaatsts
+                                //Bij falen word het een onbereikbaar database element binnen de context van dit programma
                                 if (DatabaseOperations.AddToGroup(GroupToAddTo) != 0)
                                 {
                                     MessageBox.Show($"{PokemonToAdd.Nickname} is succesvol toegevoegd aan de party van {currentTrainer.TrainerName}");
@@ -260,6 +275,8 @@ namespace PokemonWPF
 
         private string Validate()
         {
+
+            //Standaard gegevens validatie
             string errormsg = "";
             if (!int.TryParse(txtLvl.Text, out int fieldvalue))
             {
@@ -278,18 +295,7 @@ namespace PokemonWPF
             return errormsg;
 
         }
-        private void Window_Loaded(object sender, RoutedEventArgs e)
-        {
-            abilityList = DatabaseOperations.AbilityList();
-            pokedexList = DatabaseOperations.PokedexEntry();
-            cmbPokemon.ItemsSource = pokedexList;
-            cmbAbility.ItemsSource = abilityList;
-            cmbPokemon.SelectionChanged += new SelectionChangedEventHandler(cmbPokemon_SelectionChanged);
-            cmbPosition.SelectionChanged += new SelectionChangedEventHandler(cmbPosition_SelectionChanged);
-
-
-
-        }
+        
 
         private void LoadDefaultMoves(int pokemonID)
         {
@@ -316,7 +322,7 @@ namespace PokemonWPF
 
         private void cmbPosition_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-
+            //Positie aanpassen word gezien als een directe handeling, en word uitgevoerd voor dat andere veranderingen ingerekent kunnen worden
             PokemonGroup pokemonToSwap = DatabaseOperations.SelectPokemonFromParty(currentTrainer.Id, int.Parse(cmbPosition.SelectedItem.ToString()));
             int position1 = CurrentPkmParty.Position;
             int position2 = pokemonToSwap.Position;

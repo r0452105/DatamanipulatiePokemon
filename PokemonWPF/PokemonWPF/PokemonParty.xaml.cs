@@ -214,6 +214,11 @@ namespace PokemonWPF
             Topmost = true;
 
             //Hernieuw de lijst zodat de veranderingen gereflecteerd zijn in deze pagina
+            Pokemonparty.Clear();
+            foreach (Border card in Cards)
+            {
+                card.Visibility = Visibility.Collapsed;
+            }
             Pokemonparty = DatabaseOperations.SelectParty(trainerParty.Id);
             LoadPokemon();
         }

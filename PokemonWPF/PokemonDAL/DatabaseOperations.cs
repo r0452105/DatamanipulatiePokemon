@@ -294,6 +294,8 @@ namespace PokemonDAL
             {
                 using (DB_r0739290Entities entities = new DB_r0739290Entities())
                 {
+                    //Vangt een fout op die modification onmogelijk maakt
+                    currentPokemon.Ability = null;
                     entities.Entry(currentPokemon).State = EntityState.Modified;
 
                     return entities.SaveChanges();
