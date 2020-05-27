@@ -682,7 +682,7 @@ namespace PokemonDAL
             }
             catch (Exception ex)
             {
-
+                ErrorLogging(ex);
                 return 0;
             }
         }
@@ -700,7 +700,7 @@ namespace PokemonDAL
             }
             catch (Exception ex)
             {
-
+                ErrorLogging(ex);
                 return 0;
             }
 
