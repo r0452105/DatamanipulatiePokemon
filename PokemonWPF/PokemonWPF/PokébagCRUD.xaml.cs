@@ -178,6 +178,7 @@ namespace PokemonWPF
 
         private void combobox_changed(object sender, SelectionChangedEventArgs e)
         {
+            //
             cbChooseCategory.DataContext = categorylist;
         }
     }

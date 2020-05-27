@@ -32,7 +32,7 @@ namespace PokemonWPF
 
         private void OnLoad(object sender, RoutedEventArgs e)
         {
-           
+            //labels vullen met de waarden uit de database
             lblname.Content = trainerCard.TrainerName;
             lblid.Content = trainerCard.Id; 
             lblmoney.Content = trainerCard.MoneyOwned;
@@ -44,6 +44,7 @@ namespace PokemonWPF
 
         private void BtnBadges_Click(object sender, RoutedEventArgs e)
         {
+            //badges button initialiseren
             PokéBadgesWindow objPokéBadgesWindow = new PokéBadgesWindow();
             this.Visibility = Visibility.Hidden;
             objPokéBadgesWindow.Show();

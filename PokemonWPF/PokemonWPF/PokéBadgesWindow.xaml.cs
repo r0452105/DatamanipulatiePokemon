@@ -36,6 +36,7 @@ namespace PokemonWPF
         {
             try
             {
+                
                 Image[] images = { img0, img1, img2, img3, img4, img5, img6, img7 };
                 //BitmapImage sprite1 = new BitmapImage(new Uri("Images/badgessprites.png", UriKind.Relative));
                 //imgbadges.Source = sprite1;//  new CroppedBitmap(sprite1, badge1.target);
@@ -57,6 +58,7 @@ namespace PokemonWPF
 
     public class Badge1 : BadgeSprite
     {
+        //ipv voor elke badge een nieuwe klasse aan te maken --> 
         public Badge1(int x, int y, int width, int height) //: base()
         {
             target = new Int32Rect(x, y, width, height);
