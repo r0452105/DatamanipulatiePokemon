@@ -17,31 +17,20 @@ namespace PokemonWPF
         private  List<Pokedex> pokeEntries = DatabaseOperations.PokedexEntry();
         public Types poketype = new Types();
         private readonly List<Types> poketypeentries = DatabaseOperations.Typinglist();
-
-
-
-
         public PokémonInfoWindow()
         {
             InitializeComponent();
-
-
         }
-
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             string pokerefer = DexWindowToAlter.lvPokedex.SelectedItem.ToString();
-
             foreach (Pokedex pokedex in pokeEntries)
             {
-                string pokenum = pokedex.PokemonName;
-
+             string pokenum = pokedex.PokemonName;
                 if ((pokerefer.Contains(pokenum)) == true)
                 {
                     string type1 = "";
                     string type2 = "";
-
-
                     foreach (Types poketype in poketypeentries)
                     {
                         if (poketype.Id == pokedex.Type1)
@@ -62,19 +51,13 @@ namespace PokemonWPF
                     tbDescription.Text = pokedex.PokemonDescription;
                     tbPokémonnaam.Text = pokedex.PokemonName;
                 }
-
-
             }
-
         }
-
         private void BtnBack_Click(object sender, RoutedEventArgs e)
         {
             Close();
             DexWindowToAlter.Visibility = Visibility.Visible;
             DexWindowToAlter.Topmost = true;
         }
-
-
     }
 }
