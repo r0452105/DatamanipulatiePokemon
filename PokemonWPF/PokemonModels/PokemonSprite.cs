@@ -12,7 +12,7 @@ namespace PokemonModels
            ImageElement.Source = new CroppedBitmap(sprite, Pokemonname.target);
 
    */
-            target = new Int32Rect(0, 0, 59, 59);
+            target = new Int32Rect(0, 0, 56, 56);
         }
     }
 }
