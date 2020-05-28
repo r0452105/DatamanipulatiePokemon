@@ -17,7 +17,7 @@ namespace PokemonWPF
         public MainWindow WindowToAlter;
         public Trainer trainerToSelect = new Trainer();
         public Pokedex pokedex = new Pokedex();
-        private IList<Pokedex> pokeEntries = DatabaseOperations.PokedexEntry();
+        private List<Pokedex> pokeEntries = DatabaseOperations.PokedexEntry();
         public Types poketype = new Types();
         private readonly List<Types> poketypeentries = DatabaseOperations.Typinglist();
         private  List<PokemonGroup> pokeparty = new List<PokemonGroup>();
@@ -25,25 +25,16 @@ namespace PokemonWPF
         public PokédexWindow()
         {
             InitializeComponent();
-
-            //if searchscherm is zonet gebruikt dan komt er mogelijks een alternatief else zie hieronder
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-
-
             pokeparty = DatabaseOperations.SelectParty(trainerToSelect.Id);
             int partycount = pokeparty.Count;
             lvPokedex.ItemsSource = pokeEntries;
             lblSeenCaptured.Content = "\nSeen: " + pokeEntries.Count + " \nOwned: " + partycount;// owned nog automatiseren
-
             lvPokedex.SelectedIndex = 0;
-         
         }
-
-
-
         private void BtnBack_Click(object sender, RoutedEventArgs e)
         {
             Close();
@@ -69,18 +60,20 @@ namespace PokemonWPF
 
         private void LvPokedex_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-
-            foreach (Pokedex pokedex1 in pokeEntries)
+            if (lvPokedex.SelectedIndex < 0)
             {
-                if (lvPokedex.SelectedIndex == (pokedex1.Id - 1))
+                lvPokedex.SelectedIndex = 0;
+            }
+            foreach (Pokedex pokedex1 in lvPokedex.Items)
+            {
+                if (lvPokedex.SelectedItem.ToString().Contains(pokedex1.PokemonName))
                 {
                     BitmapImage sprite = new BitmapImage(new Uri("Images/PokemonSprites.png", UriKind.Relative));
                     PokemonSpriteById spriteTarget = new PokemonSpriteById(pokedex1.Id);
                     imgPicturePokémon.Source = new CroppedBitmap(sprite, spriteTarget.target);
+                    tbPicName.Text = pokedex1.PokemonName;
                 }
             }
-
-
         }
 
         private void LvPokedex_MouseDoubleClick(object sender, MouseButtonEventArgs e)

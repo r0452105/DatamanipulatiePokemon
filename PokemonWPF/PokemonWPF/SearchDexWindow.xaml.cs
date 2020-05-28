@@ -16,8 +16,6 @@ namespace PokemonWPF
         private  List<Pokedex> pokeEntries = DatabaseOperations.PokedexEntry();
         private  List<Pokedex> pokeEntriesAZ = DatabaseOperations.PokedexEntryAZ();
 
-
-
         public SearchDexWindow()
         {
             InitializeComponent();
@@ -34,17 +32,14 @@ namespace PokemonWPF
             cbSortBy.Items.Add("National Dex");
             cbType.SelectedIndex = 0;
         }
-
-
         private void BtnBack_Click(object sender, RoutedEventArgs e)
         {
             Close();
             DexWindowToAlter.Topmost = true;
         }
-
         private void BtnSearch_Click(object sender, RoutedEventArgs e)
         {
-            IList<string> pokeEntriesTemporary = new List<string>();
+            IList<Pokedex> pokeEntriesTemporary = new List<Pokedex>();
             foreach (Pokedex pokedex in pokeEntries)
             {
                 if (pokedex.PokemonName.ToLower().Contains(tbName.Text.ToLower()))
@@ -65,42 +60,37 @@ namespace PokemonWPF
                     }
                     if (cbType.SelectedIndex == 0)
                     {
-                        pokeEntriesTemporary.Add(pokedex.PokemonName);
+                        pokeEntriesTemporary.Add(pokedex);
                     }
                     else if (type1 == cbType.SelectedItem.ToString() || type2 == cbType.SelectedItem.ToString())
                     {
-                        pokeEntriesTemporary.Add(pokedex.PokemonName);
+                        pokeEntriesTemporary.Add(pokedex);
                     }
-
-
                 }
-
             }
             DexWindowToAlter.gvBinder.DisplayMemberBinding = null;
             DexWindowToAlter.lvPokedex.ItemsSource = pokeEntriesTemporary;
             if (DexWindowToAlter.lvPokedex.Items.Count < 1)
             {
-                List<string> noitems = new List<string>
-                {
-                    "none"
-                };
+                List<string> noitems = new List<string>{"none"};
                 DexWindowToAlter.lvPokedex.ItemsSource = noitems;
             }
             DexWindowToAlter.Show();
+            DexWindowToAlter.Topmost = true;
             DexWindowToAlter.lvPokedex.SelectedIndex = 0;
             Close();
         }
 
         private void BtnStartSorting_Click(object sender, RoutedEventArgs e)
         {
-            IList<string> pokeEntriesTemporary = new List<string>();
+            List<Pokedex> pokeEntriesTemporary = new List<Pokedex>();
             switch (cbSortBy.SelectedIndex)
             {
                 case 0:
                     // eerst volgorde van de pokemons aanpassen, dan terugleiden naar pokedexscherm
                     foreach (Pokedex pokedex in pokeEntriesAZ)
                     {
-                        pokeEntriesTemporary.Add(pokedex.PokemonName);
+                    pokeEntriesTemporary.Add(pokedex);
                     }
                     DexWindowToAlter.gvBinder.DisplayMemberBinding = null;
                     DexWindowToAlter.lvPokedex.ItemsSource = pokeEntriesTemporary;
@@ -109,13 +99,11 @@ namespace PokemonWPF
                     Close();
                     break;
                 case 1:
-
                     foreach (Pokedex pokedex in pokeEntries)
                     {
-                        pokeEntriesTemporary.Add(pokedex.PokemonName);
+                        pokeEntriesTemporary.Add(pokedex);
                     }
                     DexWindowToAlter.gvBinder.DisplayMemberBinding = null;
-
                     DexWindowToAlter.lvPokedex.ItemsSource = pokeEntriesTemporary;
                     DexWindowToAlter.Show();
                     DexWindowToAlter.lvPokedex.SelectedIndex = 0;
@@ -125,11 +113,6 @@ namespace PokemonWPF
                     MessageBox.Show("Je moet een sorteervorm selecteren.");
                     break;
             }
-        }
-
-        private void CbType_Selected(object sender, RoutedEventArgs e)
-        {
-
         }
 
 

@@ -56,3 +56,4 @@ C:\Users\larap\OneDrive\Documenten\GitHub\DatamanipulatiePok-monAaronLaraBryant\
 C:\Users\larap\OneDrive\Documenten\GitHub\DatamanipulatiePok-monAaronLaraBryant\PokemonWPF\PokemonModels\bin\Debug\MaterialDesignThemes.Wpf.pdb
 C:\Users\larap\OneDrive\Documenten\GitHub\DatamanipulatiePok-monAaronLaraBryant\PokemonWPF\PokemonModels\bin\Debug\MaterialDesignThemes.Wpf.xml
 C:\Users\larap\OneDrive\Documenten\GitHub\DatamanipulatiePok-monAaronLaraBryant\PokemonWPF\PokemonModels\obj\Debug\PokemonModels.csproj.CopyComplete
+C:\Users\vdb\Documents\GitHub\DatamanipulatiePok-monAaronLaraBryant\PokemonWPF\PokemonModels\obj\Debug\PokemonModels.csprojAssemblyReference.cache
