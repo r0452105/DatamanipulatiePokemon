@@ -69,14 +69,18 @@ namespace PokemonWPF
 
         private void LvPokedex_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-
-            foreach (Pokedex pokedex1 in pokeEntries)
+            if (lvPokedex.SelectedIndex < 0)
             {
-                if (lvPokedex.SelectedIndex == (pokedex1.Id - 1))
+                lvPokedex.SelectedIndex = 0;
+            }
+            foreach (Pokedex pokedex1 in lvPokedex.Items)
+            {
+                if (lvPokedex.SelectedItem.ToString().Contains(pokedex1.PokemonName))
                 {
                     BitmapImage sprite = new BitmapImage(new Uri("Images/PokemonSprites.png", UriKind.Relative));
                     PokemonSpriteById spriteTarget = new PokemonSpriteById(pokedex1.Id);
                     imgPicturePokémon.Source = new CroppedBitmap(sprite, spriteTarget.target);
+                    tbPicName.Text = pokedex1.PokemonName;
                 }
             }
 
