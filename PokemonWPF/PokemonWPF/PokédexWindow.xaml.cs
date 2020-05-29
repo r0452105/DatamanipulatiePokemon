@@ -14,12 +14,11 @@ namespace PokemonWPF
     /// </summary>
     public partial class PokédexWindow : Window
     {
-        public MainWindow WindowToAlter;
-        public Trainer trainerToSelect = new Trainer();
+        public MainWindow WindowToAlter; //link to menu
+        public Trainer trainerToSelect = new Trainer(); //voor partycount (pokemon owned)
         public Pokedex pokedex = new Pokedex();
-        private List<Pokedex> pokeEntries = DatabaseOperations.PokedexEntry();
+        private List<Pokedex> pokeEntries = DatabaseOperations.PokedexEntry(); //pokeEntries krijgt de gehele database van pokedex entries in de lijst
         public Types poketype = new Types();
-        private readonly List<Types> poketypeentries = DatabaseOperations.Typinglist();
         private  List<PokemonGroup> pokeparty = new List<PokemonGroup>();
 
         public PokédexWindow()
@@ -29,27 +28,27 @@ namespace PokemonWPF
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            pokeparty = DatabaseOperations.SelectParty(trainerToSelect.Id);
+            pokeparty = DatabaseOperations.SelectParty(trainerToSelect.Id); //selecteer juiste trainer voor partycount
             int partycount = pokeparty.Count;
-            lvPokedex.ItemsSource = pokeEntries;
+            lvPokedex.ItemsSource = pokeEntries;//lv is lijst van alle entries in table pokedex
             lblSeenCaptured.Content = "\nSeen: " + pokeEntries.Count + " \nOwned: " + partycount;// owned nog automatiseren
             lvPokedex.SelectedIndex = 0;
         }
         private void BtnBack_Click(object sender, RoutedEventArgs e)
         {
-            Close();
+            Close();// sluiten en terug naar menu
         }
 
-        private void BtnSearch_Click(object sender, RoutedEventArgs e) //search nog compleet uitwerken
+        private void BtnSearch_Click(object sender, RoutedEventArgs e) //open searchscreen
         {
             SearchDexWindow searchDexWindow1 = new SearchDexWindow();
             Visibility = Visibility.Hidden;
-            searchDexWindow1.DexWindowToAlter = this;
+            searchDexWindow1.DexWindowToAlter = this; 
             searchDexWindow1.ShowDialog();
             Visibility = Visibility.Visible;
         }
 
-        private void BtnCRUD_Click(object sender, RoutedEventArgs e)
+        private void BtnCRUD_Click(object sender, RoutedEventArgs e) //open crud screen
         {
             PokedexCRUDWindow CRUDWindow1 = new PokedexCRUDWindow();
             Visibility = Visibility.Hidden;
@@ -60,11 +59,11 @@ namespace PokemonWPF
 
         private void LvPokedex_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            if (lvPokedex.SelectedIndex < 0)
+            if (lvPokedex.SelectedIndex < 0) //omdat selected index nooit negatief kan zijn -> geeft error
             {
                 lvPokedex.SelectedIndex = 0;
             }
-            foreach (Pokedex pokedex1 in lvPokedex.Items)
+            foreach (Pokedex pokedex1 in lvPokedex.Items) //zoeken naar juiste pokedex entry
             {
                 if (lvPokedex.SelectedItem.ToString().Contains(pokedex1.PokemonName))
                 {
@@ -76,7 +75,7 @@ namespace PokemonWPF
             }
         }
 
-        private void LvPokedex_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        private void LvPokedex_MouseDoubleClick(object sender, MouseButtonEventArgs e)// open infoscreen (pokedex)
         {
             PokémonInfoWindow PokéInfoWindow1 = new PokémonInfoWindow();
             Visibility = Visibility.Hidden;

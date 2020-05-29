@@ -24,22 +24,22 @@ namespace PokemonWPF
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             cbType.Items.Add(" ");
-            foreach (Types poketype in poketypeentries)
+            foreach (Types poketype in poketypeentries) //lijst maken om handmatig types te illustreren in cb
             {
                 cbType.Items.Add(poketype.TypeName);
             }
             cbSortBy.Items.Add("Alfabetisch");
             cbSortBy.Items.Add("National Dex");
-            cbType.SelectedIndex = 0;
+            cbType.SelectedIndex = 0; //geen keuze ingesteld nog niet
         }
         private void BtnBack_Click(object sender, RoutedEventArgs e)
         {
             Close();
-            DexWindowToAlter.Topmost = true;
+            DexWindowToAlter.Topmost = true; //zodat menu op achtergrond blijft
         }
         private void BtnSearch_Click(object sender, RoutedEventArgs e)
         {
-            IList<Pokedex> pokeEntriesTemporary = new List<Pokedex>();
+            List<Pokedex> pokeEntriesTemporary = new List<Pokedex>(); //tijdelijke pokedex aanmaken met enkel de specifiek gekozen pokemon
             foreach (Pokedex pokedex in pokeEntries)
             {
                 if (pokedex.PokemonName.ToLower().Contains(tbName.Text.ToLower()))
@@ -47,7 +47,7 @@ namespace PokemonWPF
                     string type1 = "";
                     string type2 = "";
 
-                    foreach (Types poketype in poketypeentries)
+                    foreach (Types poketype in poketypeentries) //kijken of type(s) overeenkomen
                     {
                         if (poketype.Id == pokedex.Type1)
                         {
@@ -58,19 +58,19 @@ namespace PokemonWPF
                             type2 = poketype.TypeName;
                         }
                     }
-                    if (cbType.SelectedIndex == 0)
+                    if (cbType.SelectedIndex == 0) // indien geen specifiek type gekozen, geen extra restricties op toevoegen pokedex entry
                     {
                         pokeEntriesTemporary.Add(pokedex);
                     }
-                    else if (type1 == cbType.SelectedItem.ToString() || type2 == cbType.SelectedItem.ToString())
+                    else if (type1 == cbType.SelectedItem.ToString() || type2 == cbType.SelectedItem.ToString())//indien wel, wel restricties namelijk types
                     {
                         pokeEntriesTemporary.Add(pokedex);
                     }
                 }
             }
-            DexWindowToAlter.gvBinder.DisplayMemberBinding = null;
+            DexWindowToAlter.gvBinder.DisplayMemberBinding = null; //ledigen van gvBinder voor terug aanvullen, voorkomt veel errors
             DexWindowToAlter.lvPokedex.ItemsSource = pokeEntriesTemporary;
-            if (DexWindowToAlter.lvPokedex.Items.Count < 1)
+            if (DexWindowToAlter.lvPokedex.Items.Count < 1)//indien er geen items zijn, geeft "none" als item weer
             {
                 List<string> noitems = new List<string>{"none"};
                 DexWindowToAlter.lvPokedex.ItemsSource = noitems;
@@ -87,30 +87,31 @@ namespace PokemonWPF
             switch (cbSortBy.SelectedIndex)
             {
                 case 0:
-                    // eerst volgorde van de pokemons aanpassen, dan terugleiden naar pokedexscherm
-                    foreach (Pokedex pokedex in pokeEntriesAZ)
+                    foreach (Pokedex pokedex in pokeEntriesAZ) //gewoon toevoegen maar dan alfabetisch
                     {
                     pokeEntriesTemporary.Add(pokedex);
                     }
                     DexWindowToAlter.gvBinder.DisplayMemberBinding = null;
                     DexWindowToAlter.lvPokedex.ItemsSource = pokeEntriesTemporary;
                     DexWindowToAlter.Show();
+                    DexWindowToAlter.Topmost = true;
                     DexWindowToAlter.lvPokedex.SelectedIndex = 0;
                     Close();
                     break;
                 case 1:
-                    foreach (Pokedex pokedex in pokeEntries)
+                    foreach (Pokedex pokedex in pokeEntries) //toevoegen op dexnummer
                     {
                         pokeEntriesTemporary.Add(pokedex);
                     }
                     DexWindowToAlter.gvBinder.DisplayMemberBinding = null;
                     DexWindowToAlter.lvPokedex.ItemsSource = pokeEntriesTemporary;
                     DexWindowToAlter.Show();
+                    DexWindowToAlter.Topmost = true;
                     DexWindowToAlter.lvPokedex.SelectedIndex = 0;
                     Close();
                     break;
                 default:
-                    MessageBox.Show("Je moet een sorteervorm selecteren.");
+                    MessageBox.Show("Je moet een sorteervorm selecteren."); // wanneer er geen case gekozen is of bij letterlijk defaults
                     break;
             }
         }

@@ -26,12 +26,12 @@ namespace PokemonWPF
             string pokerefer = DexWindowToAlter.lvPokedex.SelectedItem.ToString();
             foreach (Pokedex pokedex in pokeEntries)
             {
-             string pokenum = pokedex.PokemonName;
+             string pokenum = pokedex.PokemonName;//complex kijken of object overeenkomt met lv item
                 if ((pokerefer.Contains(pokenum)) == true)
                 {
                     string type1 = "";
                     string type2 = "";
-                    foreach (Types poketype in poketypeentries)
+                    foreach (Types poketype in poketypeentries)//complex kijken of object overeenkomt met lv item (ook typing was complex)
                     {
                         if (poketype.Id == pokedex.Type1)
                         {
@@ -42,7 +42,7 @@ namespace PokemonWPF
                             type2 = poketype.TypeName;
                         }
                     }
-                    BitmapImage sprite = new BitmapImage(new Uri("Images/PokemonSprites.png", UriKind.Relative));
+                    BitmapImage sprite = new BitmapImage(new Uri("Images/PokemonSprites.png", UriKind.Relative));                               
                     PokemonSpriteById spriteTarget = new PokemonSpriteById(pokedex.Id);
                     imgPokéSprite.Source = new CroppedBitmap(sprite, spriteTarget.target);
                     tbGewicht.Text = "Gewicht: " + pokedex.PokemonWeight + " kg";
@@ -50,12 +50,13 @@ namespace PokemonWPF
                     tbType.Text = type1 + "  " + type2;
                     tbDescription.Text = pokedex.PokemonDescription;
                     tbPokémonnaam.Text = pokedex.PokemonName;
+                    //gegevens van lv data in scherm brengen
                 }
             }
         }
         private void BtnBack_Click(object sender, RoutedEventArgs e)
         {
-            Close();
+            Close(); //terug gaan naar pokedexpage
             DexWindowToAlter.Visibility = Visibility.Visible;
             DexWindowToAlter.Topmost = true;
         }

@@ -18,7 +18,7 @@ namespace PokemonWPF
         {
             InitializeComponent();
         }
-        private void Window_Loaded(object sender, RoutedEventArgs e)
+        private void Window_Loaded(object sender, RoutedEventArgs e)//aanmaken datagrid alle dexgegevens in database
         {
             datagridPokedexEntries.ItemsSource = pokedexentries;
             cmbType1.ItemsSource = types;
@@ -26,10 +26,10 @@ namespace PokemonWPF
         }
         private void BtnBack_Click(object sender, RoutedEventArgs e)
         {
-            DexWindowToAlter.lvPokedex.ItemsSource = DatabaseOperations.PokedexEntry();
+            DexWindowToAlter.lvPokedex.ItemsSource = DatabaseOperations.PokedexEntry();//update
             Close();
         }
-        private void BtnAdd_Click(object sender, RoutedEventArgs e)
+        private void BtnAdd_Click(object sender, RoutedEventArgs e)//extra pokedex entry aanmaken
         {
             List<int> Idlist = new List<int>();
             foreach (Pokedex pokedexEntry in pokedexentries)
@@ -50,18 +50,18 @@ namespace PokemonWPF
             pokedexEntry.EvolveItems = null;
             pokedexEntry.CaptureRate = 45;
             pokedexEntry.EvolveThreshold = null;
-            DatabaseOperations.AddPokedexEntry(pokedexEntry);
-            datagridPokedexEntries.ItemsSource = DatabaseOperations.PokedexEntry();
+            DatabaseOperations.AddPokedexEntry(pokedexEntry);//refresh
+            datagridPokedexEntries.ItemsSource = DatabaseOperations.PokedexEntry();//refresh
         }
-        private void BtnDelete_Click(object sender, RoutedEventArgs e)
+        private void BtnDelete_Click(object sender, RoutedEventArgs e)//entry verwijderen
         {
             pokedexEntry = datagridPokedexEntries.SelectedItem as Pokedex;
             string verwijdernaam = pokedexEntry.PokemonName;
             DatabaseOperations.DeletePokedexEntry(pokedexEntry);
-            datagridPokedexEntries.ItemsSource = DatabaseOperations.PokedexEntry();
-            MessageBox.Show(verwijdernaam + " is verwijderd.");
+            datagridPokedexEntries.ItemsSource = DatabaseOperations.PokedexEntry();//refresh
+            MessageBox.Show(verwijdernaam + " is verwijderd.");//reminder
         }
-        private void BtnChange_Click(object sender, RoutedEventArgs e)
+        private void BtnChange_Click(object sender, RoutedEventArgs e)//entry aanpassen 
         {
             int index = datagridPokedexEntries.SelectedIndex;
             pokedexEntry = datagridPokedexEntries.SelectedItem as Pokedex;
@@ -77,12 +77,12 @@ namespace PokemonWPF
             }
             else
             {
-                MessageBox.Show("Pokemon is niet aangepast");
+                MessageBox.Show("Pokemon is niet aangepast");//indien error
             }
             datagridPokedexEntries.SelectedIndex = index;
         }
         private void DatagridPokedexEntries_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
+        {// zodat de standaardwaarden van de pokedex entry in de optionele velden staan, klaar om aangepast te worden (zo weet je de originele waarden al)
             if (datagridPokedexEntries.SelectedItem is Pokedex pokedexEntry)
             {
                 cmbType1.SelectedIndex = pokedexEntry.Type1.GetValueOrDefault() - 1;
